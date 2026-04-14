@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import { IMAGES } from "@/lib/images";
 import Link from "next/link";
 
 export default function Evidence() {
@@ -76,47 +77,38 @@ export default function Evidence() {
         ref={bgRef}
         className="absolute inset-0 -top-[15%] -bottom-[15%]"
       >
-        <div className="absolute inset-0 bg-[url('/images/evidence-bg.jpg')] bg-cover bg-center" />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-haze/85" />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.evidenceBg})` }} />
       </div>
 
       {/* ── Content layer — scrolls at normal speed ── */}
       <div className="relative z-10 h-full flex flex-col">
 
-        {/* ── Top portion: Manifesto text ── */}
-        <div className="container-content pt-24 lg:pt-32 pb-16">
-          {/* Section label */}
-          <span className="caption-style text-white/50 block mb-8">
-            OUR
-            <br />
-            MISSION
-          </span>
-
-          {/* Manifesto — large body text */}
-          <p className="fade-in font-heading font-semibold text-[clamp(1.3rem,2.6vw,2.2rem)] text-white leading-[1.5] tracking-[-0.01em] max-w-[85%] opacity-0">
-            We&apos;ve been accused of having a one-track mind. And to
-            those accusations we say — thank you. Because we know it&apos;s by
-            focusing on one thing that many things happen. And at NBPKOREA,
-            that one thing was always the afterburner. We have gone deeper
-            into smoke elimination than anyone, getting our hands dirty and
-            soot-dusted at every step.{" "}
-            <Link
-              href="/"
-              className="inline-block bg-white text-haze px-4 py-1.5 text-xs font-bold tracking-[0.06em] uppercase align-middle hover:bg-ink hover:text-paper transition-colors duration-200 ml-1 rounded-lg"
-            >
-              LEARN MORE
-            </Link>
-          </p>
+        {/* ── Top portion: Manifesto text directly on photo ── */}
+        <div className="container-content pt-20 lg:pt-28 pb-20 lg:pb-28">
+            {/* Manifesto — large, bold, directly on background photo */}
+            <p className="fade-in font-heading font-semibold text-[clamp(1.8rem,3.8vw,3.4rem)] text-white leading-[1.3] tracking-[-0.01em] opacity-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+              We&apos;ve been accused of having a one-track mind. And to
+              those accusations we say — thank you. Because we know it&apos;s by
+              focusing on one thing that many things happen. And at NBPKOREA,
+              that one thing was always the afterburner. We have gone deeper
+              into smoke elimination than anyone, getting our hands dirty and
+              soot-dusted at every step.{" "}
+              <Link
+                href="/"
+                className="inline-block bg-white text-haze px-4 py-1.5 text-xs font-bold tracking-[0.06em] uppercase align-middle hover:bg-ink hover:text-paper transition-colors duration-200 ml-1 rounded-lg"
+              >
+                LEARN MORE
+              </Link>
+            </p>
         </div>
 
         {/* ── Middle portion: Floating photo + side text ── */}
         <div className="flex-1 relative flex items-center justify-center">
           {/* Center group: left text + floating photo + right text */}
-          <div className="flex items-center gap-8 lg:gap-14">
+          <div className="flex items-center gap-16 lg:gap-28">
             {/* Left side text */}
             <div className="hidden md:block">
-              <p className="caption-style text-white/45 leading-[1.6]">
+              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
                 NBPKOREA
                 <br />
                 IS ALWAYS POSSIBLE
@@ -129,31 +121,31 @@ export default function Evidence() {
               className="relative z-10 w-[50vw] max-w-[714px]"
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-bone rounded-lg">
-                <div className="absolute inset-0 bg-[url('/images/evidence-float.jpg')] bg-cover bg-center" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="caption-style text-ink/15">
-                    FLOATING PHOTO
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.evidenceFloat})` }} />
               </div>
             </div>
 
             {/* Right side text */}
             <div className="hidden md:block text-right">
-              <p className="caption-style text-white/45 leading-[1.6]">
+              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
                 JUST BREATHE CLEAN
                 <br />
                 AND ROAST RIGHT IN.
               </p>
             </div>
           </div>
-        </div>
 
-        {/* ── Bottom portion: just background passing, coordinates ── */}
-        <div className="container-content pb-16 flex items-end justify-center">
-          <p className="caption-style text-white/30">
-            37.3430° N — 126.7395° E
-          </p>
+          {/* Emotional line — absolutely centered below photo area */}
+          <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
+            <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/70 leading-[1.4] tracking-[-0.01em]">
+              We understand your craft.
+              <br />
+              We&apos;re ready to carry it with you.
+            </p>
+            <p className="caption-style text-white/30 mt-6">
+              37.3430° N — 126.7395° E
+            </p>
+          </div>
         </div>
       </div>
     </section>

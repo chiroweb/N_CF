@@ -11,4 +11,6 @@ export const IMAGES = {
   footerMood: `${S3_BASE}/hf_20260413_021623_d1c0819b-cf7a-4843-91e0-65a5a74d0d8b.png`,
   closingMood: `${S3_BASE}/hf_20260413_021631_81a8e209-cb29-4be3-9bbd-9cfb97ac7bf8.png`,
   factory: `${S3_BASE}/hf_20260413_021528_dcbe3fe4-7bbf-4bcc-8e56-c2b832c95a00.png`,
+  evidenceBg: `${S3_BASE}/hf_20260414_023331_f336294b-f8c4-497e-a7f6-e41c6d5bc6a8.png`,
+  evidenceFloat: `${S3_BASE}/hf_20260414_025500_ed9f6be1-f82a-479c-904e-9d9ea2fd501d.png`,
 } as const;

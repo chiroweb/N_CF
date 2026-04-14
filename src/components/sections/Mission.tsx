@@ -133,7 +133,7 @@ export default function Mission() {
   return (
     <section ref={sectionRef} className="bg-paper">
       {/* Section header */}
-      <div className="container-content pt-section-desktop">
+      <div className="container-content pt-4 lg:pt-6">
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-heading font-semibold text-[clamp(1.5rem,2.5vw,2rem)] text-ink">
             Collections
@@ -161,7 +161,7 @@ export default function Mission() {
       </div>
 
       {/* Image layout */}
-      <div className="px-4 lg:px-6 pb-section-desktop">
+      <div className="px-4 lg:px-6 pb-16 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-4">
           {/* Left: tall atmospheric photo */}
           <div

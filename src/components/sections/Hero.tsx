@@ -89,12 +89,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative z-[1]">
+    <section ref={sectionRef} className="relative z-[1] bg-ink">
       {/* ── Fixed parallax background ── */}
       <div className="fixed inset-0 z-0 overflow-hidden">
         <div
           ref={bgRef}
-          className="absolute inset-0 -top-[15%] -bottom-[15%]"
+          className="absolute inset-0 -top-[30%] -bottom-[30%]"
         >
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.heroBg})` }} />
           <div className="absolute inset-0 bg-ink/40" />
@@ -151,7 +151,7 @@ export default function Hero() {
         </div>
 
         {/* ── Bento grid — product cards ── */}
-        <div className="px-[var(--edge-margin)] mt-24 pb-20">
+        <div className="px-[var(--edge-margin)] mt-24 pb-16">
           {/*
             Bento layout:
             ┌────────────┬────────┬────────┬────────┐

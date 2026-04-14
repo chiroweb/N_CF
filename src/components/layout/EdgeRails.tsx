@@ -53,7 +53,7 @@ export default function EdgeRails() {
       </div>
 
       {/* Right rail — Navigation bar (desktop only) */}
-      <div className="fixed top-0 right-0 bottom-0 w-[var(--edge-margin)] z-50 hidden lg:flex flex-col items-center justify-between py-6 border-l border-bone/30 bg-paper/80 backdrop-blur-sm">
+      <div className="fixed top-0 right-0 bottom-0 w-[var(--edge-margin)] z-50 hidden lg:flex flex-col items-center justify-between py-6 border-l border-bone/30 bg-paper">
         {/* Top: Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
