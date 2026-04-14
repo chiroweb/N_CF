@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   NBPKOREA Design System
+   Color: Paper / Ink / Haze / Bone (4-tone)
+   No accent colors. No shadows. No gradients.
+   ───────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    --color-paper: #EDE9E1;
+    --color-ink: #0E0E0E;
+    --color-haze: #7E8A93;
+    --color-bone: #D4CFC5;
+
+    --edge-margin: 56px;
+    --section-gap-desktop: 160px;
+    --section-gap-tablet: 96px;
+    --section-gap-mobile: 64px;
+    --grid-gutter: 32px;
+    --content-max-width: 1440px;
+  }
+
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+  }
+
+  body {
+    font-family: var(--font-general-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+}
+
+@layer components {
+  .container-content {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--edge-margin);
+    padding-right: var(--edge-margin);
+  }
+
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--grid-gutter);
+  }
+
+  .section-spacing {
+    padding-top: var(--section-gap-desktop);
+    padding-bottom: var(--section-gap-desktop);
+  }
+
+  .caption-style {
+    font-size: clamp(0.625rem, 0.8vw, 0.75rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+  }
+
+  .btn-pill-primary {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  .btn-pill-primary:hover {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    outline: 1px solid var(--color-ink);
+  }
+
+  .btn-pill-inverted {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .btn-pill-inverted:hover {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+}
+
+@layer utilities {
+  .edge-rail {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: var(--edge-margin);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+    pointer-events: none;
+  }
+
+  .edge-rail a,
+  .edge-rail button {
+    pointer-events: auto;
+  }
+
+  .edge-rail-left {
+    left: 0;
+  }
+
+  .edge-rail-right {
+    right: 0;
+  }
+
+  .text-vertical-left {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .text-vertical-right {
+    writing-mode: vertical-rl;
+  }
+}
+
+/* Responsive section spacing */
+@media (max-width: 1279px) {
+  :root {
+    --edge-margin: 32px;
+  }
+
+  .section-spacing {
+    padding-top: var(--section-gap-tablet);
+    padding-bottom: var(--section-gap-tablet);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --edge-margin: 20px;
+  }
+
+  .section-spacing {
+    padding-top: var(--section-gap-mobile);
+    padding-bottom: var(--section-gap-mobile);
+  }
+
+  .edge-rail {
+    display: none;
+  }
+}

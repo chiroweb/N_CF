@@ -1,0 +1,76 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "@/lib/gsap";
+import Link from "next/link";
+
+export default function ClosingQuestion() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const lines = sectionRef.current?.querySelectorAll(".closing-line");
+      if (lines) {
+        lines.forEach((line, i) => {
+          gsap.fromTo(
+            line,
+            { opacity: 0 },
+            {
+              opacity: 1,
+              duration: 0.8,
+              delay: i * 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 60%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="bg-ink min-h-[80vh] flex items-center justify-center"
+    >
+      <div className="container-content text-center py-32">
+        {/* Main question */}
+        <h2 className="closing-line font-display font-bold text-display-lg text-paper leading-[0.95] tracking-[-0.02em] opacity-0">
+          AND YOUR ROASTERY?
+        </h2>
+        <h2 className="closing-line font-display font-bold text-display-lg text-paper leading-[0.95] tracking-[-0.02em] mt-2 opacity-0">
+          HOW DOES IT BREATHE?
+        </h2>
+
+        {/* Korean sub-question */}
+        <p className="closing-line text-body-kr font-korean text-bone mt-10 opacity-0">
+          당신의 로스터리는, 어떻게 숨 쉬고 있습니까?
+        </p>
+
+        {/* CTA */}
+        <div className="closing-line mt-14 opacity-0">
+          <Link href="/contact" className="btn-pill btn-pill-inverted">
+            REQUEST A QUOTE <span className="ml-1">&rarr;</span>
+          </Link>
+          <p className="text-body-kr font-korean text-bone/50 text-xs mt-3">
+            견적 문의
+          </p>
+        </div>
+
+        {/* Engineer contact */}
+        <p className="closing-line caption-style text-paper/30 mt-10 opacity-0">
+          or talk to an engineer — +82 XX-XXXX-XXXX
+        </p>
+        <p className="text-xs font-korean text-paper/20 mt-1">
+          또는 엔지니어와 직접 대화
+        </p>
+      </div>
+    </section>
+  );
+}
