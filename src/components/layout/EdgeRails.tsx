@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
+  { label: "DELIVERIES", href: "/deliveries" },
   { label: "BRAND HALL", href: "/brand-hall" },
   { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },

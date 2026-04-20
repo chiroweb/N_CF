@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
+  { label: "DELIVERIES", href: "/deliveries" },
   { label: "BRAND HALL", href: "/brand-hall" },
   { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
@@ -44,7 +45,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8 pointer-events-auto mix-blend-difference">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8 pointer-events-auto mix-blend-difference">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;
               return (
@@ -66,7 +67,7 @@ export default function Navigation() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="md:hidden pointer-events-auto mix-blend-difference w-10 h-10 flex flex-col items-end justify-center gap-1.5"
+            className="lg:hidden pointer-events-auto mix-blend-difference w-10 h-10 flex flex-col items-end justify-center gap-1.5"
           >
             <span className="block w-6 h-[2px] bg-paper" />
             <span className="block w-4 h-[2px] bg-paper" />
@@ -76,7 +77,7 @@ export default function Navigation() {
 
       {/* Mobile menu overlay */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
+        <div className="lg:hidden fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
           <div className="flex items-center justify-between h-16 px-[var(--edge-margin)]">
             <span className="font-display font-bold text-lg tracking-tight">
               NBPKOREA
