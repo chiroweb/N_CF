@@ -69,8 +69,7 @@ export default function Evidence() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden"
-      style={{ height: "250vh" }}
+      className="relative overflow-hidden h-[150vh] md:h-[250vh]"
     >
       {/* ── Single giant background photo ── */}
       <div
