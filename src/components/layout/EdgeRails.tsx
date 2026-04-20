@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
   { label: "BRAND HALL", href: "/brand-hall" },
+  { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 

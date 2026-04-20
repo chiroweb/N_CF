@@ -2,26 +2,27 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import { COMPANY } from "@/lib/company";
 import Link from "next/link";
 
 const CHANNELS = [
   {
     label: "ENGINEER DIRECT",
-    value: "+82 XX-XXXX-XXXX",
+    value: COMPANY.phonePrimary,
     sub: "엔지니어와 직접 통화",
-    href: "tel:+82XXXXXXXXXX",
+    href: `tel:${COMPANY.phonePrimary.replace(/-/g, "")}`,
   },
   {
     label: "EMAIL",
-    value: "info@nbpkorea.com",
+    value: COMPANY.email,
     sub: "평일 24시간 이내 회신",
-    href: "mailto:info@nbpkorea.com",
+    href: `mailto:${COMPANY.email}`,
   },
   {
     label: "FACTORY VISIT",
-    value: "경기도 시흥시",
+    value: COMPANY.addressShort,
     sub: "사전 예약 시 현장 방문 가능",
-    href: "#",
+    href: `https://maps.google.com/?q=${encodeURIComponent(COMPANY.address)}`,
   },
 ];
 
@@ -102,6 +103,8 @@ export default function ContactPage() {
             <Link
               key={ch.label}
               href={ch.href}
+              target={ch.href.startsWith("http") ? "_blank" : undefined}
+              rel={ch.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="scroll-fade group border-2 border-bone rounded-lg p-8 hover:border-ink transition-colors duration-300 opacity-0 flex flex-col justify-between min-h-[180px]"
             >
               <span className="caption-style text-ink/70">{ch.label}</span>
@@ -116,6 +119,11 @@ export default function ContactPage() {
             </Link>
           ))}
         </div>
+
+        {/* Sub contact line */}
+        <p className="caption-style text-ink/70 mt-6 text-center">
+          SUB · {COMPANY.phoneSecondary} &nbsp;·&nbsp; FAX {COMPANY.fax}
+        </p>
       </div>
 
       {/* ── What to tell us ── */}
@@ -156,14 +164,12 @@ export default function ContactPage() {
 
           {/* Email CTA */}
           <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-paper/15">
-            <p className="caption-style text-paper/70">
-              SEND IT STRAIGHT —
-            </p>
+            <p className="caption-style text-paper/70">SEND IT STRAIGHT —</p>
             <Link
-              href="mailto:info@nbpkorea.com?subject=Afterburner%20Inquiry"
+              href={`mailto:${COMPANY.email}?subject=Afterburner%20Inquiry`}
               className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
             >
-              info@nbpkorea.com <span className="ml-2">&rarr;</span>
+              {COMPANY.email} <span className="ml-2">&rarr;</span>
             </Link>
           </div>
         </div>
@@ -177,7 +183,7 @@ export default function ContactPage() {
               HOURS / 운영시간
             </span>
             <p className="font-display font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-ink leading-[1.2] tracking-[-0.01em]">
-              Weekdays 09:00 – 18:00
+              {COMPANY.hoursEn}
             </p>
             <p className="text-body-kr font-korean text-ink/75 mt-2">
               주말·공휴일 휴무. 긴급 문의는 이메일로.
@@ -189,11 +195,31 @@ export default function ContactPage() {
               FACTORY / 공장
             </span>
             <p className="font-display font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-ink leading-[1.2] tracking-[-0.01em]">
-              경기도 시흥시
+              {COMPANY.address}
             </p>
             <p className="caption-style text-ink/65 mt-3">
-              37.3430° N — 126.7395° E
+              {COMPANY.coordinates}
             </p>
+          </div>
+        </div>
+
+        {/* Legal strip */}
+        <div className="mt-20 pt-8 border-t border-bone grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div>
+            <span className="caption-style text-ink/65 block mb-1">COMPANY</span>
+            <p className="text-sm text-ink/90">{COMPANY.nameKr}</p>
+          </div>
+          <div>
+            <span className="caption-style text-ink/65 block mb-1">CEO</span>
+            <p className="text-sm text-ink/90">{COMPANY.ceo}</p>
+          </div>
+          <div>
+            <span className="caption-style text-ink/65 block mb-1">BIZ NO.</span>
+            <p className="text-sm text-ink/90">{COMPANY.businessNumber}</p>
+          </div>
+          <div>
+            <span className="caption-style text-ink/65 block mb-1">SINCE</span>
+            <p className="text-sm text-ink/90">{COMPANY.established}</p>
           </div>
         </div>
       </div>

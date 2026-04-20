@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
   { label: "BRAND HALL", href: "/brand-hall" },
+  { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -111,10 +113,13 @@ export default function Navigation() {
 
             <div className="mt-16 pt-8 border-t border-paper/15">
               <p className="caption-style text-paper/60">
-                37.3430° N — 126.7395° E
+                {COMPANY.coordinates}
               </p>
               <p className="caption-style text-paper/60 mt-2">
-                info@nbpkorea.com
+                {COMPANY.email}
+              </p>
+              <p className="caption-style text-paper/60 mt-2">
+                T. {COMPANY.phonePrimary}
               </p>
             </div>
           </div>

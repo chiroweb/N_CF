@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
   { label: "BRAND HALL", href: "/brand-hall" },
+  { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
 
@@ -55,32 +57,33 @@ export default function Footer() {
               FACTORY
             </span>
             <p className="text-sm text-paper/85 leading-relaxed">
-              경기도 시흥시
-              <br />
-              [상세 주소]
+              {COMPANY.address}
             </p>
             <p className="text-sm text-paper/85 mt-3">
-              +82 XX-XXXX-XXXX
+              T. {COMPANY.phonePrimary}
             </p>
             <p className="text-sm text-paper/85">
-              info@nbpkorea.com
+              F. {COMPANY.fax}
+            </p>
+            <p className="text-sm text-paper/85 mt-1">
+              {COMPANY.email}
             </p>
 
             <span className="caption-style text-paper/70 block mt-6 mb-2">
               HOURS
             </span>
             <p className="text-sm text-paper/85">
-              Weekdays 09:00 – 18:00
+              {COMPANY.hoursEn}
             </p>
             <p className="text-xs font-korean text-paper/70">
-              평일 09:00 – 18:00
+              {COMPANY.hoursKr}
             </p>
           </div>
 
           {/* Col 4 — Coordinates + Social */}
           <div>
             <p className="caption-style text-paper/70 mb-4">
-              37.3430° N — 126.7395° E
+              {COMPANY.coordinates}
             </p>
             <div className="space-y-3 mt-6">
               <a
@@ -121,7 +124,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-paper/10">
           <p className="caption-style text-paper/65">
-            &copy; 2026 NBPKOREA CO., LTD.
+            &copy; 2026 {COMPANY.nameKr} · CEO {COMPANY.ceo} · {COMPANY.businessNumber}
           </p>
           <div className="flex gap-6">
             <Link href="#" className="caption-style text-paper/65 hover:text-paper/85 transition-colors">

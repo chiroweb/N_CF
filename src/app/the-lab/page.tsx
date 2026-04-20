@@ -178,7 +178,7 @@ export default function TheLabPage() {
             <p className="text-[clamp(1rem,1.4vw,1.25rem)] text-ink/85 leading-[1.7] mb-6">
               We said yes before we knew how. Then we made it —
               stainless, inverter-driven, KC-certified, proudly built in
-              Korea. Every NUTS-STAR that leaves Siheung is the same
+              Korea. Every NUTS-STAR that leaves Ansan is the same
               machine she asked for.
             </p>
             <p className="text-body-kr font-korean text-ink/80 leading-[1.75]">
@@ -190,7 +190,7 @@ export default function TheLabPage() {
               <br />
               우리는 방법을 알기 전에 그러겠다고 답했다. 그리고
               만들었다 — 스테인리스, 인버터 제어, KC 인증, 국내 자체
-              생산. 시흥 공장을 떠나는 모든 NUTS-STAR는 그 파티셰가 처음
+              생산. 안산 공장을 떠나는 모든 NUTS-STAR는 그 파티셰가 처음
               부탁한 바로 그 기계다.
             </p>
           </div>
@@ -208,7 +208,7 @@ export default function TheLabPage() {
           <div className="absolute inset-0 bg-ink/20" />
           <div className="absolute bottom-6 left-[var(--edge-margin)] right-[var(--edge-margin)] flex items-end justify-between gap-6">
             <span className="caption-style text-white/85">
-              PLATE 01 — Workshop, Siheung
+              PLATE 01 — Workshop, Ansan
             </span>
             <span className="caption-style text-white/85 text-right">
               Photograph · NBPKOREA
@@ -418,7 +418,7 @@ export default function TheLabPage() {
             </Link>
           </div>
           <p className="scroll-fade caption-style text-paper/60 mt-10 opacity-0">
-            or email — info@nbpkorea.com
+            or email — nbpkorea@nbpkorea.co.kr
           </p>
         </div>
       </section>
