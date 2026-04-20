@@ -4,9 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "THE AFTERBURNER", href: "/" },
+  { label: "AFTERBURNER", href: "/afterburner" },
+  { label: "ROASTERS", href: "/roasters" },
+  { label: "THE LAB", href: "/the-lab" },
   { label: "BRAND HALL", href: "/brand-hall" },
-  { label: "PARTNER", href: "/partner" },
   { label: "CONTACT", href: "/contact" },
 ];
 

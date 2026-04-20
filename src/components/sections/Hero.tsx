@@ -22,7 +22,7 @@ const PRODUCTS = [
     details: [
       ["TYPE", "DRUM ROASTER"],
       ["ORIGIN", "TURKEY"],
-      ["PARTNER", "EXCLUSIVE KR"],
+      ["DEALER", "EXCLUSIVE KR"],
     ],
     href: "/roasters",
   },
