@@ -106,27 +106,31 @@ export default function Hero() {
         {/* Sticky button wrapper — encompasses typo + body copy */}
         <div className="relative">
           {/* Giant stacked typography — flush left */}
-          <div className="pl-[var(--edge-margin)] pt-[clamp(18vh,28vh,35vh)]">
-            {["NO ONE", "KNEW", "WE WERE", "ROASTING"].map((line) => (
-              <span
-                key={line}
-                className="hero-line font-display font-bold text-[clamp(3.5rem,1.2rem+10vw,14rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0"
-              >
-                {line}
-              </span>
-            ))}
+          <div className="pl-[var(--edge-margin)] pt-[35vh]">
+            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
+              NO ONE
+            </span>
+            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
+              KNEW
+            </span>
+            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
+              WE WERE
+            </span>
+            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
+              ROASTING
+            </span>
           </div>
 
           {/* Body copy + sticky CTA zone */}
-          <div className="flex items-start justify-end gap-8 pr-[var(--edge-margin)] pl-[var(--edge-margin)] mt-[clamp(4rem,10vw,10rem)]">
+          <div className="flex items-start justify-end gap-8 pr-[var(--edge-margin)] pl-[var(--edge-margin)] mt-40">
             {/* Body copy — right side */}
             <div className="max-w-md ml-auto">
-              <p className="text-white/90 text-[clamp(0.875rem,0.7rem+0.5vw,1.125rem)] leading-relaxed uppercase font-medium tracking-[0.04em]">
+              <p className="text-white/90 text-[clamp(0.8rem,1.1vw,1rem)] leading-relaxed uppercase font-medium tracking-[0.04em]">
                 Surrender to silence with every
                 roast. No smoke, no complaints,
                 no trace. Just craft.
               </p>
-              <p className="text-white/50 text-body-kr font-korean mt-3 leading-[1.75]">
+              <p className="text-white/50 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
                 아무도 우리가 로스팅 중인 걸 몰랐다.
                 <br />
                 그게 핵심이다 — 우리는 증거를 지운다.
@@ -135,7 +139,7 @@ export default function Hero() {
           </div>
 
           {/* Sticky CTA — follows viewport, docks below body copy */}
-          <div className="hero-cta sticky bottom-6 z-20 flex justify-end pr-[var(--edge-margin)] mt-[clamp(2rem,4vw,3rem)] pb-10 opacity-0">
+          <div className="hero-cta sticky bottom-6 z-20 flex justify-end pr-[var(--edge-margin)] mt-10 pb-10 opacity-0">
             <Link
               href="/contact"
               className="btn-pill bg-ink text-paper hover:bg-paper hover:text-ink border-2 border-white hover:border-ink transition-all duration-200 shadow-[0_0_0_1px_rgba(255,255,255,0.6)]"
@@ -147,7 +151,7 @@ export default function Hero() {
         </div>
 
         {/* ── Bento grid — product cards ── */}
-        <div className="px-[var(--edge-margin)] mt-[clamp(4rem,8vw,8rem)] pb-[clamp(2rem,5vw,5rem)]">
+        <div className="px-[var(--edge-margin)] mt-24 pb-16">
           {/*
             Bento layout:
             ┌────────────┬────────┬────────┬────────┐
@@ -158,8 +162,8 @@ export default function Hero() {
           */}
           <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_1fr] md:grid-rows-[auto_auto] border-[3px] border-white/40 rounded-lg overflow-hidden">
             {/* Left column — spans 2 rows */}
-            <div className="md:row-span-2 border-b-[3px] md:border-b-0 md:border-r-[3px] border-white/40 p-[clamp(1.5rem,3vw,2.75rem)] flex items-end">
-              <h3 className="font-display font-bold text-[clamp(1.6rem,0.9rem+2.4vw,3rem)] text-white leading-[1.05] tracking-[-0.02em]">
+            <div className="md:row-span-2 border-b-[3px] md:border-b-0 md:border-r-[3px] border-white/40 p-8 lg:p-10 flex items-end">
+              <h3 className="font-display font-bold text-[clamp(1.6rem,2.8vw,2.6rem)] text-white leading-[1.05] tracking-[-0.02em]">
                 A SIHEUNG
                 <br />
                 AFTERBURNER
@@ -173,7 +177,7 @@ export default function Hero() {
               <Link
                 key={product.tag}
                 href={product.href}
-                className="group border-b-[3px] md:border-b-[3px] md:border-r-[3px] last:border-r-0 border-white/40 p-[clamp(1rem,2vw,1.75rem)] transition-colors duration-300 hover:bg-paper flex flex-col justify-between min-h-[clamp(7.5rem,14vw,11rem)]"
+                className="group border-b-[3px] md:border-b-[3px] md:border-r-[3px] last:border-r-0 border-white/40 p-5 lg:p-6 transition-colors duration-300 hover:bg-paper flex flex-col justify-between min-h-[140px]"
               >
                 <div className="flex items-start justify-between mb-4">
                   <h4 className="font-display font-bold text-base text-white group-hover:text-ink transition-colors duration-300 tracking-tight">

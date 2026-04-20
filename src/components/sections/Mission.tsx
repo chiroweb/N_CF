@@ -135,7 +135,7 @@ export default function Mission() {
       {/* Section header */}
       <div className="container-content pt-4 lg:pt-6">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-heading font-semibold text-heading-md text-ink">
+          <h2 className="font-heading font-semibold text-[clamp(1.5rem,2.5vw,2rem)] text-ink">
             Collections
           </h2>
           <div className="flex items-center gap-3">
@@ -163,10 +163,11 @@ export default function Mission() {
       {/* Image layout */}
       <div className="px-4 lg:px-6 pb-16 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-4">
-          {/* Left: tall atmospheric photo — height scales with viewport */}
+          {/* Left: tall atmospheric photo */}
           <div
             ref={leftImgRef}
-            className="relative overflow-hidden rounded-lg h-[clamp(32rem,90vh,100rem)] lg:h-[130vh]"
+            className="relative overflow-hidden rounded-lg"
+            style={{ height: "130vh" }}
           >
             <div className="parallax-inner absolute inset-0 -top-[10%] -bottom-[10%] bg-haze">
               <div
@@ -183,7 +184,7 @@ export default function Mission() {
                 {/* Text with image clipped through */}
                 <div className="relative px-8 py-6 text-center">
                   <span
-                    className="font-display font-bold text-[clamp(2.25rem,1rem+4.8vw,6rem)] leading-[0.88] tracking-[-0.04em] block"
+                    className="font-display font-bold text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.88] tracking-[-0.04em] block"
                     style={{
                       backgroundImage: `url(${slide.leftImage})`,
                       backgroundSize: "cover",
@@ -196,7 +197,7 @@ export default function Mission() {
                     {slide.stickerLine1}
                   </span>
                   <span
-                    className="font-display font-bold text-[clamp(2.25rem,1rem+4.8vw,6rem)] leading-[0.88] tracking-[-0.04em] block"
+                    className="font-display font-bold text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.88] tracking-[-0.04em] block"
                     style={{
                       backgroundImage: `url(${slide.leftImage})`,
                       backgroundSize: "cover",
@@ -230,11 +231,11 @@ export default function Mission() {
 
             {/* Text panel */}
             <div className="flex-1 bg-paper px-6 lg:px-10 py-8 lg:py-10 flex flex-col justify-start">
-              <h3 className="slide-content font-display font-bold text-[clamp(1.75rem,1.1rem+2.2vw,3.25rem)] text-ink leading-[1.08] tracking-[-0.02em] mb-5">
+              <h3 className="slide-content font-display font-bold text-[clamp(1.8rem,3vw,2.8rem)] text-ink leading-[1.08] tracking-[-0.02em] mb-5">
                 {slide.title}
               </h3>
 
-              <p className="slide-content text-body-en text-ink/65 mb-3">
+              <p className="slide-content text-[clamp(0.85rem,1vw,0.95rem)] text-ink/65 leading-[1.7] mb-3">
                 {slide.bodyEn}
               </p>
 
