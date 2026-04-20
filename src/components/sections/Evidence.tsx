@@ -104,11 +104,11 @@ export default function Evidence() {
 
         {/* ── Middle portion: Floating photo + side text ── */}
         <div className="flex-1 relative flex items-center justify-center">
-          {/* Center group: left text + floating photo + right text */}
-          <div className="flex items-center gap-16 lg:gap-28">
+          {/* Center group — full width with edge padding so wing text never clips */}
+          <div className="flex items-center justify-between gap-6 md:gap-8 lg:gap-16 w-full px-[var(--edge-margin)]">
             {/* Left side text */}
-            <div className="hidden md:block">
-              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
+            <div className="hidden md:block shrink min-w-0 max-w-[18ch]">
+              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/60 leading-[1.35] uppercase tracking-[0.04em]">
                 NBPKOREA
                 <br />
                 IS ALWAYS POSSIBLE
@@ -118,7 +118,7 @@ export default function Evidence() {
             {/* Floating photo — parallaxes at different speed */}
             <div
               ref={floatingRef}
-              className="relative z-10 w-[50vw] max-w-[714px]"
+              className="relative z-10 w-[clamp(260px,42vw,640px)] shrink-0"
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-bone rounded-lg">
                 <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.evidenceFloat})` }} />
@@ -126,8 +126,8 @@ export default function Evidence() {
             </div>
 
             {/* Right side text */}
-            <div className="hidden md:block text-right">
-              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
+            <div className="hidden md:block shrink min-w-0 max-w-[18ch] text-right">
+              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/60 leading-[1.35] uppercase tracking-[0.04em]">
                 JUST BREATHE CLEAN
                 <br />
                 AND ROAST RIGHT IN.
