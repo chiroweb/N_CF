@@ -58,16 +58,16 @@ export default function ClosingQuestion() {
           <Link href="/contact" className="btn-pill btn-pill-inverted">
             REQUEST A QUOTE <span className="ml-1">&rarr;</span>
           </Link>
-          <p className="text-body-kr font-korean text-bone/50 text-xs mt-3">
+          <p className="text-body-kr font-korean text-bone/80 text-xs mt-3">
             견적 문의
           </p>
         </div>
 
         {/* Engineer contact */}
-        <p className="closing-line caption-style text-paper/30 mt-10 opacity-0">
+        <p className="closing-line caption-style text-paper/70 mt-10 opacity-0">
           or talk to an engineer — +82 XX-XXXX-XXXX
         </p>
-        <p className="text-xs font-korean text-paper/20 mt-1">
+        <p className="text-xs font-korean text-paper/60 mt-1">
           또는 엔지니어와 직접 대화
         </p>
       </div>

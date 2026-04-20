@@ -139,7 +139,7 @@ export default function Mission() {
             Collections
           </h2>
           <div className="flex items-center gap-3">
-            <span className="caption-style text-ink/50 mr-2">
+            <span className="caption-style text-ink/70 mr-2">
               {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
             </span>
             <button
@@ -235,11 +235,11 @@ export default function Mission() {
                 {slide.title}
               </h3>
 
-              <p className="slide-content text-[clamp(0.85rem,1vw,0.95rem)] text-ink/65 leading-[1.7] mb-3">
+              <p className="slide-content text-[clamp(0.85rem,1vw,0.95rem)] text-ink/85 leading-[1.7] mb-3">
                 {slide.bodyEn}
               </p>
 
-              <p className="slide-content text-body-kr font-korean text-ink/35 leading-[1.75] mb-8">
+              <p className="slide-content text-body-kr font-korean text-ink/75 leading-[1.75] mb-8">
                 {slide.bodyKr}
               </p>
 

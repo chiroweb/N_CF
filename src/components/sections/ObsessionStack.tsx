@@ -50,7 +50,7 @@ export default function ObsessionStack() {
   return (
     <section ref={sectionRef} className="bg-paper section-spacing">
       <div className="container-content">
-        <span className="caption-style text-ink/40 block mb-20">
+        <span className="caption-style text-ink/70 block mb-20">
           OBSESSION STACK / 집착의 목록
         </span>
 
@@ -70,7 +70,7 @@ export default function ObsessionStack() {
               </div>
 
               {/* Caption number */}
-              <span className="caption-style text-ink/30 block mb-2">
+              <span className="caption-style text-ink/60 block mb-2">
                 OBS / {String(obs.id).padStart(2, "0")} / 09
               </span>
 
@@ -80,7 +80,7 @@ export default function ObsessionStack() {
               </h4>
 
               {/* Description */}
-              <p className="text-xs text-ink/70 leading-relaxed">{obs.en}</p>
+              <p className="text-xs text-ink/90 leading-relaxed">{obs.en}</p>
             </div>
           ))}
         </div>

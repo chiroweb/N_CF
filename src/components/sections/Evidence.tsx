@@ -107,7 +107,7 @@ export default function Evidence() {
           <div className="flex items-center justify-between gap-6 md:gap-8 lg:gap-16 w-full px-[var(--edge-margin)]">
             {/* Left side text */}
             <div className="hidden md:block shrink min-w-0 max-w-[18ch]">
-              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/60 leading-[1.35] uppercase tracking-[0.04em]">
+              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/90 leading-[1.35] uppercase tracking-[0.04em]">
                 NBPKOREA
                 <br />
                 IS ALWAYS POSSIBLE
@@ -126,7 +126,7 @@ export default function Evidence() {
 
             {/* Right side text */}
             <div className="hidden md:block shrink min-w-0 max-w-[18ch] text-right">
-              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/60 leading-[1.35] uppercase tracking-[0.04em]">
+              <p className="text-[clamp(0.95rem,1.3vw,1.6rem)] font-medium text-white/90 leading-[1.35] uppercase tracking-[0.04em]">
                 JUST BREATHE CLEAN
                 <br />
                 AND ROAST RIGHT IN.
@@ -136,12 +136,12 @@ export default function Evidence() {
 
           {/* Emotional line — absolutely centered below photo area */}
           <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
-            <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/70 leading-[1.4] tracking-[-0.01em]">
+            <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
               We understand your craft.
               <br />
               We&apos;re ready to carry it with you.
             </p>
-            <p className="caption-style text-white/30 mt-6">
+            <p className="caption-style text-white/65 mt-6">
               37.3430° N — 126.7395° E
             </p>
           </div>

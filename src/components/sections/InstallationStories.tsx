@@ -61,16 +61,16 @@ export default function InstallationStories() {
           <div className="fade-in pt-8 lg:pt-16 opacity-0">
             <div className="space-y-3">
               <div className="flex gap-4">
-                <span className="caption-style text-ink/30 w-6">01</span>
-                <span className="caption-style text-ink/70">WE SURVEY YOUR SPACE</span>
+                <span className="caption-style text-ink/55 w-6">01</span>
+                <span className="caption-style text-ink/90">WE SURVEY YOUR SPACE</span>
               </div>
               <div className="flex gap-4">
-                <span className="caption-style text-ink/30 w-6">02</span>
-                <span className="caption-style text-ink/70">CUSTOM-BUILD YOUR UNIT</span>
+                <span className="caption-style text-ink/55 w-6">02</span>
+                <span className="caption-style text-ink/90">CUSTOM-BUILD YOUR UNIT</span>
               </div>
               <div className="flex gap-4">
-                <span className="caption-style text-ink/30 w-6">03</span>
-                <span className="caption-style text-ink/70">SIT BACK AND ROAST</span>
+                <span className="caption-style text-ink/55 w-6">03</span>
+                <span className="caption-style text-ink/90">SIT BACK AND ROAST</span>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function InstallationStories() {
               No guesswork.
             </p>
 
-            <p className="text-body-kr font-korean text-ink/40 leading-[1.75] mb-8">
+            <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mb-8">
               현장 조사부터 설치까지 2주 이내.
               로스터리의 고도, 덕트 구조, 로스팅 용량에 맞춰
               개별 튜닝. 범용 솔루션 없음. 추측 없음.

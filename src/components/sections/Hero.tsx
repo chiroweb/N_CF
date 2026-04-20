@@ -130,7 +130,7 @@ export default function Hero() {
                 roast. No smoke, no complaints,
                 no trace. Just craft.
               </p>
-              <p className="text-white/50 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
+              <p className="text-white/85 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
                 아무도 우리가 로스팅 중인 걸 몰랐다.
                 <br />
                 그게 핵심이다 — 우리는 증거를 지운다.
@@ -183,7 +183,7 @@ export default function Hero() {
                   <h4 className="font-display font-bold text-base text-white group-hover:text-ink transition-colors duration-300 tracking-tight">
                     {product.tag}
                   </h4>
-                  <span className="text-white/30 group-hover:text-ink/30 transition-colors duration-300 text-xs">
+                  <span className="text-white/60 group-hover:text-ink/60 transition-colors duration-300 text-xs">
                     &rarr;
                   </span>
                 </div>
@@ -193,10 +193,10 @@ export default function Hero() {
                       key={label}
                       className="flex justify-between text-xs tracking-[0.06em] uppercase"
                     >
-                      <span className="text-white/35 group-hover:text-ink/35 transition-colors duration-300">
+                      <span className="text-white/65 group-hover:text-ink/65 transition-colors duration-300">
                         {label}
                       </span>
-                      <span className="text-white/60 group-hover:text-ink/60 transition-colors duration-300">
+                      <span className="text-white/90 group-hover:text-ink/90 transition-colors duration-300">
                         {value}
                       </span>
                     </div>
@@ -209,7 +209,7 @@ export default function Hero() {
             <div className="md:col-span-3 flex items-center py-3 px-6 overflow-hidden">
               <div className="flex items-center gap-4 mr-6 shrink-0">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-white/30 text-sm">&uarr;</span>
+                  <span key={i} className="text-white/60 text-sm">&uarr;</span>
                 ))}
               </div>
               <div className="flex-1 overflow-hidden">
@@ -217,7 +217,7 @@ export default function Hero() {
                   {Array.from({ length: 6 }).map((_, i) => (
                     <span
                       key={i}
-                      className="text-sm tracking-[0.08em] uppercase text-white/30 mx-4 font-medium"
+                      className="text-sm tracking-[0.08em] uppercase text-white/65 mx-4 font-medium"
                     >
                       SINGLE PRODUCT &nbsp;*&nbsp; SINCE 2011 &nbsp;*&nbsp; DIRECT FLAME &nbsp;*&nbsp;
                     </span>
@@ -226,7 +226,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-4 ml-6 shrink-0">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-white/30 text-sm">&uarr;</span>
+                  <span key={i} className="text-white/60 text-sm">&uarr;</span>
                 ))}
               </div>
             </div>

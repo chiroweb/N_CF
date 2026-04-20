@@ -66,19 +66,19 @@ export default function EdgeRails() {
         </button>
 
         {/* Middle: Vertical text */}
-        <span className="text-vertical-right caption-style text-ink/40 select-none whitespace-nowrap">
+        <span className="text-vertical-right caption-style text-ink/75 select-none whitespace-nowrap">
           FACTORY — SIHEUNG / EST. 2011
         </span>
 
         {/* Bottom: Social icons */}
         <div className="flex flex-col items-center gap-5">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-ink/40 hover:text-ink transition-colors" aria-label="Instagram">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="Instagram">
             <IconInstagram />
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-ink/40 hover:text-ink transition-colors" aria-label="YouTube">
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="YouTube">
             <IconYouTube />
           </a>
-          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="text-ink/40 hover:text-ink transition-colors" aria-label="Website">
+          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="Website">
             <IconGlobe />
           </a>
         </div>
@@ -126,9 +126,9 @@ export default function EdgeRails() {
         </ul>
 
         <div className="flex flex-col gap-4">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/50 hover:text-paper transition-colors">INSTAGRAM &rarr;</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/50 hover:text-paper transition-colors">YOUTUBE &rarr;</a>
-          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/50 hover:text-paper transition-colors">NBPKOREA.COM &rarr;</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">INSTAGRAM &rarr;</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">YOUTUBE &rarr;</a>
+          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">NBPKOREA.COM &rarr;</a>
         </div>
       </div>
     </>
