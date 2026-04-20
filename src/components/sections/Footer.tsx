@@ -3,12 +3,10 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "THE AFTERBURNER", href: "/" },
+  { label: "AFTERBURNER", href: "/afterburner" },
+  { label: "ROASTERS", href: "/roasters" },
   { label: "BRAND HALL", href: "/brand-hall" },
-  { label: "PARTNER", href: "/partner" },
   { label: "CONTACT", href: "/contact" },
-  { label: "THE LAB", href: "/lab" },
-  { label: "PRESS", href: "/press" },
 ];
 
 export default function Footer() {

@@ -30,7 +30,7 @@ const SLIDES = [
     bodyKr:
       "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통. 정밀 엔지니어링의 일관성, 장인 정신을 가진 로스터를 위해 제작. 1kg 샘플 로스터부터 60kg 생산 기계까지.",
     shopHref: "/contact",
-    learnHref: "/partner",
+    learnHref: "/roasters",
   },
   {
     stickerLine1: "PEANUT",
@@ -43,7 +43,7 @@ const SLIDES = [
     bodyKr:
       "카페, 베이커리, 스페셜티 식품 생산자를 위한 상업용 스톤그라운드 땅콩버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 것은 오래가야 한다고 믿으니까.",
     shopHref: "/contact",
-    learnHref: "/lab",
+    learnHref: "/contact",
   },
 ];
 

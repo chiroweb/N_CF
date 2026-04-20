@@ -14,7 +14,7 @@ const PRODUCTS = [
       ["METHOD", "COMBUSTION"],
       ["RESULT", "ZERO SMOKE"],
     ],
-    href: "/",
+    href: "/afterburner",
   },
   {
     tag: "KUBAN",
@@ -24,17 +24,17 @@ const PRODUCTS = [
       ["ORIGIN", "TURKEY"],
       ["PARTNER", "EXCLUSIVE KR"],
     ],
-    href: "/partner",
+    href: "/roasters",
   },
   {
-    tag: "THE LAB",
-    title: "PEANUT BUTTER MACHINE",
+    tag: "BRAND HALL",
+    title: "THE OTHER SIDE",
     details: [
-      ["TYPE", "GRINDER"],
-      ["USE", "COMMERCIAL"],
-      ["PROCESS", "STONE GROUND"],
+      ["TYPE", "EXHIBITION"],
+      ["EDITION", "GRAFFITI"],
+      ["YEAR", "2024"],
     ],
-    href: "/lab",
+    href: "/brand-hall",
   },
 ];
 
