@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
+  { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
@@ -36,12 +37,15 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
         <div className="container-content flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo — also routes home */}
           <Link
             href="/"
-            className="font-display font-bold text-lg tracking-tight pointer-events-auto mix-blend-difference"
+            aria-label="NBPKOREA — home"
+            className="group font-display font-bold text-lg tracking-tight pointer-events-auto mix-blend-difference flex items-center gap-2"
           >
-            <span className="text-paper">NBPKOREA</span>
+            <span className="text-paper group-hover:underline underline-offset-[6px] decoration-[1.5px]">
+              NBPKOREA
+            </span>
           </Link>
 
           {/* Desktop links */}

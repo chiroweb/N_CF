@@ -4,6 +4,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
+  { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
