@@ -15,12 +15,13 @@
     --color-haze: #7E8A93;
     --color-bone: #D4CFC5;
 
-    --edge-margin: 56px;
-    --section-gap-desktop: 160px;
-    --section-gap-tablet: 96px;
-    --section-gap-mobile: 64px;
-    --grid-gutter: 32px;
-    --content-max-width: 1440px;
+    /* Fluid tokens — scale continuously from mobile to ultra-wide */
+    --edge-margin: clamp(1.25rem, 3.5vw, 4.5rem);        /* 20px → 72px  */
+    --section-gap-desktop: clamp(4rem, 10vw, 12rem);     /* 64px → 192px */
+    --section-gap-tablet: clamp(3.5rem, 8vw, 8rem);
+    --section-gap-mobile: clamp(3rem, 6vw, 5rem);
+    --grid-gutter: clamp(1rem, 2vw, 2.5rem);             /* 16px → 40px */
+    --content-max-width: 1600px;
   }
 
   html {
@@ -140,28 +141,8 @@
   }
 }
 
-/* Responsive section spacing */
-@media (max-width: 1279px) {
-  :root {
-    --edge-margin: 32px;
-  }
-
-  .section-spacing {
-    padding-top: var(--section-gap-tablet);
-    padding-bottom: var(--section-gap-tablet);
-  }
-}
-
+/* Edge rail hides on touch/narrow viewports only — spacing is fluid */
 @media (max-width: 767px) {
-  :root {
-    --edge-margin: 20px;
-  }
-
-  .section-spacing {
-    padding-top: var(--section-gap-mobile);
-    padding-bottom: var(--section-gap-mobile);
-  }
-
   .edge-rail {
     display: none;
   }

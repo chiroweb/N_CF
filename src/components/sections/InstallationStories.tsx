@@ -47,10 +47,10 @@ export default function InstallationStories() {
 
         {/* Row 1: "NEVER" left + "WORRY" right (offset) */}
         <div className="flex items-start justify-between mb-6 lg:mb-0 overflow-hidden">
-          <h2 className="fade-in font-display font-bold text-[clamp(3.5rem,10vw,10rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0 shrink-0">
+          <h2 className="fade-in font-display font-bold text-[clamp(2.75rem,1rem+8vw,11rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0 shrink-0">
             NEVER
           </h2>
-          <h2 className="fade-in font-display font-bold text-[clamp(3.5rem,10vw,10rem)] text-ink leading-[0.85] tracking-[-0.04em] mt-[6vh] opacity-0 shrink-0">
+          <h2 className="fade-in font-display font-bold text-[clamp(2.75rem,1rem+8vw,11rem)] text-ink leading-[0.85] tracking-[-0.04em] mt-[6vh] opacity-0 shrink-0">
             WORRY
           </h2>
         </div>
@@ -89,7 +89,7 @@ export default function InstallationStories() {
 
           {/* Right — body text + CTA */}
           <div className="fade-in flex flex-col justify-end pt-8 lg:pt-32 opacity-0">
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] text-ink font-medium leading-[1.6] uppercase tracking-[0.02em] mb-6">
+            <p className="text-body-en text-ink font-medium uppercase tracking-[0.02em] mb-6">
               From survey to installation in under
               two weeks. Every unit is custom-tuned
               to your roastery&apos;s altitude, duct layout,
@@ -114,7 +114,7 @@ export default function InstallationStories() {
 
         {/* Row 3: "AGAIN" — giant, bottom, full width */}
         <div className="mt-6 lg:-mt-10 overflow-hidden">
-          <h2 className="fade-in font-display font-bold text-[clamp(3.5rem,10vw,10rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
+          <h2 className="fade-in font-display font-bold text-[clamp(2.75rem,1rem+8vw,11rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
             AGAIN
           </h2>
         </div>

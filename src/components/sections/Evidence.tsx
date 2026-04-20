@@ -69,8 +69,7 @@ export default function Evidence() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden"
-      style={{ height: "250vh" }}
+      className="relative overflow-hidden h-[clamp(140vh,220vh,260vh)]"
     >
       {/* ── Single giant background photo ── */}
       <div
@@ -86,7 +85,7 @@ export default function Evidence() {
         {/* ── Top portion: Manifesto text directly on photo ── */}
         <div className="container-content pt-20 lg:pt-28 pb-20 lg:pb-28">
             {/* Manifesto — large, bold, directly on background photo */}
-            <p className="fade-in font-heading font-semibold text-[clamp(1.8rem,3.8vw,3.4rem)] text-white leading-[1.3] tracking-[-0.01em] opacity-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+            <p className="fade-in font-heading font-semibold text-[clamp(1.5rem,0.85rem+2.3vw,3.75rem)] text-white leading-[1.3] tracking-[-0.01em] opacity-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
               We&apos;ve been accused of having a one-track mind. And to
               those accusations we say — thank you. Because we know it&apos;s by
               focusing on one thing that many things happen. And at NBPKOREA,
@@ -108,7 +107,7 @@ export default function Evidence() {
           <div className="flex items-center gap-16 lg:gap-28">
             {/* Left side text */}
             <div className="hidden md:block">
-              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
+              <p className="text-[clamp(1rem,0.7rem+1.1vw,2rem)] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
                 NBPKOREA
                 <br />
                 IS ALWAYS POSSIBLE
@@ -127,7 +126,7 @@ export default function Evidence() {
 
             {/* Right side text */}
             <div className="hidden md:block text-right">
-              <p className="text-[1.75rem] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
+              <p className="text-[clamp(1rem,0.7rem+1.1vw,2rem)] font-medium text-white/60 leading-[1.4] uppercase tracking-[0.04em]">
                 JUST BREATHE CLEAN
                 <br />
                 AND ROAST RIGHT IN.
@@ -137,7 +136,7 @@ export default function Evidence() {
 
           {/* Emotional line — absolutely centered below photo area */}
           <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
-            <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/70 leading-[1.4] tracking-[-0.01em]">
+            <p className="font-heading font-semibold text-[clamp(1.5rem,0.9rem+2.2vw,4rem)] text-white/70 leading-[1.4] tracking-[-0.01em]">
               We understand your craft.
               <br />
               We&apos;re ready to carry it with you.
