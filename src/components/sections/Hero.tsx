@@ -27,14 +27,14 @@ const PRODUCTS = [
     href: "/roasters",
   },
   {
-    tag: "BRAND HALL",
-    title: "THE OTHER SIDE",
+    tag: "THE LAB",
+    title: "PEANUT BUTTER MACHINE",
     details: [
-      ["TYPE", "EXHIBITION"],
-      ["EDITION", "GRAFFITI"],
-      ["YEAR", "2024"],
+      ["TYPE", "STONE MILL"],
+      ["USE", "COMMERCIAL"],
+      ["PROCESS", "STONE GROUND"],
     ],
-    href: "/brand-hall",
+    href: "/the-lab",
   },
 ];
 

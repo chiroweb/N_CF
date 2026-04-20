@@ -43,7 +43,7 @@ const SLIDES = [
     bodyKr:
       "카페, 베이커리, 스페셜티 식품 생산자를 위한 상업용 스톤그라운드 땅콩버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 것은 오래가야 한다고 믿으니까.",
     shopHref: "/contact",
-    learnHref: "/contact",
+    learnHref: "/the-lab",
   },
 ];
 
