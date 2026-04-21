@@ -2,7 +2,15 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "overview", label: "OVERVIEW" },
+  { id: "featured", label: "FEATURED" },
+  { id: "entries", label: "ALL ENTRIES" },
+  { id: "subscribe", label: "SUBSCRIBE" },
+];
 
 const S3_STOCK = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
 
@@ -90,8 +98,10 @@ export default function BlogPage() {
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── Masthead ── */}
-      <section className="container-content pt-24 lg:pt-32 pb-16 lg:pb-20">
+      <section id="overview" className="container-content pt-24 lg:pt-32 pb-16 lg:pb-20">
         <div className="flex items-end justify-between gap-6 mb-10 lg:mb-16">
           <div>
             <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
@@ -119,7 +129,7 @@ export default function BlogPage() {
 
       {/* ── Featured post ── */}
       {featured && (
-        <section className="container-content pb-16 lg:pb-24">
+        <section id="featured" className="container-content pb-16 lg:pb-24">
           <Link
             href={`/blog/${featured.id}`}
             className="scroll-fade group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-12 border-t-2 border-ink pt-6 opacity-0"
@@ -155,7 +165,7 @@ export default function BlogPage() {
       )}
 
       {/* ── Rest of posts ── */}
-      <section className="container-content pb-32">
+      <section id="entries" className="container-content pb-32">
         <div className="flex items-baseline justify-between border-t-2 border-ink pt-6 mb-10">
           <span className="caption-style text-ink/80">ALL ENTRIES</span>
           <span className="caption-style text-ink/60">
@@ -201,7 +211,7 @@ export default function BlogPage() {
       </section>
 
       {/* ── Closing strip ── */}
-      <section className="bg-ink py-20 lg:py-24">
+      <section id="subscribe" className="bg-ink py-20 lg:py-24">
         <div className="container-content flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <p className="font-heading font-semibold text-[clamp(1.4rem,2.6vw,2.25rem)] text-paper leading-[1.25] tracking-[-0.01em]">

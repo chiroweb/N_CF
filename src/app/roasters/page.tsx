@@ -7,7 +7,17 @@ import {
   ROASTER_SUPREME_GALLERY,
   HERO_IMAGES,
 } from "@/lib/products";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "overview", label: "OVERVIEW" },
+  { id: "guide", label: "MODEL GUIDE" },
+  { id: "models", label: "MODELS" },
+  { id: "details", label: "DETAILS" },
+  { id: "lineup", label: "LINEUP" },
+  { id: "contact", label: "CONTACT" },
+];
 
 const MODEL_GUIDE = [
   { range: "샘플 / 교육용", recommend: "BASE 0.5", index: 0 },
@@ -139,8 +149,10 @@ export default function RoastersPage() {
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── Hero ── */}
-      <div className="container-content pt-24 lg:pt-32 pb-16">
+      <div id="overview" className="container-content pt-24 lg:pt-32 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           <div>
             <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
@@ -193,7 +205,7 @@ export default function RoastersPage() {
       </div>
 
       {/* ── Model Recommendation Guide ── */}
-      <div className="container-content py-16 lg:py-20">
+      <div id="guide" className="container-content py-16 lg:py-20">
         <div className="scroll-fade opacity-0">
           <span className="caption-style text-ink/70 block mb-4">
             WHICH MODEL IS RIGHT FOR YOU?
@@ -207,7 +219,7 @@ export default function RoastersPage() {
                 key={guide.range}
                 onClick={() => {
                   switchModel(guide.index);
-                  const modelSection = document.getElementById("model-selector");
+                  const modelSection = document.getElementById("models");
                   modelSection?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="group p-5 border-2 border-bone rounded-lg hover:border-ink transition-all duration-300 text-left"
@@ -225,7 +237,7 @@ export default function RoastersPage() {
       </div>
 
       {/* ── Model Selector + Specs ── */}
-      <div id="model-selector" className="container-content py-24 lg:py-32">
+      <div id="models" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0">
           <span className="caption-style text-ink/70 block mb-4">
             SELECT YOUR MODEL
@@ -389,7 +401,7 @@ export default function RoastersPage() {
       </div>
 
       {/* ── Product Details — tilt cards ── */}
-      <div className="container-content pb-24">
+      <div id="details" className="container-content pb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <TiltCard
             number="01"
@@ -416,7 +428,7 @@ export default function RoastersPage() {
       </div>
 
       {/* ── Full Lineup Overview ── */}
-      <div className="border-t-2 border-bone">
+      <div id="lineup" className="border-t-2 border-bone">
         <div className="container-content py-16 lg:py-20">
           <div className="scroll-fade opacity-0">
             <span className="caption-style text-ink/70 block mb-6">
@@ -451,7 +463,7 @@ export default function RoastersPage() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="bg-ink py-24 lg:py-32">
+      <div id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
             YOUR BEANS.

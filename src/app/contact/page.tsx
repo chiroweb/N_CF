@@ -3,7 +3,15 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { COMPANY } from "@/lib/company";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "intro", label: "INTRO" },
+  { id: "channels", label: "CHANNELS" },
+  { id: "brief", label: "WHAT TO TELL" },
+  { id: "hours", label: "HOURS · ADDRESS" },
+];
 
 const CHANNELS = [
   {
@@ -75,8 +83,10 @@ export default function ContactPage() {
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── Hero ── */}
-      <div className="container-content pt-24 lg:pt-32 pb-16">
+      <div id="intro" className="container-content pt-24 lg:pt-32 pb-16">
         <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
           REQUEST A QUOTE / 견적 문의
         </span>
@@ -97,7 +107,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── Channels ── */}
-      <div className="container-content pb-24">
+      <div id="channels" className="container-content pb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {CHANNELS.map((ch) => (
             <Link
@@ -127,7 +137,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── What to tell us ── */}
-      <div className="bg-ink py-24 lg:py-32">
+      <div id="brief" className="bg-ink py-24 lg:py-32">
         <div className="container-content">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20">
             {/* Left — heading */}
@@ -176,7 +186,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── Hours + Address ── */}
-      <div className="container-content py-24">
+      <div id="hours" className="container-content py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <div className="scroll-fade opacity-0">
             <span className="caption-style text-ink/70 block mb-4">

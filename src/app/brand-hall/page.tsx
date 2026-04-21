@@ -3,7 +3,16 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "overview", label: "OVERVIEW" },
+  { id: "gallery", label: "GALLERY" },
+  { id: "film", label: "FILM" },
+  { id: "manifesto", label: "MANIFESTO" },
+  { id: "event", label: "NEXT EVENT" },
+];
 
 const GALLERY_ITEMS = [
   {
@@ -122,8 +131,10 @@ export default function BrandHallPage() {
 
   return (
     <div ref={pageRef} className="bg-ink min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── Hero ── */}
-      <div className="relative h-[80vh] flex flex-col justify-end container-content pb-16">
+      <div id="overview" className="relative h-[80vh] flex flex-col justify-end container-content pb-16">
         <span className="hero-line caption-style text-white/70 block mb-6 opacity-0">
           BRAND HALL / 브랜드 전시
         </span>
@@ -140,7 +151,7 @@ export default function BrandHallPage() {
       </div>
 
       {/* ── Gallery Grid — asymmetric editorial ── */}
-      <div className="container-content pb-32">
+      <div id="gallery" className="container-content pb-32">
         {/* Row 1: large left + small right */}
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-4">
           <GalleryCard item={GALLERY_ITEMS[0]} />
@@ -154,7 +165,7 @@ export default function BrandHallPage() {
         </div>
 
         {/* ── Video Section ── */}
-        <div className="my-24">
+        <div id="film" className="my-24">
           <div className="relative aspect-video rounded-lg overflow-hidden bg-ink/50">
             {/* Replace src with actual video URL */}
             <video
@@ -186,7 +197,7 @@ export default function BrandHallPage() {
         </div>
 
         {/* ── Manifesto — Why we did this ── */}
-        <div className="my-24 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+        <div id="manifesto" className="my-24 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           {/* Left — title */}
           <div>
             <span className="caption-style text-white/70 block mb-4">
@@ -244,7 +255,7 @@ export default function BrandHallPage() {
         </div>
 
         {/* Event CTA */}
-        <div className="mt-24 text-center">
+        <div id="event" className="mt-24 text-center">
           <p className="font-heading font-semibold text-[clamp(1.5rem,3vw,2.5rem)] text-white/85 leading-[1.3] mb-4">
             Want to see the next exhibition?
           </p>

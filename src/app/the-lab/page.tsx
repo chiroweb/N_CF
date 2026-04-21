@@ -4,7 +4,17 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
 import { IMAGES } from "@/lib/images";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "overview", label: "OVERVIEW" },
+  { id: "story", label: "STORY" },
+  { id: "object", label: "THE OBJECT" },
+  { id: "features", label: "FEATURES" },
+  { id: "method", label: "METHOD" },
+  { id: "contact", label: "CONTACT" },
+];
 
 const PROCESS = [
   {
@@ -96,8 +106,10 @@ export default function TheLabPage() {
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── 01 · Masthead ── */}
-      <section className="relative container-content pt-24 lg:pt-32 pb-16 lg:pb-24">
+      <section id="overview" className="relative container-content pt-24 lg:pt-32 pb-16 lg:pb-24">
         {/* Issue marker — top right */}
         <div className="absolute top-24 right-[var(--edge-margin)] hidden lg:block">
           <p className="caption-style text-ink/70 text-right leading-relaxed">
@@ -152,7 +164,7 @@ export default function TheLabPage() {
       </section>
 
       {/* ── 02 · Chapter I — Opening narrative ── */}
-      <section className="container-content py-24 lg:py-32">
+      <section id="story" className="container-content py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
           <div className="scroll-fade opacity-0">
             <span className="caption-style text-ink/70 block mb-4">
@@ -236,7 +248,7 @@ export default function TheLabPage() {
       </section>
 
       {/* ── 05 · Chapter II — The machine ── */}
-      <section className="container-content py-24 lg:py-32">
+      <section id="object" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0 mb-16 lg:mb-24">
           <span className="caption-style text-ink/70 block mb-4">
             CHAPTER II · THE OBJECT
@@ -302,7 +314,7 @@ export default function TheLabPage() {
       </section>
 
       {/* ── 06 · Features — why this one ── */}
-      <section className="border-t-2 border-ink">
+      <section id="features" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16">
             <span className="caption-style text-ink/70 block mb-4">
@@ -334,7 +346,7 @@ export default function TheLabPage() {
       </section>
 
       {/* ── 07 · Chapter III — Process ── */}
-      <section className="border-t-2 border-ink">
+      <section id="method" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16 lg:mb-20">
             <span className="caption-style text-ink/70 block mb-4">
@@ -396,7 +408,7 @@ export default function TheLabPage() {
       </section>
 
       {/* ── 09 · Closing ── */}
-      <section className="bg-ink py-24 lg:py-32">
+      <section id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
           <span className="scroll-fade caption-style text-paper/60 block mb-10 opacity-0">
             END OF ISSUE 03

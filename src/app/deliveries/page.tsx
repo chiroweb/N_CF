@@ -2,7 +2,16 @@
 
 import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "@/lib/gsap";
+import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Link from "next/link";
+
+const SECTIONS: NavSection[] = [
+  { id: "overview", label: "OVERVIEW" },
+  { id: "filter", label: "CATEGORY" },
+  { id: "featured", label: "FEATURED" },
+  { id: "regions", label: "BY REGION" },
+  { id: "contact", label: "CONTACT" },
+];
 
 const S3 = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
 
@@ -161,8 +170,10 @@ export default function DeliveriesPage() {
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
+      <FloatingSectionNav sections={SECTIONS} />
+
       {/* ── Masthead ── */}
-      <section className="container-content pt-24 lg:pt-32 pb-12">
+      <section id="overview" className="container-content pt-24 lg:pt-32 pb-12">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
             <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
@@ -190,7 +201,7 @@ export default function DeliveriesPage() {
       </section>
 
       {/* ── Filter row ── */}
-      <section className="container-content pb-10">
+      <section id="filter" className="container-content pb-10">
         <div className="scroll-fade flex items-center gap-3 flex-wrap border-t-2 border-ink pt-6 opacity-0">
           <span className="caption-style text-ink/70 mr-2">CATEGORY</span>
           {FILTERS.map((f) => (
@@ -223,7 +234,7 @@ export default function DeliveriesPage() {
 
       {/* ── Featured case ── */}
       {featured && (
-        <section className="container-content pb-20 lg:pb-28">
+        <section id="featured" className="container-content pb-20 lg:pb-28">
           <div className="scroll-fade grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-start opacity-0">
             <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-bone">
               <div
@@ -271,7 +282,7 @@ export default function DeliveriesPage() {
       )}
 
       {/* ── Regional lists ── */}
-      <section className="container-content pb-24">
+      <section id="regions" className="container-content pb-24">
         <div className="scroll-fade flex items-baseline justify-between border-t-2 border-ink pt-6 mb-12 opacity-0">
           <span className="caption-style text-ink/80">ALL RECORDS · BY REGION</span>
           <span className="caption-style text-ink/60">
@@ -336,7 +347,7 @@ export default function DeliveriesPage() {
       </section>
 
       {/* ── Closing ── */}
-      <section className="bg-ink py-24 lg:py-32">
+      <section id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content">
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] items-end gap-10">
             <div>
