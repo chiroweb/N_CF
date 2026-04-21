@@ -183,7 +183,7 @@ export default function Hero() {
                   <h4 className="font-display font-bold text-base text-white group-hover:text-ink transition-colors duration-300 tracking-tight">
                     {product.tag}
                   </h4>
-                  <span className="text-white/60 group-hover:text-ink/60 transition-colors duration-300 text-xs">
+                  <span className="text-white/80 group-hover:text-ink/80 transition-colors duration-300 text-xs">
                     &rarr;
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export default function Hero() {
                       key={label}
                       className="flex justify-between text-xs tracking-[0.06em] uppercase"
                     >
-                      <span className="text-white/65 group-hover:text-ink/65 transition-colors duration-300">
+                      <span className="text-white/85 group-hover:text-ink/85 transition-colors duration-300">
                         {label}
                       </span>
                       <span className="text-white/90 group-hover:text-ink/90 transition-colors duration-300">
@@ -209,7 +209,7 @@ export default function Hero() {
             <div className="md:col-span-3 flex items-center py-3 px-6 overflow-hidden">
               <div className="flex items-center gap-4 mr-6 shrink-0">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-white/60 text-sm">&uarr;</span>
+                  <span key={i} className="text-white/80 text-sm">&uarr;</span>
                 ))}
               </div>
               <div className="flex-1 overflow-hidden">
@@ -217,7 +217,7 @@ export default function Hero() {
                   {Array.from({ length: 6 }).map((_, i) => (
                     <span
                       key={i}
-                      className="text-sm tracking-[0.08em] uppercase text-white/65 mx-4 font-medium"
+                      className="text-sm tracking-[0.08em] uppercase text-white/85 mx-4 font-medium"
                     >
                       SINGLE PRODUCT &nbsp;*&nbsp; SINCE 2011 &nbsp;*&nbsp; DIRECT FLAME &nbsp;*&nbsp;
                     </span>
@@ -226,7 +226,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-4 ml-6 shrink-0">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-white/60 text-sm">&uarr;</span>
+                  <span key={i} className="text-white/80 text-sm">&uarr;</span>
                 ))}
               </div>
             </div>

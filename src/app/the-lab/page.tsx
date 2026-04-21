@@ -112,7 +112,7 @@ export default function TheLabPage() {
       <section id="overview" className="relative container-content pt-24 lg:pt-32 pb-16 lg:pb-24">
         {/* Issue marker — top right */}
         <div className="absolute top-24 right-[var(--edge-margin)] hidden lg:block">
-          <p className="caption-style text-ink/70 text-right leading-relaxed">
+          <p className="caption-style text-ink/90 text-right leading-relaxed">
             ISSUE 03 / 2026
             <br />
             THE LAB — NUTS-STAR
@@ -121,7 +121,7 @@ export default function TheLabPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end min-h-[75vh]">
           <div>
-            <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
               THE LAB / 넛버터 머신 · 0001
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
@@ -154,10 +154,10 @@ export default function TheLabPage() {
 
         {/* Folio bar */}
         <div className="mt-16 lg:mt-24 pt-4 border-t border-ink/20 flex justify-between items-center">
-          <span className="caption-style text-ink/70">
+          <span className="caption-style text-ink/90">
             NBPKOREA — THE LAB COLLECTION
           </span>
-          <span className="caption-style text-ink/70">
+          <span className="caption-style text-ink/90">
             FIELD NOTES ON A NUT BUTTER MILL
           </span>
         </div>
@@ -167,7 +167,7 @@ export default function TheLabPage() {
       <section id="story" className="container-content py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-4">
+            <span className="caption-style text-ink/90 block mb-4">
               CHAPTER I
             </span>
             <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
@@ -232,7 +232,7 @@ export default function TheLabPage() {
       {/* ── 04 · Pull quote ── */}
       <section className="bg-ink py-24 lg:py-32">
         <div className="container-content">
-          <span className="scroll-fade caption-style text-paper/60 block mb-10 opacity-0">
+          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0">
             — QUOTE · 01
           </span>
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.25] tracking-[-0.015em] max-w-5xl opacity-0">
@@ -241,7 +241,7 @@ export default function TheLabPage() {
             honest. Everything a nut should still be when it stops being
             a nut.&rdquo;
           </p>
-          <p className="scroll-fade caption-style text-paper/70 mt-10 opacity-0">
+          <p className="scroll-fade caption-style text-paper/90 mt-10 opacity-0">
             — PARK HAN-JIN · HEAD ENGINEER, NBPKOREA
           </p>
         </div>
@@ -250,7 +250,7 @@ export default function TheLabPage() {
       {/* ── 05 · Chapter II — The machine ── */}
       <section id="object" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0 mb-16 lg:mb-24">
-          <span className="caption-style text-ink/70 block mb-4">
+          <span className="caption-style text-ink/90 block mb-4">
             CHAPTER II · THE OBJECT
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
@@ -270,13 +270,13 @@ export default function TheLabPage() {
                 style={{ backgroundImage: `url(${NUTBUTTER_PRODUCT.image})` }}
               />
             </div>
-            <p className="caption-style text-ink/70 mt-3">
+            <p className="caption-style text-ink/90 mt-3">
               FIG. 01 — NUTS-STAR, counter-grade assembly.
             </p>
           </div>
 
           <div className="scroll-fade opacity-0 flex flex-col">
-            <span className="caption-style text-ink/70 mb-6">
+            <span className="caption-style text-ink/90 mb-6">
               SPECIFICATION · PLATE 002
             </span>
 
@@ -286,7 +286,7 @@ export default function TheLabPage() {
                   key={label}
                   className="flex justify-between items-start py-4 border-b border-bone gap-6"
                 >
-                  <span className="caption-style text-ink/70 shrink-0 pt-0.5">
+                  <span className="caption-style text-ink/90 shrink-0 pt-0.5">
                     {label}
                   </span>
                   <span className="text-sm font-medium text-ink text-right leading-[1.5]">
@@ -317,7 +317,7 @@ export default function TheLabPage() {
       <section id="features" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16">
-            <span className="caption-style text-ink/70 block mb-4">
+            <span className="caption-style text-ink/90 block mb-4">
               FEATURES · 왜 이 기계인가
             </span>
             <h2 className="font-display font-bold text-[clamp(2rem,4.5vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em]">
@@ -333,7 +333,7 @@ export default function TheLabPage() {
                 key={f}
                 className="scroll-fade opacity-0 flex items-start gap-6 py-5 border-b border-bone"
               >
-                <span className="caption-style text-ink/70 w-8 shrink-0 pt-1">
+                <span className="caption-style text-ink/90 w-8 shrink-0 pt-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-body-kr font-korean text-ink/90 leading-[1.6]">
@@ -349,7 +349,7 @@ export default function TheLabPage() {
       <section id="method" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16 lg:mb-20">
-            <span className="caption-style text-ink/70 block mb-4">
+            <span className="caption-style text-ink/90 block mb-4">
               CHAPTER III · THE METHOD
             </span>
             <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
@@ -387,14 +387,14 @@ export default function TheLabPage() {
       <section className="border-t border-bone">
         <div className="container-content py-20 lg:py-28">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-8">
+            <span className="caption-style text-ink/90 block mb-8">
               BUILT FOR · 쓰이는 곳
             </span>
             <div className="flex flex-wrap gap-x-10 gap-y-4">
               {NUTBUTTER_PRODUCT.applications.map((app) => (
                 <span
                   key={app}
-                  className="font-display font-bold text-[clamp(1.3rem,2.3vw,2rem)] text-ink/55 hover:text-ink transition-colors duration-300"
+                  className="font-display font-bold text-[clamp(1.3rem,2.3vw,2rem)] text-ink/75 hover:text-ink transition-colors duration-300"
                 >
                   {app}
                 </span>
@@ -410,7 +410,7 @@ export default function TheLabPage() {
       {/* ── 09 · Closing ── */}
       <section id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
-          <span className="scroll-fade caption-style text-paper/60 block mb-10 opacity-0">
+          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0">
             END OF ISSUE 03
           </span>
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
@@ -429,7 +429,7 @@ export default function TheLabPage() {
               REQUEST A QUOTE <span className="ml-2">&rarr;</span>
             </Link>
           </div>
-          <p className="scroll-fade caption-style text-paper/60 mt-10 opacity-0">
+          <p className="scroll-fade caption-style text-paper/80 mt-10 opacity-0">
             or email — nbpkorea@nbpkorea.co.kr
           </p>
         </div>

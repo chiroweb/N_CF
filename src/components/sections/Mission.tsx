@@ -139,7 +139,7 @@ export default function Mission() {
             Collections
           </h2>
           <div className="flex items-center gap-3">
-            <span className="caption-style text-ink/70 mr-2">
+            <span className="caption-style text-ink/90 mr-2">
               {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
             </span>
             <button

@@ -87,7 +87,7 @@ export default function ContactPage() {
 
       {/* ── Hero ── */}
       <div id="intro" className="container-content pt-24 lg:pt-32 pb-16">
-        <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+        <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
           REQUEST A QUOTE / 견적 문의
         </span>
         <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
@@ -117,7 +117,7 @@ export default function ContactPage() {
               rel={ch.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="scroll-fade group border-2 border-bone rounded-lg p-8 hover:border-ink transition-colors duration-300 opacity-0 flex flex-col justify-between min-h-[180px]"
             >
-              <span className="caption-style text-ink/70">{ch.label}</span>
+              <span className="caption-style text-ink/90">{ch.label}</span>
               <div className="mt-auto">
                 <p className="font-display font-bold text-[clamp(1.1rem,1.6vw,1.4rem)] text-ink tracking-tight mb-2 group-hover:underline underline-offset-4">
                   {ch.value}
@@ -131,7 +131,7 @@ export default function ContactPage() {
         </div>
 
         {/* Sub contact line */}
-        <p className="caption-style text-ink/70 mt-6 text-center">
+        <p className="caption-style text-ink/90 mt-6 text-center">
           SUB · {COMPANY.phoneSecondary} &nbsp;·&nbsp; FAX {COMPANY.fax}
         </p>
       </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
             <ol className="scroll-fade space-y-6 opacity-0">
               {ASKS.map((item, i) => (
                 <li key={item} className="flex gap-6 border-b border-paper/15 pb-5">
-                  <span className="caption-style text-paper/60 w-8 shrink-0">
+                  <span className="caption-style text-paper/80 w-8 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-[clamp(0.95rem,1.1vw,1.1rem)] text-paper/90 leading-[1.55]">
@@ -174,7 +174,7 @@ export default function ContactPage() {
 
           {/* Email CTA */}
           <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-paper/15">
-            <p className="caption-style text-paper/70">SEND IT STRAIGHT —</p>
+            <p className="caption-style text-paper/90">SEND IT STRAIGHT —</p>
             <Link
               href={`mailto:${COMPANY.email}?subject=Afterburner%20Inquiry`}
               className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
@@ -189,7 +189,7 @@ export default function ContactPage() {
       <div id="hours" className="container-content py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-4">
+            <span className="caption-style text-ink/90 block mb-4">
               HOURS / 운영시간
             </span>
             <p className="font-display font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-ink leading-[1.2] tracking-[-0.01em]">
@@ -201,13 +201,13 @@ export default function ContactPage() {
           </div>
 
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-4">
+            <span className="caption-style text-ink/90 block mb-4">
               FACTORY / 공장
             </span>
             <p className="font-display font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-ink leading-[1.2] tracking-[-0.01em]">
               {COMPANY.address}
             </p>
-            <p className="caption-style text-ink/65 mt-3">
+            <p className="caption-style text-ink/85 mt-3">
               {COMPANY.coordinates}
             </p>
           </div>
@@ -216,19 +216,19 @@ export default function ContactPage() {
         {/* Legal strip */}
         <div className="mt-20 pt-8 border-t border-bone grid grid-cols-2 md:grid-cols-4 gap-6">
           <div>
-            <span className="caption-style text-ink/65 block mb-1">COMPANY</span>
+            <span className="caption-style text-ink/85 block mb-1">COMPANY</span>
             <p className="text-sm text-ink/90">{COMPANY.nameKr}</p>
           </div>
           <div>
-            <span className="caption-style text-ink/65 block mb-1">CEO</span>
+            <span className="caption-style text-ink/85 block mb-1">CEO</span>
             <p className="text-sm text-ink/90">{COMPANY.ceo}</p>
           </div>
           <div>
-            <span className="caption-style text-ink/65 block mb-1">BIZ NO.</span>
+            <span className="caption-style text-ink/85 block mb-1">BIZ NO.</span>
             <p className="text-sm text-ink/90">{COMPANY.businessNumber}</p>
           </div>
           <div>
-            <span className="caption-style text-ink/65 block mb-1">SINCE</span>
+            <span className="caption-style text-ink/85 block mb-1">SINCE</span>
             <p className="text-sm text-ink/90">{COMPANY.established}</p>
           </div>
         </div>

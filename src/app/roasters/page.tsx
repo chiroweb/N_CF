@@ -155,7 +155,7 @@ export default function RoastersPage() {
       <div id="overview" className="container-content pt-24 lg:pt-32 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           <div>
-            <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
               COFFEE ROASTING MACHINE
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
@@ -169,7 +169,7 @@ export default function RoastersPage() {
               From 0.5kg samples to 20kg production batches.
               Drum roasters built for precision, consistency, and craft.
             </p>
-            <p className="hero-fade text-body-kr font-korean text-ink/65 leading-[1.75] mt-4 max-w-md opacity-0">
+            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-4 max-w-md opacity-0">
               0.5kg 샘플부터 20kg 대량 생산까지.
               정밀함, 일관성, 그리고 장인 정신을 위해 만든 드럼 로스터.
             </p>
@@ -207,7 +207,7 @@ export default function RoastersPage() {
       {/* ── Model Recommendation Guide ── */}
       <div id="guide" className="container-content py-16 lg:py-20">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/70 block mb-4">
+          <span className="caption-style text-ink/90 block mb-4">
             WHICH MODEL IS RIGHT FOR YOU?
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
@@ -239,7 +239,7 @@ export default function RoastersPage() {
       {/* ── Model Selector + Specs ── */}
       <div id="models" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/70 block mb-4">
+          <span className="caption-style text-ink/90 block mb-4">
             SELECT YOUR MODEL
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12">
@@ -310,7 +310,7 @@ export default function RoastersPage() {
               <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
                 {model.name}
               </h3>
-              <p className="caption-style text-ink/70 mb-8">
+              <p className="caption-style text-ink/90 mb-8">
                 {model.target} / {model.targetKr}
               </p>
 
@@ -367,7 +367,7 @@ export default function RoastersPage() {
               <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
                 SUPREME
               </h3>
-              <p className="caption-style text-ink/70 mb-8">
+              <p className="caption-style text-ink/90 mb-8">
                 Premium Line / 프리미엄 라인
               </p>
 
@@ -375,7 +375,7 @@ export default function RoastersPage() {
                 The flagship. Every detail refined. Supreme is not just a roaster
                 — it is the statement that your craft deserves the best machine ever built.
               </p>
-              <p className="text-body-kr font-korean text-ink/65 leading-[1.75] mb-8">
+              <p className="text-body-kr font-korean text-ink/85 leading-[1.75] mb-8">
                 플래그십. 모든 디테일을 정제했다. Supreme은 단순한 로스터가 아니다
                 — 당신의 기술이 최고의 기계를 받을 자격이 있다는 선언이다.
               </p>
@@ -431,18 +431,18 @@ export default function RoastersPage() {
       <div id="lineup" className="border-t-2 border-bone">
         <div className="container-content py-16 lg:py-20">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-6">
+            <span className="caption-style text-ink/90 block mb-6">
               FULL LINEUP
             </span>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b-2 border-ink">
-                    <th className="caption-style text-ink/70 py-3 pr-4">MODEL</th>
-                    <th className="caption-style text-ink/70 py-3 pr-4">CAPACITY</th>
-                    <th className="caption-style text-ink/70 py-3 pr-4">WEIGHT</th>
-                    <th className="caption-style text-ink/70 py-3 pr-4">BURNER</th>
-                    <th className="caption-style text-ink/70 py-3">CONTROLLER</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4">MODEL</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4">CAPACITY</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4">WEIGHT</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4">BURNER</th>
+                    <th className="caption-style text-ink/90 py-3">CONTROLLER</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -490,7 +490,7 @@ export default function RoastersPage() {
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-4 border-b border-bone">
-      <span className="caption-style text-ink/70">{label}</span>
+      <span className="caption-style text-ink/90">{label}</span>
       <span className="text-sm font-medium text-ink text-right">{value}</span>
     </div>
   );
@@ -539,14 +539,14 @@ function TiltCard({
         <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-500" />
       </div>
       <div className="p-6 bg-paper group-hover:bg-bone/30 transition-colors duration-500">
-        <span className="caption-style text-ink/60 block mb-2">
+        <span className="caption-style text-ink/80 block mb-2">
           {number}
         </span>
         <h4 className="font-display font-bold text-base text-ink mb-3">
           {title}
         </h4>
         <p className="text-xs text-ink/85 leading-relaxed">{en}</p>
-        <p className="text-xs font-korean text-ink/65 leading-relaxed mt-2">{kr}</p>
+        <p className="text-xs font-korean text-ink/85 leading-relaxed mt-2">{kr}</p>
       </div>
     </div>
   );

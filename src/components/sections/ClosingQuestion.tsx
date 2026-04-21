@@ -64,10 +64,10 @@ export default function ClosingQuestion() {
         </div>
 
         {/* Engineer contact */}
-        <p className="closing-line caption-style text-paper/70 mt-10 opacity-0">
+        <p className="closing-line caption-style text-paper/90 mt-10 opacity-0">
           or talk to an engineer — 031-434-6566
         </p>
-        <p className="text-xs font-korean text-paper/60 mt-1">
+        <p className="text-xs font-korean text-paper/80 mt-1">
           또는 엔지니어와 직접 대화
         </p>
       </div>

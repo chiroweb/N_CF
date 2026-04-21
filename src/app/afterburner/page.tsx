@@ -138,7 +138,7 @@ export default function AfterburnerPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           {/* Left — text */}
           <div>
-            <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
               COFFEE ROASTING AFTERBURNER
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
@@ -152,7 +152,7 @@ export default function AfterburnerPage() {
               99.2% smoke removal. Direct flame. No filters to replace.
               The machine that lets you roast in silence.
             </p>
-            <p className="hero-fade text-body-kr font-korean text-ink/65 leading-[1.75] mt-4 max-w-md opacity-0">
+            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-4 max-w-md opacity-0">
               99.2% 연기 제거율. 직화 방식. 교체할 필터 없음.
               조용히 로스팅할 수 있게 해주는 기계.
             </p>
@@ -191,7 +191,7 @@ export default function AfterburnerPage() {
       {/* ── Model Recommendation Guide ── */}
       <div id="guide" className="container-content py-16 lg:py-20">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/70 block mb-4">
+          <span className="caption-style text-ink/90 block mb-4">
             WHICH MODEL IS RIGHT FOR YOU?
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
@@ -223,7 +223,7 @@ export default function AfterburnerPage() {
       {/* ── Model Selector + Specs ── */}
       <div id="models" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/70 block mb-4">
+          <span className="caption-style text-ink/90 block mb-4">
             SELECT YOUR MODEL
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12">
@@ -285,7 +285,7 @@ export default function AfterburnerPage() {
             <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
               {model.name}
             </h3>
-            <p className="caption-style text-ink/70 mb-8">
+            <p className="caption-style text-ink/90 mb-8">
               {model.target} / {model.targetKr}
             </p>
 
@@ -344,14 +344,14 @@ export default function AfterburnerPage() {
       <div id="compatible" className="border-t-2 border-bone">
         <div className="container-content py-16 lg:py-20">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/70 block mb-6">
+            <span className="caption-style text-ink/90 block mb-6">
               COMPATIBLE WITH
             </span>
             <div className="flex flex-wrap gap-x-8 gap-y-4">
               {COMPATIBLE_ROASTERS.map((brand) => (
                 <span
                   key={brand}
-                  className="font-display font-bold text-[clamp(1.2rem,2vw,1.8rem)] text-ink/50 hover:text-ink transition-colors duration-300"
+                  className="font-display font-bold text-[clamp(1.2rem,2vw,1.8rem)] text-ink/70 hover:text-ink transition-colors duration-300"
                 >
                   {brand}
                 </span>
@@ -389,7 +389,7 @@ export default function AfterburnerPage() {
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-4 border-b border-bone">
-      <span className="caption-style text-ink/70">{label}</span>
+      <span className="caption-style text-ink/90">{label}</span>
       <span className="text-sm font-medium text-ink text-right">{value}</span>
     </div>
   );
@@ -438,14 +438,14 @@ function TiltCard({
         <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-500" />
       </div>
       <div className="p-6 bg-paper group-hover:bg-bone/30 transition-colors duration-500">
-        <span className="caption-style text-ink/60 block mb-2">
+        <span className="caption-style text-ink/80 block mb-2">
           {number}
         </span>
         <h4 className="font-display font-bold text-base text-ink mb-3">
           {title}
         </h4>
         <p className="text-xs text-ink/85 leading-relaxed">{en}</p>
-        <p className="text-xs font-korean text-ink/65 leading-relaxed mt-2">{kr}</p>
+        <p className="text-xs font-korean text-ink/85 leading-relaxed mt-2">{kr}</p>
       </div>
     </div>
   );

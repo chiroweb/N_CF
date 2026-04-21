@@ -141,7 +141,7 @@ export default function Evidence() {
               <br />
               We&apos;re ready to carry it with you.
             </p>
-            <p className="caption-style text-white/65 mt-6">
+            <p className="caption-style text-white/85 mt-6">
               37.331° N — 126.785° E
             </p>
           </div>

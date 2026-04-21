@@ -67,13 +67,13 @@ export default function BrandHallGateway() {
                 className="relative w-full aspect-[4/3] bg-bone overflow-hidden opacity-0 group-hover:brightness-[1.03] transition-[filter] duration-300"
               >
                 {/* Chapter label */}
-                <span className="absolute top-6 left-6 caption-style text-ink/60 z-10">
+                <span className="absolute top-6 left-6 caption-style text-ink/80 z-10">
                   CHAPTER 02
                 </span>
 
                 {/* Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="caption-style text-ink/20">
+                  <span className="caption-style text-ink/40">
                     GRAFFITI AFTERBURNER — Teal version, raw warehouse
                   </span>
                 </div>
@@ -94,7 +94,7 @@ export default function BrandHallGateway() {
                   in street art and shipped it to an exhibition.
                   No one bought it. We still don&apos;t regret it.
                 </p>
-                <p className="text-body-kr font-korean text-ink/50 mt-3 leading-[1.75]">
+                <p className="text-body-kr font-korean text-ink/70 mt-3 leading-[1.75]">
                   2024년, 우리는 애프터버너 한 대에 그래피티를 입혀
                   전시장으로 보냈다. 아무도 사지 않았다.
                   그래도 후회하지 않는다.

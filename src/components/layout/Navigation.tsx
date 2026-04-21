@@ -98,7 +98,7 @@ export default function Navigation() {
 
   const isDark = theme === "dark";
   const fg = isDark ? "text-paper" : "text-ink";
-  const fgMuted = isDark ? "text-paper/70" : "text-ink/60";
+  const fgMuted = isDark ? "text-paper/90" : "text-ink/80";
   const bar = isDark ? "bg-paper" : "bg-ink";
 
   return (
@@ -188,13 +188,13 @@ export default function Navigation() {
             </ul>
 
             <div className="mt-16 pt-8 border-t border-paper/15">
-              <p className="caption-style text-paper/60">
+              <p className="caption-style text-paper/80">
                 {COMPANY.coordinates}
               </p>
-              <p className="caption-style text-paper/60 mt-2">
+              <p className="caption-style text-paper/80 mt-2">
                 {COMPANY.email}
               </p>
-              <p className="caption-style text-paper/60 mt-2">
+              <p className="caption-style text-paper/80 mt-2">
                 T. {COMPANY.phonePrimary}
               </p>
             </div>

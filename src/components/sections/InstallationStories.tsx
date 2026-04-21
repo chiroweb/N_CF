@@ -61,15 +61,15 @@ export default function InstallationStories() {
           <div className="fade-in pt-8 lg:pt-16 opacity-0">
             <div className="space-y-3">
               <div className="flex gap-4">
-                <span className="caption-style text-ink/55 w-6">01</span>
+                <span className="caption-style text-ink/75 w-6">01</span>
                 <span className="caption-style text-ink/90">WE SURVEY YOUR SPACE</span>
               </div>
               <div className="flex gap-4">
-                <span className="caption-style text-ink/55 w-6">02</span>
+                <span className="caption-style text-ink/75 w-6">02</span>
                 <span className="caption-style text-ink/90">CUSTOM-BUILD YOUR UNIT</span>
               </div>
               <div className="flex gap-4">
-                <span className="caption-style text-ink/55 w-6">03</span>
+                <span className="caption-style text-ink/75 w-6">03</span>
                 <span className="caption-style text-ink/90">SIT BACK AND ROAST</span>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function InstallationStories() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-bone">
               <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.installationPhoto})` }} />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="caption-style text-ink/15">
+                <span className="caption-style text-ink/30">
                   INSTALLATION PHOTO
                 </span>
               </div>

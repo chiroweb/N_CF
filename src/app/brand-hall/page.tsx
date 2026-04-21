@@ -135,7 +135,7 @@ export default function BrandHallPage() {
 
       {/* ── Hero ── */}
       <div id="overview" className="relative h-[80vh] flex flex-col justify-end container-content pb-16">
-        <span className="hero-line caption-style text-white/70 block mb-6 opacity-0">
+        <span className="hero-line caption-style text-white/90 block mb-6 opacity-0">
           BRAND HALL / 브랜드 전시
         </span>
         <h1 className="hero-line font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] opacity-0">
@@ -144,7 +144,7 @@ export default function BrandHallPage() {
         <h1 className="hero-line font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] opacity-0">
           SIDE
         </h1>
-        <p className="hero-line text-body-kr font-korean text-white/70 mt-8 max-w-md opacity-0">
+        <p className="hero-line text-body-kr font-korean text-white/90 mt-8 max-w-md opacity-0">
           우리는 기계를 만든다. 하지만 가끔, 기계가 예술이 되는 순간이 있다.
           이곳은 그 순간들을 모아둔 공간이다.
         </p>
@@ -200,7 +200,7 @@ export default function BrandHallPage() {
         <div id="manifesto" className="my-24 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           {/* Left — title */}
           <div>
-            <span className="caption-style text-white/70 block mb-4">
+            <span className="caption-style text-white/90 block mb-4">
               WHY WE DID THIS
             </span>
             <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-paper leading-[0.95] tracking-[-0.03em]">
@@ -229,7 +229,7 @@ export default function BrandHallPage() {
               That obsession has a face. That the thing we hide in your basement
               is worth putting on a pedestal.
             </p>
-            <p className="text-body-kr font-korean text-white/70 leading-[1.75] mb-8">
+            <p className="text-body-kr font-korean text-white/90 leading-[1.75] mb-8">
               14년간 우리는 지하실과 옥상에서 사라지는 기계를 만들어왔다.
               보이지 않는 것이 목적이었다. 하지만 어느 날 스스로에게 물었다 —
               이 많은 문제를 해결하는 기계가 숨겨져야만 하는가?
@@ -259,7 +259,7 @@ export default function BrandHallPage() {
           <p className="font-heading font-semibold text-[clamp(1.5rem,3vw,2.5rem)] text-white/85 leading-[1.3] mb-4">
             Want to see the next exhibition?
           </p>
-          <p className="text-body-kr font-korean text-white/60 mb-10">
+          <p className="text-body-kr font-korean text-white/80 mb-10">
             다음 전시를 보고 싶다면
           </p>
           <Link
@@ -301,7 +301,7 @@ function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
         <p className="text-sm text-white/90 leading-relaxed max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           {item.description}
         </p>
-        <p className="text-xs font-korean text-white/70 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="text-xs font-korean text-white/90 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           {item.descriptionKr}
         </p>
       </div>

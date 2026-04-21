@@ -176,7 +176,7 @@ export default function DeliveriesPage() {
       <section id="overview" className="container-content pt-24 lg:pt-32 pb-12">
         <div className="flex items-end justify-between gap-6 mb-10">
           <div>
-            <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
               DELIVERY RECORDS / 납품 실적
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
@@ -185,7 +185,7 @@ export default function DeliveriesPage() {
               WE&apos;VE BEEN.
             </h1>
           </div>
-          <p className="hero-fade hidden md:block caption-style text-ink/70 text-right leading-relaxed max-w-[24ch] opacity-0">
+          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[24ch] opacity-0">
             EVERY INSTALLATION IS
             <br />
             TUNED FOR ITS SITE —
@@ -203,7 +203,7 @@ export default function DeliveriesPage() {
       {/* ── Filter row ── */}
       <section id="filter" className="container-content pb-10">
         <div className="scroll-fade flex items-center gap-3 flex-wrap border-t-2 border-ink pt-6 opacity-0">
-          <span className="caption-style text-ink/70 mr-2">CATEGORY</span>
+          <span className="caption-style text-ink/90 mr-2">CATEGORY</span>
           {FILTERS.map((f) => (
             <button
               key={f.id}
@@ -212,11 +212,11 @@ export default function DeliveriesPage() {
               className={`px-5 py-2 text-xs font-bold tracking-[0.08em] uppercase rounded-full border-2 transition-colors ${
                 f.active
                   ? "bg-ink text-paper border-ink"
-                  : "border-bone text-ink/50 cursor-not-allowed"
+                  : "border-bone text-ink/70 cursor-not-allowed"
               }`}
             >
               {f.label}
-              {!f.active && <span className="ml-2 text-ink/40">· SOON</span>}
+              {!f.active && <span className="ml-2 text-ink/60">· SOON</span>}
             </button>
           ))}
         </div>
@@ -243,7 +243,7 @@ export default function DeliveriesPage() {
               />
               <div className="absolute top-5 left-5 inline-flex items-center gap-2 bg-paper/95 px-3 py-1.5 rounded-full">
                 <span className="caption-style text-ink/80">CASE 01</span>
-                <span className="caption-style text-ink/50">· FEATURED</span>
+                <span className="caption-style text-ink/70">· FEATURED</span>
               </div>
             </div>
 
@@ -252,7 +252,7 @@ export default function DeliveriesPage() {
                 <span className="caption-style text-ink/80">
                   {featured.regionEn} · {featured.location}
                 </span>
-                <span className="caption-style text-ink/60">
+                <span className="caption-style text-ink/80">
                   {featured.date}
                 </span>
               </div>
@@ -271,7 +271,7 @@ export default function DeliveriesPage() {
                   <p className="text-body-kr font-korean text-ink/90 leading-[1.7] italic">
                     &ldquo;{featured.testimonial.quote}&rdquo;
                   </p>
-                  <p className="caption-style text-ink/70 mt-3">
+                  <p className="caption-style text-ink/90 mt-3">
                     — {featured.testimonial.name} · {featured.testimonial.role}
                   </p>
                 </blockquote>
@@ -285,7 +285,7 @@ export default function DeliveriesPage() {
       <section id="regions" className="container-content pb-24">
         <div className="scroll-fade flex items-baseline justify-between border-t-2 border-ink pt-6 mb-12 opacity-0">
           <span className="caption-style text-ink/80">ALL RECORDS · BY REGION</span>
-          <span className="caption-style text-ink/60">
+          <span className="caption-style text-ink/80">
             {String(totalCount).padStart(2, "0")} UNITS
           </span>
         </div>
@@ -298,16 +298,16 @@ export default function DeliveriesPage() {
                 {/* Region header */}
                 <div className="flex items-end justify-between gap-6 mb-8 pb-4 border-b border-ink/20">
                   <div>
-                    <span className="caption-style text-ink/70 block mb-2">
+                    <span className="caption-style text-ink/90 block mb-2">
                       REGION
                     </span>
                     <h3 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
                       {first.regionEn}
-                      <span className="text-ink/40"> · </span>
+                      <span className="text-ink/60"> · </span>
                       {first.regionKr}
                     </h3>
                   </div>
-                  <span className="caption-style text-ink/70 pb-2 shrink-0">
+                  <span className="caption-style text-ink/90 pb-2 shrink-0">
                     {String(items.length).padStart(2, "0")} UNIT
                     {items.length > 1 ? "S" : ""}
                   </span>
@@ -320,21 +320,21 @@ export default function DeliveriesPage() {
                       key={d.id}
                       className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-4 md:gap-8 items-start py-6"
                     >
-                      <span className="caption-style text-ink/70 md:w-20 shrink-0 pt-1">
+                      <span className="caption-style text-ink/90 md:w-20 shrink-0 pt-1">
                         {d.date}
                       </span>
                       <div>
                         <p className="font-display font-bold text-[clamp(1.15rem,1.8vw,1.5rem)] text-ink tracking-tight leading-[1.2]">
                           {d.client}
                         </p>
-                        <p className="caption-style text-ink/70 mt-1.5">
+                        <p className="caption-style text-ink/90 mt-1.5">
                           {d.location} · UNIT {d.product}
                         </p>
                         <p className="text-body-kr font-korean text-ink/80 leading-[1.7] mt-3 max-w-3xl">
                           {d.summary}
                         </p>
                       </div>
-                      <span className="caption-style text-ink/60 md:text-right shrink-0 pt-1.5">
+                      <span className="caption-style text-ink/80 md:text-right shrink-0 pt-1.5">
                         REC · {String(DELIVERIES.indexOf(d) + 1).padStart(3, "0")}
                       </span>
                     </article>
@@ -351,7 +351,7 @@ export default function DeliveriesPage() {
         <div className="container-content">
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] items-end gap-10">
             <div>
-              <span className="scroll-fade caption-style text-paper/70 block mb-6 opacity-0">
+              <span className="scroll-fade caption-style text-paper/90 block mb-6 opacity-0">
                 NEXT CASE ·  YOURS
               </span>
               <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
@@ -382,7 +382,7 @@ export default function DeliveriesPage() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="px-0 md:px-6 py-6 border-r border-ink/10 last:border-r-0 [&:nth-child(2n)]:md:border-r md:[&:nth-child(2n)]:border-r-ink/10 [&:nth-child(2)]:border-r-0 [&:nth-child(2)]:md:border-r">
-      <span className="caption-style text-ink/70 block mb-2">{label}</span>
+      <span className="caption-style text-ink/90 block mb-2">{label}</span>
       <span className="font-display font-bold text-[clamp(1.6rem,2.8vw,2.25rem)] text-ink tracking-tight leading-[1]">
         {value}
       </span>

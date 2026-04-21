@@ -104,7 +104,7 @@ export default function BlogPage() {
       <section id="overview" className="container-content pt-24 lg:pt-32 pb-16 lg:pb-20">
         <div className="flex items-end justify-between gap-6 mb-10 lg:mb-16">
           <div>
-            <span className="hero-fade caption-style text-ink/70 block mb-6 opacity-0">
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
               THE BLOG / 기록
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
@@ -113,7 +113,7 @@ export default function BlogPage() {
               NOTES.
             </h1>
           </div>
-          <p className="hero-fade hidden md:block caption-style text-ink/70 text-right leading-relaxed max-w-[22ch] opacity-0">
+          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[22ch] opacity-0">
             ENGINEERING, ROASTING,
             <br />
             AND THE STORIES BEHIND
@@ -146,7 +146,7 @@ export default function BlogPage() {
                 <span className="caption-style text-ink/80">
                   FEATURED · {featured.category}
                 </span>
-                <span className="caption-style text-ink/60">
+                <span className="caption-style text-ink/80">
                   {featured.date}
                 </span>
               </div>
@@ -168,7 +168,7 @@ export default function BlogPage() {
       <section id="entries" className="container-content pb-32">
         <div className="flex items-baseline justify-between border-t-2 border-ink pt-6 mb-10">
           <span className="caption-style text-ink/80">ALL ENTRIES</span>
-          <span className="caption-style text-ink/60">
+          <span className="caption-style text-ink/80">
             {String(POSTS.length).padStart(2, "0")} POSTS
           </span>
         </div>
@@ -191,7 +191,7 @@ export default function BlogPage() {
                 <span className="caption-style text-ink/80">
                   {post.category}
                 </span>
-                <span className="caption-style text-ink/60">{post.date}</span>
+                <span className="caption-style text-ink/80">{post.date}</span>
               </div>
 
               <h3 className="font-display font-bold text-[clamp(1.25rem,2.2vw,1.9rem)] text-ink leading-[1.15] tracking-[-0.02em] mb-3 group-hover:underline underline-offset-4 decoration-2">

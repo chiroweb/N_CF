@@ -32,7 +32,7 @@ export default function Footer() {
             <p className="text-body-en text-paper/85 text-sm">
               We only make afterburners.
             </p>
-            <p className="text-body-kr font-korean text-paper/70 text-sm mt-1">
+            <p className="text-body-kr font-korean text-paper/90 text-sm mt-1">
               애프터버너만 만듭니다.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function Footer() {
 
           {/* Col 3 — Contact */}
           <div>
-            <span className="caption-style text-paper/70 block mb-4">
+            <span className="caption-style text-paper/90 block mb-4">
               FACTORY
             </span>
             <p className="text-sm text-paper/85 leading-relaxed">
@@ -71,20 +71,20 @@ export default function Footer() {
               {COMPANY.email}
             </p>
 
-            <span className="caption-style text-paper/70 block mt-6 mb-2">
+            <span className="caption-style text-paper/90 block mt-6 mb-2">
               HOURS
             </span>
             <p className="text-sm text-paper/85">
               {COMPANY.hoursEn}
             </p>
-            <p className="text-xs font-korean text-paper/70">
+            <p className="text-xs font-korean text-paper/90">
               {COMPANY.hoursKr}
             </p>
           </div>
 
           {/* Col 4 — Coordinates + Social */}
           <div>
-            <p className="caption-style text-paper/70 mb-4">
+            <p className="caption-style text-paper/90 mb-4">
               {COMPANY.coordinates}
             </p>
             <div className="space-y-3 mt-6">
@@ -114,7 +114,7 @@ export default function Footer() {
               {Array.from({ length: 5 }).map((_, i) => (
                 <span
                   key={i}
-                  className="caption-style text-paper/50 group-hover:text-paper/70 transition-colors mx-8"
+                  className="caption-style text-paper/70 group-hover:text-paper/90 transition-colors mx-8"
                 >
                   &uarr; &uarr; &uarr; &uarr; &uarr; BACK TO TOP &uarr; &uarr; &uarr; &uarr; &uarr;
                 </span>
@@ -125,14 +125,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-paper/10">
-          <p className="caption-style text-paper/65">
+          <p className="caption-style text-paper/85">
             &copy; 2026 {COMPANY.nameKr} · CEO {COMPANY.ceo} · {COMPANY.businessNumber}
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="caption-style text-paper/65 hover:text-paper/85 transition-colors">
+            <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
               PRIVACY
             </Link>
-            <Link href="#" className="caption-style text-paper/65 hover:text-paper/85 transition-colors">
+            <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
               TERMS
             </Link>
           </div>

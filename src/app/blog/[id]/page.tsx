@@ -6,12 +6,12 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
       <div className="container-content pt-24 lg:pt-32 pb-32">
         <Link
           href="/blog"
-          className="caption-style text-ink/70 hover:text-ink transition-colors inline-block mb-10"
+          className="caption-style text-ink/90 hover:text-ink transition-colors inline-block mb-10"
         >
           &larr; BACK TO FIELD NOTES
         </Link>
 
-        <span className="caption-style text-ink/70 block mb-6">
+        <span className="caption-style text-ink/90 block mb-6">
           ENTRY · {String(params.id).padStart(2, "0")}
         </span>
 
