@@ -1,133 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { gsap } from "@/lib/gsap";
+import { AFTERBURNER_BRAND_COMBOS } from "@/lib/deliveries";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
-import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "OVERVIEW" },
   { id: "filter", label: "CATEGORY" },
-  { id: "featured", label: "FEATURED" },
-  { id: "regions", label: "BY REGION" },
+  { id: "brands", label: "BY BRAND" },
   { id: "contact", label: "CONTACT" },
-];
-
-const S3 = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
-
-type Delivery = {
-  id: string;
-  client: string;
-  location: string;
-  region: string;
-  regionKr: string;
-  regionEn: string;
-  date: string;
-  product: string;
-  summary: string;
-  featured?: boolean;
-  image: string;
-  testimonial?: { quote: string; name: string; role: string };
-};
-
-// Afterburner deliveries only (roasters / the lab filters come later)
-const DELIVERIES: Delivery[] = [
-  {
-    id: "seoulsoop",
-    client: "서울숲 로스터스",
-    location: "서울 성동구",
-    region: "seoul",
-    regionKr: "서울",
-    regionEn: "SEOUL",
-    date: "2025.12",
-    product: "NKIC-30K + BASE 30",
-    summary:
-      "15kg 로스터에서 30kg으로 업그레이드하며 제연기도 동급으로 증설. 야간 2일 집중 설치로 매장 운영 무중단. 일일 처리량이 45kg에서 150kg으로 증가했습니다.",
-    featured: true,
-    image: `${S3}/stock-install-1.jpg`,
-    testimonial: {
-      quote:
-        "설치 과정에서 매장 운영에 영향이 전혀 없었습니다. NBP 팀의 사전 현장 조사가 정확했기 때문이라고 생각합니다.",
-      name: "김도윤",
-      role: "서울숲 로스터스 대표",
-    },
-  },
-  {
-    id: "fritz-mapo",
-    client: "프릳츠 커피컴퍼니",
-    location: "서울 마포구",
-    region: "seoul",
-    regionKr: "서울",
-    regionEn: "SEOUL",
-    date: "2025.01",
-    product: "NKIC-60K",
-    summary:
-      "기존 로스터리 시설의 환기 개선 프로젝트. 대용량 애프터버너로 교체하고 덕트 경로를 재설계했습니다.",
-    image: `${S3}/stock-install-7.jpg`,
-  },
-  {
-    id: "cafe-ondo",
-    client: "카페 온도",
-    location: "부산 해운대구",
-    region: "busan",
-    regionKr: "부산",
-    regionEn: "BUSAN",
-    date: "2025.11",
-    product: "NKIC-10K",
-    summary:
-      "해운대 주거 밀집 신축 매장. 덕트 경로를 3D로 사전 모델링하고 이단연소를 적용해 배출구 잔여 냄새를 최소화. 오픈 6개월간 민원 0건.",
-    image: `${S3}/stock-install-4.jpg`,
-    testimonial: {
-      quote: "주거 지역이라 걱정이 많았는데, 6개월째 민원이 단 한 건도 없습니다.",
-      name: "박서현",
-      role: "카페 온도 오너",
-    },
-  },
-  {
-    id: "blackwater",
-    client: "블랙워터 커피랩",
-    location: "대전 유성구",
-    region: "daejeon",
-    regionKr: "대전",
-    regionEn: "DAEJEON",
-    date: "2025.09",
-    product: "NKIC-15K + BASE 15",
-    summary:
-      "신축 단계부터 참여한 로스터리 카페. 건축 설계사와 3회 협업해 천장·덕트·가스 인입 위치까지 조율. 시운전과 로스팅 교육 2회 병행.",
-    image: `${S3}/stock-install-8.jpg`,
-  },
-  {
-    id: "jeju-olle",
-    client: "제주 올레커피",
-    location: "제주 서귀포시",
-    region: "jeju",
-    regionKr: "제주",
-    regionEn: "JEJU",
-    date: "2025.03",
-    product: "NKIC-30K + BASE 30",
-    summary:
-      "관광객 로스팅 체험 프로그램을 위한 오픈형 설치. 강화유리 안전 가드와 관람/작업 동선을 분리한 ㄷ자 레이아웃. 월 평균 1,200명 체험.",
-    image: `${S3}/stock-expo-1.jpg`,
-  },
 ];
 
 const FILTERS = [
   { id: "afterburner", label: "AFTERBURNER", active: true },
-  { id: "roasters", label: "ROASTERS", active: false },
-  { id: "the-lab", label: "THE LAB", active: false },
+  { id: "installations-2025", label: "2025 설치현황", active: false },
+  { id: "nutbutter", label: "넛츠스타", active: false },
 ];
 
 export default function DeliveriesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
-  const featured = DELIVERIES.find((d) => d.featured);
+
   const grouped = useMemo(() => {
-    const map = new Map<string, Delivery[]>();
-    for (const d of DELIVERIES) {
-      if (!map.has(d.region)) map.set(d.region, []);
-      map.get(d.region)!.push(d);
+    const map = new Map<string, typeof AFTERBURNER_BRAND_COMBOS>();
+    for (const r of AFTERBURNER_BRAND_COMBOS) {
+      if (!map.has(r.brand)) map.set(r.brand, []);
+      map.get(r.brand)!.push(r);
     }
-    return Array.from(map.entries());
+    return Array.from(map.entries()).sort((a, b) => b[1].length - a[1].length);
   }, []);
 
   useEffect(() => {
@@ -150,11 +51,11 @@ export default function DeliveriesPage() {
             {
               opacity: 1,
               y: 0,
-              duration: 0.7,
+              duration: 0.6,
               ease: "power2.out",
               scrollTrigger: {
                 trigger: el,
-                start: "top 88%",
+                start: "top 90%",
                 toggleActions: "play none none none",
               },
             }
@@ -166,8 +67,8 @@ export default function DeliveriesPage() {
     return () => ctx.revert();
   }, []);
 
-  const totalCount = DELIVERIES.length;
-  const regionCount = grouped.length;
+  const totalUnits = AFTERBURNER_BRAND_COMBOS.length;
+  const brandCount = grouped.length;
 
   return (
     <div ref={pageRef} className="bg-paper min-h-screen">
@@ -181,23 +82,27 @@ export default function DeliveriesPage() {
               DELIVERY RECORDS / 납품 실적
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
-              WHERE
+              EVERY
               <br />
-              WE&apos;VE BEEN.
+              ROASTER.
+              <br />
+              EVERY BRAND.
             </h1>
           </div>
-          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[24ch] opacity-0">
-            EVERY INSTALLATION IS
+          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[26ch] opacity-0">
+            AFTERBURNER COMBINED WITH
             <br />
-            TUNED FOR ITS SITE —
+            COFFEE ROASTING MACHINES,
             <br />
-            DUCT, POWER, VOLUME.
+            EVERY MAJOR BRAND WORLDWIDE.
           </p>
         </div>
 
-        <p className="hero-fade text-body-kr font-korean text-ink/80 leading-[1.75] max-w-2xl opacity-0">
-          애프터버너는 출고되는 순간 표준이 아니라 설치 현장의 환경을 따라
-          조립됩니다. 아래는 그중 일부 기록입니다.
+        <p className="hero-fade text-body-kr font-korean text-ink/90 leading-[1.75] max-w-2xl opacity-0">
+          엔비피코리아 애프터버너는 PROBAT · GIESEN · LORING · FUJI ROYAL ·
+          BUHLER · OZTURK · HASGARANTI · DIEDRICH · TOPER · JOPER · EASYSTER ·
+          PROASTER · BEANMASTER 등 국내외 주요 로스팅기 브랜드와 결합되어
+          운용되고 있습니다. 아래는 2024년 10월 기준 집계된 현장 기록입니다.
         </p>
       </section>
 
@@ -226,128 +131,74 @@ export default function DeliveriesPage() {
       {/* ── Stats strip ── */}
       <section className="container-content pb-20">
         <div className="scroll-fade grid grid-cols-2 md:grid-cols-4 border-t border-ink/15 border-b border-ink/15 opacity-0">
-          <Stat label="TOTAL INSTALLATIONS" value={String(totalCount).padStart(2, "0")} />
-          <Stat label="REGIONS" value={String(regionCount).padStart(2, "0")} />
-          <Stat label="PERIOD" value="2025" />
+          <Stat label="COMBINED UNITS" value={String(totalUnits).padStart(3, "0")} />
+          <Stat label="ROASTER BRANDS" value={String(brandCount).padStart(2, "0")} />
+          <Stat label="COMPILED" value="2024.10" />
           <Stat label="CATEGORY" value="AFTERBURNER" />
         </div>
       </section>
 
-      {/* ── Featured case ── */}
-      {featured && (
-        <section id="featured" className="container-content pb-20 lg:pb-28">
-          <div className="scroll-fade grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-start opacity-0">
-            <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-bone">
-              <Image
-                src={featured.image}
-                alt={featured.client}
-                fill
-                priority
-                sizes="(min-width: 1024px) 60vw, 100vw"
-                className="object-cover object-center"
-              />
-              <div className="absolute top-5 left-5 inline-flex items-center gap-2 bg-paper/95 px-3 py-1.5 rounded-full">
-                <span className="caption-style text-ink/80">CASE 01</span>
-                <span className="caption-style text-ink/70">· FEATURED</span>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="caption-style text-ink/80">
-                  {featured.regionEn} · {featured.location}
-                </span>
-                <span className="caption-style text-ink/80">
-                  {featured.date}
-                </span>
-              </div>
-              <h2 className="font-display font-bold text-[clamp(1.85rem,3.4vw,2.85rem)] text-ink leading-[1.08] tracking-[-0.02em] mb-3">
-                {featured.client}
-              </h2>
-              <p className="caption-style text-ink/75 mb-6">
-                UNIT · {featured.product}
-              </p>
-              <p className="text-body-kr font-korean text-ink/85 leading-[1.75] mb-8">
-                {featured.summary}
-              </p>
-
-              {featured.testimonial && (
-                <blockquote className="border-l-2 border-ink pl-5 py-1">
-                  <p className="text-body-kr font-korean text-ink/90 leading-[1.7] italic">
-                    &ldquo;{featured.testimonial.quote}&rdquo;
-                  </p>
-                  <p className="caption-style text-ink/90 mt-3">
-                    — {featured.testimonial.name} · {featured.testimonial.role}
-                  </p>
-                </blockquote>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Regional lists ── */}
-      <section id="regions" className="container-content pb-24">
+      {/* ── Brand-grouped list ── */}
+      <section id="brands" className="container-content pb-24">
         <div className="scroll-fade flex items-baseline justify-between border-t-2 border-ink pt-6 mb-12 opacity-0">
-          <span className="caption-style text-ink/80">ALL RECORDS · BY REGION</span>
+          <span className="caption-style text-ink/90">
+            ROASTER × AFTERBURNER · BY BRAND
+          </span>
           <span className="caption-style text-ink/80">
-            {String(totalCount).padStart(2, "0")} UNITS
+            {String(totalUnits).padStart(3, "0")} UNITS · {String(brandCount).padStart(2, "0")} BRANDS
           </span>
         </div>
 
         <div className="space-y-20 lg:space-y-28">
-          {grouped.map(([region, items]) => {
-            const first = items[0];
-            return (
-              <div key={region} className="scroll-fade opacity-0">
-                {/* Region header */}
-                <div className="flex items-end justify-between gap-6 mb-8 pb-4 border-b border-ink/20">
-                  <div>
-                    <span className="caption-style text-ink/90 block mb-2">
-                      REGION
-                    </span>
-                    <h3 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
-                      {first.regionEn}
-                      <span className="text-ink/60"> · </span>
-                      {first.regionKr}
-                    </h3>
-                  </div>
-                  <span className="caption-style text-ink/90 pb-2 shrink-0">
-                    {String(items.length).padStart(2, "0")} UNIT
-                    {items.length > 1 ? "S" : ""}
+          {grouped.map(([brand, items]) => (
+            <div key={brand} className="scroll-fade opacity-0">
+              {/* Brand header */}
+              <div className="flex items-end justify-between gap-6 mb-6 pb-4 border-b border-ink/20">
+                <div>
+                  <span className="caption-style text-ink/90 block mb-2">
+                    ROASTER BRAND
                   </span>
+                  <h3 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
+                    {brand}
+                  </h3>
                 </div>
-
-                {/* Entries */}
-                <div className="divide-y divide-ink/10">
-                  {items.map((d) => (
-                    <article
-                      key={d.id}
-                      className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-4 md:gap-8 items-start py-6"
-                    >
-                      <span className="caption-style text-ink/90 md:w-20 shrink-0 pt-1">
-                        {d.date}
-                      </span>
-                      <div>
-                        <p className="font-display font-bold text-[clamp(1.15rem,1.8vw,1.5rem)] text-ink tracking-tight leading-[1.2]">
-                          {d.client}
-                        </p>
-                        <p className="caption-style text-ink/90 mt-1.5">
-                          {d.location} · UNIT {d.product}
-                        </p>
-                        <p className="text-body-kr font-korean text-ink/80 leading-[1.7] mt-3 max-w-3xl">
-                          {d.summary}
-                        </p>
-                      </div>
-                      <span className="caption-style text-ink/80 md:text-right shrink-0 pt-1.5">
-                        REC · {String(DELIVERIES.indexOf(d) + 1).padStart(3, "0")}
-                      </span>
-                    </article>
-                  ))}
-                </div>
+                <span className="caption-style text-ink/90 pb-2 shrink-0">
+                  {String(items.length).padStart(2, "0")} UNIT
+                  {items.length > 1 ? "S" : ""}
+                </span>
               </div>
-            );
-          })}
+
+              {/* Entries table — header */}
+              <div className="hidden md:grid grid-cols-[2.2fr_auto_auto_auto] gap-6 py-3 border-b border-ink/10">
+                <span className="caption-style text-ink/80">COMPANY</span>
+                <span className="caption-style text-ink/80 text-right">ROASTER</span>
+                <span className="caption-style text-ink/80 text-right">AFTERBURNER</span>
+                <span className="caption-style text-ink/80 text-right">LOCATION</span>
+              </div>
+
+              <div className="divide-y divide-ink/10">
+                {items.map((r, i) => (
+                  <article
+                    key={`${brand}-${i}`}
+                    className="grid grid-cols-1 md:grid-cols-[2.2fr_auto_auto_auto] gap-2 md:gap-6 py-4"
+                  >
+                    <p className="font-display font-bold text-[clamp(1rem,1.4vw,1.2rem)] text-ink tracking-tight leading-[1.3]">
+                      {r.company}
+                    </p>
+                    <p className="caption-style text-ink/90 md:text-right">
+                      R · {r.roastKg}Kg
+                    </p>
+                    <p className="caption-style text-ink/90 md:text-right">
+                      AB · {r.burnerKg}Kg
+                    </p>
+                    <p className="caption-style text-ink/85 md:text-right shrink-0">
+                      {r.location}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -357,16 +208,16 @@ export default function DeliveriesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] items-end gap-10">
             <div>
               <span className="scroll-fade caption-style text-paper/90 block mb-6 opacity-0">
-                NEXT CASE ·  YOURS
+                NEXT ON THE LIST · YOURS
               </span>
               <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
-                YOUR ROASTERY
+                YOUR ROASTER
                 <br />
-                ON THIS PAGE.
+                BELONGS HERE.
               </h2>
-              <p className="scroll-fade text-body-kr font-korean text-paper/85 leading-[1.75] mt-6 max-w-md opacity-0">
-                다음 기록 01은 당신의 매장이 될 수 있습니다. 현장 조사부터
-                시운전까지 한 팀이 끝까지 함께합니다.
+              <p className="scroll-fade text-body-kr font-korean text-paper/90 leading-[1.75] mt-6 max-w-md opacity-0">
+                어떤 브랜드의 로스팅기든, 어떤 용량이든 애프터버너는 현장에 맞춰
+                제작됩니다. 다음 기록의 첫 줄이 당신의 매장이길 바랍니다.
               </p>
             </div>
             <div className="scroll-fade opacity-0">
