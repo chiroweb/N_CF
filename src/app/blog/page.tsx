@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
+import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
@@ -135,9 +136,13 @@ export default function BlogPage() {
             className="scroll-fade group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-12 border-t-2 border-ink pt-6 opacity-0"
           >
             <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-bone">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${featured.image})` }}
+              <Image
+                src={featured.image}
+                alt={featured.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
             </div>
 
@@ -181,9 +186,12 @@ export default function BlogPage() {
               className="scroll-fade group flex flex-col opacity-0"
             >
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-bone mb-6">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${post.image})` }}
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 

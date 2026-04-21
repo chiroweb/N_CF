@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 import Link from "next/link";
 
 const PRODUCTS = [
@@ -96,7 +97,14 @@ export default function Hero() {
           ref={bgRef}
           className="absolute inset-0 -top-[30%] -bottom-[30%]"
         >
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.heroBg})` }} />
+          <Image
+            src={IMAGES.heroBg}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
           <div className="absolute inset-0 bg-ink/40" />
         </div>
       </div>

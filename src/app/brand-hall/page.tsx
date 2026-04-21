@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
+import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
@@ -281,9 +282,12 @@ function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
     <div className={`gallery-item group relative overflow-hidden rounded-lg opacity-0 ${isLarge ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
       {/* Image with parallax */}
       <div className="gallery-parallax absolute inset-0 -top-[10%] -bottom-[10%]">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style={{ backgroundImage: `url(${item.image})` }}
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          sizes={isLarge ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
       </div>
 

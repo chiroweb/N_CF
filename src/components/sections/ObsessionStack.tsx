@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 
 const OBSESSIONS = [
   { id: 1, title: "THE DUCT FLANGE", en: "Sealed twice. We don't trust a single gasket.", span: "col-span-1", img: IMAGES.obs01 },
@@ -62,10 +63,13 @@ export default function ObsessionStack() {
               className={`obs-item ${obs.span} border border-bone p-6 rounded-lg opacity-0`}
             >
               {/* Detail photo */}
-              <div className="w-full aspect-[4/3] bg-bone/50 mb-4 overflow-hidden rounded-lg">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${obs.img})` }}
+              <div className="relative w-full aspect-[4/3] bg-bone/50 mb-4 overflow-hidden rounded-lg">
+                <Image
+                  src={obs.img}
+                  alt={obs.title}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover object-center"
                 />
               </div>
 

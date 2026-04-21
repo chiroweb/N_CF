@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function InstallationStories() {
@@ -78,7 +79,13 @@ export default function InstallationStories() {
           {/* Center — editorial photo */}
           <div className="fade-in opacity-0">
             <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-bone">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.installationPhoto})` }} />
+              <Image
+                src={IMAGES.installationPhoto}
+                alt="Installation photograph"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-center"
+              />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="caption-style text-ink/30">
                   INSTALLATION PHOTO

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Evidence() {
@@ -76,7 +77,13 @@ export default function Evidence() {
         ref={bgRef}
         className="absolute inset-0 -top-[15%] -bottom-[15%]"
       >
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.evidenceBg})` }} />
+        <Image
+          src={IMAGES.evidenceBg}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
       </div>
 
       {/* ── Content layer — scrolls at normal speed ── */}
@@ -120,7 +127,13 @@ export default function Evidence() {
               className="relative z-10 w-[clamp(260px,42vw,640px)] shrink-0"
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-bone rounded-lg">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${IMAGES.evidenceFloat})` }} />
+                <Image
+                  src={IMAGES.evidenceFloat}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "@/lib/gsap";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
+import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
@@ -237,9 +238,13 @@ export default function DeliveriesPage() {
         <section id="featured" className="container-content pb-20 lg:pb-28">
           <div className="scroll-fade grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-16 items-start opacity-0">
             <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-bone">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${featured.image})` }}
+              <Image
+                src={featured.image}
+                alt={featured.client}
+                fill
+                priority
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover object-center"
               />
               <div className="absolute top-5 left-5 inline-flex items-center gap-2 bg-paper/95 px-3 py-1.5 rounded-full">
                 <span className="caption-style text-ink/80">CASE 01</span>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
+import Image from "next/image";
 import Link from "next/link";
 
 const SLIDES = [
@@ -170,9 +171,13 @@ export default function Mission() {
             style={{ height: "130vh" }}
           >
             <div className="parallax-inner absolute inset-0 -top-[10%] -bottom-[10%] bg-haze">
-              <div
-                className="slide-content absolute inset-0 bg-cover bg-center transition-none"
-                style={{ backgroundImage: `url(${slide.leftImage})` }}
+              <Image
+                key={slide.leftImage}
+                src={slide.leftImage}
+                alt={slide.title}
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="slide-content object-cover object-center"
               />
             </div>
 
@@ -222,9 +227,13 @@ export default function Mission() {
               className="relative overflow-hidden rounded-lg bg-bone aspect-[4/3]"
             >
               <div className="parallax-inner absolute inset-0 -top-[10%] -bottom-[10%]">
-                <div
-                  className="slide-content absolute inset-0 bg-cover bg-center transition-none"
-                  style={{ backgroundImage: `url(${slide.rightImage})` }}
+                <Image
+                  key={slide.rightImage}
+                  src={slide.rightImage}
+                  alt={slide.title}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="slide-content object-cover object-center"
                 />
               </div>
             </div>

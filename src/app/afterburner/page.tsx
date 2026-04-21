@@ -9,6 +9,7 @@ import {
   HERO_IMAGES,
 } from "@/lib/products";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
+import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
@@ -170,9 +171,17 @@ export default function AfterburnerPage() {
           <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
             <div
               ref={heroImgRef}
-              className="absolute inset-0 -top-[15%] -bottom-[15%] bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${HERO_IMAGES.afterburner})` }}
-            />
+              className="absolute inset-0 -top-[15%] -bottom-[15%]"
+            >
+              <Image
+                src={HERO_IMAGES.afterburner}
+                alt="Afterburner hero"
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain object-center"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -255,9 +264,13 @@ export default function AfterburnerPage() {
           {/* Left — product image */}
           <div className="model-content">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
-              <div
-                className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-none"
-                style={{ backgroundImage: `url(${model.gallery[galleryIndex]})` }}
+              <Image
+                key={model.gallery[galleryIndex]}
+                src={model.gallery[galleryIndex]}
+                alt={`${model.name} · ${galleryIndex + 1}`}
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-contain object-center"
               />
             </div>
             {model.gallery.length > 1 && (
@@ -266,13 +279,16 @@ export default function AfterburnerPage() {
                   <button
                     key={i}
                     onClick={() => setGalleryIndex(i)}
-                    className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                    className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
                       i === galleryIndex ? "border-ink" : "border-bone"
                     }`}
                   >
-                    <div
-                      className="w-full h-full bg-cover bg-center"
-                      style={{ backgroundImage: `url(${img})` }}
+                    <Image
+                      src={img}
+                      alt=""
+                      fill
+                      sizes="64px"
+                      className="object-cover object-center"
                     />
                   </button>
                 ))}
@@ -431,9 +447,12 @@ function TiltCard({
       className="scroll-fade group rounded-lg border border-bone overflow-hidden opacity-0 transition-transform duration-200 ease-out will-change-transform"
     >
       <div className="relative aspect-[4/3] bg-bone overflow-hidden">
-        <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
-          style={{ backgroundImage: `url(${image})` }}
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="object-contain object-center transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-500" />
       </div>

@@ -5,6 +5,7 @@ import { gsap } from "@/lib/gsap";
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
 import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
+import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
@@ -146,9 +147,17 @@ export default function TheLabPage() {
           <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
             <div
               ref={mastheadImgRef}
-              className="absolute inset-0 -top-[12%] -bottom-[12%] bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${NUTBUTTER_PRODUCT.heroImage})` }}
-            />
+              className="absolute inset-0 -top-[12%] -bottom-[12%]"
+            >
+              <Image
+                src={NUTBUTTER_PRODUCT.heroImage}
+                alt="NUTS-STAR masthead"
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain object-center"
+              />
+            </div>
           </div>
         </div>
 
@@ -214,9 +223,16 @@ export default function TheLabPage() {
         <div className="relative aspect-[16/9] lg:aspect-[2/1] overflow-hidden bg-bone">
           <div
             ref={plateImgRef}
-            className="absolute inset-0 -top-[10%] -bottom-[10%] bg-cover bg-center"
-            style={{ backgroundImage: `url(${IMAGES.obs01})` }}
-          />
+            className="absolute inset-0 -top-[10%] -bottom-[10%]"
+          >
+            <Image
+              src={IMAGES.obs01}
+              alt="Workshop plate, Ansan"
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
           <div className="absolute inset-0 bg-ink/20" />
           <div className="absolute bottom-6 left-[var(--edge-margin)] right-[var(--edge-margin)] flex items-end justify-between gap-6">
             <span className="caption-style text-white/85">
@@ -265,9 +281,12 @@ export default function TheLabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-10 lg:gap-20 items-start">
           <div className="scroll-fade opacity-0">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
-              <div
-                className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${NUTBUTTER_PRODUCT.image})` }}
+              <Image
+                src={NUTBUTTER_PRODUCT.image}
+                alt="NUTS-STAR assembly"
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-contain object-center"
               />
             </div>
             <p className="caption-style text-ink/90 mt-3">
