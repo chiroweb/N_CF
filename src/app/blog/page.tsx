@@ -5,55 +5,13 @@ import { gsap } from "@/lib/gsap";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Image from "next/image";
 import Link from "next/link";
+import { POSTS } from "@/lib/posts";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "OVERVIEW" },
   { id: "featured", label: "FEATURED" },
   { id: "entries", label: "ALL ENTRIES" },
   { id: "subscribe", label: "SUBSCRIBE" },
-];
-
-const S3_STOCK = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
-
-type Post = {
-  id: number;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  image: string;
-  featured?: boolean;
-};
-
-const POSTS: Post[] = [
-  {
-    id: 1,
-    title: "로스팅 프로파일의 과학: 첫 번째 크랙 이후의 선택",
-    excerpt:
-      "첫 번째 크랙 이후 로스팅 시간과 온도 변화가 커피 향미에 미치는 영향을 데이터로 분석합니다. NBP 로스터의 실시간 모니터링 시스템을 활용한 실험 결과를 공유합니다.",
-    date: "2025.12.18",
-    category: "기술 노트",
-    image: `${S3_STOCK}/stock-roasting-1.jpg`,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "도심 카페의 연기 문제, 촉매 산화로 해결하다",
-    excerpt:
-      "서울 도심 상권에서 로스터리 카페를 운영할 때 가장 큰 장벽인 연기 문제. NBP 애프터버너의 2단 연소 및 축열식 재연소 기술을 소개합니다.",
-    date: "2025.11.04",
-    category: "제품 리뷰",
-    image: `${S3_STOCK}/stock-roasting-2.jpg`,
-  },
-  {
-    id: 3,
-    title: "견과류 메뉴가 카페 매출에 미치는 영향",
-    excerpt:
-      "NUTS-STAR 넛버터 머신을 도입한 10개 매장의 6개월 매출 데이터를 분석했습니다. 메뉴 확장이 객단가와 재방문율에 미친 실제 영향.",
-    date: "2025.10.22",
-    category: "인사이트",
-    image: `${S3_STOCK}/stock-roasting-3.jpg`,
-  },
 ];
 
 export default function BlogPage() {
