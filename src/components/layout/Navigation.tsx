@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
-  { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
   { label: "THE LAB", href: "/the-lab" },
@@ -98,7 +97,6 @@ export default function Navigation() {
 
   const isDark = theme === "dark";
   const fg = isDark ? "text-paper" : "text-ink";
-  const fgMuted = isDark ? "text-paper/90" : "text-ink/80";
   const bar = isDark ? "bg-paper" : "bg-ink";
 
   return (
@@ -107,42 +105,27 @@ export default function Navigation() {
         ref={navRef}
         className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
       >
-        <div className="container-content flex items-center justify-between h-16">
-          {/* Logo — also routes home */}
+        <div className="container-content grid grid-cols-3 items-center h-16">
+          {/* Left spacer — balances the grid */}
+          <div aria-hidden className="w-10 h-10" />
+
+          {/* Centered logo — doubles as home link */}
           <Link
             href="/"
             aria-label="NBPKOREA — home"
-            className={`group font-display font-bold text-lg tracking-tight pointer-events-auto flex items-center gap-2 transition-colors duration-200 ${fg}`}
+            className={`group justify-self-center font-display font-bold text-lg tracking-tight pointer-events-auto transition-colors duration-200 ${fg}`}
           >
             <span className="group-hover:underline underline-offset-[6px] decoration-[1.5px]">
               NBPKOREA
             </span>
           </Link>
 
-          {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8 pointer-events-auto">
-            {NAV_LINKS.map((link) => {
-              const active = pathname === link.href;
-              const base = active ? fg : fgMuted;
-              const hover = isDark ? "hover:text-paper" : "hover:text-ink";
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`caption-style transition-colors duration-200 ${base} ${hover}`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Mobile menu button */}
+          {/* Menu button — always visible */}
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="lg:hidden pointer-events-auto w-10 h-10 flex flex-col items-end justify-center gap-1.5"
+            className="justify-self-end pointer-events-auto w-10 h-10 flex flex-col items-end justify-center gap-1.5"
           >
             <span className={`block w-6 h-[2px] ${bar}`} />
             <span className={`block w-4 h-[2px] ${bar}`} />
@@ -150,9 +133,9 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
+      {/* Menu overlay */}
       {open && (
-        <div className="lg:hidden fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
+        <div className="fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
           <div className="flex items-center justify-between h-16 px-[var(--edge-margin)]">
             <span className="font-display font-bold text-lg tracking-tight">
               NBPKOREA
