@@ -120,12 +120,12 @@ export default function Navigation() {
             </span>
           </Link>
 
-          {/* Menu button — always visible */}
+          {/* Mobile menu button — desktop handled by EdgeRails right rail */}
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="justify-self-end pointer-events-auto w-10 h-10 flex flex-col items-end justify-center gap-1.5"
+            className="lg:hidden justify-self-end pointer-events-auto w-10 h-10 flex flex-col items-end justify-center gap-1.5"
           >
             <span className={`block w-6 h-[2px] ${bar}`} />
             <span className={`block w-4 h-[2px] ${bar}`} />
@@ -133,9 +133,9 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Menu overlay */}
+      {/* Mobile menu overlay — desktop uses EdgeRails slide-in */}
       {open && (
-        <div className="fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
+        <div className="lg:hidden fixed inset-0 z-[60] bg-ink text-paper flex flex-col">
           <div className="flex items-center justify-between h-16 px-[var(--edge-margin)]">
             <span className="font-display font-bold text-lg tracking-tight">
               NBPKOREA
