@@ -96,18 +96,14 @@ export default function InstallationStories() {
 
           {/* Right — body text + CTA */}
           <div className="fade-in flex flex-col justify-end pt-8 lg:pt-32 opacity-0">
-            <p className="text-[clamp(0.85rem,1.1vw,1rem)] text-ink font-medium leading-[1.6] uppercase tracking-[0.02em] mb-6">
-              From survey to installation in under
-              two weeks. Every unit is custom-tuned
-              to your roastery&apos;s altitude, duct layout,
-              and roasting volume. No generic solutions.
-              No guesswork.
-            </p>
+            <span className="caption-style text-ink/90 block mb-4">
+              FROM SURVEY TO INSTALL · UNDER 2 WEEKS
+            </span>
 
-            <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mb-8">
-              현장 조사부터 설치까지 2주 이내.
-              로스터리의 고도, 덕트 구조, 로스팅 용량에 맞춰
-              개별 튜닝. 범용 솔루션 없음. 추측 없음.
+            <p className="text-body-kr font-korean text-ink/85 leading-[1.8] mb-8">
+              현장 조사부터 설치까지 2주 이내. 로스터리의 고도, 덕트 구조,
+              로스팅 용량에 맞춰 <span className="font-display">custom-tuned</span>.
+              범용 솔루션 없음, 추측 없음.
             </p>
 
             <Link

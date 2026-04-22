@@ -92,16 +92,15 @@ export default function Evidence() {
         {/* ── Top portion: Manifesto text directly on photo ── */}
         <div className="container-content pt-20 lg:pt-28 pb-20 lg:pb-28">
             {/* Manifesto — large, bold, directly on background photo */}
-            <p className="fade-in font-heading font-semibold text-[clamp(1.8rem,3.8vw,3.4rem)] text-white leading-[1.3] tracking-[-0.01em] opacity-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
-              We&apos;ve been accused of having a one-track mind. And to
-              those accusations we say — thank you. Because we know it&apos;s by
-              focusing on one thing that many things happen. And at NBPKOREA,
-              that one thing was always the afterburner. We have gone deeper
-              into smoke elimination than anyone, getting our hands dirty and
-              soot-dusted at every step.{" "}
+            <p className="fade-in font-heading font-semibold text-[clamp(1.8rem,3.8vw,3.4rem)] text-white font-korean leading-[1.4] tracking-[-0.01em] opacity-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.3)]">
+              우리는 외길 인생이라는 말을 자주 듣습니다. 그 말에 대한 답은
+              — thank you. 한 가지에 깊이 집중할 때 비로소 많은 것이 따라오기
+              때문입니다. NBPKOREA가 14년간 붙잡은 한 가지는 언제나
+              <span className="font-display"> Afterburner</span>. 연기와 매연을
+              제거하는 일에서, 누구보다 손이 새카맣게 더러운 회사입니다.{" "}
               <Link
                 href="/"
-                className="inline-block bg-white text-haze px-4 py-1.5 text-xs font-bold tracking-[0.06em] uppercase align-middle hover:bg-ink hover:text-paper transition-colors duration-200 ml-1 rounded-lg"
+                className="inline-block bg-white text-haze px-4 py-1.5 text-xs font-bold tracking-[0.06em] uppercase align-middle hover:bg-ink hover:text-paper transition-colors duration-200 ml-1 rounded-lg font-display"
               >
                 LEARN MORE
               </Link>
@@ -149,10 +148,9 @@ export default function Evidence() {
 
           {/* Emotional line — absolutely centered below photo area */}
           <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
-            <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
-              We understand your craft.
-              <br />
-              We&apos;re ready to carry it with you.
+            <p className="font-heading font-semibold font-korean text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
+              당신의 일을 이해합니다.
+              <br />그 무게를 함께 나르겠습니다.
             </p>
             <p className="caption-style text-white/85 mt-6">
               37.331° N — 126.785° E

@@ -13,10 +13,9 @@ const SLIDES = [
     leftImage: IMAGES.missionLeft,
     rightImage: IMAGES.missionRight,
     title: "NBPKOREA AFTERBURNER",
-    bodyEn:
-      "The highest standard of smoke elimination we build. Direct flame combustion, obsessively tuned per installation. 14 years of single-product focus means every unit carries a decade of refinement. No shortcuts, no filters to replace — just complete combustion.",
-    bodyKr:
-      "우리가 만드는 가장 높은 수준의 연기 제거. 직화 연소, 설치 현장마다 집요하게 튜닝. 14년간 단일 제품에 집중했기에 모든 유닛에 10년의 개선이 담겨 있다.",
+    lead: "SMOKE-FREE ROASTING, ENGINEERED IN KOREA",
+    body:
+      "우리가 만드는 가장 높은 수준의 연기 제거 장비. Direct-flame combustion, 설치 현장마다 집요하게 튜닝합니다. 14년간 한 가지 제품에만 집중한 결과가 모든 유닛에 쌓여 있습니다. 필터 교체도, 지름길도 없습니다 — 오직 Complete Combustion.",
     shopHref: "/contact",
     learnHref: "/afterburner",
   },
@@ -26,10 +25,9 @@ const SLIDES = [
     leftImage: IMAGES.factory,
     rightImage: IMAGES.obs02,
     title: "KUBAN COFFEE ROASTERS",
-    bodyEn:
-      "Turkey's finest drum roasters, exclusively distributed in Korea by NBPKOREA. Precision-engineered for consistency, built for roasters who take their craft seriously. From 1kg sample roasters to 60kg production machines.",
-    bodyKr:
-      "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통. 정밀 엔지니어링의 일관성, 장인 정신을 가진 로스터를 위해 제작. 1kg 샘플 로스터부터 60kg 생산 기계까지.",
+    lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
+    body:
+      "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통합니다. Precision-engineered consistency — 로스팅을 직업으로 대하는 사람들을 위해 제작됩니다. 1kg 샘플 로스터부터 60kg 생산기까지, 현장의 모든 규모에 맞춰 공급합니다.",
     shopHref: "/contact",
     learnHref: "/roasters",
   },
@@ -39,10 +37,9 @@ const SLIDES = [
     leftImage: IMAGES.obs03,
     rightImage: IMAGES.obs01,
     title: "PEANUT BUTTER MACHINE",
-    bodyEn:
-      "Commercial stone-ground peanut butter machines for cafés, bakeries, and specialty food producers. Same obsessive engineering, different application. Because we believe everything we touch should be built to last.",
-    bodyKr:
-      "카페, 베이커리, 스페셜티 식품 생산자를 위한 상업용 스톤그라운드 땅콩버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 것은 오래가야 한다고 믿으니까.",
+    lead: "STONE-GROUND, BUILT TO LAST",
+    body:
+      "카페·베이커리·스페셜티 식품 제조사를 위한 상업용 스톤 그라운드 땅콩버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 기계는 오래가야 한다 — 그 믿음이 이 카테고리도 만들었습니다.",
     shopHref: "/contact",
     learnHref: "/the-lab",
   },
@@ -240,16 +237,16 @@ export default function Mission() {
 
             {/* Text panel */}
             <div className="flex-1 bg-paper px-6 lg:px-10 py-8 lg:py-10 flex flex-col justify-start">
+              <span className="slide-content caption-style text-ink/75 block mb-4">
+                {slide.lead}
+              </span>
+
               <h3 className="slide-content font-display font-bold text-[clamp(1.8rem,3vw,2.8rem)] text-ink leading-[1.08] tracking-[-0.02em] mb-5">
                 {slide.title}
               </h3>
 
-              <p className="slide-content text-[clamp(0.85rem,1vw,0.95rem)] text-ink/85 leading-[1.7] mb-3">
-                {slide.bodyEn}
-              </p>
-
-              <p className="slide-content text-body-kr font-korean text-ink/75 leading-[1.75] mb-8">
-                {slide.bodyKr}
+              <p className="slide-content text-body-kr font-korean text-ink/85 leading-[1.8] mb-8">
+                {slide.body}
               </p>
 
               <div className="slide-content flex items-center gap-2">
