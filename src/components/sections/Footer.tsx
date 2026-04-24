@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { COMPANY } from "@/lib/company";
 
-const NAV_LINKS = [
+const BASE_LINKS = [
   { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
@@ -14,7 +15,20 @@ const NAV_LINKS = [
   { label: "CONTACT", href: "/contact" },
 ];
 
+function localize(href: string, isEn: boolean) {
+  if (!isEn) return href;
+  return href === "/" ? "/en" : `/en${href}`;
+}
+
 export default function Footer() {
+  const pathname = usePathname() ?? "/";
+  const isEn = pathname.startsWith("/en");
+  const links = BASE_LINKS.map((l) => ({ ...l, href: localize(l.href, isEn) }));
+
+  const addressLine = isEn
+    ? "40 MTV-ro 8-gil, Danwon-gu, Ansan-si, Gyeonggi-do, South Korea"
+    : COMPANY.address;
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -32,15 +46,17 @@ export default function Footer() {
             <p className="text-body-en text-paper/85 text-sm">
               We only make afterburners.
             </p>
-            <p className="text-body-kr font-korean text-paper/90 text-sm mt-1">
-              애프터버너만 만듭니다.
-            </p>
+            {!isEn && (
+              <p className="text-body-kr font-korean text-paper/90 text-sm mt-1">
+                애프터버너만 만듭니다.
+              </p>
+            )}
           </div>
 
           {/* Col 2 — Navigation */}
           <div>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -58,14 +74,14 @@ export default function Footer() {
             <span className="caption-style text-paper/90 block mb-4">
               FACTORY
             </span>
-            <p className="text-sm text-paper/85 leading-relaxed">
-              {COMPANY.address}
+            <p className="text-sm text-paper/85 leading-[1.6]">
+              {addressLine}
             </p>
             <p className="text-sm text-paper/85 mt-3">
-              T. {COMPANY.phonePrimary}
+              T. {isEn ? `+82-${COMPANY.phonePrimary.slice(1)}` : COMPANY.phonePrimary}
             </p>
             <p className="text-sm text-paper/85">
-              F. {COMPANY.fax}
+              F. {isEn ? `+82-${COMPANY.fax.slice(1)}` : COMPANY.fax}
             </p>
             <p className="text-sm text-paper/85 mt-1">
               {COMPANY.email}
@@ -77,9 +93,11 @@ export default function Footer() {
             <p className="text-sm text-paper/85">
               {COMPANY.hoursEn}
             </p>
-            <p className="text-xs font-korean text-paper/90">
-              {COMPANY.hoursKr}
-            </p>
+            {!isEn && (
+              <p className="text-xs font-korean text-paper/90">
+                {COMPANY.hoursKr}
+              </p>
+            )}
           </div>
 
           {/* Col 4 — Coordinates + Social */}
@@ -89,17 +107,27 @@ export default function Footer() {
             </p>
             <div className="space-y-3 mt-6">
               <a
-                href="#"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="caption-style text-paper/85 hover:text-paper transition-colors block"
               >
                 INSTAGRAM &rarr;
               </a>
               <a
-                href="#"
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="caption-style text-paper/85 hover:text-paper transition-colors block"
               >
                 YOUTUBE &rarr;
               </a>
+              <Link
+                href={isEn ? "/" : "/en"}
+                className="caption-style text-paper/85 hover:text-paper transition-colors block"
+              >
+                {isEn ? "한국어 / KR" : "ENGLISH / EN"} &rarr;
+              </Link>
             </div>
           </div>
         </div>
@@ -126,14 +154,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-paper/10">
           <p className="caption-style text-paper/85">
-            &copy; 2026 {COMPANY.nameKr} · CEO {COMPANY.ceo} · {COMPANY.businessNumber}
+            &copy; 2026 {isEn ? "NBPKOREA" : COMPANY.nameKr} · CEO {isEn ? "Choi Hyeok-soon" : COMPANY.ceo} · {COMPANY.businessNumber}
           </p>
           <div className="flex gap-6">
             <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
-              PRIVACY
+              {isEn ? "PRIVACY" : "개인정보처리방침"}
             </Link>
             <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
-              TERMS
+              {isEn ? "TERMS" : "이용약관"}
             </Link>
           </div>
         </div>

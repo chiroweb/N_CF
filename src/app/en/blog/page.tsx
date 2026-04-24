@@ -5,7 +5,7 @@ import { gsap } from "@/lib/gsap";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Image from "next/image";
 import Link from "next/link";
-import { POSTS } from "@/lib/posts";
+import { POSTS_EN } from "@/lib/posts-en";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "OVERVIEW" },
@@ -16,8 +16,8 @@ const SECTIONS: NavSection[] = [
 
 export default function BlogEnPage() {
   const pageRef = useRef<HTMLDivElement>(null);
-  const featured = POSTS.find((p) => p.featured);
-  const rest = POSTS.filter((p) => !p.featured);
+  const featured = POSTS_EN.find((p) => p.featured);
+  const rest = POSTS_EN.filter((p) => !p.featured);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -58,14 +58,14 @@ export default function BlogEnPage() {
         </div>
         <p className="hero-fade text-[clamp(1rem,1.25vw,1.15rem)] text-ink/85 leading-[1.7] max-w-2xl opacity-0">
           Field notes from the workshop — roasting profiles, combustion
-          engineering, installation case studies. Posts are currently in
-          Korean; English translations are on the roadmap.
+          engineering, installation case studies. 14 years of work,
+          written up from the bench.
         </p>
       </section>
 
       {featured && (
         <section id="featured" className="container-content pb-16 lg:pb-24">
-          <Link href={`/blog/${featured.id}`} className="scroll-fade group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-12 border-t-2 border-ink pt-6 opacity-0">
+          <Link href={`/en/blog/${featured.id}`} className="scroll-fade group grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-12 border-t-2 border-ink pt-6 opacity-0">
             <div className="relative aspect-[16/10] rounded-lg overflow-hidden bg-bone">
               <Image src={featured.image} alt={featured.title} fill priority sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover object-center transition-transform duration-700 group-hover:scale-105" />
             </div>
@@ -82,7 +82,7 @@ export default function BlogEnPage() {
                 {featured.excerpt}
               </p>
               <span className="caption-style text-ink mt-8 group-hover:underline underline-offset-4">
-                READ IN KOREAN &rarr;
+                READ THE PIECE &rarr;
               </span>
             </div>
           </Link>
@@ -93,13 +93,13 @@ export default function BlogEnPage() {
         <div className="flex items-baseline justify-between border-t-2 border-ink pt-6 mb-10">
           <span className="caption-style text-ink/80">ALL ENTRIES</span>
           <span className="caption-style text-ink/80">
-            {String(POSTS.length).padStart(2, "0")} POSTS
+            {String(POSTS_EN.length).padStart(2, "0")} POSTS
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
           {rest.map((post) => (
-            <Link key={post.id} href={`/blog/${post.id}`} className="scroll-fade group flex flex-col opacity-0">
+            <Link key={post.id} href={`/en/blog/${post.id}`} className="scroll-fade group flex flex-col opacity-0">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-bone mb-6">
                 <Image src={post.image} alt={post.title} fill sizes="(min-width: 768px) 40vw, 90vw" className="object-cover object-center transition-transform duration-700 group-hover:scale-105" />
               </div>
@@ -118,7 +118,7 @@ export default function BlogEnPage() {
               </p>
 
               <span className="caption-style text-ink mt-6 group-hover:underline underline-offset-4">
-                READ IN KOREAN &rarr;
+                READ THE PIECE &rarr;
               </span>
             </Link>
           ))}

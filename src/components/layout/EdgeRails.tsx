@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const NAV_ITEMS = [
+const BASE_NAV_ITEMS = [
   { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
@@ -13,6 +14,11 @@ const NAV_ITEMS = [
   { label: "BLOG", href: "/blog" },
   { label: "CONTACT", href: "/contact" },
 ];
+
+function localizeHref(href: string, isEn: boolean): string {
+  if (!isEn) return href;
+  return href === "/" ? "/en" : `/en${href}`;
+}
 
 function IconInstagram() {
   return (
@@ -43,13 +49,19 @@ function IconGlobe() {
 
 export default function EdgeRails() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
+  const isEn = pathname.startsWith("/en");
+  const navItems = BASE_NAV_ITEMS.map((item) => ({
+    ...item,
+    href: localizeHref(item.href, isEn),
+  }));
 
   return (
     <>
       {/* Left rail — CTA (desktop only) */}
       <div className="fixed top-0 left-0 bottom-0 w-[var(--edge-margin)] z-40 hidden lg:flex items-center justify-center pointer-events-none">
         <Link
-          href="/contact"
+          href={localizeHref("/contact", isEn)}
           className="text-vertical-left caption-style text-ink hover:opacity-60 transition-opacity pointer-events-auto"
         >
           TALK TO AN ENGINEER
@@ -71,7 +83,7 @@ export default function EdgeRails() {
 
         {/* Middle: Vertical text */}
         <span className="text-vertical-right caption-style text-ink/75 select-none whitespace-nowrap">
-          FACTORY — SIHEUNG / EST. 2011
+          FACTORY — ANSAN / EST. 2006
         </span>
 
         {/* Bottom: Social icons */}
@@ -82,7 +94,7 @@ export default function EdgeRails() {
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="YouTube">
             <IconYouTube />
           </a>
-          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="Website">
+          <a href="https://nbpkorea.co.kr" target="_blank" rel="noopener noreferrer" className="text-ink/75 hover:text-ink transition-colors" aria-label="Website">
             <IconGlobe />
           </a>
         </div>
@@ -108,7 +120,7 @@ export default function EdgeRails() {
         </button>
 
         <ul className="flex flex-col gap-8 mt-16">
-          {NAV_ITEMS.map((item, i) => (
+          {navItems.map((item, i) => (
             <li
               key={item.href}
               style={{
@@ -132,7 +144,7 @@ export default function EdgeRails() {
         <div className="flex flex-col gap-4">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">INSTAGRAM &rarr;</a>
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">YOUTUBE &rarr;</a>
-          <a href="https://nbpkorea.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">NBPKOREA.COM &rarr;</a>
+          <a href="https://nbpkorea.co.kr" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">NBPKOREA.CO.KR &rarr;</a>
         </div>
       </div>
     </>
