@@ -99,7 +99,10 @@ function makeKey(params: {
 const UNIFIED_DELIVERIES: UnifiedDelivery[] = (() => {
   const map = new Map<string, UnifiedDelivery>();
 
-  // Pass 1 — 2025 installations (most records, richest geo)
+  // Pass 1 — 2025 installations (most records, richest geo).
+  // Same key appearing twice in the 2025 PDF is a source-data duplicate
+  // (9 such pairs as of 251014) — collapse to a single row. A company
+  // with different capacities yields a different key and stays separate.
   for (const r of INSTALLATIONS_2025) {
     const key = makeKey({
       company: r.company,
@@ -107,22 +110,7 @@ const UNIFIED_DELIVERIES: UnifiedDelivery[] = (() => {
       district: r.district,
       burnerKg: r.capacity,
     });
-    const existing = map.get(key);
-    if (existing) {
-      // Same key appearing twice in 2025 — keep both by disambiguating
-      map.set(`${key}#${map.size}`, {
-        id: `${key}#${map.size}`,
-        company: r.company,
-        region: r.region,
-        district: r.district,
-        neighborhood: r.neighborhood,
-        storeBrand: r.brand,
-        burnerKg: normalizeCapacity(r.capacity),
-        sources: ["2025"],
-        country: r.country,
-      });
-      continue;
-    }
+    if (map.has(key)) continue;
     map.set(key, {
       id: key,
       company: r.company,
