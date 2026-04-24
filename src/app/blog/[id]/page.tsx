@@ -1,18 +1,39 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPost, listPostIds, POSTS, type Block } from "@/lib/posts";
 
+const SITE_URL = "https://nbpkorea.co.kr";
+
 export function generateStaticParams() {
   return listPostIds().map((id) => ({ id }));
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
+export function generateMetadata({ params }: { params: { id: string } }): Metadata {
   const post = getPost(params.id);
   if (!post) return { title: "Not Found" };
+  const url = `${SITE_URL}/blog/${post.id}`;
   return {
-    title: `${post.title} — NBPKOREA`,
+    title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.id}` },
+    openGraph: {
+      type: "article",
+      locale: "ko_KR",
+      url,
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.date.replace(/\./g, "-"),
+      authors: ["엔비피코리아 NBPKOREA"],
+      images: [{ url: post.image, alt: post.imageAlt ?? post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
   };
 }
 
@@ -24,15 +45,44 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
   const prev = idx > 0 ? POSTS[idx - 1] : null;
   const next = idx < POSTS.length - 1 ? POSTS[idx + 1] : null;
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${SITE_URL}/blog/${post.id}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.id}`,
+    headline: post.title,
+    description: post.excerpt,
+    articleSection: post.category,
+    image: { "@type": "ImageObject", url: post.image },
+    datePublished: post.date.replace(/\./g, "-"),
+    dateModified: post.date.replace(/\./g, "-"),
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "ko-KR",
+    timeRequired: `PT${post.readMinutes}M`,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Field Notes", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.id}` },
+    ],
+  };
+
   return (
     <article className="bg-paper min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Top strip */}
       <div className="container-content pt-24 lg:pt-32 pb-8">
         <Link
           href="/blog"
           className="caption-style text-ink/90 hover:text-ink transition-colors inline-block mb-12"
         >
-          &larr; BACK TO FIELD NOTES
+          &larr; 필드 노트 목록으로
         </Link>
 
         <div className="flex items-center gap-4 mb-8 flex-wrap">
@@ -41,7 +91,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           <span className="caption-style text-ink/85">{post.date}</span>
           <span className="caption-style text-ink/70">·</span>
           <span className="caption-style text-ink/85">
-            {post.readMinutes} MIN READ
+            {post.readMinutes}분 분량
           </span>
         </div>
 
@@ -87,7 +137,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               aria-label={`Previous post: ${prev.title}`}
             >
               <span className="caption-style text-ink/80 block mb-3">
-                &larr; PREVIOUS
+                &larr; 이전 글
               </span>
               <p className="font-display font-bold text-[clamp(1.2rem,2vw,1.6rem)] text-ink leading-[1.2] tracking-[-0.02em] group-hover:underline underline-offset-4 decoration-2">
                 {prev.title}
@@ -103,7 +153,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               aria-label={`Next post: ${next.title}`}
             >
               <span className="caption-style text-ink/80 block mb-3">
-                NEXT &rarr;
+                다음 글 &rarr;
               </span>
               <p className="font-display font-bold text-[clamp(1.2rem,2vw,1.6rem)] text-ink leading-[1.2] tracking-[-0.02em] group-hover:underline underline-offset-4 decoration-2">
                 {next.title}
@@ -123,14 +173,14 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
               이 글이 도움이 되었다면.
             </p>
             <p className="caption-style text-paper/75 mt-3">
-              TALK TO US ABOUT YOUR ROASTERY.
+당신의 로스터리에 대해 들려주세요.
             </p>
           </div>
           <Link
             href="/contact"
             className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg shrink-0"
           >
-            CONTACT &rarr;
+문의하기 &rarr;
           </Link>
         </div>
       </section>

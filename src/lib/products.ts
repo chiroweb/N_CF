@@ -1,24 +1,55 @@
 const S3_PRODUCT = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
 
-// ── AFTERBURNER MODELS (image map synced with chiroweb/nbpcofe reference) ──
+// ── AFTERBURNER MODELS ─────────────────────────────────────────────
+// Model codes and dimensions are sourced from the 2019 NBPKOREA Korean
+// afterburner catalogue. The NKJC-* series starts at 1Kg (sample-roaster
+// class) and goes up to a custom 120Kg industrial build.
 export const AFTERBURNER_MODELS = [
   {
-    id: "nkic-5k",
-    name: "NKIC-5K",
+    id: "nkjc-1k",
+    name: "NKJC-1K",
+    capacity: "1kg",
+    target: "Sample Roaster",
+    targetKr: "샘플 로스터",
+    size: "355 × 545 × 1,183mm",
+    burner: "Surface Combustion Panel Burner",
+    burnerKr: "표면연소 고효율 패널버너",
+    controller: "Multi-stage",
+    connector: "LPG",
+    image: `${S3_PRODUCT}/ab-1k-1.png`,
+    gallery: [`${S3_PRODUCT}/ab-1k-1.png`],
+  },
+  {
+    id: "nkjc-3k",
+    name: "NKJC-3K",
+    capacity: "3kg",
+    target: "Micro Roastery",
+    targetKr: "초소형 로스터리",
+    size: "435 × 545 × 1,310mm",
+    burner: "Surface Combustion Panel Burner",
+    burnerKr: "표면연소 고효율 패널버너",
+    controller: "Multi-stage",
+    connector: "LPG",
+    image: `${S3_PRODUCT}/ab-1k-1.png`,
+    gallery: [`${S3_PRODUCT}/ab-1k-1.png`],
+  },
+  {
+    id: "nkjc-5k",
+    name: "NKJC-5K",
     capacity: "5kg",
     target: "Small Roastery",
     targetKr: "중소형 로스터리",
     size: "435 × 545 × 1,310mm",
-    burner: "Surface Combustion Metal Burner",
-    burnerKr: "표면연소 고효율 메탈버너",
+    burner: "Surface Combustion Panel Burner",
+    burnerKr: "표면연소 고효율 패널버너",
     controller: "Digital",
     connector: "도시가스 (13A)",
     image: `${S3_PRODUCT}/ab-1k-1.png`,
     gallery: [`${S3_PRODUCT}/ab-1k-1.png`],
   },
   {
-    id: "nkic-10k",
-    name: "NKIC-10K",
+    id: "nkjc-10k",
+    name: "NKJC-10K",
     capacity: "10kg",
     target: "Medium Café",
     targetKr: "중형 로스터리 카페",
@@ -31,8 +62,8 @@ export const AFTERBURNER_MODELS = [
     gallery: [`${S3_PRODUCT}/afterburner-white.png`, `${S3_PRODUCT}/afterburner-metal.png`],
   },
   {
-    id: "nkic-15k",
-    name: "NKIC-15K",
+    id: "nkjc-15k",
+    name: "NKJC-15K",
     capacity: "15kg",
     target: "Large Roastery",
     targetKr: "대형 로스터리",
@@ -45,8 +76,8 @@ export const AFTERBURNER_MODELS = [
     gallery: [`${S3_PRODUCT}/ab-15k-2.png`, `${S3_PRODUCT}/afterburner-black.png`],
   },
   {
-    id: "nkic-30k",
-    name: "NKIC-30K",
+    id: "nkjc-30k",
+    name: "NKJC-30K",
     capacity: "30kg",
     target: "Industrial",
     targetKr: "산업용 대량 로스팅",
@@ -59,8 +90,8 @@ export const AFTERBURNER_MODELS = [
     gallery: [`${S3_PRODUCT}/ab-10k-1.jpg`, `${S3_PRODUCT}/ab-10k-2.jpg`],
   },
   {
-    id: "nkic-60k",
-    name: "NKIC-60K",
+    id: "nkjc-60k",
+    name: "NKJC-60K",
     capacity: "60kg",
     target: "Large Facility",
     targetKr: "대규모 산업 시설",
@@ -73,8 +104,8 @@ export const AFTERBURNER_MODELS = [
     gallery: [`${S3_PRODUCT}/ab-30k-1.png`],
   },
   {
-    id: "nkic-120k",
-    name: "NKIC-120K",
+    id: "nkjc-120k",
+    name: "NKJC-120K",
     capacity: "120kg",
     target: "Large Industrial",
     targetKr: "대형 산업 플랜트",
@@ -89,16 +120,90 @@ export const AFTERBURNER_MODELS = [
 ];
 
 export const AFTERBURNER_COMMON_SPECS = {
-  heatSource: "LNG / LPG",
+  heatSource: "LNG / LPG / 도시가스 (13A)",
   combustionTemp: "200°C ~ 1,000°C",
   removalRate: "99.2%",
   power: "220V single-phase 50/60Hz",
   gasSaving: "30%",
+  thermalEfficiency: "98%",
+  proportionalRatio: "40:1",
+  warranty: "1 year parts & labor",
 };
 
 export const COMPATIBLE_ROASTERS = [
   "PROBAT", "GIESEN", "LORING", "FUJI ROYAL", "PROASTER",
   "OZTURK", "DIEDRICH", "TOPER", "BUHLER", "JOPER",
+];
+
+// Certifications & awards sourced from the 2019 Korean catalogue. Used
+// on /afterburner and as structured data for SEO/AEO.
+export const AFTERBURNER_CERTIFICATIONS = [
+  {
+    id: "gas-safety",
+    title: "가스안전공사 검사 합격",
+    titleEn: "Korea Gas Safety Corporation Certified",
+    note: "모든 버너·컨트롤러는 한국가스안전공사 검사를 통과했습니다.",
+  },
+  {
+    id: "gyeonggi-6",
+    title: "경기도 미세먼지 저감 6대 신기술 선정",
+    titleEn: "Gyeonggi-do Fine-Dust Abatement — Top-6 New Technology",
+    note: "경기도가 선정한 미세먼지 저감 6대 신기술에 선정된 제품입니다.",
+  },
+  {
+    id: "motie-award",
+    title: "산업통상자원부 강관상 수상",
+    titleEn: "Ministry of Trade, Industry & Energy — Strong Product Award",
+    note: "산업통상자원부가 선정하는 강소제품상(강관상)을 수상했습니다.",
+  },
+  {
+    id: "patents",
+    title: "기술특허 · 디자인특허 16건 이상 등록",
+    titleEn: "16+ Technical & Design Patents Registered",
+    note: "촉맥식 재연소 가이드, 2단 덕트버너, 터치스크린 컨트롤러 등.",
+  },
+];
+
+// The direct-flame afterburner flow. Exhaust from the coffee roaster
+// passes through the cyclone, into the IN-LET duct, meets the direct
+// flame (1st combustion), then a patented ceramic regenerative mixing
+// guide (2nd thermal decomposition) before clean air exits the OUT-LET.
+export const AFTERBURNER_FLOW = [
+  {
+    step: 1,
+    title: "CYCLONE",
+    titleKr: "사이클론",
+    body: "로스팅 배기가 사이클론에서 체프와 굵은 입자를 1차 분리.",
+    bodyEn: "Roaster exhaust first passes through a cyclone that removes chaff and coarse particulates.",
+  },
+  {
+    step: 2,
+    title: "IN-LET DUCT",
+    titleKr: "인렛 덕트",
+    body: "분리된 배기가 IN-LET 덕트를 통해 애프터버너 내부로 진입.",
+    bodyEn: "The stripped gas stream enters the afterburner through the IN-LET duct.",
+  },
+  {
+    step: 3,
+    title: "DIRECT FLAME",
+    titleKr: "직접화염 1차 연소",
+    body: "직접화염 버너의 200℃–1,000℃ 고온과 직접 접촉하여 연기·냄새를 1차 완전 연소.",
+    bodyEn: "Direct-flame burner at 200–1,000°C combusts smoke and odor in the first pass.",
+  },
+  {
+    step: 4,
+    title: "MIXING GUIDE",
+    titleKr: "촉매식 재연소 가이드",
+    body: "엔비피코리아 특허 촉매판을 통과하며 잔여 물질의 2차 열분해.",
+    bodyEn: "A patented ceramic regenerative mixing guide breaks down residuals in a second thermal stage.",
+  },
+  {
+    step: 5,
+    title: "OUT-LET DUCT",
+    titleKr: "아웃렛 덕트",
+    body: "완전 정화된 공기만 OUT-LET 덕트를 거쳐 외부로 배출.",
+    bodyEn: "Only fully cleaned air exits through the OUT-LET duct.",
+  },
 ];
 
 // ── ROASTER BASE MODELS (BASE 0.5 ~ 20, image map from reference) ──
@@ -280,18 +385,18 @@ export const NUTBUTTER_PRODUCT = {
     "컴팩트한 소형 크기 (카운터 설치 가능)",
   ],
   specs: [
-    { label: "MODEL", value: "NUTS-STAR · 넛츠스타" },
-    { label: "THROUGHPUT", value: "50 kg / hour" },
-    { label: "POWER", value: "220V · 50 / 60 Hz" },
-    { label: "DRIVE", value: "1.7 kW inverter control" },
-    { label: "DIMENSIONS", value: "254 × 600 × 680 mm (W×L×H)" },
-    { label: "WEIGHT", value: "35 kg" },
-    { label: "HOUSING", value: "Stainless Steel · STS304" },
-    { label: "SAFETY", value: "E-Stop · Overload · Ground · Insulation" },
-    { label: "CERTIFICATION", value: "KC 전기용품 안전인증" },
+    { label: "모델", value: "NUTS-STAR · 넛츠스타" },
+    { label: "처리량", value: "시간당 50Kg" },
+    { label: "전원", value: "220V · 50/60Hz" },
+    { label: "구동", value: "1.7kW 인버터 제어" },
+    { label: "치수", value: "254 × 600 × 680 mm (W×L×H)" },
+    { label: "무게", value: "35kg" },
+    { label: "하우징", value: "STS304 스테인리스 스틸" },
+    { label: "안전장치", value: "비상정지 · 과부하 · 접지 · 절연" },
+    { label: "인증", value: "KC 전기용품 안전인증" },
   ],
-  applications: ["CAFÉ", "BAKERY", "HOTEL", "RESTAURANT", "SPECIALTY FOOD", "MILL HOUSE"],
-  applicationsKr: "카페 · 베이커리 · 호텔 · 레스토랑 · 견과류 매장 · 방앗간",
+  applications: ["카페", "베이커리", "호텔", "레스토랑", "견과 전문점", "방앗간"],
+  applicationsKr: "카페 · 베이커리 · 호텔 · 레스토랑 · 견과 전문점 · 방앗간",
 };
 
 export const HERO_IMAGES = {

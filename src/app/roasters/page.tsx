@@ -12,12 +12,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
-  { id: "overview", label: "OVERVIEW" },
-  { id: "guide", label: "MODEL GUIDE" },
-  { id: "models", label: "MODELS" },
-  { id: "details", label: "DETAILS" },
-  { id: "lineup", label: "LINEUP" },
-  { id: "contact", label: "CONTACT" },
+  { id: "overview", label: "개요" },
+  { id: "guide", label: "모델 가이드" },
+  { id: "models", label: "모델" },
+  { id: "details", label: "상세" },
+  { id: "lineup", label: "라인업" },
+  { id: "contact", label: "문의" },
 ];
 
 const MODEL_GUIDE = [
@@ -156,30 +156,27 @@ export default function RoastersPage() {
       <div id="overview" className="container-content pt-24 lg:pt-32 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           <div>
-            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              COFFEE ROASTING MACHINE
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
+              커피 로스팅 머신
             </span>
-            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
-              THE
+            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0 font-korean">
+              드럼
               <br />
-              ROAST
+              로스터,
               <br />
-              ERS
+              KUBAN.
             </h1>
-            <p className="hero-fade text-[clamp(1rem,1.3vw,1.15rem)] text-ink/85 leading-[1.6] mt-8 max-w-md opacity-0">
-              From 0.5kg samples to 20kg production batches.
-              Drum roasters built for precision, consistency, and craft.
-            </p>
-            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-4 max-w-md opacity-0">
-              0.5kg 샘플부터 20kg 대량 생산까지.
-              정밀함, 일관성, 그리고 장인 정신을 위해 만든 드럼 로스터.
+            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
+              0.5Kg 샘플부터 20Kg 양산까지. 정밀함과 일관성, 그리고 장인 정신을
+              위해 만들어진 터키 KUBAN 드럼 로스터입니다. 엔비피코리아가 한국
+              내 독점 딜러로 유통·설치·A/S까지 일괄 대응합니다.
             </p>
             <div className="hero-fade mt-8 opacity-0">
               <Link
                 href="/contact"
-                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
               >
-                REQUEST A QUOTE <span className="ml-2">&rarr;</span>
+                견적 문의 <span className="ml-2">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -191,7 +188,7 @@ export default function RoastersPage() {
             >
               <Image
                 src={HERO_IMAGES.roaster}
-                alt="Kuban roaster hero"
+                alt="KUBAN 드럼 로스터"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -205,10 +202,10 @@ export default function RoastersPage() {
       {/* ── One-line manifesto ── */}
       <div className="bg-ink py-16 lg:py-20">
         <div className="container-content">
-          <p className="scroll-fade font-heading font-semibold text-[clamp(1.4rem,2.8vw,2.4rem)] text-paper leading-[1.35] text-center opacity-0">
+          <p className="scroll-fade font-heading font-semibold text-[clamp(1.4rem,2.8vw,2.4rem)] text-paper leading-[1.35] text-center opacity-0 font-korean">
             반복이 만든 정밀함. 불이 만든 맛.
             <br />
-            드럼 위에서 원두가 완성된다.
+            드럼 위에서 원두가 완성됩니다.
           </p>
         </div>
       </div>
@@ -216,8 +213,8 @@ export default function RoastersPage() {
       {/* ── Model Recommendation Guide ── */}
       <div id="guide" className="container-content py-16 lg:py-20">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/90 block mb-4">
-            WHICH MODEL IS RIGHT FOR YOU?
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            어떤 모델이 필요하신가요
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
             용도와 규모에 맞는 로스터를 추천합니다.
@@ -233,7 +230,7 @@ export default function RoastersPage() {
                 }}
                 className="group p-5 border-2 border-bone rounded-lg hover:border-ink transition-all duration-300 text-left"
               >
-                <span className="text-sm font-medium text-ink block mb-1">
+                <span className="text-sm font-medium text-ink block mb-1 font-korean">
                   {guide.range}
                 </span>
                 <span className="font-display font-bold text-lg text-ink/90 group-hover:text-ink transition-colors">
@@ -248,13 +245,13 @@ export default function RoastersPage() {
       {/* ── Model Selector + Specs ── */}
       <div id="models" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/90 block mb-4">
-            SELECT YOUR MODEL
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            모델 선택
           </span>
-          <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12">
-            7 BASE MODELS.
+          <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
+            베이스 7종,
             <br />
-            1 SUPREME.
+            프리미엄 1종.
           </h2>
         </div>
 
@@ -326,25 +323,25 @@ export default function RoastersPage() {
               <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
                 {model.name}
               </h3>
-              <p className="caption-style text-ink/90 mb-8">
-                {model.target} / {model.targetKr}
+              <p className="caption-style text-ink/90 mb-8 font-korean">
+                {model.targetKr}
               </p>
 
               <div className="space-y-0 border-t-2 border-ink">
-                <SpecRow label="CAPACITY" value={model.capacity} />
-                <SpecRow label="DIMENSIONS" value={model.size} />
-                <SpecRow label="WEIGHT" value={model.weight} />
-                <SpecRow label="POWER" value={model.power} />
-                <SpecRow label="BURNER" value={model.burner} />
-                <SpecRow label="CONTROLLER" value={model.controller} />
+                <SpecRow label="용량" value={model.capacity} />
+                <SpecRow label="치수" value={model.size} />
+                <SpecRow label="무게" value={model.weight} />
+                <SpecRow label="전원" value={model.power} />
+                <SpecRow label="버너" value={model.burner} />
+                <SpecRow label="컨트롤러" value={model.controller} />
               </div>
 
               <div className="mt-10">
                 <Link
                   href="/contact"
-                  className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                  className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
                 >
-                  GET A QUOTE FOR {model.name}
+                  {model.name} 견적 문의
                 </Link>
               </div>
             </div>
@@ -357,7 +354,7 @@ export default function RoastersPage() {
                 <Image
                   key={ROASTER_SUPREME_GALLERY[supremeGalleryIndex]}
                   src={ROASTER_SUPREME_GALLERY[supremeGalleryIndex]}
-                  alt={`Supreme · ${supremeGalleryIndex + 1}`}
+                  alt={`SUPREME · ${supremeGalleryIndex + 1}`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 90vw"
                   className="object-contain object-center"
@@ -390,32 +387,29 @@ export default function RoastersPage() {
               <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
                 SUPREME
               </h3>
-              <p className="caption-style text-ink/90 mb-8">
-                Premium Line / 프리미엄 라인
+              <p className="caption-style text-ink/90 mb-8 font-korean">
+                프리미엄 라인
               </p>
 
-              <p className="text-[clamp(1rem,1.3vw,1.15rem)] text-ink/85 leading-[1.6] mb-4">
-                The flagship. Every detail refined. Supreme is not just a roaster
-                — it is the statement that your craft deserves the best machine ever built.
-              </p>
               <p className="text-body-kr font-korean text-ink/85 leading-[1.75] mb-8">
-                플래그십. 모든 디테일을 정제했다. Supreme은 단순한 로스터가 아니다
-                — 당신의 기술이 최고의 기계를 받을 자격이 있다는 선언이다.
+                플래그십 모델입니다. 모든 디테일을 다시 설계하고 마감을
+                정제했습니다. SUPREME은 단순한 로스터가 아니라, 당신의 기술이
+                최고의 기계를 받을 자격이 있다는 선언입니다.
               </p>
 
               <div className="space-y-0 border-t-2 border-ink">
-                <SpecRow label="LINE" value="Premium Custom" />
-                <SpecRow label="TYPE" value="Drum Roaster" />
-                <SpecRow label="FINISH" value="Custom Color & Material" />
-                <SpecRow label="CONTROLLER" value="Full Auto / Touchscreen" />
+                <SpecRow label="라인" value="프리미엄 커스텀" />
+                <SpecRow label="타입" value="드럼 로스터" />
+                <SpecRow label="마감" value="주문 컬러 · 소재" />
+                <SpecRow label="컨트롤러" value="풀 오토 · 터치스크린" />
               </div>
 
               <div className="mt-10">
                 <Link
                   href="/contact"
-                  className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                  className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
                 >
-                  INQUIRE ABOUT SUPREME
+                  SUPREME 문의
                 </Link>
               </div>
             </div>
@@ -428,23 +422,20 @@ export default function RoastersPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <TiltCard
             number="01"
-            title="DRUM PRECISION"
-            en="Double-wall drum with optimized airflow. Every bean gets equal heat, every batch stays consistent."
-            kr="이중벽 드럼과 최적화된 기류. 모든 원두에 균일한 열, 모든 배치에 일관된 결과."
+            title="드럼 정밀도"
+            body="이중벽 드럼과 최적화된 기류 설계. 모든 원두에 균일한 열, 모든 배치에 일관된 결과를 보장합니다."
             image={ROASTER_BASE_MODELS[3].gallery[0]}
           />
           <TiltCard
             number="02"
-            title="FULL CONTROL"
-            en="PLC & touchscreen controllers with real-time profiling. Repeat your best roast, every single time."
-            kr="PLC & 터치스크린 컨트롤러로 실시간 프로파일링. 최고의 로스팅을 매번 재현한다."
+            title="완전한 제어"
+            body="PLC와 터치스크린 컨트롤러로 실시간 프로파일링. 최고의 로스팅을 매번 재현합니다."
             image={ROASTER_BASE_MODELS[4].gallery[0]}
           />
           <TiltCard
             number="03"
-            title="EVERY SCALE"
-            en="0.5kg samples to 20kg production. One philosophy, seven sizes. Find your fit."
-            kr="0.5kg 샘플부터 20kg 양산까지. 하나의 철학, 일곱 가지 사이즈. 당신에게 맞는 것을 찾아라."
+            title="모든 규모"
+            body="0.5Kg 샘플부터 20Kg 양산까지. 하나의 철학, 일곱 가지 사이즈 — 현장에 맞는 크기를 고르세요."
             image={ROASTER_BASE_MODELS[6].gallery[0]}
           />
         </div>
@@ -454,18 +445,18 @@ export default function RoastersPage() {
       <div id="lineup" className="border-t-2 border-bone">
         <div className="container-content py-16 lg:py-20">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/90 block mb-6">
-              FULL LINEUP
+            <span className="caption-style text-ink/90 block mb-6 font-korean">
+              전체 라인업
             </span>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b-2 border-ink">
-                    <th className="caption-style text-ink/90 py-3 pr-4">MODEL</th>
-                    <th className="caption-style text-ink/90 py-3 pr-4">CAPACITY</th>
-                    <th className="caption-style text-ink/90 py-3 pr-4">WEIGHT</th>
-                    <th className="caption-style text-ink/90 py-3 pr-4">BURNER</th>
-                    <th className="caption-style text-ink/90 py-3">CONTROLLER</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4 font-korean">모델</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4 font-korean">용량</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4 font-korean">무게</th>
+                    <th className="caption-style text-ink/90 py-3 pr-4 font-korean">버너</th>
+                    <th className="caption-style text-ink/90 py-3 font-korean">컨트롤러</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -488,20 +479,20 @@ export default function RoastersPage() {
       {/* ── CTA ── */}
       <div id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
-          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
-            YOUR BEANS.
+          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
+            당신의 원두,
             <br />
-            OUR ROASTER.
+            우리의 로스터.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/75 mt-6 opacity-0">
-            당신의 원두에 맞는 로스터를 찾아드립니다.
+            당신의 원두와 공간에 맞는 로스터를 찾아드립니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link
               href="/contact"
-              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
+              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg font-korean"
             >
-              REQUEST A QUOTE <span className="ml-2">&rarr;</span>
+              견적 문의 <span className="ml-2">&rarr;</span>
             </Link>
           </div>
         </div>
@@ -513,7 +504,7 @@ export default function RoastersPage() {
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between items-center py-4 border-b border-bone">
-      <span className="caption-style text-ink/90">{label}</span>
+      <span className="caption-style text-ink/90 font-korean">{label}</span>
       <span className="text-sm font-medium text-ink text-right">{value}</span>
     </div>
   );
@@ -522,14 +513,12 @@ function SpecRow({ label, value }: { label: string; value: string }) {
 function TiltCard({
   number,
   title,
-  en,
-  kr,
+  body,
   image,
 }: {
   number: string;
   title: string;
-  en: string;
-  kr: string;
+  body: string;
   image: string;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -568,11 +557,10 @@ function TiltCard({
         <span className="caption-style text-ink/80 block mb-2">
           {number}
         </span>
-        <h4 className="font-display font-bold text-base text-ink mb-3">
+        <h4 className="font-display font-bold text-base text-ink mb-3 font-korean">
           {title}
         </h4>
-        <p className="text-xs text-ink/85 leading-relaxed">{en}</p>
-        <p className="text-xs font-korean text-ink/85 leading-relaxed mt-2">{kr}</p>
+        <p className="text-xs font-korean text-ink/85 leading-[1.65]">{body}</p>
       </div>
     </div>
   );

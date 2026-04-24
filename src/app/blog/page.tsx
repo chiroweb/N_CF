@@ -8,10 +8,10 @@ import Link from "next/link";
 import { POSTS } from "@/lib/posts";
 
 const SECTIONS: NavSection[] = [
-  { id: "overview", label: "OVERVIEW" },
-  { id: "featured", label: "FEATURED" },
-  { id: "entries", label: "ALL ENTRIES" },
-  { id: "subscribe", label: "SUBSCRIBE" },
+  { id: "overview", label: "개요" },
+  { id: "featured", label: "추천 글" },
+  { id: "entries", label: "전체 글" },
+  { id: "subscribe", label: "구독" },
 ];
 
 export default function BlogPage() {
@@ -63,21 +63,21 @@ export default function BlogPage() {
       <section id="overview" className="container-content pt-24 lg:pt-32 pb-16 lg:pb-20">
         <div className="flex items-end justify-between gap-6 mb-10 lg:mb-16">
           <div>
-            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              THE BLOG / 기록
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
+              필드 노트 · 현장 기록
             </span>
-            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
-              FIELD
+            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0 font-korean">
+              현장에서
               <br />
-              NOTES.
+              쓴 글.
             </h1>
           </div>
-          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[22ch] opacity-0">
-            ENGINEERING, ROASTING,
+          <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[22ch] opacity-0 font-korean">
+            엔지니어링, 로스팅,
             <br />
-            AND THE STORIES BEHIND
+            그리고 우리가 만든
             <br />
-            EVERY MACHINE WE BUILD.
+            기계들의 이야기.
           </p>
         </div>
         <p className="hero-fade text-body-kr font-korean text-ink/80 leading-[1.75] max-w-2xl opacity-0">
@@ -106,21 +106,21 @@ export default function BlogPage() {
 
             <div className="flex flex-col justify-center">
               <div className="flex items-center gap-4 mb-4">
-                <span className="caption-style text-ink/80">
-                  FEATURED · {featured.category}
+                <span className="caption-style text-ink/80 font-korean">
+                  추천 · {featured.category}
                 </span>
                 <span className="caption-style text-ink/80">
                   {featured.date}
                 </span>
               </div>
-              <h2 className="font-display font-bold text-[clamp(1.75rem,3.4vw,2.75rem)] text-ink leading-[1.1] tracking-[-0.02em] mb-5 group-hover:underline underline-offset-4 decoration-2">
+              <h2 className="font-display font-bold text-[clamp(1.75rem,3.4vw,2.75rem)] text-ink leading-[1.1] tracking-[-0.02em] mb-5 group-hover:underline underline-offset-4 decoration-2 font-korean">
                 {featured.title}
               </h2>
               <p className="text-body-kr font-korean text-ink/85 leading-[1.75]">
                 {featured.excerpt}
               </p>
-              <span className="caption-style text-ink mt-8 group-hover:underline underline-offset-4">
-                READ THE PIECE &rarr;
+              <span className="caption-style text-ink mt-8 group-hover:underline underline-offset-4 font-korean">
+                글 읽기 &rarr;
               </span>
             </div>
           </Link>
@@ -130,9 +130,9 @@ export default function BlogPage() {
       {/* ── Rest of posts ── */}
       <section id="entries" className="container-content pb-32">
         <div className="flex items-baseline justify-between border-t-2 border-ink pt-6 mb-10">
-          <span className="caption-style text-ink/80">ALL ENTRIES</span>
-          <span className="caption-style text-ink/80">
-            {String(POSTS.length).padStart(2, "0")} POSTS
+          <span className="caption-style text-ink/80 font-korean">전체 글</span>
+          <span className="caption-style text-ink/80 font-korean">
+            총 {String(POSTS.length).padStart(2, "0")}편
           </span>
         </div>
 
@@ -168,8 +168,8 @@ export default function BlogPage() {
                 {post.excerpt}
               </p>
 
-              <span className="caption-style text-ink mt-6 group-hover:underline underline-offset-4">
-                READ &rarr;
+              <span className="caption-style text-ink mt-6 group-hover:underline underline-offset-4 font-korean">
+                읽기 &rarr;
               </span>
             </Link>
           ))}
@@ -180,18 +180,18 @@ export default function BlogPage() {
       <section id="subscribe" className="bg-ink py-20 lg:py-24">
         <div className="container-content flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <p className="font-heading font-semibold text-[clamp(1.4rem,2.6vw,2.25rem)] text-paper leading-[1.25] tracking-[-0.01em]">
+            <p className="font-heading font-semibold text-[clamp(1.4rem,2.6vw,2.25rem)] text-paper leading-[1.3] tracking-[-0.01em] font-korean">
               새 글을 받아보고 싶다면.
             </p>
-            <p className="caption-style text-paper/75 mt-3">
-              ENGINEERING NOTES DELIVERED OCCASIONALLY.
+            <p className="caption-style text-paper/75 mt-3 font-korean">
+              가끔씩 새로 쓴 현장 노트를 보내드립니다.
             </p>
           </div>
           <Link
             href="/contact"
-            className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg shrink-0"
+            className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg shrink-0 font-korean"
           >
-            SUBSCRIBE &rarr;
+            구독 신청 &rarr;
           </Link>
         </div>
       </section>

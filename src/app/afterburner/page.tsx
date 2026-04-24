@@ -13,19 +13,19 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
-  { id: "overview", label: "OVERVIEW" },
-  { id: "guide", label: "MODEL GUIDE" },
-  { id: "models", label: "MODELS" },
-  { id: "details", label: "DETAILS" },
-  { id: "compatible", label: "COMPATIBLE" },
-  { id: "contact", label: "CONTACT" },
+  { id: "overview", label: "개요" },
+  { id: "guide", label: "모델 가이드" },
+  { id: "models", label: "모델" },
+  { id: "details", label: "상세" },
+  { id: "compatible", label: "호환" },
+  { id: "contact", label: "문의" },
 ];
 
 const MODEL_GUIDE = [
-  { range: "하루 10kg 이하", recommend: "NKIC-5K", index: 0 },
-  { range: "하루 10–20kg", recommend: "NKIC-10K", index: 1 },
-  { range: "하루 20–40kg", recommend: "NKIC-15K ~ 30K", index: 2 },
-  { range: "하루 40kg 이상", recommend: "NKIC-60K ~ 120K", index: 4 },
+  { range: "샘플·초소형", recommend: "NKJC-1K ~ 3K", index: 0 },
+  { range: "하루 10kg 이하", recommend: "NKJC-5K", index: 2 },
+  { range: "하루 10–20kg", recommend: "NKJC-10K", index: 3 },
+  { range: "하루 40kg 이상", recommend: "NKJC-60K", index: 6 },
 ];
 
 export default function AfterburnerPage() {
@@ -140,29 +140,25 @@ export default function AfterburnerPage() {
           {/* Left — text */}
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              COFFEE ROASTING AFTERBURNER
+              커피 로스팅 애프터버너
             </span>
-            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0">
-              THE
+            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0 font-korean">
+              직접화염
               <br />
-              AFTER
+              애프터
               <br />
-              BURNER
+              버너
             </h1>
-            <p className="hero-fade text-[clamp(1rem,1.3vw,1.15rem)] text-ink/85 leading-[1.6] mt-8 max-w-md opacity-0">
-              99.2% smoke removal. Direct flame. No filters to replace.
-              The machine that lets you roast in silence.
-            </p>
-            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-4 max-w-md opacity-0">
-              99.2% 연기 제거율. 직화 방식. 교체할 필터 없음.
-              조용히 로스팅할 수 있게 해주는 기계.
+            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
+              연기 99.2% 제거. 직접화염 방식. 교체할 필터 없음. 조용히
+              로스팅할 수 있게 해주는 기계입니다.
             </p>
             <div className="hero-fade mt-8 opacity-0">
               <Link
                 href="/contact"
-                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
               >
-                REQUEST A QUOTE <span className="ml-2">&rarr;</span>
+                견적 문의 <span className="ml-2">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -200,11 +196,11 @@ export default function AfterburnerPage() {
       {/* ── Model Recommendation Guide ── */}
       <div id="guide" className="container-content py-16 lg:py-20">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/90 block mb-4">
-            WHICH MODEL IS RIGHT FOR YOU?
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            어떤 모델이 필요하신가요
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
-            하루 로스팅량 기준으로 적합한 모델을 추천합니다.
+            하루 로스팅량을 기준으로 적합한 모델을 추천합니다.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {MODEL_GUIDE.map((guide) => (
@@ -232,13 +228,13 @@ export default function AfterburnerPage() {
       {/* ── Model Selector + Specs ── */}
       <div id="models" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0">
-          <span className="caption-style text-ink/90 block mb-4">
-            SELECT YOUR MODEL
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            모델 선택
           </span>
-          <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12">
-            6 MODELS.
+          <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
+            {AFTERBURNER_MODELS.length}종 모델,
             <br />
-            ONE OBSESSION.
+            한 가지 집착.
           </h2>
         </div>
 
@@ -306,23 +302,26 @@ export default function AfterburnerPage() {
             </p>
 
             <div className="space-y-0 border-t-2 border-ink">
-              <SpecRow label="CAPACITY" value={model.capacity} />
-              <SpecRow label="DIMENSIONS" value={model.size} />
-              <SpecRow label="BURNER" value={model.burner} />
-              <SpecRow label="CONTROLLER" value={model.controller} />
-              <SpecRow label="HEAT SOURCE" value={AFTERBURNER_COMMON_SPECS.heatSource} />
-              <SpecRow label="COMBUSTION TEMP" value={AFTERBURNER_COMMON_SPECS.combustionTemp} />
-              <SpecRow label="REMOVAL RATE" value={AFTERBURNER_COMMON_SPECS.removalRate} />
-              <SpecRow label="GAS SAVING" value={AFTERBURNER_COMMON_SPECS.gasSaving} />
-              <SpecRow label="POWER" value={AFTERBURNER_COMMON_SPECS.power} />
+              <SpecRow label="용량" value={model.capacity} />
+              <SpecRow label="치수" value={model.size} />
+              <SpecRow label="버너" value={model.burnerKr} />
+              <SpecRow label="컨트롤러" value={model.controller} />
+              <SpecRow label="연료" value={AFTERBURNER_COMMON_SPECS.heatSource} />
+              <SpecRow label="연소 온도" value={AFTERBURNER_COMMON_SPECS.combustionTemp} />
+              <SpecRow label="연기 제거율" value={AFTERBURNER_COMMON_SPECS.removalRate} />
+              <SpecRow label="가스 절감" value={AFTERBURNER_COMMON_SPECS.gasSaving} />
+              <SpecRow label="비례 제어" value={AFTERBURNER_COMMON_SPECS.proportionalRatio} />
+              <SpecRow label="열효율" value={AFTERBURNER_COMMON_SPECS.thermalEfficiency} />
+              <SpecRow label="전원" value={AFTERBURNER_COMMON_SPECS.power} />
+              <SpecRow label="무상 A/S" value="1년" />
             </div>
 
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
               >
-                GET A QUOTE FOR {model.name}
+                {model.name} 견적 문의
               </Link>
             </div>
           </div>
@@ -334,23 +333,20 @@ export default function AfterburnerPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <TiltCard
             number="01"
-            title="DIRECT FLAME"
-            en="No filters, no water, no activated carbon. We burn the smoke. Completely."
-            kr="필터도, 물도, 활성탄도 없다. 연기를 태운다. 완전히."
+            title="직접화염"
+            body="필터도, 물도, 활성탄도 없습니다. 연기를 태웁니다. 완전히."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/ab-ductburner-2.png"
           />
           <TiltCard
             number="02"
-            title="PATENTED MIXING GUIDE"
-            en="Reheating regenerative mixing guide technology. Gas Safety Corporation certified thermal efficiency."
-            kr="재열 축열식 혼합 가이드 기술. 가스안전공사 인증 열효율."
+            title="특허 촉매 가이드"
+            body="재열 축열식 혼합 가이드 기술. 가스안전공사 인증 열효율 98%."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-white.png"
           />
           <TiltCard
             number="03"
-            title="EVERY ROASTER"
-            en="Probat, Giesen, Loring, Fuji Royal — whatever you roast with, we've matched it."
-            kr="Probat, Giesen, Loring, Fuji Royal — 어떤 로스터든, 맞춰왔다."
+            title="모든 로스터기"
+            body="PROBAT, GIESEN, LORING, FUJI ROYAL — 어떤 로스터든, 현장에 맞춰 제작해 왔습니다."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-black.png"
           />
         </div>
@@ -360,8 +356,8 @@ export default function AfterburnerPage() {
       <div id="compatible" className="border-t-2 border-bone">
         <div className="container-content py-16 lg:py-20">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/90 block mb-6">
-              COMPATIBLE WITH
+            <span className="caption-style text-ink/90 block mb-6 font-korean">
+              호환 로스터기
             </span>
             <div className="flex flex-wrap gap-x-8 gap-y-4">
               {COMPATIBLE_ROASTERS.map((brand) => (
@@ -373,6 +369,9 @@ export default function AfterburnerPage() {
                 </span>
               ))}
             </div>
+            <p className="text-body-kr font-korean text-ink/60 mt-4 text-sm">
+              현장 실측 후 로스터기의 브랜드·용량·덕트 구조에 맞춰 결합 설계합니다.
+            </p>
           </div>
         </div>
       </div>
@@ -380,20 +379,20 @@ export default function AfterburnerPage() {
       {/* ── CTA ── */}
       <div id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
-          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
-            YOUR ROASTERY.
+          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
+            당신의 로스터리,
             <br />
-            OUR AFTERBURNER.
+            우리의 애프터버너.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/75 mt-6 opacity-0">
-            당신의 로스터리에 맞는 애프터버너를 찾아드립니다.
+            당신의 현장에 맞는 애프터버너를 찾아드립니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link
               href="/contact"
-              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
+              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg font-korean"
             >
-              REQUEST A QUOTE <span className="ml-2">&rarr;</span>
+              견적 문의 <span className="ml-2">&rarr;</span>
             </Link>
           </div>
         </div>
@@ -414,14 +413,12 @@ function SpecRow({ label, value }: { label: string; value: string }) {
 function TiltCard({
   number,
   title,
-  en,
-  kr,
+  body,
   image,
 }: {
   number: string;
   title: string;
-  en: string;
-  kr: string;
+  body: string;
   image: string;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -460,11 +457,10 @@ function TiltCard({
         <span className="caption-style text-ink/80 block mb-2">
           {number}
         </span>
-        <h4 className="font-display font-bold text-base text-ink mb-3">
+        <h4 className="font-display font-bold text-base text-ink mb-3 font-korean">
           {title}
         </h4>
-        <p className="text-xs text-ink/85 leading-relaxed">{en}</p>
-        <p className="text-xs font-korean text-ink/85 leading-relaxed mt-2">{kr}</p>
+        <p className="text-xs font-korean text-ink/85 leading-[1.65]">{body}</p>
       </div>
     </div>
   );

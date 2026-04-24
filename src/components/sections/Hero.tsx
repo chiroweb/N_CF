@@ -11,9 +11,9 @@ const PRODUCTS = [
     tag: "THE AFTERBURNER",
     title: "DIRECT FLAME AFTERBURNER",
     details: [
-      ["TYPE", "DIRECT FLAME"],
-      ["METHOD", "COMBUSTION"],
-      ["RESULT", "ZERO SMOKE"],
+      ["TYPE", "직접화염"],
+      ["METHOD", "완전 연소"],
+      ["RESULT", "무연 배출"],
     ],
     href: "/afterburner",
   },
@@ -21,9 +21,9 @@ const PRODUCTS = [
     tag: "KUBAN",
     title: "COFFEE ROASTERS",
     details: [
-      ["TYPE", "DRUM ROASTER"],
-      ["ORIGIN", "TURKEY"],
-      ["DEALER", "EXCLUSIVE KR"],
+      ["TYPE", "드럼 로스터"],
+      ["ORIGIN", "터키"],
+      ["DEALER", "한국 독점"],
     ],
     href: "/roasters",
   },
@@ -31,9 +31,9 @@ const PRODUCTS = [
     tag: "THE LAB",
     title: "PEANUT BUTTER MACHINE",
     details: [
-      ["TYPE", "STONE MILL"],
-      ["USE", "COMMERCIAL"],
-      ["PROCESS", "STONE GROUND"],
+      ["TYPE", "스톤밀"],
+      ["USE", "상업용"],
+      ["PROCESS", "석분 분쇄"],
     ],
     href: "/the-lab",
   },
@@ -114,20 +114,15 @@ export default function Hero() {
         {/* Sticky button wrapper — encompasses typo + body copy */}
         <div className="relative">
           {/* Giant stacked typography — flush left */}
-          <div className="pl-[var(--edge-margin)] pt-[35vh]">
-            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
-              NO ONE
+          <h1 className="pl-[var(--edge-margin)] pt-[35vh] m-0 font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em]">
+            <span className="hero-line block opacity-0">NO ONE</span>
+            <span className="hero-line block opacity-0">KNEW</span>
+            <span className="hero-line block opacity-0">WE WERE</span>
+            <span className="hero-line block opacity-0">ROASTING</span>
+            <span className="sr-only">
+              . 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직접화염 애프터버너 제조사입니다.
             </span>
-            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
-              KNEW
-            </span>
-            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
-              WE WERE
-            </span>
-            <span className="hero-line font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em] block opacity-0">
-              ROASTING
-            </span>
-          </div>
+          </h1>
 
           {/* Body copy + sticky CTA zone */}
           <div className="flex items-start justify-end gap-8 pr-[var(--edge-margin)] pl-[var(--edge-margin)] mt-40">

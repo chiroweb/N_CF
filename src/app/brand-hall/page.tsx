@@ -8,65 +8,59 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
-  { id: "overview", label: "OVERVIEW" },
-  { id: "gallery", label: "GALLERY" },
-  { id: "film", label: "FILM" },
-  { id: "manifesto", label: "MANIFESTO" },
-  { id: "event", label: "NEXT EVENT" },
+  { id: "overview", label: "개요" },
+  { id: "gallery", label: "갤러리" },
+  { id: "film", label: "브랜드 필름" },
+  { id: "manifesto", label: "선언문" },
+  { id: "event", label: "다음 전시" },
 ];
 
 const GALLERY_ITEMS = [
   {
     id: 1,
-    title: "GRAFFITI EDITION",
-    subtitle: "2024 Exhibition",
-    description: "Street art meets industrial engineering. One machine, wrapped in color, shipped to a gallery.",
-    descriptionKr: "스트릿 아트와 산업 엔지니어링의 만남. 한 대의 기계에 색을 입혀 갤러리로 보냈다.",
+    title: "그래피티 에디션",
+    subtitle: "2024 전시",
+    description: "스트릿 아트와 산업 엔지니어링의 만남. 한 대의 기계에 색을 입혀 갤러리로 보냈습니다.",
     image: IMAGES.missionLeft,
     size: "large",
   },
   {
     id: 2,
-    title: "THE WORKSHOP",
-    subtitle: "Where it begins",
-    description: "Every unit starts here. Hands, fire, steel.",
-    descriptionKr: "모든 유닛은 여기서 시작된다. 손, 불, 강철.",
+    title: "작업장",
+    subtitle: "모든 것의 시작",
+    description: "모든 유닛은 여기서 시작됩니다. 손, 불, 강철.",
     image: IMAGES.obs02,
     size: "small",
   },
   {
     id: 3,
-    title: "GOLDEN HOUR",
-    subtitle: "Roastery mornings",
-    description: "The light hits different when you know nobody can smell you roasting.",
-    descriptionKr: "아무도 로스팅 냄새를 못 맡는다는 걸 알 때, 빛은 다르게 느껴진다.",
+    title: "골든 아워",
+    subtitle: "로스터리의 아침",
+    description: "아무도 로스팅 냄새를 맡지 못한다는 걸 알 때, 빛은 다르게 느껴집니다.",
     image: IMAGES.missionRight,
     size: "medium",
   },
   {
     id: 4,
-    title: "THE NEIGHBORHOOD",
-    subtitle: "Seoul, dusk",
-    description: "A roastery in a residential block. The child on the bicycle never complained.",
-    descriptionKr: "주거 단지 안의 로스터리. 자전거 탄 아이는 한 번도 항의하지 않았다.",
+    title: "동네 한복판",
+    subtitle: "서울의 저녁",
+    description: "주거 단지 안의 로스터리. 자전거 탄 아이는 한 번도 항의하지 않았습니다.",
     image: IMAGES.installationPhoto,
     size: "large",
   },
   {
     id: 5,
-    title: "CRAFT & BEANS",
-    subtitle: "The raw material",
-    description: "Before the machine, there's the hand. Before the hand, there's the bean.",
-    descriptionKr: "기계 이전에 손이 있다. 손 이전에 원두가 있다.",
+    title: "크래프트와 원두",
+    subtitle: "가장 처음의 재료",
+    description: "기계 이전에 손이 있습니다. 손 이전에 원두가 있습니다.",
     image: IMAGES.obs01,
     size: "small",
   },
   {
     id: 6,
-    title: "AFTERBURNER UNIT",
-    subtitle: "Studio portrait",
-    description: "14 years of refinement in one frame.",
-    descriptionKr: "14년의 개선을 한 프레임에.",
+    title: "애프터버너 유닛",
+    subtitle: "스튜디오 포트레이트",
+    description: "14년의 개선을 한 프레임에.",
     image: IMAGES.heroBg,
     size: "medium",
   },
@@ -77,7 +71,6 @@ export default function BrandHallPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero text animation
       const heroLines = pageRef.current?.querySelectorAll(".hero-line");
       if (heroLines) {
         gsap.fromTo(
@@ -87,7 +80,6 @@ export default function BrandHallPage() {
         );
       }
 
-      // Gallery items stagger
       const items = pageRef.current?.querySelectorAll(".gallery-item");
       if (items) {
         items.forEach((item) => {
@@ -109,7 +101,6 @@ export default function BrandHallPage() {
         });
       }
 
-      // Parallax on gallery images
       const parallaxImgs = pageRef.current?.querySelectorAll(".gallery-parallax");
       if (parallaxImgs) {
         parallaxImgs.forEach((img) => {
@@ -136,30 +127,29 @@ export default function BrandHallPage() {
 
       {/* ── Hero ── */}
       <div id="overview" className="relative h-[80vh] flex flex-col justify-end container-content pb-16">
-        <span className="hero-line caption-style text-white/90 block mb-6 opacity-0">
-          BRAND HALL / 브랜드 전시
+        <span className="hero-line caption-style text-white/90 block mb-6 opacity-0 font-korean">
+          브랜드 홀 · 전시 아카이브
         </span>
-        <h1 className="hero-line font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] opacity-0">
-          THE OTHER
-        </h1>
-        <h1 className="hero-line font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] opacity-0">
-          SIDE
+        <h1 className="m-0 font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] font-korean">
+          <span className="hero-line block opacity-0">기계 너머,</span>
+          <span className="hero-line block opacity-0">예술의 자리.</span>
+          <span className="sr-only">
+            . 엔비피코리아 브랜드 홀 — 애프터버너, KUBAN 로스터, 넛츠스타 넛버터머신 세 제품군의 계보.
+          </span>
         </h1>
         <p className="hero-line text-body-kr font-korean text-white/90 mt-8 max-w-md opacity-0">
-          우리는 기계를 만든다. 하지만 가끔, 기계가 예술이 되는 순간이 있다.
-          이곳은 그 순간들을 모아둔 공간이다.
+          우리는 기계를 만듭니다. 하지만 가끔, 기계가 예술이 되는 순간이
+          있습니다. 이곳은 그 순간들을 모아둔 공간입니다.
         </p>
       </div>
 
       {/* ── Gallery Grid — asymmetric editorial ── */}
       <div id="gallery" className="container-content pb-32">
-        {/* Row 1: large left + small right */}
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-4">
           <GalleryCard item={GALLERY_ITEMS[0]} />
           <GalleryCard item={GALLERY_ITEMS[1]} />
         </div>
 
-        {/* Row 2: small left + large right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 mb-4">
           <GalleryCard item={GALLERY_ITEMS[2]} />
           <GalleryCard item={GALLERY_ITEMS[3]} />
@@ -168,7 +158,6 @@ export default function BrandHallPage() {
         {/* ── Video Section ── */}
         <div id="film" className="my-24">
           <div className="relative aspect-video rounded-lg overflow-hidden bg-ink/50">
-            {/* Replace src with actual video URL */}
             <video
               className="absolute inset-0 w-full h-full object-cover"
               poster={IMAGES.heroBg}
@@ -177,21 +166,17 @@ export default function BrandHallPage() {
               loop
               playsInline
               autoPlay
-            >
-              {/* <source src="VIDEO_URL_HERE" type="video/mp4" /> */}
-            </video>
-            {/* Play button overlay — shown when no video source */}
+            />
             <div className="absolute inset-0 flex items-center justify-center bg-ink/40">
-              <button className="w-20 h-20 rounded-full bg-paper/90 flex items-center justify-center hover:bg-paper transition-colors group">
+              <button className="w-20 h-20 rounded-full bg-paper/90 flex items-center justify-center hover:bg-paper transition-colors group" aria-label="브랜드 필름 재생">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1">
                   <path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z" fill="currentColor" className="text-ink" />
                 </svg>
               </button>
             </div>
-            {/* Video caption */}
             <div className="absolute bottom-6 left-8">
-              <span className="caption-style text-white/85">
-                NBPKOREA BRAND FILM / 2024
+              <span className="caption-style text-white/85 font-korean">
+                엔비피코리아 브랜드 필름 · 2024
               </span>
             </div>
           </div>
@@ -199,52 +184,40 @@ export default function BrandHallPage() {
 
         {/* ── Manifesto — Why we did this ── */}
         <div id="manifesto" className="my-24 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
-          {/* Left — title */}
           <div>
-            <span className="caption-style text-white/90 block mb-4">
-              WHY WE DID THIS
+            <span className="caption-style text-white/90 block mb-4 font-korean">
+              왜 이걸 만들었나
             </span>
-            <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-paper leading-[0.95] tracking-[-0.03em]">
-              BECAUSE
+            <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-paper leading-[0.95] tracking-[-0.03em] font-korean">
+              기계도,
               <br />
-              MACHINES
+              예술이
               <br />
-              DESERVE
+              될 수
               <br />
-              MORE
+              있습니다.
             </h2>
           </div>
 
-          {/* Right — body text */}
           <div className="flex flex-col justify-center">
-            <p className="text-[clamp(1rem,1.3vw,1.2rem)] text-white/90 leading-[1.7] mb-6">
-              For 14 years, we built machines that disappeared into basements
-              and rooftops. Invisible by design. That was the point — no one
-              should know you&apos;re roasting. But one day we asked ourselves:
-              does a machine that solves this many problems deserve to be hidden?
-            </p>
-            <p className="text-[clamp(1rem,1.3vw,1.2rem)] text-white/90 leading-[1.7] mb-8">
-              So we wrapped one in graffiti. Shipped it to a gallery.
-              And everyone who saw it understood something
-              they hadn&apos;t before — that industrial engineering can be beautiful.
-              That obsession has a face. That the thing we hide in your basement
-              is worth putting on a pedestal.
+            <p className="text-body-kr font-korean text-white/90 leading-[1.75] mb-6">
+              14년간 우리는 지하실과 옥상에서 사라지는 기계를 만들어왔습니다.
+              보이지 않는 것이 목적이었습니다. 하지만 어느 날 스스로에게
+              물었습니다 — 이 많은 문제를 해결해 주는 기계가, 반드시
+              숨겨져 있어야만 하는가?
             </p>
             <p className="text-body-kr font-korean text-white/90 leading-[1.75] mb-8">
-              14년간 우리는 지하실과 옥상에서 사라지는 기계를 만들어왔다.
-              보이지 않는 것이 목적이었다. 하지만 어느 날 스스로에게 물었다 —
-              이 많은 문제를 해결하는 기계가 숨겨져야만 하는가?
-              <br /><br />
-              그래서 한 대에 그래피티를 입혀 갤러리로 보냈다.
-              그리고 본 사람들은 모두 이해했다 —
-              산업 엔지니어링도 아름다울 수 있다는 것을.
-              집착에는 얼굴이 있다는 것을.
+              그래서 한 대에 그래피티를 입혀 갤러리로 보냈습니다. 그리고
+              본 사람들은 모두 이해했습니다 — 산업 엔지니어링도 아름다울 수
+              있다는 것을. 집착에는 얼굴이 있다는 것을. 당신의 지하실에
+              숨어 있던 기계도, 때로는 받침대 위에 올라갈 자격이 있다는
+              것을.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-paper text-ink px-5 py-2.5 text-xs font-bold tracking-[0.06em] uppercase hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg self-start"
+              className="inline-block bg-paper text-ink px-5 py-2.5 text-xs font-bold tracking-[0.04em] hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg self-start font-korean"
             >
-              TALK TO US
+              이야기 나누기
             </Link>
           </div>
         </div>
@@ -257,17 +230,17 @@ export default function BrandHallPage() {
 
         {/* Event CTA */}
         <div id="event" className="mt-24 text-center">
-          <p className="font-heading font-semibold text-[clamp(1.5rem,3vw,2.5rem)] text-white/85 leading-[1.3] mb-4">
-            Want to see the next exhibition?
+          <p className="font-heading font-semibold text-[clamp(1.5rem,3vw,2.5rem)] text-white/85 leading-[1.35] mb-4 font-korean">
+            다음 전시가 궁금하신가요?
           </p>
           <p className="text-body-kr font-korean text-white/80 mb-10">
-            다음 전시를 보고 싶다면
+            다음 전시 일정이 잡히면 가장 먼저 알려드립니다.
           </p>
           <Link
             href="/contact"
-            className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
+            className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg font-korean"
           >
-            GET NOTIFIED <span className="ml-2">&rarr;</span>
+            알림 받기 <span className="ml-2">&rarr;</span>
           </Link>
         </div>
       </div>
@@ -280,7 +253,6 @@ function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
 
   return (
     <div className={`gallery-item group relative overflow-hidden rounded-lg opacity-0 ${isLarge ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
-      {/* Image with parallax */}
       <div className="gallery-parallax absolute inset-0 -top-[10%] -bottom-[10%]">
         <Image
           src={item.image}
@@ -291,22 +263,17 @@ function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
         />
       </div>
 
-      {/* Dark overlay — stronger on hover */}
       <div className="absolute inset-0 bg-ink/30 group-hover:bg-ink/60 transition-colors duration-500" />
 
-      {/* Content — appears more on hover */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
-        <span className="caption-style text-white/80 mb-2">
+        <span className="caption-style text-white/80 mb-2 font-korean">
           {item.subtitle}
         </span>
-        <h3 className="font-display font-bold text-[clamp(1.2rem,2.5vw,2rem)] text-paper leading-[1.05] tracking-[-0.02em] mb-3">
+        <h3 className="font-display font-bold text-[clamp(1.2rem,2.5vw,2rem)] text-paper leading-[1.1] tracking-[-0.02em] mb-3 font-korean">
           {item.title}
         </h3>
-        <p className="text-sm text-white/90 leading-relaxed max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="text-sm font-korean text-white/90 leading-[1.6] max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           {item.description}
-        </p>
-        <p className="text-xs font-korean text-white/90 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          {item.descriptionKr}
         </p>
       </div>
     </div>

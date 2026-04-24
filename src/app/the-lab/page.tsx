@@ -9,32 +9,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
-  { id: "overview", label: "OVERVIEW" },
-  { id: "story", label: "STORY" },
-  { id: "object", label: "THE OBJECT" },
-  { id: "features", label: "FEATURES" },
-  { id: "method", label: "METHOD" },
-  { id: "contact", label: "CONTACT" },
+  { id: "overview", label: "개요" },
+  { id: "story", label: "이야기" },
+  { id: "object", label: "기계" },
+  { id: "features", label: "특징" },
+  { id: "method", label: "방법" },
+  { id: "contact", label: "문의" },
 ];
 
 const PROCESS = [
   {
     no: "01",
-    title: "LOAD",
-    en: "Whole peanuts, almonds, cashews — anything roasted whole. The same machine, every nut.",
-    kr: "땅콩·아몬드·캐슈·호두 — 로스팅된 견과라면 무엇이든. 기계 한 대, 견과 전부.",
+    title: "투입",
+    body: "땅콩·아몬드·캐슈넛·호두 — 로스팅된 견과라면 무엇이든. 기계 한 대로 견과 전부를 다룹니다.",
   },
   {
     no: "02",
-    title: "GRIND",
-    en: "A 1.7 kW inverter drives the mill at the speed that suits the bean. One touch picks SMOOTH or CRUNCHY.",
-    kr: "1.7kW 인버터가 견과에 맞는 속도로 밀을 돌린다. 원터치로 SMOOTH / CRUNCHY 선택.",
+    title: "분쇄",
+    body: "1.7kW 인버터가 견과에 맞는 속도로 밀을 돌립니다. 원터치로 부드럽게 갈지, 크런치하게 갈지 선택.",
   },
   {
     no: "03",
-    title: "JAR",
-    en: "50 kilograms an hour, poured warm. STS304 housing, KC certified, built for service without drama.",
-    kr: "시간당 50kg, 따뜻할 때 병에 붓는다. STS304 스테인리스 하우징, KC 인증, 드라마 없는 운영.",
+    title: "담기",
+    body: "시간당 50kg, 따뜻할 때 병에 붓습니다. STS304 스테인리스 하우징, KC 인증, 드라마 없는 운영.",
   },
 ];
 
@@ -113,34 +110,30 @@ export default function TheLabPage() {
       <section id="overview" className="relative container-content pt-24 lg:pt-32 pb-16 lg:pb-24">
         {/* Issue marker — top right */}
         <div className="absolute top-24 right-[var(--edge-margin)] hidden lg:block">
-          <p className="caption-style text-ink/90 text-right leading-relaxed">
-            ISSUE 03 / 2026
+          <p className="caption-style text-ink/90 text-right leading-relaxed font-korean">
+            03호 · 2026
             <br />
-            THE LAB — NUTS-STAR
+            더 랩 — 넛츠스타
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end min-h-[75vh]">
           <div>
-            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              THE LAB / 넛버터 머신 · 0001
+            <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
+              더 랩 / 넛버터 머신 · 0001
             </span>
-            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
-              FRESH
+            <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0 font-korean">
+              스톤에서
               <br />
-              FROM THE
+              갓 나온
               <br />
-              STONE.
+              버터.
             </h1>
-            <p className="hero-fade text-[clamp(1rem,1.3vw,1.2rem)] text-ink/85 leading-[1.6] mt-8 max-w-md opacity-0">
-              A single commercial-grade nut butter machine built for the
-              counter. Load the peanuts, choose smooth or crunchy, pour
-              it warm into the jar — 50 kilograms an hour, 220 volts,
-              one button.
-            </p>
-            <p className="hero-fade text-body-kr font-korean text-ink/75 leading-[1.75] mt-4 max-w-md opacity-0">
+            <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
               {NUTBUTTER_PRODUCT.tagline}. 매장 카운터 위에서 직접 가는
-              상업용 넛버터 머신. 시간당 50kg, 220V 가정용 전원, 버튼 하나.
+              상업용 넛버터 머신 — 견과를 넣고, 부드럽게 갈지 크런치로 갈지
+              고르고, 병에 따뜻할 때 붓습니다. 시간당 50kg, 220V 가정용 전원,
+              버튼 하나.
             </p>
           </div>
 
@@ -151,7 +144,7 @@ export default function TheLabPage() {
             >
               <Image
                 src={NUTBUTTER_PRODUCT.heroImage}
-                alt="NUTS-STAR masthead"
+                alt="넛츠스타 NUTS-STAR 머신"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -163,11 +156,11 @@ export default function TheLabPage() {
 
         {/* Folio bar */}
         <div className="mt-16 lg:mt-24 pt-4 border-t border-ink/20 flex justify-between items-center">
-          <span className="caption-style text-ink/90">
-            NBPKOREA — THE LAB COLLECTION
+          <span className="caption-style text-ink/90 font-korean">
+            NBPKOREA — 더 랩 컬렉션
           </span>
-          <span className="caption-style text-ink/90">
-            FIELD NOTES ON A NUT BUTTER MILL
+          <span className="caption-style text-ink/90 font-korean">
+            넛버터 스톤밀 현장 노트
           </span>
         </div>
       </section>
@@ -176,43 +169,30 @@ export default function TheLabPage() {
       <section id="story" className="container-content py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/90 block mb-4">
-              CHAPTER I
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              01장
             </span>
-            <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
-              PEANUT,
+            <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
+              견과,
               <br />
-              STONE,
+              스톤,
               <br />
-              JAR.
+              병.
             </h2>
           </div>
 
           <div className="scroll-fade opacity-0 flex flex-col justify-center">
-            <p className="text-[clamp(1rem,1.4vw,1.25rem)] text-ink/90 leading-[1.7] mb-6 first-letter:font-display first-letter:font-bold first-letter:text-[clamp(3rem,6vw,5rem)] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85] first-letter:mt-1">
-              We spent fourteen years burning smoke. Then one morning, a
-              pastry chef walked into the shop and asked whether we could
-              build her a nut butter machine small enough to sit on the
-              counter, strong enough to run all day, honest enough to let
-              the nut still taste like a nut.
+            <p className="text-body-kr font-korean text-ink/90 leading-[1.75] mb-6 first-letter:font-display first-letter:font-bold first-letter:text-[clamp(3rem,6vw,5rem)] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85] first-letter:mt-1">
+              14년간 연기를 태웠습니다. 그러던 어느 아침, 한 파티셰가
+              작업장에 들어와 물었습니다. 카운터에 올릴 만큼 작고, 종일
+              돌릴 만큼 튼튼하며, 견과가 여전히 견과의 맛을 유지하는 기계를
+              만들 수 있느냐고.
             </p>
-            <p className="text-[clamp(1rem,1.4vw,1.25rem)] text-ink/85 leading-[1.7] mb-6">
-              We said yes before we knew how. Then we made it —
-              stainless, inverter-driven, KC-certified, proudly built in
-              Korea. Every NUTS-STAR that leaves Ansan is the same
-              machine she asked for.
-            </p>
-            <p className="text-body-kr font-korean text-ink/80 leading-[1.75]">
-              14년간 연기를 태웠다. 그러던 어느 아침, 한 파티셰가
-              들어와 물었다. 카운터에 올릴 만큼 작고, 종일 돌릴 만큼
-              튼튼하며, 견과가 여전히 견과의 맛을 유지하는 기계를 만들 수
-              있느냐고.
-              <br />
-              <br />
-              우리는 방법을 알기 전에 그러겠다고 답했다. 그리고
-              만들었다 — 스테인리스, 인버터 제어, KC 인증, 국내 자체
-              생산. 안산 공장을 떠나는 모든 NUTS-STAR는 그 파티셰가 처음
-              부탁한 바로 그 기계다.
+            <p className="text-body-kr font-korean text-ink/85 leading-[1.75]">
+              우리는 방법을 알기 전에 그러겠다고 답했습니다. 그리고 만들었죠
+              — 스테인리스, 인버터 제어, KC 인증, 국내 자체 생산. 안산
+              공장을 떠나는 모든 넛츠스타는 그 파티셰가 처음 부탁한 바로
+              그 기계입니다.
             </p>
           </div>
         </div>
@@ -227,7 +207,7 @@ export default function TheLabPage() {
           >
             <Image
               src={IMAGES.obs01}
-              alt="Workshop plate, Ansan"
+              alt="안산 작업장 현장"
               fill
               sizes="100vw"
               className="object-cover object-center"
@@ -235,11 +215,11 @@ export default function TheLabPage() {
           </div>
           <div className="absolute inset-0 bg-ink/20" />
           <div className="absolute bottom-6 left-[var(--edge-margin)] right-[var(--edge-margin)] flex items-end justify-between gap-6">
-            <span className="caption-style text-white/85">
-              PLATE 01 — Workshop, Ansan
+            <span className="caption-style text-white/85 font-korean">
+              플레이트 01 — 작업장, 안산
             </span>
-            <span className="caption-style text-white/85 text-right">
-              Photograph · NBPKOREA
+            <span className="caption-style text-white/85 text-right font-korean">
+              촬영 · NBPKOREA
             </span>
           </div>
         </div>
@@ -248,17 +228,17 @@ export default function TheLabPage() {
       {/* ── 04 · Pull quote ── */}
       <section className="bg-ink py-24 lg:py-32">
         <div className="container-content">
-          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0">
-            — QUOTE · 01
+          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0 font-korean">
+            — 인용 · 01
           </span>
-          <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.25] tracking-[-0.015em] max-w-5xl opacity-0">
-            &ldquo;The machine doesn&apos;t make the butter. It makes it
-            possible to make butter the right way — slow, warm, whole,
-            honest. Everything a nut should still be when it stops being
-            a nut.&rdquo;
+          <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.3] tracking-[-0.015em] max-w-5xl opacity-0 font-korean">
+            &ldquo;기계가 버터를 만드는 것이 아닙니다. 버터를 제대로 만들 수
+            있게 만들어 줄 뿐이죠 — 천천히, 따뜻하게, 통째로, 정직하게.
+            견과가 견과이기를 멈추는 순간에도, 견과로 남아 있어야 할 모든
+            것을.&rdquo;
           </p>
-          <p className="scroll-fade caption-style text-paper/90 mt-10 opacity-0">
-            — PARK HAN-JIN · HEAD ENGINEER, NBPKOREA
+          <p className="scroll-fade caption-style text-paper/90 mt-10 opacity-0 font-korean">
+            — 박한진 · 엔비피코리아 수석 엔지니어
           </p>
         </div>
       </section>
@@ -266,15 +246,15 @@ export default function TheLabPage() {
       {/* ── 05 · Chapter II — The machine ── */}
       <section id="object" className="container-content py-24 lg:py-32">
         <div className="scroll-fade opacity-0 mb-16 lg:mb-24">
-          <span className="caption-style text-ink/90 block mb-4">
-            CHAPTER II · THE OBJECT
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            02장 · 기계
           </span>
-          <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
-            ONE MACHINE.
+          <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
+            한 모델.
             <br />
-            NO VARIANTS.
+            변형 없음.
             <br />
-            BUILT IN KOREA.
+            국내 제작.
           </h2>
         </div>
 
@@ -283,20 +263,20 @@ export default function TheLabPage() {
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
               <Image
                 src={NUTBUTTER_PRODUCT.image}
-                alt="NUTS-STAR assembly"
+                alt="넛츠스타 NUTS-STAR 조립 완성본"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-contain object-center"
               />
             </div>
-            <p className="caption-style text-ink/90 mt-3">
-              FIG. 01 — NUTS-STAR, counter-grade assembly.
+            <p className="caption-style text-ink/90 mt-3 font-korean">
+              피겨 01 — 넛츠스타, 카운터 등급 조립
             </p>
           </div>
 
           <div className="scroll-fade opacity-0 flex flex-col">
-            <span className="caption-style text-ink/90 mb-6">
-              SPECIFICATION · PLATE 002
+            <span className="caption-style text-ink/90 mb-6 font-korean">
+              사양 · 플레이트 002
             </span>
 
             <div className="space-y-0 border-t-2 border-ink">
@@ -305,7 +285,7 @@ export default function TheLabPage() {
                   key={label}
                   className="flex justify-between items-start py-4 border-b border-bone gap-6"
                 >
-                  <span className="caption-style text-ink/90 shrink-0 pt-0.5">
+                  <span className="caption-style text-ink/90 shrink-0 pt-0.5 font-korean">
                     {label}
                   </span>
                   <span className="text-sm font-medium text-ink text-right leading-[1.5]">
@@ -317,15 +297,16 @@ export default function TheLabPage() {
 
             <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-8">
               수치는 대표 사양이며, 매장 전원·카운터 배치·작업 흐름에 따라
-              현장에서 조정됩니다. 한 대가 배송되기 전, 반드시 대화가 먼저.
+              현장에서 조정됩니다. 한 대가 배송되기 전, 반드시 대화가 먼저
+              입니다.
             </p>
 
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg"
+                className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
               >
-                INQUIRE ABOUT NUTS-STAR <span className="ml-2">&rarr;</span>
+                넛츠스타 문의 <span className="ml-2">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -336,13 +317,13 @@ export default function TheLabPage() {
       <section id="features" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16">
-            <span className="caption-style text-ink/90 block mb-4">
-              FEATURES · 왜 이 기계인가
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              특징 · 왜 이 기계인가
             </span>
-            <h2 className="font-display font-bold text-[clamp(2rem,4.5vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em]">
-              EIGHT REASONS.
+            <h2 className="font-display font-bold text-[clamp(2rem,4.5vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] font-korean">
+              여덟 가지 이유,
               <br />
-              ALL OF THEM TRUE.
+              전부 사실입니다.
             </h2>
           </div>
 
@@ -368,13 +349,13 @@ export default function TheLabPage() {
       <section id="method" className="border-t-2 border-ink">
         <div className="container-content py-24 lg:py-32">
           <div className="scroll-fade opacity-0 mb-16 lg:mb-20">
-            <span className="caption-style text-ink/90 block mb-4">
-              CHAPTER III · THE METHOD
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              03장 · 방법
             </span>
-            <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
-              THREE STEPS.
+            <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
+              세 단계,
               <br />
-              NOTHING MORE.
+              그 이상은 없습니다.
             </h2>
           </div>
 
@@ -387,14 +368,11 @@ export default function TheLabPage() {
                 <span className="font-display font-bold text-[clamp(3rem,6vw,5rem)] text-ink leading-none block mb-6">
                   {step.no}
                 </span>
-                <h3 className="font-display font-bold text-[clamp(1.1rem,1.8vw,1.5rem)] text-ink mb-4 tracking-tight">
+                <h3 className="font-display font-bold text-[clamp(1.1rem,1.8vw,1.5rem)] text-ink mb-4 tracking-tight font-korean">
                   {step.title}
                 </h3>
-                <p className="text-[0.95rem] text-ink/90 leading-[1.6] mb-3">
-                  {step.en}
-                </p>
-                <p className="text-xs font-korean text-ink/75 leading-[1.75]">
-                  {step.kr}
+                <p className="text-body-kr font-korean text-ink/85 leading-[1.75]">
+                  {step.body}
                 </p>
               </div>
             ))}
@@ -406,14 +384,14 @@ export default function TheLabPage() {
       <section className="border-t border-bone">
         <div className="container-content py-20 lg:py-28">
           <div className="scroll-fade opacity-0">
-            <span className="caption-style text-ink/90 block mb-8">
-              BUILT FOR · 쓰이는 곳
+            <span className="caption-style text-ink/90 block mb-8 font-korean">
+              쓰이는 곳
             </span>
             <div className="flex flex-wrap gap-x-10 gap-y-4">
               {NUTBUTTER_PRODUCT.applications.map((app) => (
                 <span
                   key={app}
-                  className="font-display font-bold text-[clamp(1.3rem,2.3vw,2rem)] text-ink/75 hover:text-ink transition-colors duration-300"
+                  className="font-display font-bold text-[clamp(1.3rem,2.3vw,2rem)] text-ink/75 hover:text-ink transition-colors duration-300 font-korean"
                 >
                   {app}
                 </span>
@@ -429,27 +407,27 @@ export default function TheLabPage() {
       {/* ── 09 · Closing ── */}
       <section id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
-          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0">
-            END OF ISSUE 03
+          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0 font-korean">
+            03호 끝
           </span>
-          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
-            YOUR JAR.
+          <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
+            당신의 병,
             <br />
-            OUR STONE.
+            우리의 스톤.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/85 mt-6 opacity-0">
-            당신의 병, 우리의 스톤밀.
+            카운터 위의 한 대가 시작점입니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link
               href="/contact"
-              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg"
+              className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg font-korean"
             >
-              REQUEST A QUOTE <span className="ml-2">&rarr;</span>
+              견적 문의 <span className="ml-2">&rarr;</span>
             </Link>
           </div>
-          <p className="scroll-fade caption-style text-paper/80 mt-10 opacity-0">
-            or email — nbpkorea@nbpkorea.co.kr
+          <p className="scroll-fade caption-style text-paper/80 mt-10 opacity-0 font-korean">
+            또는 이메일 — nbpkorea@nbpkorea.co.kr
           </p>
         </div>
       </section>
