@@ -6,16 +6,43 @@ const SITE_URL = "https://nbpkorea.co.kr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
-    { url: `${SITE_URL}/afterburner`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE_URL}/roasters`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/the-lab`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE_URL}/brand-hall`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/deliveries`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
+  const koPairs: Array<[string, string, MetadataRoute.Sitemap[number]["changeFrequency"], number]> = [
+    ["", "/en", "monthly", 1.0],
+    ["/afterburner", "/en/afterburner", "monthly", 0.9],
+    ["/roasters", "/en/roasters", "monthly", 0.8],
+    ["/the-lab", "/en/the-lab", "monthly", 0.8],
+    ["/brand-hall", "/en/brand-hall", "monthly", 0.7],
+    ["/deliveries", "/en/deliveries", "weekly", 0.9],
+    ["/blog", "/en/blog", "weekly", 0.7],
+    ["/contact", "/en/contact", "yearly", 0.6],
   ];
+
+  const staticRoutes: MetadataRoute.Sitemap = koPairs.flatMap(([ko, en, freq, pri]) => [
+    {
+      url: `${SITE_URL}${ko || "/"}`,
+      lastModified: now,
+      changeFrequency: freq,
+      priority: pri,
+      alternates: {
+        languages: {
+          "ko-KR": `${SITE_URL}${ko || "/"}`,
+          en: `${SITE_URL}${en}`,
+        },
+      },
+    },
+    {
+      url: `${SITE_URL}${en}`,
+      lastModified: now,
+      changeFrequency: freq,
+      priority: pri * 0.9,
+      alternates: {
+        languages: {
+          "ko-KR": `${SITE_URL}${ko || "/"}`,
+          en: `${SITE_URL}${en}`,
+        },
+      },
+    },
+  ]);
 
   const postRoutes: MetadataRoute.Sitemap = listPostIds().map((id) => ({
     url: `${SITE_URL}/blog/${id}`,

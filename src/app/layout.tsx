@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
     canonical: "/",
+    languages: {
+      "ko-KR": "/",
+      en: "/en",
+    },
   },
   openGraph: {
     type: "website",
