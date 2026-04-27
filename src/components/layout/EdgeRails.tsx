@@ -108,7 +108,7 @@ export default function EdgeRails() {
 
       {/* Half-screen slide-in menu */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-1/2 bg-ink z-[60] flex flex-col justify-between p-12 lg:p-16 transition-transform duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 w-1/2 bg-ink z-[60] flex flex-col p-12 lg:p-16 transition-transform duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           onClick={() => setMenuOpen(false)}
@@ -141,7 +141,7 @@ export default function EdgeRails() {
           ))}
         </ul>
 
-        <div className="flex flex-col gap-4">
+        <div className="absolute right-12 bottom-12 lg:right-16 lg:bottom-16 flex flex-col items-end gap-4">
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">INSTAGRAM &rarr;</a>
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">YOUTUBE &rarr;</a>
           <a href="https://nbpkorea.co.kr" target="_blank" rel="noopener noreferrer" className="caption-style text-paper/80 hover:text-paper transition-colors">NBPKOREA.CO.KR &rarr;</a>

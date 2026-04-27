@@ -16,12 +16,12 @@ const SECTIONS: NavSection[] = [
 ];
 
 const GALLERY_ITEMS = [
-  { id: 1, title: "GRAFFITI EDITION", subtitle: "2024 Exhibition", description: "Street art meets industrial engineering. One machine wrapped in color, shipped to a gallery.", image: IMAGES.missionLeft, size: "large" },
+  { id: 1, title: "GRAFFITI EDITION", subtitle: "2024 Exhibition", description: "Street art meets industrial engineering. One machine wrapped in color, shipped to a gallery.", image: IMAGES.brandAfterburnerGallery, size: "large" },
   { id: 2, title: "THE WORKSHOP", subtitle: "Where it begins", description: "Every unit starts here. Hands, fire, steel.", image: IMAGES.obs02, size: "small" },
   { id: 3, title: "GOLDEN HOUR", subtitle: "Roastery mornings", description: "The light hits different when you know nobody can smell you roasting.", image: IMAGES.missionRight, size: "medium" },
   { id: 4, title: "THE NEIGHBORHOOD", subtitle: "Seoul, dusk", description: "A roastery in a residential block. The child on the bicycle never complained.", image: IMAGES.installationPhoto, size: "large" },
   { id: 5, title: "CRAFT & BEANS", subtitle: "The raw material", description: "Before the machine, the hand. Before the hand, the bean.", image: IMAGES.obs01, size: "small" },
-  { id: 6, title: "AFTERBURNER UNIT", subtitle: "Studio portrait", description: "14 years of refinement in one frame.", image: IMAGES.heroBg, size: "medium" },
+  { id: 6, title: "AFTERBURNER UNIT", subtitle: "Studio portrait", description: "14 years of refinement in one frame.", image: IMAGES.afterburnerLineup, size: "medium" },
 ];
 
 export default function BrandHallEnPage() {

@@ -167,8 +167,8 @@ export default function Evidence() {
           {/* Emotional line — absolutely centered below photo area */}
           <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
             <p className="font-heading font-semibold font-korean text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
-              당신의 일을 이해합니다.
-              <br />그 무게를 함께 나르겠습니다.
+              로스터의 스트레스를 이해합니다.
+              <br />그 무게를 덜어내겠습니다.
             </p>
             <p className="caption-style text-white/85 mt-6">
               37.331° N — 126.785° E

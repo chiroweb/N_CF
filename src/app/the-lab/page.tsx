@@ -411,9 +411,9 @@ export default function TheLabPage() {
             03호 끝
           </span>
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-            당신의 병,
+            당신의 카페에,
             <br />
-            우리의 스톤.
+            견과의 건강함을.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/85 mt-6 opacity-0">
             카운터 위의 한 대가 시작점입니다.

@@ -1,4 +1,5 @@
 const S3_PRODUCT = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products";
+const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 
 // ── AFTERBURNER MODELS ─────────────────────────────────────────────
 // Model codes and dimensions are sourced from the 2019 NBPKOREA Korean
@@ -58,8 +59,12 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Digital",
     connector: "LPG / 도시가스 (13A)",
-    image: `${S3_PRODUCT}/afterburner-white.png`,
-    gallery: [`${S3_PRODUCT}/afterburner-white.png`, `${S3_PRODUCT}/afterburner-metal.png`],
+    image: `${S3_HOTEL}/afterburner-hero-premium.png`,
+    gallery: [
+      `${S3_HOTEL}/afterburner-hero-premium.png`,
+      `${S3_HOTEL}/mission-afterburner-thumb.png`,
+      `${S3_PRODUCT}/afterburner-metal.png`,
+    ],
   },
   {
     id: "nkjc-15k",
@@ -72,8 +77,12 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Touch Screen",
     connector: "LPG / 도시가스 (13A)",
-    image: `${S3_PRODUCT}/ab-15k-2.png`,
-    gallery: [`${S3_PRODUCT}/ab-15k-2.png`, `${S3_PRODUCT}/afterburner-black.png`],
+    image: `${S3_HOTEL}/afterburner-black-premium.png`,
+    gallery: [
+      `${S3_HOTEL}/afterburner-black-premium.png`,
+      `${S3_HOTEL}/afterburner-lineup.png`,
+      `${S3_PRODUCT}/afterburner-black.png`,
+    ],
   },
   {
     id: "nkjc-30k",
@@ -86,8 +95,12 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Proportional",
     connector: "LPG / 도시가스 (13A)",
-    image: `${S3_PRODUCT}/ab-10k-1.jpg`,
-    gallery: [`${S3_PRODUCT}/ab-10k-1.jpg`, `${S3_PRODUCT}/ab-10k-2.jpg`],
+    image: `${S3_HOTEL}/afterburner-install-system.png`,
+    gallery: [
+      `${S3_HOTEL}/afterburner-install-system.png`,
+      `${S3_PRODUCT}/ab-10k-1.jpg`,
+      `${S3_PRODUCT}/ab-10k-2.jpg`,
+    ],
   },
   {
     id: "nkjc-60k",
@@ -261,8 +274,9 @@ export const ROASTER_BASE_MODELS = [
     power: "1.24kW",
     burner: "27.5kW",
     controller: "PLC (optional)",
-    image: `${S3_PRODUCT}/roaster-3kg-1.jpg`,
+    image: `${S3_HOTEL}/roaster-model-solo3kg.png`,
     gallery: [
+      `${S3_HOTEL}/roaster-model-solo3kg.png`,
       `${S3_PRODUCT}/roaster-3kg-1.jpg`,
       `${S3_PRODUCT}/roaster-3kg-2.jpg`,
       `${S3_PRODUCT}/roaster-3kg-3.png`,
@@ -282,8 +296,10 @@ export const ROASTER_BASE_MODELS = [
     power: "1.84kW",
     burner: "35kW",
     controller: "Software & Touchscreen",
-    image: `${S3_PRODUCT}/roaster-5kg-1.jpg`,
+    image: `${S3_HOTEL}/mission-roaster-thumb.png`,
     gallery: [
+      `${S3_HOTEL}/mission-roaster-thumb.png`,
+      `${S3_HOTEL}/roaster-hero-lineup.png`,
       `${S3_PRODUCT}/roaster-5kg-1.jpg`,
       `${S3_PRODUCT}/roaster-5kg-2.jpg`,
       `${S3_PRODUCT}/roaster-5kg-3.png`,
@@ -400,7 +416,7 @@ export const NUTBUTTER_PRODUCT = {
 };
 
 export const HERO_IMAGES = {
-  afterburner: `${S3_PRODUCT}/hero-afterburner.png`,
-  roaster: `${S3_PRODUCT}/hero-roaster.png`,
+  afterburner: `${S3_HOTEL}/afterburner-hero-premium.png`,
+  roaster: `${S3_HOTEL}/roaster-hero-lineup.png`,
   nutbutter: `${S3_PRODUCT}/hero-nutbutter.png`,
 };

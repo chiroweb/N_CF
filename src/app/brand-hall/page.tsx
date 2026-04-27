@@ -21,7 +21,7 @@ const GALLERY_ITEMS = [
     title: "그래피티 에디션",
     subtitle: "2024 전시",
     description: "스트릿 아트와 산업 엔지니어링의 만남. 한 대의 기계에 색을 입혀 갤러리로 보냈습니다.",
-    image: IMAGES.missionLeft,
+    image: IMAGES.brandAfterburnerGallery,
     size: "large",
   },
   {
@@ -61,7 +61,7 @@ const GALLERY_ITEMS = [
     title: "애프터버너 유닛",
     subtitle: "스튜디오 포트레이트",
     description: "14년의 개선을 한 프레임에.",
-    image: IMAGES.heroBg,
+    image: IMAGES.afterburnerLineup,
     size: "medium",
   },
 ];

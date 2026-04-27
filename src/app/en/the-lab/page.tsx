@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
-import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Image from "next/image";
 import Link from "next/link";

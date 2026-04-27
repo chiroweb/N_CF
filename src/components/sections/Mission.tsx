@@ -11,7 +11,9 @@ const SLIDES = [
     stickerLine1: "NBPKOREA",
     stickerLine2: "AFTERBURNER",
     leftImage: IMAGES.missionLeft,
-    rightImage: IMAGES.missionRight,
+    rightImage: IMAGES.missionAfterburnerThumb,
+    rightAspect: "aspect-[3/4]",
+    rightFit: "object-cover",
     title: "NBPKOREA AFTERBURNER",
     lead: "SMOKE-FREE ROASTING, ENGINEERED IN KOREA",
     body:
@@ -23,7 +25,9 @@ const SLIDES = [
     stickerLine1: "KUBAN",
     stickerLine2: "ROASTER",
     leftImage: IMAGES.factory,
-    rightImage: IMAGES.obs02,
+    rightImage: IMAGES.missionRoasterThumb,
+    rightAspect: "aspect-square",
+    rightFit: "object-cover",
     title: "KUBAN COFFEE ROASTERS",
     lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
     body:
@@ -34,8 +38,10 @@ const SLIDES = [
   {
     stickerLine1: "PEANUT",
     stickerLine2: "BUTTER",
-    leftImage: IMAGES.obs03,
-    rightImage: IMAGES.obs01,
+    leftImage: IMAGES.missionNutbutterLeft,
+    rightImage: IMAGES.missionNutbutterThumb,
+    rightAspect: "aspect-[4/3]",
+    rightFit: "object-contain",
     title: "PEANUT BUTTER MACHINE",
     lead: "STONE-GROUND, BUILT TO LAST",
     body:
@@ -221,7 +227,7 @@ export default function Mission() {
             {/* Product image strip */}
             <div
               ref={rightImgRef}
-              className="relative overflow-hidden rounded-lg bg-bone aspect-[4/3]"
+              className={`relative overflow-hidden rounded-lg bg-bone ${slide.rightAspect}`}
             >
               <div className="parallax-inner absolute inset-0 -top-[10%] -bottom-[10%]">
                 <Image
@@ -230,7 +236,7 @@ export default function Mission() {
                   alt={slide.title}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="slide-content object-cover object-center"
+                  className={`slide-content ${slide.rightFit} object-center`}
                 />
               </div>
             </div>
