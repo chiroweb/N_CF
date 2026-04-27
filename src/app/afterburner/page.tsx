@@ -22,10 +22,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "샘플·초소형", recommend: "NKJC-1K ~ 3K", index: 0 },
-  { range: "하루 10kg 이하", recommend: "NKJC-5K", index: 2 },
-  { range: "하루 10–20kg", recommend: "NKJC-10K", index: 3 },
-  { range: "하루 40kg 이상", recommend: "NKJC-60K", index: 6 },
+  { range: "하루 10kg 이하", recommend: "NKJC-5K", index: 0 },
+  { range: "하루 10–20kg", recommend: "NKJC-10K", index: 1 },
+  { range: "하루 20–40kg", recommend: "NKJC-30K", index: 3 },
+  { range: "하루 40kg 이상", recommend: "NKJC-60K", index: 4 },
 ];
 
 export default function AfterburnerPage() {

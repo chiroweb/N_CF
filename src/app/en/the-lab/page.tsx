@@ -77,14 +77,14 @@ export default function TheLabEnPage() {
       <section id="overview" className="relative container-content pt-24 lg:pt-32 pb-16 lg:pb-24">
         <div className="absolute top-24 right-[var(--edge-margin)] hidden lg:block">
           <p className="caption-style text-ink/90 text-right leading-relaxed">
-            ISSUE 03 / 2026<br />THE LAB — NUTS-STAR
+            ISSUE 03 / 2026<br />BUTTER MACHINE — NUTS-STAR
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end min-h-[75vh]">
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              THE LAB / NUT BUTTER MACHINE · 0001
+              BUTTER MACHINE / NUTS-STAR · 0001
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
               FRESH
@@ -109,7 +109,7 @@ export default function TheLabEnPage() {
         </div>
 
         <div className="mt-16 lg:mt-24 pt-4 border-t border-ink/20 flex justify-between items-center">
-          <span className="caption-style text-ink/90">NBPKOREA — THE LAB COLLECTION</span>
+          <span className="caption-style text-ink/90">NBPKOREA — BUTTER MACHINE COLLECTION</span>
           <span className="caption-style text-ink/90">FIELD NOTES ON A NUT BUTTER MILL</span>
         </div>
       </section>

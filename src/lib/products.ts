@@ -3,37 +3,9 @@ const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 
 // ── AFTERBURNER MODELS ─────────────────────────────────────────────
 // Model codes and dimensions are sourced from the 2019 NBPKOREA Korean
-// afterburner catalogue. The NKJC-* series starts at 1Kg (sample-roaster
-// class) and goes up to a custom 120Kg industrial build.
+// afterburner catalogue. The public lineup starts at 5Kg and goes up to
+// a custom 120Kg industrial build.
 export const AFTERBURNER_MODELS = [
-  {
-    id: "nkjc-1k",
-    name: "NKJC-1K",
-    capacity: "1kg",
-    target: "Sample Roaster",
-    targetKr: "샘플 로스터",
-    size: "355 × 545 × 1,183mm",
-    burner: "Surface Combustion Panel Burner",
-    burnerKr: "표면연소 고효율 패널버너",
-    controller: "Multi-stage",
-    connector: "LPG",
-    image: `${S3_PRODUCT}/ab-1k-1.png`,
-    gallery: [`${S3_PRODUCT}/ab-1k-1.png`],
-  },
-  {
-    id: "nkjc-3k",
-    name: "NKJC-3K",
-    capacity: "3kg",
-    target: "Micro Roastery",
-    targetKr: "초소형 로스터리",
-    size: "435 × 545 × 1,310mm",
-    burner: "Surface Combustion Panel Burner",
-    burnerKr: "표면연소 고효율 패널버너",
-    controller: "Multi-stage",
-    connector: "LPG",
-    image: `${S3_PRODUCT}/ab-1k-1.png`,
-    gallery: [`${S3_PRODUCT}/ab-1k-1.png`],
-  },
   {
     id: "nkjc-5k",
     name: "NKJC-5K",
@@ -219,71 +191,8 @@ export const AFTERBURNER_FLOW = [
   },
 ];
 
-// ── ROASTER BASE MODELS (BASE 0.5 ~ 20, image map from reference) ──
+// ── ROASTER BASE MODELS (public lineup starts at BASE 5) ──
 export const ROASTER_BASE_MODELS = [
-  {
-    id: "base-05",
-    name: "BASE 0.5",
-    code: "KBN1000-M-05",
-    capacity: "0.5kg",
-    target: "Sample / Education",
-    targetKr: "샘플 로스팅 / 교육용",
-    size: "56 × 89 × 92cm",
-    weight: "65kg",
-    power: "0.72kW",
-    burner: "5kW",
-    controller: "Manual / Digital Speed",
-    image: `${S3_PRODUCT}/roaster-05kg-1.jpg`,
-    gallery: [
-      `${S3_PRODUCT}/roaster-05kg-1.jpg`,
-      `${S3_PRODUCT}/roaster-05kg-2.jpg`,
-      `${S3_PRODUCT}/roaster-05kg-3.jpg`,
-      `${S3_PRODUCT}/roaster-05kg-4.jpg`,
-    ],
-  },
-  {
-    id: "base-1.5",
-    name: "BASE 1.5",
-    code: "KBN1000-M-1.5",
-    capacity: "1.5kg",
-    target: "Small Café / Education",
-    targetKr: "소형 카페 / 교육기관",
-    size: "87 × 115 × 127cm",
-    weight: "155kg",
-    power: "1.84kW",
-    burner: "10kW",
-    controller: "PLC (optional)",
-    image: `${S3_PRODUCT}/roaster-1_5kg-1.jpg`,
-    gallery: [
-      `${S3_PRODUCT}/roaster-1_5kg-1.jpg`,
-      `${S3_PRODUCT}/roaster-1_5kg-2.jpg`,
-      `${S3_PRODUCT}/roaster-1_5kg-3.png`,
-      `${S3_PRODUCT}/roaster-1_5kg-4.png`,
-      `${S3_PRODUCT}/roaster-1_5kg-5.png`,
-    ],
-  },
-  {
-    id: "base-3",
-    name: "BASE 3",
-    code: "KBN1000-M-3",
-    capacity: "3kg",
-    target: "Roastery Café",
-    targetKr: "로스터리 카페",
-    size: "87 × 135 × 150cm",
-    weight: "270kg",
-    power: "1.24kW",
-    burner: "27.5kW",
-    controller: "PLC (optional)",
-    image: `${S3_HOTEL}/roaster-model-solo3kg.png`,
-    gallery: [
-      `${S3_HOTEL}/roaster-model-solo3kg.png`,
-      `${S3_PRODUCT}/roaster-3kg-1.jpg`,
-      `${S3_PRODUCT}/roaster-3kg-2.jpg`,
-      `${S3_PRODUCT}/roaster-3kg-3.png`,
-      `${S3_PRODUCT}/roaster-3kg-4.png`,
-      `${S3_PRODUCT}/roaster-3kg-5.png`,
-    ],
-  },
   {
     id: "base-5",
     name: "BASE 5",
@@ -384,11 +293,10 @@ export const NUTBUTTER_PRODUCT = {
   nameEn: "Nut Butter Machine · NUTS-STAR",
   nameKr: "넛버터 머신 · 넛츠스타",
   tagline: "갓 만든 신선함을 경험하세요",
-  image: `${S3_PRODUCT}/nutbutter-main.png`,
-  heroImage: `${S3_PRODUCT}/hero-nutbutter.png`,
+  image: "/images/nutbutter-machine.png",
+  heroImage: "/images/nutbutter-machine.png",
   gallery: [
-    `${S3_PRODUCT}/nutbutter-main.png`,
-    `${S3_PRODUCT}/hero-nutbutter.png`,
+    "/images/nutbutter-machine.png",
   ],
   features: [
     "다양한 견과 호환 (땅콩, 아몬드, 캐슈넛, 호두 등)",
@@ -418,5 +326,5 @@ export const NUTBUTTER_PRODUCT = {
 export const HERO_IMAGES = {
   afterburner: `${S3_HOTEL}/afterburner-hero-premium.png`,
   roaster: `${S3_HOTEL}/roaster-hero-lineup.png`,
-  nutbutter: `${S3_PRODUCT}/hero-nutbutter.png`,
+  nutbutter: "/images/nutbutter-machine.png",
 };

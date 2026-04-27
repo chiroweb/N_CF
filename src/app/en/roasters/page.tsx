@@ -21,10 +21,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "Sample / Teaching", recommend: "BASE 0.5", index: 0 },
-  { range: "Small Café", recommend: "BASE 1.5 – 3", index: 1 },
-  { range: "Roastery Café", recommend: "BASE 5", index: 3 },
-  { range: "Large Roastery / Factory", recommend: "BASE 10 – 20", index: 4 },
+  { range: "Roastery Café", recommend: "BASE 5", index: 0 },
+  { range: "Medium Roastery", recommend: "BASE 10", index: 1 },
+  { range: "Large Roastery", recommend: "BASE 15", index: 2 },
+  { range: "Factory / Production", recommend: "BASE 20", index: 3 },
 ];
 
 export default function RoastersEnPage() {
@@ -87,7 +87,7 @@ export default function RoastersEnPage() {
             </h1>
             <p className="hero-fade text-[clamp(1rem,1.3vw,1.15rem)] text-ink/85 leading-[1.65] mt-8 max-w-md opacity-0">
               Turkish KUBAN drum roasters, designed and built in
-              Istanbul. From 0.5kg samples to 20kg production batches.
+              Istanbul. From 5kg to 20kg production batches.
               NBPKOREA is the Korean exclusive dealer — we distribute,
               install, and service the full line.
             </p>
@@ -98,9 +98,9 @@ export default function RoastersEnPage() {
             </div>
           </div>
 
-          <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
-            <div ref={heroImgRef} className="absolute inset-0 -top-[15%] -bottom-[15%]">
-              <Image src={HERO_IMAGES.roaster} alt="KUBAN drum roaster" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain object-center" />
+          <div className="hero-fade relative aspect-[16/10] rounded-lg overflow-hidden bg-bone opacity-0">
+            <div ref={heroImgRef} className="absolute inset-0">
+              <Image src={HERO_IMAGES.roaster} alt="KUBAN drum roaster" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function RoastersEnPage() {
         <div className="scroll-fade opacity-0">
           <span className="caption-style text-ink/90 block mb-4">SELECT YOUR MODEL</span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12">
-            7 BASE MODELS.
+            4 BASE MODELS.
             <br />
             1 SUPREME.
           </h2>
@@ -242,9 +242,9 @@ export default function RoastersEnPage() {
 
       <div id="details" className="container-content pb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <TiltCard number="01" title="DRUM PRECISION" body="Double-wall drum with optimized airflow. Every bean gets equal heat, every batch stays consistent." image={ROASTER_BASE_MODELS[3].gallery[0]} />
-          <TiltCard number="02" title="FULL CONTROL" body="PLC and touchscreen controllers with real-time profiling. Repeat your best roast, every single time." image={ROASTER_BASE_MODELS[4].gallery[0]} />
-          <TiltCard number="03" title="EVERY SCALE" body="0.5kg samples to 20kg production. One philosophy, seven sizes — find the fit for your shop." image={ROASTER_BASE_MODELS[6].gallery[0]} />
+          <TiltCard number="01" title="DRUM PRECISION" body="Double-wall drum with optimized airflow. Every bean gets equal heat, every batch stays consistent." image={ROASTER_BASE_MODELS[0].gallery[0]} />
+          <TiltCard number="02" title="FULL CONTROL" body="PLC and touchscreen controllers with real-time profiling. Repeat your best roast, every single time." image={ROASTER_BASE_MODELS[1].gallery[0]} />
+          <TiltCard number="03" title="EVERY SCALE" body="5kg to 20kg production. One philosophy, four sizes — find the fit for your shop." image={ROASTER_BASE_MODELS[3].gallery[0]} />
         </div>
       </div>
 

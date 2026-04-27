@@ -26,7 +26,7 @@ const PRODUCTS = [
     href: "/en/roasters",
   },
   {
-    tag: "THE LAB",
+    tag: "BUTTER MACHINE",
     details: [
       ["TYPE", "Stone Mill"],
       ["USE", "Commercial"],

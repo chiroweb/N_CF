@@ -16,8 +16,8 @@ export const IMAGES = {
   evidenceFloat: `${S3_BASE}/hf_20260414_025500_ed9f6be1-f82a-479c-904e-9d9ea2fd501d.png`,
   missionAfterburnerThumb: `${S3_HOTEL}/mission-afterburner-thumb.png`,
   missionRoasterThumb: `${S3_HOTEL}/mission-roaster-thumb.png`,
-  missionNutbutterThumb: `${S3_HOTEL}/mission-nutbutter-thumb.png`,
-  missionNutbutterLeft: `${S3_HOTEL}/mission-nutbutter-left.png`,
+  missionNutbutterThumb: "/images/nutbutter-machine.png",
+  missionNutbutterLeft: "/images/nutbutter-machine.png",
   brandAfterburnerGallery: `${S3_HOTEL}/brand-afterburner-gallery.png`,
   afterburnerLineup: `${S3_HOTEL}/afterburner-lineup.png`,
 } as const;

@@ -28,7 +28,7 @@ const PRODUCTS = [
     href: "/roasters",
   },
   {
-    tag: "THE LAB",
+    tag: "BUTTER MACHINE",
     title: "PEANUT BUTTER MACHINE",
     details: [
       ["TYPE", "스톤밀"],

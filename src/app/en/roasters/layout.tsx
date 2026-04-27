@@ -5,7 +5,7 @@ const SITE_URL = "https://nbpkorea.co.kr";
 export const metadata: Metadata = {
   title: "KUBAN Roasters — Korean Exclusive Dealer",
   description:
-    "NBPKOREA is the Korean exclusive dealer for KUBAN drum coffee roasters, designed and built in Istanbul. From 1Kg sample roasters to commercial line-ups — distributed, installed, and serviced out of Ansan, South Korea.",
+    "NBPKOREA is the Korean exclusive dealer for KUBAN drum coffee roasters, designed and built in Istanbul. From 5Kg roasters to commercial line-ups — distributed, installed, and serviced out of Ansan, South Korea.",
   alternates: {
     canonical: "/en/roasters",
     languages: { "ko-KR": "/roasters", en: "/en/roasters" },

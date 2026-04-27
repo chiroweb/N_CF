@@ -31,7 +31,7 @@ const SLIDES = [
     title: "KUBAN COFFEE ROASTERS",
     lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
     body:
-      "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통합니다. Precision-engineered consistency — 로스팅을 직업으로 대하는 사람들을 위해 제작됩니다. 1kg 샘플 로스터부터 60kg 생산기까지, 현장의 모든 규모에 맞춰 공급합니다.",
+      "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통합니다. Precision-engineered consistency — 로스팅을 직업으로 대하는 사람들을 위해 제작됩니다. 5kg 로스터부터 60kg 생산기까지, 현장의 모든 규모에 맞춰 공급합니다.",
     shopHref: "/contact",
     learnHref: "/roasters",
   },

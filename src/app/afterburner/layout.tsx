@@ -11,12 +11,12 @@ const SITE_URL = "https://nbpkorea.co.kr";
 export const metadata: Metadata = {
   title: "애프터버너 — 직접화염 후연 제거장치 NKJC 시리즈",
   description:
-    "엔비피코리아가 2006년부터 만들어온 직접화염 애프터버너 NKJC 시리즈. 커피 로스팅 과정에서 발생하는 연기·체프·유해물질을 200℃–1,000℃ 고온으로 완전 연소해 99.2% 제거합니다. 1Kg 샘플 로스터부터 120Kg 산업용까지 7종 라인업. 열효율 98%, 40:1 비례제어로 경쟁 제품 대비 가스를 30% 이상 절감. 한국가스안전공사 검사 합격, 경기도 미세먼지 저감 6대 신기술 선정, 산업통상자원부 강관상 수상 제품.",
+    "엔비피코리아가 2006년부터 만들어온 직접화염 애프터버너 NKJC 시리즈. 커피 로스팅 과정에서 발생하는 연기·체프·유해물질을 200℃–1,000℃ 고온으로 완전 연소해 99.2% 제거합니다. 5Kg 소형 로스터부터 120Kg 산업용까지 이어지는 라인업. 열효율 98%, 40:1 비례제어로 경쟁 제품 대비 가스를 30% 이상 절감. 한국가스안전공사 검사 합격, 경기도 미세먼지 저감 6대 신기술 선정, 산업통상자원부 강관상 수상 제품.",
   alternates: { canonical: "/afterburner" },
   openGraph: {
     title: "애프터버너 — 직접화염 후연 제거장치 NKJC 시리즈 | 엔비피코리아",
     description:
-      "NKJC 시리즈 7종(1Kg–120Kg). 200–1000℃ 직접화염 연소, 연기 99.2% 제거, 가스 30% 절감. 가스안전공사 검사 합격.",
+      "NKJC 시리즈(5Kg–120Kg). 200–1000℃ 직접화염 연소, 연기 99.2% 제거, 가스 30% 절감. 가스안전공사 검사 합격.",
     url: `${SITE_URL}/afterburner`,
     type: "website",
     locale: "ko_KR",
@@ -46,7 +46,7 @@ const productJsonLd = {
     { "@type": "PropertyValue", name: "Power Supply", value: AFTERBURNER_COMMON_SPECS.power },
     { "@type": "PropertyValue", name: "Heat Source", value: AFTERBURNER_COMMON_SPECS.heatSource },
     { "@type": "PropertyValue", name: "Warranty", value: AFTERBURNER_COMMON_SPECS.warranty },
-    { "@type": "PropertyValue", name: "Capacity Range", value: "1Kg — 120Kg roaster" },
+    { "@type": "PropertyValue", name: "Capacity Range", value: "5Kg — 120Kg roaster" },
     { "@type": "PropertyValue", name: "Compatible Roaster Brands", value: COMPATIBLE_ROASTERS.join(", ") },
   ],
   hasVariant: AFTERBURNER_MODELS.map((m) => ({
@@ -106,7 +106,7 @@ const faqJsonLd = {
       name: "어느 로스팅기 브랜드와 호환되나요?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "PROBAT, GIESEN, LORING, FUJI ROYAL, PROASTER, OZTURK, DIEDRICH, TOPER, BUHLER, JOPER 등 주요 드럼 로스터 브랜드와 결합 설치한 실적이 있으며, 현장 실측 후 1Kg 소형 샘플 로스터부터 120Kg 산업용 대형 로스터까지 맞춤 제작합니다.",
+        text: "PROBAT, GIESEN, LORING, FUJI ROYAL, PROASTER, OZTURK, DIEDRICH, TOPER, BUHLER, JOPER 등 주요 드럼 로스터 브랜드와 결합 설치한 실적이 있으며, 현장 실측 후 5Kg 소형 로스터부터 120Kg 산업용 대형 로스터까지 맞춤 제작합니다.",
       },
     },
     {
@@ -114,7 +114,7 @@ const faqJsonLd = {
       name: "설치 규모는 어떻게 고르나요?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "로스터 드럼 용량 기준으로 매칭합니다. 샘플·초소형은 NKJC-1K~3K, 하루 10Kg 이하 소형 카페는 NKJC-5K, 10–20Kg 중형은 NKJC-10K, 40Kg 이상 상업용은 NKJC-60K 이상을 권장합니다. 현장 실측 후 덕트 배치와 입출력 방향을 포함해 설계합니다.",
+        text: "로스터 드럼 용량 기준으로 매칭합니다. 하루 10Kg 이하 소형 카페는 NKJC-5K, 10–20Kg 중형은 NKJC-10K, 20–40Kg 구간은 NKJC-30K, 40Kg 이상 상업용은 NKJC-60K 이상을 권장합니다. 현장 실측 후 덕트 배치와 입출력 방향을 포함해 설계합니다.",
       },
     },
     {

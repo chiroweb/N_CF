@@ -22,10 +22,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "Sample / Teaching", recommend: "NKJC-1K ~ 3K", index: 0 },
-  { range: "≤ 10kg / day", recommend: "NKJC-5K", index: 2 },
-  { range: "10 – 20kg / day", recommend: "NKJC-10K", index: 3 },
-  { range: "≥ 40kg / day", recommend: "NKJC-60K", index: 6 },
+  { range: "≤ 10kg / day", recommend: "NKJC-5K", index: 0 },
+  { range: "10 – 20kg / day", recommend: "NKJC-10K", index: 1 },
+  { range: "20 – 40kg / day", recommend: "NKJC-30K", index: 3 },
+  { range: "≥ 40kg / day", recommend: "NKJC-60K", index: 4 },
 ];
 
 export default function AfterburnerEnPage() {

@@ -21,10 +21,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "샘플 / 교육용", recommend: "BASE 0.5", index: 0 },
-  { range: "소형 카페", recommend: "BASE 1.5 ~ 3", index: 1 },
-  { range: "로스터리 카페", recommend: "BASE 5", index: 3 },
-  { range: "대형 로스터리 / 공장", recommend: "BASE 10 ~ 20", index: 4 },
+  { range: "로스터리 카페", recommend: "BASE 5", index: 0 },
+  { range: "중형 로스터리", recommend: "BASE 10", index: 1 },
+  { range: "대형 로스터리", recommend: "BASE 15", index: 2 },
+  { range: "공장 / 대량 생산", recommend: "BASE 20", index: 3 },
 ];
 
 export default function RoastersPage() {
@@ -167,7 +167,7 @@ export default function RoastersPage() {
               KUBAN.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
-              0.5Kg 샘플부터 20Kg 양산까지. 정밀함과 일관성, 그리고 장인 정신을
+              5Kg부터 20Kg 양산까지. 정밀함과 일관성, 그리고 장인 정신을
               위해 만들어진 터키 KUBAN 드럼 로스터입니다. 엔비피코리아가 한국
               내 독점 딜러로 유통·설치·A/S까지 일괄 대응합니다.
             </p>
@@ -181,10 +181,10 @@ export default function RoastersPage() {
             </div>
           </div>
 
-          <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
+          <div className="hero-fade relative aspect-[16/10] rounded-lg overflow-hidden bg-bone opacity-0">
             <div
               ref={heroImgRef}
-              className="absolute inset-0 -top-[15%] -bottom-[15%]"
+              className="absolute inset-0"
             >
               <Image
                 src={HERO_IMAGES.roaster}
@@ -192,7 +192,7 @@ export default function RoastersPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain object-center"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -249,7 +249,7 @@ export default function RoastersPage() {
             모델 선택
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
-            베이스 7종,
+            베이스 4종,
             <br />
             프리미엄 1종.
           </h2>
@@ -424,19 +424,19 @@ export default function RoastersPage() {
             number="01"
             title="드럼 정밀도"
             body="이중벽 드럼과 최적화된 기류 설계. 모든 원두에 균일한 열, 모든 배치에 일관된 결과를 보장합니다."
-            image={ROASTER_BASE_MODELS[3].gallery[0]}
+            image={ROASTER_BASE_MODELS[0].gallery[0]}
           />
           <TiltCard
             number="02"
             title="완전한 제어"
             body="PLC와 터치스크린 컨트롤러로 실시간 프로파일링. 최고의 로스팅을 매번 재현합니다."
-            image={ROASTER_BASE_MODELS[4].gallery[0]}
+            image={ROASTER_BASE_MODELS[1].gallery[0]}
           />
           <TiltCard
             number="03"
             title="모든 규모"
-            body="0.5Kg 샘플부터 20Kg 양산까지. 하나의 철학, 일곱 가지 사이즈 — 현장에 맞는 크기를 고르세요."
-            image={ROASTER_BASE_MODELS[6].gallery[0]}
+            body="5Kg부터 20Kg 양산까지. 하나의 철학, 네 가지 사이즈 — 현장에 맞는 크기를 고르세요."
+            image={ROASTER_BASE_MODELS[3].gallery[0]}
           />
         </div>
       </div>

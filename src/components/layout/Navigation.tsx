@@ -8,7 +8,7 @@ import { COMPANY } from "@/lib/company";
 const NAV_LINKS = [
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
-  { label: "THE LAB", href: "/the-lab" },
+  { label: "BUTTER MACHINE", href: "/the-lab" },
   { label: "DELIVERIES", href: "/deliveries" },
   { label: "BRAND HALL", href: "/brand-hall" },
   { label: "BLOG", href: "/blog" },
