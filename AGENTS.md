@@ -1,33 +1,17 @@
 <claude-mem-context>
 # Memory Context
 
-# [N_CF] recent context, 2026-04-28 1:42pm GMT+9
+# [N_CF] recent context, 2026-04-28 2:35pm GMT+9
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (10,983t read) | 1,286,522t work | 99% savings
+Stats: 50 obs (10,474t read) | 1,212,120t work | 99% savings
 
 ### Apr 27, 2026
 S145 N_CF 프로젝트 — Mission.tsx 넛버터 슬라이드 "STONE-GROUND" 문구 및 이미지 중복 문제 조사, the-lab 히어로 패러럭스 개선 후속 작업 (Apr 27 at 2:11 PM)
 S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작 진행 중 (Apr 27 at 2:11 PM)
-457 3:36p 🔵 N_CF — NUTS-STAR 넛버터머신 이미지 구조 현황 파악
-458 " 🔵 N_CF — git 인덱스 전체 삭제(D) 상태 발견
-459 3:37p 🔵 N_CF — 땅콩버터머신 교체 대상 로컬 이미지 파일 위치 확인
-460 " ⚖️ AFTER 프로젝트 — 땅콩버터 머신 이미지 교체 방향 확정
-461 3:39p ⚖️ AFTER 프로젝트 — 땅콩버터 머신 이미지 사용 결정
-462 " ✅ N_CF — 땅콩버터 머신 실사 이미지 public/images에 복사
-463 3:40p ✅ N_CF — 땅콩버터 머신 이미지 참조 S3 → 로컬 파일로 전면 교체
-465 " 🔵 ui-ux-pro-max 스킬 — scripts/search.py 경로 오류 (파일이 디렉토리 아님)
-466 " ⚖️ AFTER 프로젝트 — 용량 표기·이미지 마스크·네비게이션 레이블 수정 범위 확정
-468 " ⚖️ AFTER 프로젝트 — 애프터버너·쿠반 용량 기준 및 UI 레이블 변경 방향 확정
-472 3:43p ⚖️ AFTER 프로젝트 — AfterBurner·KUBAN 용량 범위 및 UI 3종 수정 범위 확정
-473 " ✅ N_CF — AfterBurner·KUBAN 제품 라인업 5K 시작으로 축소 및 KUBAN 이미지 레이아웃 수정
-474 " ✅ N_CF 전사 네비게이션 "THE LAB" → "BUTTER MACHINE" 레이블 변경
-475 3:44p 🔵 N_CF — "THE LAB" 및 1K/3K 용량 잔존 위치 전수 조사 결과
-476 " ✅ N_CF — SEO 메타데이터·layout.tsx·Mission·the-lab 페이지 잔존 구버전 문구 전면 동기화
-477 " 🔵 N_CF 전사 5K 시작·BUTTER MACHINE 브랜딩 전환 완료 — 최종 잔존 확인
 478 3:46p ⚖️ AFTER 프로젝트 — UI 수정 범위 결정: 용량·사진 마스크·네비게이션 레이블
 479 " 🔵 N_CF 프로젝트 — Next.js 빌드 성공, /the-lab 라우트 여전히 존재 확인
 ### Apr 28, 2026
@@ -68,33 +52,22 @@ S153 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVER
 577 " 🟣 AFTER 프로젝트 AfterBurnerPage 전시 페이지 대규모 시각 보강 요청
 579 10:22a 🔵 Persistent Reversion — en/the-lab, en/roasters 동시 확인 및 빌드 성공
 S160 N_CF BrandHallPage 전시 페이지 보강 — 그래피티 에디션 이미지 6장으로 섹션 재구성 (Apr 28 at 10:22 AM)
-**Investigated**: - AFTERBUNNER 다운로드 폴더에서 이미지 3장 추가 읽기 (brick-cafe, graffiti-gallery-pair, afterburner-trio)
-    - src/lib/images.ts 현재 상태 확인 (24줄, 브랜드홀 이미지 키 없음)
-    - src/app/brand-hall/page.tsx 기존 구조 (GALLERY_ITEMS 6개, 비디오 섹션, GalleryCard 컴포넌트)
+601 1:16p ✅ N_CF products.ts — roaster-base-15 & SUPREME image paths migrated to S3
+602 " 🔵 AfterBurner 제품 이미지 — 용량별 이미지 불일치 문제 발견 및 교체 방향 결정
+604 1:43p 🔵 AfterBurner KUBAN 15kg 로스터 소스 이미지 — 로컬 파일 구조 및 해상도 확인
+607 " 🔵 ImageMagick montage — gs(Ghostscript) 미설치로 레이블 렌더링 실패
+609 1:44p ⚖️ AfterburnerPage — 용량별 제품 이미지 교체 범위 및 방향 확정
+610 1:46p ⚖️ AFTER 프로젝트 — AfterburnerPage 용량별 제품 이미지 교체 방향 확정
+611 " ✅ AfterburnerPage — 15k 로스터 이미지 리사이즈 및 S3 업로드 시작
+612 1:47p 🔵 S3 업로드 실패 — chiro-web 버킷 엔드포인트 연결 불가
+613 " 🔵 chiro-web S3 버킷 리전 확인 — ap-northeast-2 (서울) 지정 시 업로드 성공
+614 " ✅ products.ts — 15kg 로스터 이미지 경로를 black 버전으로 업데이트
+615 1:48p 🔵 S3 업로드 검증 완료 — roaster-base-15-black-1.png 공개 접근 확인
+616 1:49p ✅ N_CF 프로젝트 — 15k 이미지 교체 후 Next.js 프로덕션 빌드 성공
+641 " 🔵 AfterburnerPage 용량별 이미지 크기 차이 — CSS scale 변환으로 구현됨
+643 2:30p 🔄 RoastersPage Product Details — TiltCard 4열 그리드 → BentoFeatureCard 비대칭 레이아웃으로 교체
+644 " 🔄 RoastersPage — TiltCard 컴포넌트 제거, BentoFeatureCard로 완전 대체
+645 2:32p 🔄 RoastersPage BentoFeatureCard 교체 후 빌드 성공 — 페이지 번들 크기 감소 확인
 
-**Learned**: - 6개 이미지 모두 public/images/에 복사 성공 (brand-graffiti-gallery-pair, brand-afterburner-five-lineup, brand-brick-cafe-install, brand-kuban-graffiti-pair, brand-kuban-afterburner-mix, brand-afterburner-trio), 각 1.6~2.2MB
-    - images.ts에 6개 키 추가 완료 (userModified: false — 지속적인 revert 패턴이 없음, 정상 동작)
-    - brand-hall/page.tsx 전면 재작성 후 빌드 성공, /brand-hall 6.56kB, 오류 없음
-    - 비디오 섹션을 CSS crossfade(useState + setInterval 6초)로 교체하는 패턴 작동 확인
-    - objectPosition + scale CSS inline style로 동일 이미지의 디테일 크롭을 JS 없이 구현 가능
-
-**Completed**: 1. public/images/ — 6개 그래피티 에디션 이미지 복사 완료
-    2. src/lib/images.ts — brandGraffitiGalleryPair, brandAfterburnerFiveLineup, brandKubanGraffitiPair, brandKubanAfterburnerMix, brandBrickCafeInstall, brandAfterburnerTrio 키 추가 완료
-    3. src/app/brand-hall/page.tsx 전면 재작성:
-       - HERO "기계지만, 예술의 자리" 유지
-       - GRAFFITI EDITION: 풀와이드 16:9 배너 4장 (scroll fade-in, 하단 그라디언트+캡션)
-       - DETAIL FILM: 비디오 섹션 제거 → CSS crossfade 6초 자동전환, 인디케이터 버튼
-       - SCENES: 4카드 그리드 (작업장/골든아워/동네한복판/브릭월카페 신규)
-       - THE MACHINES: brand-afterburner-trio 16:9 쇼케이스 + 모델명 캡션
-       - MANIFESTO 유지
-       - EVENT CTA 유지
-       - FloatingSectionNav 7개 섹션으로 갱신
-    4. npm run build 성공 (no errors, /brand-hall 6.56kB)
-
-**Next Steps**: - 빌드 완료 상태, 사용자 검토 대기
-    - 필요 시 이미지 크롭 방식 변경 (object-contain으로 원본 비율 완전 유지)
-    - 미처리 항목: Hero.tsx "A SIHEUNG"→"AN ANSAN", SINCE 2011→2006 마킹, en/brand-hall/page.tsx 영문 버전, 영문 페이지 revert 이슈 조사
-
-
-Access 1287k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 1212k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

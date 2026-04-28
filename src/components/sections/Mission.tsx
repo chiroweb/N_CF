@@ -265,7 +265,7 @@ export default function Mission({ lang = "ko" }: { lang?: Lang }) {
                 {isEn ? slide.bodyEn : slide.bodyKo}
               </p>
 
-              <div className="slide-content flex items-center gap-2">
+              <div className="slide-content flex flex-wrap items-center gap-2">
                 <Link
                   href={`${hrefPrefix}${slide.shopHref}`}
                   className="inline-block bg-ink text-paper px-5 py-2.5 text-xs font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-[2px] border-ink transition-all duration-200 rounded-lg"
@@ -278,6 +278,30 @@ export default function Mission({ lang = "ko" }: { lang?: Lang }) {
                 >
                   LEARN MORE
                 </Link>
+                <Link
+                  href={`${hrefPrefix}${slide.learnHref}`}
+                  className="ml-0 sm:ml-2 flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-sm font-bold text-ink hover:border-ink transition-colors"
+                  aria-label={`More about ${slide.title}`}
+                >
+                  +
+                </Link>
+                <span className="caption-style text-ink/90 mx-1">
+                  {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
+                </span>
+                <button
+                  onClick={() => goTo(-1)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-ink hover:border-ink transition-colors"
+                  aria-label="Previous"
+                >
+                  <span className="text-sm">&larr;</span>
+                </button>
+                <button
+                  onClick={() => goTo(1)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-ink hover:border-ink transition-colors"
+                  aria-label="Next"
+                >
+                  <span className="text-sm">&rarr;</span>
+                </button>
               </div>
             </div>
           </div>

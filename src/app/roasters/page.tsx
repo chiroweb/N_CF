@@ -260,7 +260,7 @@ export default function RoastersPage() {
             모델 선택
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
-            BASE 4종,
+            BASE 4종
             <br />
             SUPREME 5종.
           </h2>
@@ -456,32 +456,29 @@ export default function RoastersPage() {
         )}
       </div>
 
-      {/* ── Product Details — tilt cards ── */}
+      {/* ── Product Details — bento cards ── */}
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <TiltCard
+        <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr] gap-4 lg:auto-rows-fr">
+          <BentoFeatureCard
             number="01"
             title="현장 규모 매칭"
             body="5Kg 로스터리 카페부터 20Kg 생산 현장까지 운영량에 맞는 모델을 제안합니다."
             image={ROASTER_BASE_MODELS[0].gallery[0]}
+            className="lg:min-h-[330px]"
           />
-          <TiltCard
+          <BentoFeatureCard
             number="02"
             title="로스팅 일관성"
             body="드럼 구조와 기류 설계를 기반으로 배치마다 안정적인 열 전달과 재현성을 확보합니다."
             image={ROASTER_BASE_MODELS[1].gallery[0]}
+            className="lg:min-h-[330px]"
           />
-          <TiltCard
+          <BentoFeatureCard
             number="03"
-            title="설치·교육 지원"
-            body="장비 반입, 설치, 시운전, 기본 운용 안내까지 국내 현장 기준으로 함께 대응합니다."
-            image={ROASTER_BASE_MODELS[2].gallery[0]}
-          />
-          <TiltCard
-            number="04"
             title="부품·A/S 관리"
             body="한국 독점 딜러로서 상담부터 설치 이후 유지관리까지 엔비피코리아가 직접 연결합니다."
             image={ROASTER_BASE_MODELS[3].gallery[0]}
+            className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
         </div>
       </div>
@@ -557,57 +554,39 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function TiltCard({
+function BentoFeatureCard({
   number,
   title,
   body,
   image,
+  className = "",
 }: {
   number: string;
   title: string;
   body: string;
   image: string;
+  className?: string;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    cardRef.current.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
-  };
-
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="scroll-fade group rounded-lg border border-bone overflow-hidden opacity-0 transition-transform duration-200 ease-out will-change-transform"
+      className={`scroll-fade group relative min-h-[360px] overflow-hidden rounded-lg border border-ink/10 bg-ink opacity-0 ${className}`}
     >
-      <div className="relative aspect-[4/3] bg-bone overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="object-contain object-center transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-500" />
-      </div>
-      <div className="p-6 bg-paper group-hover:bg-bone/30 transition-colors duration-500">
-        <span className="caption-style text-ink/80 block mb-2">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(min-width: 1024px) 60vw, 100vw"
+        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/18 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+        <span className="caption-style text-paper/75 block mb-2">
           {number}
         </span>
-        <h4 className="font-display font-bold text-base text-ink mb-3 font-korean">
+        <h4 className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean">
           {title}
         </h4>
-        <p className="text-xs font-korean text-ink/85 leading-[1.65]">{body}</p>
+        <p className="max-w-lg text-sm font-korean text-paper/82 leading-[1.65]">{body}</p>
       </div>
     </div>
   );
