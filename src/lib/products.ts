@@ -11,7 +11,7 @@ const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 // are illustrative defaults, not fixed SKUs.
 const AB_WHITE = `${S3_PRODUCT}/afterburner-white.png`;
 const AB_BLACK = `${S3_PRODUCT}/afterburner-black.png`;
-const AB_NEUTRAL = `${S3_HOTEL}/afterburner-hero-premium.png`;
+const AB_RENDER_MAIN = "/images/afterburner-3d-render-main.png";
 
 export const AFTERBURNER_MODELS = [
   {
@@ -25,8 +25,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "표면연소 고효율 패널버너",
     controller: "Digital",
     connector: "도시가스 (13A)",
-    image: AB_NEUTRAL,
-    gallery: [AB_NEUTRAL],
+    image: AB_RENDER_MAIN,
+    gallery: [AB_RENDER_MAIN],
   },
   {
     id: "nkjc-10k",
@@ -67,8 +67,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Proportional",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_NEUTRAL,
-    gallery: [AB_NEUTRAL],
+    image: AB_RENDER_MAIN,
+    gallery: [AB_RENDER_MAIN],
   },
   {
     id: "nkjc-60k",
@@ -81,8 +81,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Proportional",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_NEUTRAL,
-    gallery: [AB_NEUTRAL],
+    image: AB_RENDER_MAIN,
+    gallery: [AB_RENDER_MAIN],
   },
 ];
 
