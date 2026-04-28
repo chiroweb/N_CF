@@ -181,7 +181,7 @@ export default function TheLabEnPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain object-center"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function TheLabEnPage() {
                 alt="NUTS-STAR assembled"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-contain object-center"
+                className="object-cover object-center"
               />
             </div>
             <p className="caption-style text-ink/90 mt-3">FIGURE 01 — NUTS-STAR, COUNTER-GRADE BUILD</p>
