@@ -230,10 +230,10 @@ export const ROASTER_BASE_MODELS = [
     power: "2.24kW",
     burner: "55kW",
     controller: "Software & Touchscreen",
-    image: `${S3_PRODUCT}/roaster-base-15-1.png`,
+    image: `${S3_PRODUCT}/roaster-base-15-black-1.png`,
     gallery: [
-      `${S3_PRODUCT}/roaster-base-15-1.png`,
-      `${S3_PRODUCT}/roaster-base-15-2.png`,
+      `${S3_PRODUCT}/roaster-base-15-black-1.png`,
+      `${S3_PRODUCT}/roaster-base-15-black-2.png`,
     ],
   },
   {
