@@ -10,7 +10,6 @@ import {
   REGIONS,
   CAPACITY_BUCKETS,
   type UnifiedDelivery,
-  type Source,
 } from "@/lib/unified-deliveries";
 import { INSTALLATIONS_2025_SUMMARY } from "@/lib/installations-2025";
 import {
@@ -23,6 +22,7 @@ import FloatingSectionNav, {
 } from "@/components/layout/FloatingSectionNav";
 
 type ProductTab = "afterburner" | "nutstar";
+const RECORD_PAGE_SIZE = 20;
 
 const AFTERBURNER_SECTIONS: NavSection[] = [
   { id: "overview", label: "개요" },
@@ -68,11 +68,6 @@ function nutstarRegionTrail(r: NutstarDelivery): string {
   return parts.join(" · ");
 }
 
-function sourceLabel(sources: Source[]): string {
-  if (sources.length === 2) return "2024 · 2025";
-  return sources[0];
-}
-
 function capacityTier(raw: string): "xl" | "large" | "mid" | "small" {
   const n = parseFloat(raw);
   if (!Number.isFinite(n)) return "small";
@@ -85,6 +80,9 @@ function capacityTier(raw: string): "xl" | "large" | "mid" | "small" {
 export default function DeliveriesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const [product, setProduct] = useState<ProductTab>("afterburner");
+  const [domesticVisible, setDomesticVisible] = useState(RECORD_PAGE_SIZE);
+  const [nutstarDeliveredVisible, setNutstarDeliveredVisible] = useState(RECORD_PAGE_SIZE);
+  const [nutstarPendingVisible, setNutstarPendingVisible] = useState(RECORD_PAGE_SIZE);
 
   const [selRegions, setSelRegions] = useState<Set<string>>(new Set());
   const [selBrands, setSelBrands] = useState<Set<string>>(new Set());
@@ -131,6 +129,16 @@ export default function DeliveriesPage() {
     });
   }, [domesticRecords, selRegions, selBrands, selCaps]);
 
+  useEffect(() => {
+    setDomesticVisible(RECORD_PAGE_SIZE);
+  }, [selRegions, selBrands, selCaps]);
+
+  useEffect(() => {
+    setDomesticVisible(RECORD_PAGE_SIZE);
+    setNutstarDeliveredVisible(RECORD_PAGE_SIZE);
+    setNutstarPendingVisible(RECORD_PAGE_SIZE);
+  }, [product]);
+
   const nutstarDelivered = useMemo(
     () => NUTSTAR_DELIVERIES.filter((r) => r.status === "delivered"),
     []
@@ -139,6 +147,10 @@ export default function DeliveriesPage() {
     () => NUTSTAR_DELIVERIES.filter((r) => r.status === "pending"),
     []
   );
+
+  const visibleDomestic = filteredDomestic.slice(0, domesticVisible);
+  const visibleNutstarDelivered = nutstarDelivered.slice(0, nutstarDeliveredVisible);
+  const visibleNutstarPending = nutstarPending.slice(0, nutstarPendingVisible);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -194,13 +206,13 @@ export default function DeliveriesPage() {
           <ProductTabButton
             active={product === "afterburner"}
             label="애프터버너"
-            sub="로스터기 결합 실적 · 2024—2025"
+            sub="로스터기 결합 실적"
             onClick={() => setProduct("afterburner")}
           />
           <ProductTabButton
             active={product === "nutstar"}
             label="넛버터머신"
-            sub="넛츠스타 NUTS-STAR · 2025—2026"
+            sub="넛츠스타 NUTS-STAR"
             onClick={() => setProduct("nutstar")}
           />
         </div>
@@ -212,31 +224,31 @@ export default function DeliveriesPage() {
           <section id="overview" className="container-content pt-16 lg:pt-20 pb-16">
             <div className="mb-16 lg:mb-24">
               <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
-                납품 원장 · 2024 — 2025
+                납품 원장
               </span>
               <h1 className="m-0 font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] font-korean">
                 <span className="hero-fade block opacity-0">모든</span>
                 <span className="hero-fade block pl-[6vw] opacity-0">로스터기,</span>
                 <span className="hero-fade block pl-[18vw] opacity-0">모든 Kg.</span>
                 <span className="sr-only">
-                  . 엔비피코리아 애프터버너 납품 실적 — 국내 16개 광역과 해외 7개국, 18개 로스팅기 브랜드와 결합된 379건의 현장 기록.
+                  . 엔비피코리아 애프터버너 납품 실적 — 국내 16개 광역과 해외 7개국, 18개 로스팅기 브랜드와 결합된 현장 기록.
                 </span>
               </h1>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-start">
               <p className="hero-fade text-body-kr font-korean text-ink/90 leading-[1.75] max-w-2xl opacity-0">
-                엔비피코리아 애프터버너는 2024년과 2025년에 걸쳐 국내 16개 광역과
-                해외 7개국, {UNIFIED_STATS.roasterBrandCount}개 로스터기 브랜드와
-                결합되어 {UNIFIED_STATS.total}건의 현장 기록을 남겼습니다. 같은
-                상호가 두 해에 걸쳐 등장한 70건은 양쪽 기록을 모두 담습니다.
+                엔비피코리아 애프터버너는 국내 16개 광역과 해외 7개국,
+                {UNIFIED_STATS.roasterBrandCount}개 로스터기 브랜드와 결합되어
+                {UNIFIED_STATS.total}건의 현장 기록을 남겼습니다. 로스터기 브랜드,
+                지역, 용량 기준으로 필요한 사례를 빠르게 확인할 수 있습니다.
               </p>
               <p className="hero-fade caption-style text-ink/80 leading-relaxed max-w-[32ch] opacity-0 lg:text-right font-korean">
-                2024 출처 — 로스터기 × 애프터버너 결합 원장
+                기록 기준 — 상호 · 지역 · 용량
                 <br />
-                2025 출처 — 설치 아틀라스 (시군구 · 읍면동)
+                필터 기준 — 지역 · 브랜드 · 용량
                 <br />
-                머지 키 — 상호 + 지역 + 용량
+                정렬 기준 — 용량 순
               </p>
             </div>
 
@@ -310,11 +322,20 @@ export default function DeliveriesPage() {
                 선택한 조건에 해당하는 기록이 없습니다. 필터를 조정해 주세요.
               </p>
             ) : (
-              <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-                {filteredDomestic.map((r) => (
-                  <RecordCard key={r.id} r={r} />
-                ))}
-              </div>
+              <>
+                <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
+                  {visibleDomestic.map((r) => (
+                    <RecordCard key={r.id} r={r} />
+                  ))}
+                </div>
+                {visibleDomestic.length < filteredDomestic.length && (
+                  <LoadMoreButton
+                    label="더보기"
+                    count={filteredDomestic.length - visibleDomestic.length}
+                    onClick={() => setDomesticVisible((n) => n + RECORD_PAGE_SIZE)}
+                  />
+                )}
+              </>
             )}
           </section>
 
@@ -323,7 +344,7 @@ export default function DeliveriesPage() {
             <div className="container-content">
               <div className="scroll-fade mb-12 opacity-0">
                 <span className="caption-style text-ink/90 block mb-6 font-korean">
-                  해외 · 2025 누적 · 36대
+                  해외 누적 · 36대
                 </span>
                 <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
                   아시아 너머,
@@ -352,7 +373,7 @@ export default function DeliveriesPage() {
                 <div className="mt-20">
                   <div className="scroll-fade flex items-baseline justify-between border-t border-ink/30 pt-6 mb-8 opacity-0">
                     <span className="caption-style text-ink/90 font-korean">
-                      거래처 · 2024 원장
+                      해외 거래처
                     </span>
                     <span className="caption-style text-ink/75 font-korean">
                       {overseasNamed.length}건
@@ -404,26 +425,26 @@ export default function DeliveriesPage() {
           <section id="overview" className="container-content pt-16 lg:pt-20 pb-16">
             <div className="mb-16 lg:mb-24">
               <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
-                넛버터머신 · 2025 — 2026
+                넛버터머신
               </span>
               <h1 className="m-0 font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em] font-korean">
                 <span className="hero-fade block opacity-0">모든</span>
                 <span className="hero-fade block pl-[6vw] opacity-0">견과,</span>
                 <span className="hero-fade block pl-[18vw] opacity-0">모든 배치.</span>
                 <span className="sr-only">
-                  . 엔비피코리아 넛츠스타 NUTS-STAR 넛버터머신 납품 실적 — 2025년부터 2026년 5월까지 11개 거래처에 24대 납품.
+                  . 엔비피코리아 넛츠스타 NUTS-STAR 넛버터머신 납품 실적 — 11개 거래처에 24대 납품.
                 </span>
               </h1>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-start">
               <p className="hero-fade text-body-kr font-korean text-ink/90 leading-[1.75] max-w-2xl opacity-0">
-                엔비피코리아의 넛버터머신은 2025년 3월 첫 납품을 시작으로 견과류
-                제조·가공, 백화점 팝업, 방앗간, 카페, 베이커리까지{" "}
+                엔비피코리아의 넛버터머신은 견과류 제조·가공, 백화점 팝업,
+                방앗간, 카페, 베이커리까지{" "}
                 {NUTSTAR_SUMMARY.businessTypeCount}개 업태,{" "}
                 {NUTSTAR_SUMMARY.totalCustomers}개 거래처에서 운용되고 있습니다.
-                2026년 5월까지 확정된 누적 납품은 총 {NUTSTAR_SUMMARY.totalUnits}대이며,
-                이 중 {NUTSTAR_SUMMARY.deliveredUnits}대는 현장 가동 중,{" "}
+                확정된 누적 납품은 총 {NUTSTAR_SUMMARY.totalUnits}대이며, 이 중
+                {NUTSTAR_SUMMARY.deliveredUnits}대는 현장 가동 중,{" "}
                 {NUTSTAR_SUMMARY.pendingUnits}대는 출하를 앞두고 있습니다.
               </p>
               <p className="hero-fade caption-style text-ink/80 leading-relaxed max-w-[32ch] opacity-0 lg:text-right font-korean">
@@ -471,10 +492,17 @@ export default function DeliveriesPage() {
             </div>
 
             <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-              {nutstarDelivered.map((r) => (
+              {visibleNutstarDelivered.map((r) => (
                 <NutstarCard key={r.id} r={r} />
               ))}
             </div>
+            {visibleNutstarDelivered.length < nutstarDelivered.length && (
+              <LoadMoreButton
+                label="더보기"
+                count={nutstarDelivered.length - visibleNutstarDelivered.length}
+                onClick={() => setNutstarDeliveredVisible((n) => n + RECORD_PAGE_SIZE)}
+              />
+            )}
 
             {nutstarPending.length > 0 && (
               <div className="mt-20">
@@ -486,14 +514,21 @@ export default function DeliveriesPage() {
                     {String(
                       nutstarPending.reduce((a, r) => a + r.qty, 0)
                     ).padStart(2, "0")}
-                    대 · {NUTSTAR_SUMMARY.latest}
+                    대 출하 예정
                   </span>
                 </div>
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-                  {nutstarPending.map((r) => (
+                  {visibleNutstarPending.map((r) => (
                     <NutstarCard key={r.id} r={r} dim />
                   ))}
                 </div>
+                {visibleNutstarPending.length < nutstarPending.length && (
+                  <LoadMoreButton
+                    label="더보기"
+                    count={nutstarPending.length - visibleNutstarPending.length}
+                    onClick={() => setNutstarPendingVisible((n) => n + RECORD_PAGE_SIZE)}
+                  />
+                )}
               </div>
             )}
           </section>
@@ -613,6 +648,29 @@ function FilterRow({
 }
 
 // ──────────────────────────────────────────────────────────────────
+function LoadMoreButton({
+  label,
+  count,
+  onClick,
+}: {
+  label: string;
+  count: number;
+  onClick: () => void;
+}) {
+  return (
+    <div className="mt-10 flex justify-center">
+      <button
+        type="button"
+        onClick={onClick}
+        className="rounded-lg border-2 border-ink px-6 py-3 text-xs font-bold tracking-[0.08em] text-ink transition-colors hover:bg-ink hover:text-paper font-korean"
+      >
+        {label} · {Math.min(RECORD_PAGE_SIZE, count)}개
+      </button>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
 function RecordCard({ r, dim = false }: { r: UnifiedDelivery; dim?: boolean }) {
   const tier = capacityTier(r.burnerKg);
   const companySize =
@@ -628,9 +686,6 @@ function RecordCard({ r, dim = false }: { r: UnifiedDelivery; dim?: boolean }) {
     <article className="break-inside-avoid pt-5 pb-6 border-t border-ink/20 mb-1">
       <div className="flex items-start justify-between gap-3 mb-3">
         <span className="caption-style text-ink/75">{regionTrail(r)}</span>
-        <span className="caption-style text-ink/55 shrink-0">
-          {sourceLabel(r.sources)}
-        </span>
       </div>
 
       <h3
@@ -717,9 +772,6 @@ function NutstarCard({
               방식 · {r.operatingMode}
             </span>
           )}
-          <span className="caption-style text-ink/65 font-korean">
-            납품일 · {r.deliveryDate}
-          </span>
         </div>
 
         <div className="text-right shrink-0">

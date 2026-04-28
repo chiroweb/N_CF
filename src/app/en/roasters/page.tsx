@@ -241,10 +241,11 @@ export default function RoastersEnPage() {
       </div>
 
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <TiltCard number="01" title="DRUM PRECISION" body="Double-wall drum with optimized airflow. Every bean gets equal heat, every batch stays consistent." image={ROASTER_BASE_MODELS[0].gallery[0]} />
-          <TiltCard number="02" title="FULL CONTROL" body="PLC and touchscreen controllers with real-time profiling. Repeat your best roast, every single time." image={ROASTER_BASE_MODELS[1].gallery[0]} />
-          <TiltCard number="03" title="EVERY SCALE" body="5kg to 20kg production. One philosophy, four sizes — find the fit for your shop." image={ROASTER_BASE_MODELS[3].gallery[0]} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <TiltCard number="01" title="CAPACITY MATCH" body="From 5kg roastery cafés to 20kg production sites, we match the model to your daily output." image={ROASTER_BASE_MODELS[0].gallery[0]} />
+          <TiltCard number="02" title="CONSISTENT ROASTING" body="Drum architecture and airflow design help keep heat transfer stable and batches repeatable." image={ROASTER_BASE_MODELS[1].gallery[0]} />
+          <TiltCard number="03" title="INSTALLATION SUPPORT" body="Delivery, setup, commissioning, and basic operation guidance are handled for Korean sites." image={ROASTER_BASE_MODELS[2].gallery[0]} />
+          <TiltCard number="04" title="PARTS & SERVICE" body="As the Korea-exclusive dealer, NBPKOREA connects consultation, installation, and after-service." image={ROASTER_BASE_MODELS[3].gallery[0]} />
         </div>
       </div>
 

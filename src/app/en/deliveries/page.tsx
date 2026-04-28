@@ -10,7 +10,6 @@ import {
   REGIONS,
   CAPACITY_BUCKETS,
   type UnifiedDelivery,
-  type Source,
 } from "@/lib/unified-deliveries";
 import { INSTALLATIONS_2025_SUMMARY } from "@/lib/installations-2025";
 import {
@@ -21,6 +20,7 @@ import {
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 
 type ProductTab = "afterburner" | "nutstar";
+const RECORD_PAGE_SIZE = 20;
 
 const AFTERBURNER_SECTIONS: NavSection[] = [
   { id: "overview", label: "OVERVIEW" },
@@ -70,11 +70,6 @@ function nutstarTrail(r: NutstarDelivery): string {
   return parts.join(" · ");
 }
 
-function sourceLabel(sources: Source[]): string {
-  if (sources.length === 2) return "2024 · 2025";
-  return sources[0];
-}
-
 function capacityTier(raw: string): "xl" | "large" | "mid" | "small" {
   const n = parseFloat(raw);
   if (!Number.isFinite(n)) return "small";
@@ -87,6 +82,9 @@ function capacityTier(raw: string): "xl" | "large" | "mid" | "small" {
 export default function DeliveriesEnPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const [product, setProduct] = useState<ProductTab>("afterburner");
+  const [domesticVisible, setDomesticVisible] = useState(RECORD_PAGE_SIZE);
+  const [nutDeliveredVisible, setNutDeliveredVisible] = useState(RECORD_PAGE_SIZE);
+  const [nutPendingVisible, setNutPendingVisible] = useState(RECORD_PAGE_SIZE);
   const [selRegions, setSelRegions] = useState<Set<string>>(new Set());
   const [selBrands, setSelBrands] = useState<Set<string>>(new Set());
   const [selCaps, setSelCaps] = useState<Set<string>>(new Set());
@@ -115,6 +113,19 @@ export default function DeliveriesEnPage() {
 
   const nutDelivered = useMemo(() => NUTSTAR_DELIVERIES.filter((r) => r.status === "delivered"), []);
   const nutPending = useMemo(() => NUTSTAR_DELIVERIES.filter((r) => r.status === "pending"), []);
+  const visibleDomestic = filtered.slice(0, domesticVisible);
+  const visibleNutDelivered = nutDelivered.slice(0, nutDeliveredVisible);
+  const visibleNutPending = nutPending.slice(0, nutPendingVisible);
+
+  useEffect(() => {
+    setDomesticVisible(RECORD_PAGE_SIZE);
+  }, [selRegions, selBrands, selCaps]);
+
+  useEffect(() => {
+    setDomesticVisible(RECORD_PAGE_SIZE);
+    setNutDeliveredVisible(RECORD_PAGE_SIZE);
+    setNutPendingVisible(RECORD_PAGE_SIZE);
+  }, [product]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -138,8 +149,8 @@ export default function DeliveriesEnPage() {
       <div className="container-content pt-20 lg:pt-28">
         <div role="tablist" aria-label="Product line" className="flex flex-wrap items-baseline gap-6 md:gap-10 border-b border-ink/25 pb-4">
           <span className="caption-style text-ink/60 mr-auto">PRODUCT LINE</span>
-          <ProductTabButton active={product === "afterburner"} label="AFTERBURNER" sub="Roaster Ledger · 2024—2025" onClick={() => setProduct("afterburner")} />
-          <ProductTabButton active={product === "nutstar"} label="NUT BUTTER MACHINE" sub="NUTSTAR · 2025—2026" onClick={() => setProduct("nutstar")} />
+          <ProductTabButton active={product === "afterburner"} label="AFTERBURNER" sub="Roaster Ledger" onClick={() => setProduct("afterburner")} />
+          <ProductTabButton active={product === "nutstar"} label="NUT BUTTER MACHINE" sub="NUTSTAR" onClick={() => setProduct("nutstar")} />
         </div>
       </div>
 
@@ -147,7 +158,7 @@ export default function DeliveriesEnPage() {
         <>
           <section id="overview" className="container-content pt-16 lg:pt-20 pb-16">
             <div className="mb-16 lg:mb-24">
-              <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">DELIVERY LEDGER · 2024 — 2025</span>
+              <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">DELIVERY LEDGER</span>
               <h1 className="m-0 font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em]">
                 <span className="hero-fade block opacity-0">EVERY</span>
                 <span className="hero-fade block pl-[6vw] opacity-0">ROASTER.</span>
@@ -157,17 +168,17 @@ export default function DeliveriesEnPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-start">
               <p className="hero-fade text-[clamp(1rem,1.25vw,1.2rem)] text-ink/90 leading-[1.7] max-w-2xl opacity-0">
-                Across 2024 and 2025, NBPKOREA afterburners shipped to 16 Korean
-                regions and 7 overseas countries, paired with {UNIFIED_STATS.roasterBrandCount}
-                {" "}roaster brands. {UNIFIED_STATS.total} field records in all, including
-                70 customers that appeared in both years&apos; ledgers.
+                NBPKOREA afterburners shipped to 16 Korean regions and 7 overseas
+                countries, paired with {UNIFIED_STATS.roasterBrandCount} roaster brands.
+                {UNIFIED_STATS.total} field records can be explored by roaster brand,
+                region, and capacity.
               </p>
               <p className="hero-fade caption-style text-ink/80 leading-relaxed max-w-[32ch] opacity-0 lg:text-right">
-                2024 SOURCE — ROASTER × AFTERBURNER LEDGER
+                RECORD KEYS — COMPANY · REGION · CAPACITY
                 <br />
-                2025 SOURCE — INSTALLATION ATLAS (DISTRICT · NEIGHBORHOOD)
+                FILTERS — REGION · BRAND · CAPACITY
                 <br />
-                MERGED ON COMPANY + REGION + CAPACITY
+                SORTED BY CAPACITY
               </p>
             </div>
 
@@ -211,16 +222,25 @@ export default function DeliveriesEnPage() {
                 No records match these filters. Try adjusting your selection.
               </p>
             ) : (
-              <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-                {filtered.map((r) => <RecordCard key={r.id} r={r} />)}
-              </div>
+              <>
+                <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
+                  {visibleDomestic.map((r) => <RecordCard key={r.id} r={r} />)}
+                </div>
+                {visibleDomestic.length < filtered.length && (
+                  <LoadMoreButton
+                    label="LOAD MORE"
+                    count={filtered.length - visibleDomestic.length}
+                    onClick={() => setDomesticVisible((n) => n + RECORD_PAGE_SIZE)}
+                  />
+                )}
+              </>
             )}
           </section>
 
           <section id="overseas" className="bg-bone py-24 lg:py-32">
             <div className="container-content">
               <div className="scroll-fade mb-12 opacity-0">
-                <span className="caption-style text-ink/90 block mb-6">OVERSEAS · 2025 CUMULATIVE · 36 UNITS</span>
+                <span className="caption-style text-ink/90 block mb-6">OVERSEAS · 36 UNITS</span>
                 <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] text-ink leading-[0.92] tracking-[-0.03em]">
                   ASIA,
                   <br />
@@ -243,7 +263,7 @@ export default function DeliveriesEnPage() {
               {overseas.length > 0 && (
                 <div className="mt-20">
                   <div className="scroll-fade flex items-baseline justify-between border-t border-ink/30 pt-6 mb-8 opacity-0">
-                    <span className="caption-style text-ink/90">NAMED ACCOUNTS · 2024 LEDGER</span>
+                    <span className="caption-style text-ink/90">NAMED ACCOUNTS</span>
                     <span className="caption-style text-ink/75">{overseas.length} RECORDS</span>
                   </div>
                   <div className="columns-1 md:columns-2 gap-x-10">
@@ -281,7 +301,7 @@ export default function DeliveriesEnPage() {
         <>
           <section id="overview" className="container-content pt-16 lg:pt-20 pb-16">
             <div className="mb-16 lg:mb-24">
-              <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">NUT BUTTER MACHINE · 2025 — 2026</span>
+              <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">NUT BUTTER MACHINE</span>
               <h1 className="m-0 font-display font-bold text-[clamp(3rem,9vw,8rem)] text-ink leading-[0.88] tracking-[-0.04em]">
                 <span className="hero-fade block opacity-0">EVERY</span>
                 <span className="hero-fade block pl-[6vw] opacity-0">NUT.</span>
@@ -291,12 +311,11 @@ export default function DeliveriesEnPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-start">
               <p className="hero-fade text-[clamp(1rem,1.25vw,1.2rem)] text-ink/90 leading-[1.7] max-w-2xl opacity-0">
-                Since the first delivery in March 2025, NBPKOREA&apos;s nut butter
-                machine runs across {NUTSTAR_SUMMARY.businessTypeCount} business
-                types and {NUTSTAR_SUMMARY.totalCustomers} customers — nut
-                processors, department-store pop-ups, mill houses, cafés, and
-                bakeries. Cumulative deliveries through May 2026 total {NUTSTAR_SUMMARY.totalUnits} units,
-                of which {NUTSTAR_SUMMARY.deliveredUnits} are in operation and{" "}
+                NBPKOREA&apos;s nut butter machine runs across {NUTSTAR_SUMMARY.businessTypeCount}
+                business types and {NUTSTAR_SUMMARY.totalCustomers} customers — nut processors,
+                department-store pop-ups, mill houses, cafés, and bakeries. Cumulative
+                deliveries total {NUTSTAR_SUMMARY.totalUnits} units, of which{" "}
+                {NUTSTAR_SUMMARY.deliveredUnits} are in operation and{" "}
                 {NUTSTAR_SUMMARY.pendingUnits} are scheduled to ship.
               </p>
               <p className="hero-fade caption-style text-ink/80 leading-relaxed max-w-[32ch] opacity-0 lg:text-right">
@@ -325,20 +344,34 @@ export default function DeliveriesEnPage() {
             </div>
 
             <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-              {nutDelivered.map((r) => <NutstarCard key={r.id} r={r} />)}
+              {visibleNutDelivered.map((r) => <NutstarCard key={r.id} r={r} />)}
             </div>
+            {visibleNutDelivered.length < nutDelivered.length && (
+              <LoadMoreButton
+                label="LOAD MORE"
+                count={nutDelivered.length - visibleNutDelivered.length}
+                onClick={() => setNutDeliveredVisible((n) => n + RECORD_PAGE_SIZE)}
+              />
+            )}
 
             {nutPending.length > 0 && (
               <div className="mt-20">
                 <div className="scroll-fade flex items-baseline justify-between border-t-2 border-ink pt-6 mb-10 opacity-0">
                   <span className="caption-style text-ink/90">SCHEDULED · {nutPending.length} CUSTOMERS</span>
                   <span className="caption-style text-ink/80">
-                    {String(nutPending.reduce((a, r) => a + r.qty, 0)).padStart(2, "0")} UNITS · BY MAY 2026
+                    {String(nutPending.reduce((a, r) => a + r.qty, 0)).padStart(2, "0")} UNITS SCHEDULED
                   </span>
                 </div>
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-x-10 lg:gap-x-14">
-                  {nutPending.map((r) => <NutstarCard key={r.id} r={r} dim />)}
+                  {visibleNutPending.map((r) => <NutstarCard key={r.id} r={r} dim />)}
                 </div>
+                {visibleNutPending.length < nutPending.length && (
+                  <LoadMoreButton
+                    label="LOAD MORE"
+                    count={nutPending.length - visibleNutPending.length}
+                    onClick={() => setNutPendingVisible((n) => n + RECORD_PAGE_SIZE)}
+                  />
+                )}
               </div>
             )}
           </section>
@@ -400,6 +433,20 @@ function FilterRow({ label, values, selected, onToggle }: { label: string; value
   );
 }
 
+function LoadMoreButton({ label, count, onClick }: { label: string; count: number; onClick: () => void }) {
+  return (
+    <div className="mt-10 flex justify-center">
+      <button
+        type="button"
+        onClick={onClick}
+        className="rounded-lg border-2 border-ink px-6 py-3 text-xs font-bold tracking-[0.08em] text-ink transition-colors hover:bg-ink hover:text-paper"
+      >
+        {label} · {Math.min(RECORD_PAGE_SIZE, count)}
+      </button>
+    </div>
+  );
+}
+
 function RecordCard({ r, dim = false }: { r: UnifiedDelivery; dim?: boolean }) {
   const tier = capacityTier(r.burnerKg);
   const companySize = tier === "xl" ? "text-[clamp(1.4rem,2.2vw,2rem)]" : tier === "large" ? "text-[clamp(1.15rem,1.6vw,1.5rem)]" : "text-[clamp(1rem,1.3vw,1.2rem)]";
@@ -410,7 +457,6 @@ function RecordCard({ r, dim = false }: { r: UnifiedDelivery; dim?: boolean }) {
     <article className="break-inside-avoid pt-5 pb-6 border-t border-ink/20 mb-1">
       <div className="flex items-start justify-between gap-3 mb-3">
         <span className="caption-style text-ink/75">{regionTrail(r)}</span>
-        <span className="caption-style text-ink/55 shrink-0">{sourceLabel(r.sources)}</span>
       </div>
 
       <h3 className={`font-display font-bold ${tone} tracking-tight leading-[1.15] mb-4 ${companySize}`}>
@@ -466,7 +512,6 @@ function NutstarCard({ r, dim = false }: { r: NutstarDelivery; dim?: boolean }) 
             {BUSINESS_EN[r.businessType] ?? r.businessType}
           </span>
           {r.operatingMode && <span className="caption-style text-ink/70 truncate max-w-[22ch] tracking-normal normal-case text-[0.72rem]">MODE · {r.operatingMode}</span>}
-          <span className="caption-style text-ink/65">DELIVERY · {r.deliveryDate}</span>
         </div>
 
         <div className="text-right shrink-0">

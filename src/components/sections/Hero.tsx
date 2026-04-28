@@ -31,9 +31,9 @@ const PRODUCTS = [
     tag: "BUTTER MACHINE",
     title: "PEANUT BUTTER MACHINE",
     details: [
-      ["TYPE", "스톤밀"],
+      ["TYPE", "넛버터 머신"],
       ["USE", "상업용"],
-      ["PROCESS", "석분 분쇄"],
+      ["PROCESS", "부드러운 질감"],
     ],
     href: "/the-lab",
   },

@@ -419,23 +419,29 @@ export default function RoastersPage() {
 
       {/* ── Product Details — tilt cards ── */}
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <TiltCard
             number="01"
-            title="드럼 정밀도"
-            body="이중벽 드럼과 최적화된 기류 설계. 모든 원두에 균일한 열, 모든 배치에 일관된 결과를 보장합니다."
+            title="현장 규모 매칭"
+            body="5Kg 로스터리 카페부터 20Kg 생산 현장까지 운영량에 맞는 모델을 제안합니다."
             image={ROASTER_BASE_MODELS[0].gallery[0]}
           />
           <TiltCard
             number="02"
-            title="완전한 제어"
-            body="PLC와 터치스크린 컨트롤러로 실시간 프로파일링. 최고의 로스팅을 매번 재현합니다."
+            title="로스팅 일관성"
+            body="드럼 구조와 기류 설계를 기반으로 배치마다 안정적인 열 전달과 재현성을 확보합니다."
             image={ROASTER_BASE_MODELS[1].gallery[0]}
           />
           <TiltCard
             number="03"
-            title="모든 규모"
-            body="5Kg부터 20Kg 양산까지. 하나의 철학, 네 가지 사이즈 — 현장에 맞는 크기를 고르세요."
+            title="설치·교육 지원"
+            body="장비 반입, 설치, 시운전, 기본 운용 안내까지 국내 현장 기준으로 함께 대응합니다."
+            image={ROASTER_BASE_MODELS[2].gallery[0]}
+          />
+          <TiltCard
+            number="04"
+            title="부품·A/S 관리"
+            body="한국 독점 딜러로서 상담부터 설치 이후 유지관리까지 엔비피코리아가 직접 연결합니다."
             image={ROASTER_BASE_MODELS[3].gallery[0]}
           />
         </div>

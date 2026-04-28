@@ -92,8 +92,10 @@ export default function AfterburnerPage() {
 
       // Hero image parallax
       if (heroImgRef.current) {
-        gsap.to(heroImgRef.current, {
-          yPercent: 15,
+        gsap.fromTo(heroImgRef.current, {
+          yPercent: -4,
+        }, {
+          yPercent: 4,
           ease: "none",
           scrollTrigger: {
             trigger: heroImgRef.current,
@@ -167,7 +169,7 @@ export default function AfterburnerPage() {
           <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
             <div
               ref={heroImgRef}
-              className="absolute inset-0 -top-[15%] -bottom-[15%]"
+              className="absolute inset-0 scale-[1.12]"
             >
               <Image
                 src={HERO_IMAGES.afterburner}
@@ -175,7 +177,7 @@ export default function AfterburnerPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain object-center"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -330,24 +332,30 @@ export default function AfterburnerPage() {
 
       {/* ── Product Details — tilt cards ── */}
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <TiltCard
             number="01"
-            title="직접화염"
-            body="필터도, 물도, 활성탄도 없습니다. 연기를 태웁니다. 완전히."
+            title="민원 대응"
+            body="로스팅 중 발생하는 연기와 냄새를 줄여 매장 주변 환경 부담을 낮춥니다."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/ab-ductburner-2.png"
           />
           <TiltCard
             number="02"
-            title="특허 촉매 가이드"
-            body="재열 축열식 혼합 가이드 기술. 가스안전공사 인증 열효율 98%."
+            title="가스비 절감"
+            body="직접화염 연소 구조와 최적화된 제어로 경쟁 제품 대비 가스 사용량을 줄입니다."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-white.png"
           />
           <TiltCard
             number="03"
-            title="모든 로스터기"
-            body="PROBAT, GIESEN, LORING, FUJI ROYAL — 어떤 로스터든, 현장에 맞춰 제작해 왔습니다."
+            title="브랜드별 호환"
+            body="PROBAT, GIESEN, LORING, KUBAN 등 주요 드럼 로스터와 결합 설치가 가능합니다."
             image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-black.png"
+          />
+          <TiltCard
+            number="04"
+            title="설치 후 관리"
+            body="현장 실측부터 제작, 설치, 시운전, A/S까지 한 번에 대응합니다."
+            image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-white.png"
           />
         </div>
       </div>
@@ -359,15 +367,20 @@ export default function AfterburnerPage() {
             <span className="caption-style text-ink/90 block mb-6 font-korean">
               호환 로스터기
             </span>
-            <div className="flex flex-wrap gap-x-8 gap-y-4">
-              {COMPATIBLE_ROASTERS.map((brand) => (
-                <span
-                  key={brand}
-                  className="font-display font-bold text-[clamp(1.2rem,2vw,1.8rem)] text-ink/70 hover:text-ink transition-colors duration-300"
-                >
-                  {brand}
-                </span>
-              ))}
+            <div className="relative overflow-hidden py-2">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-paper to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent" />
+              <div className="flex w-max animate-marquee whitespace-nowrap motion-reduce:animate-none">
+                {[...COMPATIBLE_ROASTERS, ...COMPATIBLE_ROASTERS].map((brand, index) => (
+                  <span
+                    key={`${brand}-${index}`}
+                    aria-hidden={index >= COMPATIBLE_ROASTERS.length}
+                    className="font-display font-bold text-[clamp(1.2rem,2vw,1.8rem)] text-ink/70 transition-colors duration-300 hover:text-ink px-5 sm:px-7"
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
             </div>
             <p className="text-body-kr font-korean text-ink/60 mt-4 text-sm">
               현장 실측 후 로스터기의 브랜드·용량·덕트 구조에 맞춰 결합 설계합니다.

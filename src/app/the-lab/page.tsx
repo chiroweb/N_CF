@@ -26,7 +26,7 @@ const PROCESS = [
   {
     no: "02",
     title: "분쇄",
-    body: "1.7kW 인버터가 견과에 맞는 속도로 밀을 돌립니다. 원터치로 부드럽게 갈지, 크런치하게 갈지 선택.",
+    body: "1.7kW 인버터가 견과에 맞는 속도로 분쇄합니다. 원터치로 부드러운 버터 질감부터 크런치한 식감까지 선택.",
   },
   {
     no: "03",
@@ -123,16 +123,16 @@ export default function TheLabPage() {
               더 랩 / 넛버터 머신 · 0001
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0 font-korean">
-              스톤에서
+              견과에서
               <br />
-              갓 나온
+              부드러운
               <br />
-              버터.
+              버터로.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
               {NUTBUTTER_PRODUCT.tagline}. 매장 카운터 위에서 직접 가는
-              상업용 넛버터 머신 — 견과를 넣고, 부드럽게 갈지 크런치로 갈지
-              고르고, 병에 따뜻할 때 붓습니다. 시간당 50kg, 220V 가정용 전원,
+              상업용 넛버터 머신 — 견과를 넣고, 부드러운 버터 질감이나
+              크런치한 식감으로 고르고, 병에 따뜻할 때 붓습니다. 시간당 50kg, 220V 가정용 전원,
               버튼 하나.
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function TheLabPage() {
             NBPKOREA — 더 랩 컬렉션
           </span>
           <span className="caption-style text-ink/90 font-korean">
-            넛버터 스톤밀 현장 노트
+            넛버터 머신 현장 노트
           </span>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function TheLabPage() {
             <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
               견과,
               <br />
-              스톤,
+              질감,
               <br />
               병.
             </h2>

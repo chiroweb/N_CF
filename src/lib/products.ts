@@ -293,10 +293,10 @@ export const NUTBUTTER_PRODUCT = {
   nameEn: "Nut Butter Machine · NUTS-STAR",
   nameKr: "넛버터 머신 · 넛츠스타",
   tagline: "갓 만든 신선함을 경험하세요",
-  image: "/images/nutbutter-machine.png",
-  heroImage: "/images/nutbutter-machine.png",
+  image: "/images/mission-nutbutter-thumb.png",
+  heroImage: "/images/mission-nutbutter-thumb.png",
   gallery: [
-    "/images/nutbutter-machine.png",
+    "/images/mission-nutbutter-thumb.png",
   ],
   features: [
     "다양한 견과 호환 (땅콩, 아몬드, 캐슈넛, 호두 등)",
@@ -326,5 +326,5 @@ export const NUTBUTTER_PRODUCT = {
 export const HERO_IMAGES = {
   afterburner: `${S3_HOTEL}/afterburner-hero-premium.png`,
   roaster: `${S3_HOTEL}/roaster-hero-lineup.png`,
-  nutbutter: "/images/nutbutter-machine.png",
+  nutbutter: "/images/mission-nutbutter-thumb.png",
 };

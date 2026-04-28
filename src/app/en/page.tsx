@@ -28,9 +28,9 @@ const PRODUCTS = [
   {
     tag: "BUTTER MACHINE",
     details: [
-      ["TYPE", "Stone Mill"],
+      ["TYPE", "Nut Butter"],
       ["USE", "Commercial"],
-      ["PROCESS", "Stone Ground"],
+      ["PROCESS", "Smooth Texture"],
     ],
     href: "/en/the-lab",
   },

@@ -87,11 +87,11 @@ export default function TheLabEnPage() {
               BUTTER MACHINE / NUTS-STAR · 0001
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0">
-              FRESH
+              FROM NUTS
               <br />
-              FROM THE
+              TO SOFT
               <br />
-              STONE.
+              BUTTER.
             </h1>
             <p className="hero-fade text-[clamp(1rem,1.3vw,1.2rem)] text-ink/85 leading-[1.65] mt-8 max-w-md opacity-0">
               A single commercial-grade nut butter machine built for the
@@ -110,7 +110,7 @@ export default function TheLabEnPage() {
 
         <div className="mt-16 lg:mt-24 pt-4 border-t border-ink/20 flex justify-between items-center">
           <span className="caption-style text-ink/90">NBPKOREA — BUTTER MACHINE COLLECTION</span>
-          <span className="caption-style text-ink/90">FIELD NOTES ON A NUT BUTTER MILL</span>
+          <span className="caption-style text-ink/90">FIELD NOTES ON A NUT BUTTER MACHINE</span>
         </div>
       </section>
 
@@ -121,7 +121,7 @@ export default function TheLabEnPage() {
             <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em]">
               PEANUT,
               <br />
-              STONE,
+              TEXTURE,
               <br />
               JAR.
             </h2>
@@ -274,7 +274,7 @@ export default function TheLabEnPage() {
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0">
             YOUR JAR.
             <br />
-            OUR STONE.
+            OUR MACHINE.
           </h2>
           <div className="scroll-fade mt-10 opacity-0">
             <Link href="/en/contact" className="btn-pill bg-paper text-ink hover:bg-ink hover:text-paper border-2 border-paper transition-all duration-200 rounded-lg">
