@@ -6,6 +6,8 @@ import {
   AFTERBURNER_SERVICE_CARE_IMAGE,
   ROASTER_BASE_MODELS,
   ROASTER_SUPREME_GALLERY,
+  ROASTER_SITE_MATCHING_IMAGE,
+  ROASTER_CONSISTENCY_IMAGE,
   HERO_IMAGES,
 } from "@/lib/products";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
@@ -416,27 +418,21 @@ export default function RoastersEnPage() {
 
       {/* ── Product Details — tilt cards ── */}
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <TiltCard
             number="01"
             title="Sized to Your Floor"
             body="From a 5kg café roaster to a 20kg production drum, we recommend the model that fits your output."
-            image={ROASTER_BASE_MODELS[0].gallery[0]}
+            image={ROASTER_SITE_MATCHING_IMAGE}
           />
           <TiltCard
             number="02"
             title="Roasting Consistency"
             body="Drum geometry and airflow design deliver stable heat transfer and repeatable batches."
-            image={ROASTER_BASE_MODELS[1].gallery[0]}
+            image={ROASTER_CONSISTENCY_IMAGE}
           />
           <TiltCard
             number="03"
-            title="Install · Training"
-            body="Delivery, install, commissioning, and basic operator training — all handled to Korean field standards."
-            image={ROASTER_BASE_MODELS[2].gallery[0]}
-          />
-          <TiltCard
-            number="04"
             title="Parts · Service"
             body="As the exclusive Korean dealer, NBPKOREA owns the line from first quote through ongoing service."
             image={AFTERBURNER_SERVICE_CARE_IMAGE}

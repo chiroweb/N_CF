@@ -6,6 +6,8 @@ import {
   AFTERBURNER_SERVICE_CARE_IMAGE,
   ROASTER_BASE_MODELS,
   ROASTER_SUPREME_MODELS,
+  ROASTER_SITE_MATCHING_IMAGE,
+  ROASTER_CONSISTENCY_IMAGE,
   HERO_IMAGES,
 } from "@/lib/products";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
@@ -464,14 +466,14 @@ export default function RoastersPage() {
             number="01"
             title="현장 규모 매칭"
             body="5Kg 로스터리 카페부터 20Kg 생산 현장까지 운영량에 맞는 모델을 제안합니다."
-            image={ROASTER_BASE_MODELS[0].gallery[0]}
+            image={ROASTER_SITE_MATCHING_IMAGE}
             className="lg:min-h-[330px]"
           />
           <BentoFeatureCard
             number="02"
             title="로스팅 일관성"
             body="드럼 구조와 기류 설계를 기반으로 배치마다 안정적인 열 전달과 재현성을 확보합니다."
-            image={ROASTER_BASE_MODELS[1].gallery[0]}
+            image={ROASTER_CONSISTENCY_IMAGE}
             className="lg:min-h-[330px]"
           />
           <BentoFeatureCard
@@ -581,13 +583,24 @@ function BentoFeatureCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/18 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
-        <span className="caption-style text-paper/75 block mb-2">
+        <span
+          className="caption-style block mb-2 text-paper"
+          style={{ WebkitTextStroke: "0.6px #000", textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
+        >
           {number}
         </span>
-        <h4 className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean">
+        <h4
+          className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean"
+          style={{ WebkitTextStroke: "0.8px #000", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
+        >
           {title}
         </h4>
-        <p className="max-w-lg text-sm font-korean text-paper/82 leading-[1.65]">{body}</p>
+        <p
+          className="max-w-lg text-sm font-korean text-paper leading-[1.65]"
+          style={{ WebkitTextStroke: "0.4px #000", textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
+        >
+          {body}
+        </p>
       </div>
     </div>
   );

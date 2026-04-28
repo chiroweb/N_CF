@@ -13,6 +13,8 @@ const AB_WHITE = `${S3_PRODUCT}/afterburner-white.png`;
 const AB_BLACK = `${S3_PRODUCT}/afterburner-black.png`;
 const AB_RENDER_MAIN = "/images/afterburner-3d-render-main.png";
 export const AFTERBURNER_SERVICE_CARE_IMAGE = `${S3_PRODUCT}/afterburner-service-care.png`;
+export const ROASTER_SITE_MATCHING_IMAGE = `${S3_PRODUCT}/roaster-site-matching.png`;
+export const ROASTER_CONSISTENCY_IMAGE = `${S3_PRODUCT}/roaster-consistency.png`;
 const NUTBUTTER_MACHINE_IMAGE = `${S3_PRODUCT}/nutbutter-machine-counter.png`;
 const NUTBUTTER_MATERIAL_IMAGE = `${S3_PRODUCT}/nutbutter-hands-peanuts.png`;
 const NUTBUTTER_BUTTER_IMAGE = `${S3_PRODUCT}/nutbutter-pouring-butter.png`;
@@ -238,6 +240,9 @@ export const ROASTER_BASE_MODELS = [
     gallery: [
       `${S3_PRODUCT}/roaster-base-15-black-1.png`,
       `${S3_PRODUCT}/roaster-base-15-black-2.png`,
+      `${S3_PRODUCT}/roaster-base-15-customer-1.png`,
+      `${S3_PRODUCT}/roaster-base-15-customer-2.png`,
+      `${S3_PRODUCT}/roaster-base-15-customer-3.png`,
     ],
   },
   {
@@ -258,6 +263,9 @@ export const ROASTER_BASE_MODELS = [
       `${S3_PRODUCT}/roaster-20kg-2.jpg`,
       `${S3_PRODUCT}/roaster-20kg-3.jpg`,
       `${S3_PRODUCT}/roaster-20kg-4.jpg`,
+      `${S3_PRODUCT}/roaster-base-20-customer-1.png`,
+      `${S3_PRODUCT}/roaster-base-20-customer-2.png`,
+      `${S3_PRODUCT}/roaster-base-20-customer-3.png`,
     ],
   },
 ];
