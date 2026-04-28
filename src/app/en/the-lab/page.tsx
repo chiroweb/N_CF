@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
-import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Image from "next/image";
 import Link from "next/link";
@@ -229,8 +228,8 @@ export default function TheLabEnPage() {
         <div className="relative aspect-[16/9] lg:aspect-[2/1] overflow-hidden bg-bone">
           <div ref={plateImgRef} className="absolute inset-0 -top-[10%] -bottom-[10%]">
             <Image
-              src={IMAGES.obs01}
-              alt="Ansan workshop"
+              src={NUTBUTTER_PRODUCT.materialImage}
+              alt="Roasted nuts held in hands"
               fill
               sizes="100vw"
               className="object-cover object-center"
@@ -238,8 +237,8 @@ export default function TheLabEnPage() {
           </div>
           <div className="absolute inset-0 bg-ink/20" />
           <div className="absolute bottom-6 left-[var(--edge-margin)] right-[var(--edge-margin)] flex items-end justify-between gap-6">
-            <span className="caption-style text-white/85">PLATE 01 — WORKSHOP, ANSAN</span>
-            <span className="caption-style text-white/85 text-right">PHOTOGRAPHY · NBPKOREA</span>
+            <span className="caption-style text-white/85">PLATE 01 — ROASTED NUTS</span>
+            <span className="caption-style text-white/85 text-right">MATERIAL · PEANUTS & NUTS</span>
           </div>
         </div>
       </section>
@@ -362,6 +361,16 @@ export default function TheLabEnPage() {
               <br />
               NOTHING MORE.
             </h2>
+          </div>
+
+          <div className="scroll-fade relative aspect-[16/9] overflow-hidden rounded-lg bg-bone opacity-0 mb-10 lg:mb-14">
+            <Image
+              src={NUTBUTTER_PRODUCT.butterImage}
+              alt="Fresh nut butter poured into a jar"
+              fill
+              sizes="(min-width: 1024px) 80vw, 100vw"
+              className="object-cover object-center"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">

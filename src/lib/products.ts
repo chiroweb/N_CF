@@ -12,6 +12,10 @@ const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 const AB_WHITE = `${S3_PRODUCT}/afterburner-white.png`;
 const AB_BLACK = `${S3_PRODUCT}/afterburner-black.png`;
 const AB_RENDER_MAIN = "/images/afterburner-3d-render-main.png";
+export const AFTERBURNER_SERVICE_CARE_IMAGE = `${S3_PRODUCT}/afterburner-service-care.png`;
+const NUTBUTTER_MACHINE_IMAGE = `${S3_PRODUCT}/nutbutter-machine-counter.png`;
+const NUTBUTTER_MATERIAL_IMAGE = `${S3_PRODUCT}/nutbutter-hands-peanuts.png`;
+const NUTBUTTER_BUTTER_IMAGE = `${S3_PRODUCT}/nutbutter-pouring-butter.png`;
 
 export const AFTERBURNER_MODELS = [
   {
@@ -375,10 +379,14 @@ export const NUTBUTTER_PRODUCT = {
   nameEn: "Nut Butter Machine · NUTS-STAR",
   nameKr: "넛버터 머신 · 넛츠스타",
   tagline: "갓 만든 신선함을 경험하세요",
-  image: "/images/mission-nutbutter-thumb.png",
-  heroImage: "/images/mission-nutbutter-thumb.png",
+  image: NUTBUTTER_MACHINE_IMAGE,
+  heroImage: NUTBUTTER_MACHINE_IMAGE,
+  materialImage: NUTBUTTER_MATERIAL_IMAGE,
+  butterImage: NUTBUTTER_BUTTER_IMAGE,
   gallery: [
-    "/images/mission-nutbutter-thumb.png",
+    NUTBUTTER_MACHINE_IMAGE,
+    NUTBUTTER_MATERIAL_IMAGE,
+    NUTBUTTER_BUTTER_IMAGE,
   ],
   features: [
     "다양한 견과 호환 (땅콩, 아몬드, 캐슈넛, 호두 등)",
@@ -408,5 +416,5 @@ export const NUTBUTTER_PRODUCT = {
 export const HERO_IMAGES = {
   afterburner: `${S3_HOTEL}/afterburner-hero-premium.png`,
   roaster: `${S3_HOTEL}/roaster-hero-lineup.png`,
-  nutbutter: "/images/mission-nutbutter-thumb.png",
+  nutbutter: NUTBUTTER_MACHINE_IMAGE,
 };

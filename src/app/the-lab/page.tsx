@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
-import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
 import Image from "next/image";
 import Link from "next/link";
@@ -206,8 +205,8 @@ export default function TheLabPage() {
             className="absolute inset-0 -top-[10%] -bottom-[10%]"
           >
             <Image
-              src={IMAGES.obs01}
-              alt="안산 작업장 현장"
+              src={NUTBUTTER_PRODUCT.materialImage}
+              alt="손에 담긴 로스팅 견과"
               fill
               sizes="100vw"
               className="object-cover object-center"
@@ -216,10 +215,10 @@ export default function TheLabPage() {
           <div className="absolute inset-0 bg-ink/20" />
           <div className="absolute bottom-6 left-[var(--edge-margin)] right-[var(--edge-margin)] flex items-end justify-between gap-6">
             <span className="caption-style text-white/85 font-korean">
-              플레이트 01 — 작업장, 안산
+              플레이트 01 — 로스팅 견과
             </span>
             <span className="caption-style text-white/85 text-right font-korean">
-              촬영 · NBPKOREA
+              원재료 · 땅콩과 견과
             </span>
           </div>
         </div>
@@ -357,6 +356,16 @@ export default function TheLabPage() {
               <br />
               그 이상은 없습니다.
             </h2>
+          </div>
+
+          <div className="scroll-fade relative aspect-[16/9] overflow-hidden rounded-lg bg-bone opacity-0 mb-10 lg:mb-14">
+            <Image
+              src={NUTBUTTER_PRODUCT.butterImage}
+              alt="병에 담기는 갓 만든 넛버터"
+              fill
+              sizes="(min-width: 1024px) 80vw, 100vw"
+              className="object-cover object-center"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "@/lib/gsap";
 import {
+  AFTERBURNER_SERVICE_CARE_IMAGE,
   ROASTER_BASE_MODELS,
   ROASTER_SUPREME_GALLERY,
   HERO_IMAGES,
@@ -438,7 +439,7 @@ export default function RoastersEnPage() {
             number="04"
             title="Parts · Service"
             body="As the exclusive Korean dealer, NBPKOREA owns the line from first quote through ongoing service."
-            image={ROASTER_BASE_MODELS[3].gallery[0]}
+            image={AFTERBURNER_SERVICE_CARE_IMAGE}
           />
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "@/lib/gsap";
 import {
+  AFTERBURNER_SERVICE_CARE_IMAGE,
   AFTERBURNER_MODELS,
   AFTERBURNER_COMMON_SPECS,
   COMPATIBLE_ROASTERS,
@@ -364,7 +365,7 @@ export default function AfterburnerPage() {
             number="03"
             title="설치 후 관리"
             body="현장 점검부터 시운전, A/S까지 본사에서 직접 이어갑니다."
-            image="/images/afterburner-service-care.png"
+            image={AFTERBURNER_SERVICE_CARE_IMAGE}
             className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
         </div>

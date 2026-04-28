@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "@/lib/gsap";
 import {
+  AFTERBURNER_SERVICE_CARE_IMAGE,
   ROASTER_BASE_MODELS,
   ROASTER_SUPREME_MODELS,
   HERO_IMAGES,
@@ -477,7 +478,7 @@ export default function RoastersPage() {
             number="03"
             title="부품·A/S 관리"
             body="한국 독점 딜러로서 상담부터 설치 이후 유지관리까지 엔비피코리아가 직접 연결합니다."
-            image={ROASTER_BASE_MODELS[3].gallery[0]}
+            image={AFTERBURNER_SERVICE_CARE_IMAGE}
             className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
         </div>
