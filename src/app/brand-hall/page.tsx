@@ -17,38 +17,45 @@ const SECTIONS: NavSection[] = [
   { id: "event", label: "다음 전시" },
 ];
 
+// Bento composition — pairs are sized so each row's heights align:
+// row 1: col-span-8 aspect-[3/2]  ⟷  col-span-4 aspect-[3/4]   (hero + tall)
+// row 2: col-span-5 aspect-square  ⟷  col-span-7 aspect-[7/5]   (square + wide)
 const EDITION_BANNERS = [
   {
     image: IMAGES.brandGraffitiGalleryPair,
     plate: "PLATE 01 — GALLERY",
     title: "그래피티 에디션",
-    body: "스트릿 아트와 산업 엔지니어링의 만남. 받침대 위에 올라간 두 대의 애프터버너 — 갤러리 조명 아래에서, 처음으로.",
-    aspect: "aspect-[16/9]",
-    objectPos: "object-center",
-  },
-  {
-    image: IMAGES.brandAfterburnerFiveLineup,
-    plate: "PLATE 02 — LINEUP",
-    title: "다섯 대, 한 가족",
-    body: "센터의 그래피티 에디션을 둘러싼 표준형 NKJC 라인업. 같은 형태, 다른 옷. 색은 모두 커스텀 가능합니다.",
-    aspect: "aspect-[16/9]",
-    objectPos: "object-center",
+    body: "받침대 위에 올라간 두 대의 애프터버너. 갤러리 조명 아래에서, 처음으로.",
+    colSpan: "lg:col-span-8",
+    aspect: "aspect-[3/2]",
+    captionScale: "lg" as const,
   },
   {
     image: IMAGES.brandKubanGraffitiPair,
-    plate: "PLATE 03 — KUBAN ON DRUM",
+    plate: "PLATE 02 — KUBAN ON DRUM",
     title: "쿠반에도, 같은 손",
-    body: "터키 KUBAN 드럼 로스터에 그래피티를 입혔습니다. 로스터와 애프터버너가 한 자리에 서는 유일한 가족 사진.",
-    aspect: "aspect-[16/9]",
-    objectPos: "object-center",
+    body: "터키 KUBAN 드럼 로스터 위의 그래피티. 로스터와 애프터버너의 합동 사진.",
+    colSpan: "lg:col-span-4",
+    aspect: "aspect-[3/4]",
+    captionScale: "sm" as const,
   },
   {
     image: IMAGES.brandKubanAfterburnerMix,
-    plate: "PLATE 04 — FAMILY",
+    plate: "PLATE 03 — FAMILY",
     title: "전체 컬렉션",
-    body: "쿠반 로스터와 애프터버너 라인업의 합동 전시. 센터에는 그래피티 에디션 한 대 — 우리가 만드는 모든 것을 한 프레임 안에.",
-    aspect: "aspect-[16/9]",
-    objectPos: "object-center",
+    body: "쿠반 로스터와 애프터버너 라인업의 합동 전시. 센터에 그래피티 에디션 한 대.",
+    colSpan: "lg:col-span-5",
+    aspect: "aspect-square",
+    captionScale: "sm" as const,
+  },
+  {
+    image: IMAGES.brandAfterburnerFiveLineup,
+    plate: "PLATE 04 — LINEUP",
+    title: "다섯 대, 한 가족",
+    body: "센터의 그래피티 에디션을 둘러싼 표준형 NKJC 라인업 — 색은 모두 커스텀.",
+    colSpan: "lg:col-span-7",
+    aspect: "aspect-[7/5]",
+    captionScale: "lg" as const,
   },
 ];
 
@@ -217,46 +224,82 @@ export default function BrandHallPage() {
           </div>
         </div>
 
-        <div className="space-y-2 lg:space-y-3">
-          {EDITION_BANNERS.map((b) => (
-            <div
-              key={b.image}
-              className="banner-fade relative w-full overflow-hidden bg-ink/60 opacity-0"
-            >
-              <div className={`relative ${b.aspect} w-full`}>
-                <Image
-                  src={b.image}
-                  alt={b.title}
-                  fill
-                  sizes="100vw"
-                  className={`${b.objectPos} object-cover`}
-                />
-                {/* Subtle bottom gradient so caption stays legible */}
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent pointer-events-none" />
-              </div>
+        <div className="container-content">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4">
+            {EDITION_BANNERS.map((b) => {
+              const titleSize =
+                b.captionScale === "lg"
+                  ? "text-[clamp(1.5rem,2.6vw,2.4rem)]"
+                  : "text-[clamp(1.1rem,1.7vw,1.6rem)]";
+              const bodySize =
+                b.captionScale === "lg" ? "text-sm lg:text-[0.95rem]" : "text-xs lg:text-[0.82rem]";
+              const padding = b.captionScale === "lg" ? "p-6 lg:p-8" : "p-5 lg:p-6";
+              return (
+                <div
+                  key={b.image}
+                  className={`banner-fade relative col-span-1 ${b.colSpan} overflow-hidden rounded-lg bg-ink/60 opacity-0`}
+                >
+                  <div className={`relative ${b.aspect} w-full`}>
+                    <Image
+                      src={b.image}
+                      alt={b.title}
+                      fill
+                      sizes="(min-width: 1024px) 66vw, 100vw"
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent pointer-events-none" />
+                  </div>
 
-              <div className="absolute bottom-0 left-0 right-0 px-[var(--edge-margin)] pb-8 lg:pb-12">
-                <div className="flex items-end justify-between gap-6">
-                  <div className="max-w-2xl">
-                    <span className="caption-style text-white/85 block mb-3">
+                  <div className={`absolute bottom-0 left-0 right-0 ${padding}`}>
+                    <span className="caption-style text-white/85 block mb-2">
                       {b.plate}
                     </span>
-                    <h3 className="font-display font-bold text-[clamp(1.6rem,3.2vw,2.8rem)] text-paper leading-[1.05] tracking-[-0.02em] mb-3 font-korean">
+                    <h3
+                      className={`font-display font-bold ${titleSize} text-paper leading-[1.1] tracking-[-0.02em] mb-2 font-korean`}
+                    >
                       {b.title}
                     </h3>
-                    <p className="text-body-kr font-korean text-white/90 leading-[1.65] max-w-xl text-sm lg:text-base">
+                    <p
+                      className={`font-korean text-white/85 leading-[1.6] ${bodySize}`}
+                    >
                       {b.body}
                     </p>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTERLUDE — quiet mood strip with existing atmospheric stills ── */}
+      <section aria-hidden="true" className="border-t border-paper/10 mt-3 lg:mt-4">
+        <div className="container-content py-10 lg:py-14">
+          <div className="grid grid-cols-3 gap-3 lg:gap-4">
+            {[IMAGES.obs01, IMAGES.evidenceFloat, IMAGES.footerMood].map((src, i) => (
+              <div
+                key={src + i}
+                className="banner-fade relative aspect-[4/5] overflow-hidden rounded-lg bg-ink/60 opacity-0"
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 33vw"
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-ink/15" />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <p className="caption-style text-white/55 mt-4 font-korean">
+            인터루드 — 작업장의 호흡, 안산의 빛
+          </p>
         </div>
       </section>
 
       {/* ── DETAIL FILM — crossfade detail crops ── */}
-      <section id="film" className="border-t border-paper/10 mt-2 lg:mt-3">
+      <section id="film" className="border-t border-paper/10">
         <div className="container-content py-20 lg:py-28">
           <div className="flex items-baseline justify-between gap-6 mb-10">
             <span className="caption-style text-white/85 font-korean">
@@ -389,6 +432,16 @@ export default function BrandHallPage() {
               <br />
               있습니다.
             </h2>
+            <div className="banner-fade relative aspect-[3/4] mt-10 overflow-hidden rounded-lg bg-ink/60 opacity-0 max-w-xs">
+              <Image
+                src={IMAGES.obs03}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 25vw, 70vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-ink/20" />
+            </div>
           </div>
 
           <div className="flex flex-col justify-center">
@@ -411,6 +464,22 @@ export default function BrandHallPage() {
             >
               이야기 나누기
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INTERLUDE 02 — wide closing mood ── */}
+      <section aria-hidden="true" className="border-t border-paper/10">
+        <div className="container-content py-12 lg:py-16">
+          <div className="banner-fade relative aspect-[21/9] overflow-hidden rounded-lg bg-ink/60 opacity-0">
+            <Image
+              src={IMAGES.closingMood}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-ink/25" />
           </div>
         </div>
       </section>
