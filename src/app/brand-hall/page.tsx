@@ -403,7 +403,7 @@ export default function BrandHallPage() {
                   표준 라인업, 같은 폼팩터
                 </h3>
                 <p className="text-sm font-korean text-white/85 mt-2 max-w-md">
-                  NKJC 시리즈 — 5K부터 120K까지. 색상은 모두 커스텀 제작 가능.
+                  NKJC 시리즈 — 공개 라인업은 5K부터 60K까지. 색상은 모두 커스텀 제작 가능.
                 </p>
               </div>
               <div className="flex items-baseline gap-6 caption-style text-white/80">

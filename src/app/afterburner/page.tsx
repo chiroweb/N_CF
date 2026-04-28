@@ -262,7 +262,7 @@ export default function AfterburnerPage() {
           {/* Left — product image */}
           <div className="model-content">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
-              {/* Capacity-driven scale: 5K smallest → 120K full size. */}
+              {/* Capacity-driven scale: 5K smallest → 60K largest public model. */}
               <div
                 className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out"
                 style={{ transform: `scale(${0.62 + selectedModel * 0.076})` }}
@@ -343,32 +343,29 @@ export default function AfterburnerPage() {
         </div>
       </div>
 
-      {/* ── Product Details — tilt cards ── */}
+      {/* ── Product Details — bento cards ── */}
       <div id="details" className="container-content pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <TiltCard
+        <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr] gap-4 lg:auto-rows-fr">
+          <BentoFeatureCard
             number="01"
             title="민원 대응"
-            body="로스팅 중 발생하는 연기와 냄새를 줄여 매장 주변 환경 부담을 낮춥니다."
-            image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/ab-ductburner-2.png"
+            body="도심 로스터리에서도 로스팅 중 발생하는 연기와 냄새 부담을 낮춥니다."
+            image="/images/afterburner-complaint-context.png"
+            className="lg:min-h-[330px]"
           />
-          <TiltCard
+          <BentoFeatureCard
             number="02"
-            title="가스비 절감"
-            body="직접화염 연소 구조와 최적화된 제어로 경쟁 제품 대비 가스 사용량을 줄입니다."
-            image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-white.png"
-          />
-          <TiltCard
-            number="03"
             title="브랜드별 호환"
             body="PROBAT, GIESEN, LORING, KUBAN 등 주요 드럼 로스터와 결합 설치가 가능합니다."
-            image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-black.png"
+            image="/images/afterburner-compatible-brands.png"
+            className="lg:min-h-[330px]"
           />
-          <TiltCard
-            number="04"
+          <BentoFeatureCard
+            number="03"
             title="설치 후 관리"
-            body="현장 실측부터 제작, 설치, 시운전, A/S까지 한 번에 대응합니다."
-            image="https://chiro-web.s3.ap-northeast-2.amazonaws.com/fa/AFTERBUNNER/products/afterburner-white.png"
+            body="현장 점검부터 시운전, A/S까지 본사에서 직접 이어갑니다."
+            image="/images/afterburner-service-care.png"
+            className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
         </div>
       </div>
@@ -436,57 +433,39 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-function TiltCard({
+function BentoFeatureCard({
   number,
   title,
   body,
   image,
+  className = "",
 }: {
   number: string;
   title: string;
   body: string;
   image: string;
+  className?: string;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    cardRef.current.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
-  };
-
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="scroll-fade group rounded-lg border border-bone overflow-hidden opacity-0 transition-transform duration-200 ease-out will-change-transform"
+      className={`scroll-fade group relative min-h-[360px] overflow-hidden rounded-lg border border-ink/10 bg-ink opacity-0 ${className}`}
     >
-      <div className="relative aspect-[4/3] bg-bone overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="object-contain object-center transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-500" />
-      </div>
-      <div className="p-6 bg-paper group-hover:bg-bone/30 transition-colors duration-500">
-        <span className="caption-style text-ink/80 block mb-2">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(min-width: 1024px) 60vw, 100vw"
+        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/18 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+        <span className="caption-style text-paper/75 block mb-2">
           {number}
         </span>
-        <h4 className="font-display font-bold text-base text-ink mb-3 font-korean">
+        <h4 className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean">
           {title}
         </h4>
-        <p className="text-xs font-korean text-ink/85 leading-[1.65]">{body}</p>
+        <p className="max-w-lg text-sm font-korean text-paper/82 leading-[1.65]">{body}</p>
       </div>
     </div>
   );

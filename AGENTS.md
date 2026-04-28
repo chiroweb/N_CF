@@ -1,25 +1,17 @@
 <claude-mem-context>
 # Memory Context
 
-# [N_CF] recent context, 2026-04-28 9:23am GMT+9
+# [N_CF] recent context, 2026-04-28 11:15am GMT+9
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (10,065t read) | 823,646t work | 99% savings
+Stats: 50 obs (10,983t read) | 1,286,522t work | 99% savings
 
 ### Apr 27, 2026
-426 2:06p 🔵 N_CF + hotel_win — 두 Next.js 개발 서버 동시 실행 중 확인
-427 2:09p ✅ N_CF — 개발 서버 종료 및 .next 캐시 삭제
-428 2:11p ⚖️ hotel_win 섹션 2 — 탭별 이미지 교체 계획 확정
+S145 N_CF 프로젝트 — Mission.tsx 넛버터 슬라이드 "STONE-GROUND" 문구 및 이미지 중복 문제 조사, the-lab 히어로 패러럭스 개선 후속 작업 (Apr 27 at 2:11 PM)
 S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작 진행 중 (Apr 27 at 2:11 PM)
-431 2:12p 🔵 N_CF 개발 서버 — 포트 3001로 정상 기동 확인
-439 2:19p 🔵 N_CF 프로젝트 — tsconfig-paths 설치 시 168개 패키지 제거 및 취약점 5건 발견
-440 2:22p 🔵 N_CF 빌드 실패 — the-lab/page.tsx 미사용 변수 'IMAGES' ESLint 오류
-441 " 🔵 N_CF 의존성 변경 상세 — tsconfig-paths v4 업그레이드 및 json5 보안 패치 확인
-443 2:23p 🔴 N_CF 빌드 오류 수정 — the-lab/page.tsx 미사용 IMAGES import 제거
-444 2:27p 🔴 N_CF 프로덕션 빌드 성공 — 28개 정적 페이지 생성 완료
 457 3:36p 🔵 N_CF — NUTS-STAR 넛버터머신 이미지 구조 현황 파악
 458 " 🔵 N_CF — git 인덱스 전체 삭제(D) 상태 발견
 459 3:37p 🔵 N_CF — 땅콩버터머신 교체 대상 로컬 이미지 파일 위치 확인
@@ -60,9 +52,49 @@ S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작
 548 9:07a 🔴 N_CF 빌드 실패 — .next 캐시 손상 `_document.js` MODULE_NOT_FOUND
 549 " 🔴 N_CF .next 캐시 삭제로 _document.js 빌드 에러 해결
 551 9:08a 🔴 N_CF 클린 빌드 성공 — .next 캐시 삭제 후 exit 0 확인
-S145 N_CF 프로젝트 — Mission.tsx 넛버터 슬라이드 "STONE-GROUND" 문구 및 이미지 중복 문제 조사, the-lab 히어로 패러럭스 개선 후속 작업 (Apr 28 at 9:08 AM)
+S152 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVERIES 배열 병합 및 빌드 확인 (Apr 28 at 9:08 AM)
 552 9:09a 🔵 git status — afterburner MM (staged+unstaged 혼재), roasters 2개 여전히 unstaged
 564 9:13a ⚖️ 납품실적 페이지 — 초기 20건 표시 + 더보기 UI 방향 결정
+565 9:36a 🔵 NUTSTAR_DELIVERIES 중복 항목 발견 — No.02·No.03 동일 거래처
+566 " 🔵 NUTSTAR_DELIVERIES 참조 범위 확인 — KR·EN 두 페이지가 단일 소스 공유
+567 " ✅ nutstar-deliveries.ts 파일 주석 — 중복 제거 방침 문서화
+568 " 🔴 NUTSTAR_DELIVERIES 중복 거래처 병합 완료 — 11개 → 9개 레코드
+570 9:38a ✅ deliveries/page.tsx sr-only 텍스트 — 거래처 수 11→9 수정
+S156 N_CF 프로젝트 — EN afterburner 페이지 capacity-scale 애니메이션 + 색상 커스텀 배지 적용 및 최종 빌드 검증 (Apr 28 at 9:38 AM)
+S166 N_CF brand-hall/page.tsx — 4연속 풀와이드 배너 → 12-col 비대칭 벤토 그리드 + 인터루드 섹션 추가 (Apr 28 at 9:40 AM)
+S153 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVERIES 배열 병합 및 빌드 확인 (Apr 28 at 9:40 AM)
+575 9:43a 🟣 en/the-lab/page.tsx — 전면 EN 로컬라이제이션 완료
+576 " 🟣 en/roasters/page.tsx — 4차 콘텐츠 폴리시 적용 (reversion 재수정)
+577 " 🟣 AFTER 프로젝트 AfterBurnerPage 전시 페이지 대규모 시각 보강 요청
+579 10:22a 🔵 Persistent Reversion — en/the-lab, en/roasters 동시 확인 및 빌드 성공
+S160 N_CF BrandHallPage 전시 페이지 보강 — 그래피티 에디션 이미지 6장으로 섹션 재구성 (Apr 28 at 10:22 AM)
+**Investigated**: - AFTERBUNNER 다운로드 폴더에서 이미지 3장 추가 읽기 (brick-cafe, graffiti-gallery-pair, afterburner-trio)
+    - src/lib/images.ts 현재 상태 확인 (24줄, 브랜드홀 이미지 키 없음)
+    - src/app/brand-hall/page.tsx 기존 구조 (GALLERY_ITEMS 6개, 비디오 섹션, GalleryCard 컴포넌트)
 
-Access 824k tokens of past work via get_observations([IDs]) or mem-search skill.
+**Learned**: - 6개 이미지 모두 public/images/에 복사 성공 (brand-graffiti-gallery-pair, brand-afterburner-five-lineup, brand-brick-cafe-install, brand-kuban-graffiti-pair, brand-kuban-afterburner-mix, brand-afterburner-trio), 각 1.6~2.2MB
+    - images.ts에 6개 키 추가 완료 (userModified: false — 지속적인 revert 패턴이 없음, 정상 동작)
+    - brand-hall/page.tsx 전면 재작성 후 빌드 성공, /brand-hall 6.56kB, 오류 없음
+    - 비디오 섹션을 CSS crossfade(useState + setInterval 6초)로 교체하는 패턴 작동 확인
+    - objectPosition + scale CSS inline style로 동일 이미지의 디테일 크롭을 JS 없이 구현 가능
+
+**Completed**: 1. public/images/ — 6개 그래피티 에디션 이미지 복사 완료
+    2. src/lib/images.ts — brandGraffitiGalleryPair, brandAfterburnerFiveLineup, brandKubanGraffitiPair, brandKubanAfterburnerMix, brandBrickCafeInstall, brandAfterburnerTrio 키 추가 완료
+    3. src/app/brand-hall/page.tsx 전면 재작성:
+       - HERO "기계지만, 예술의 자리" 유지
+       - GRAFFITI EDITION: 풀와이드 16:9 배너 4장 (scroll fade-in, 하단 그라디언트+캡션)
+       - DETAIL FILM: 비디오 섹션 제거 → CSS crossfade 6초 자동전환, 인디케이터 버튼
+       - SCENES: 4카드 그리드 (작업장/골든아워/동네한복판/브릭월카페 신규)
+       - THE MACHINES: brand-afterburner-trio 16:9 쇼케이스 + 모델명 캡션
+       - MANIFESTO 유지
+       - EVENT CTA 유지
+       - FloatingSectionNav 7개 섹션으로 갱신
+    4. npm run build 성공 (no errors, /brand-hall 6.56kB)
+
+**Next Steps**: - 빌드 완료 상태, 사용자 검토 대기
+    - 필요 시 이미지 크롭 방식 변경 (object-contain으로 원본 비율 완전 유지)
+    - 미처리 항목: Hero.tsx "A SIHEUNG"→"AN ANSAN", SINCE 2011→2006 마킹, en/brand-hall/page.tsx 영문 버전, 영문 페이지 revert 이슈 조사
+
+
+Access 1287k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

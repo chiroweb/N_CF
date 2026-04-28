@@ -3,14 +3,15 @@ const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 
 // ── AFTERBURNER MODELS ─────────────────────────────────────────────
 // Model codes and dimensions are sourced from the 2019 NBPKOREA Korean
-// afterburner catalogue. The public lineup starts at 5Kg and goes up to
-// a custom 120Kg industrial build.
+// afterburner catalogue. The public lineup currently presents 5Kg to 60Kg;
+// 120Kg remains a custom industrial build handled after site consultation.
 // Product silhouettes are intentionally unified across capacities so the
 // lineup reads as one family with only size and color (white ↔ black)
 // varying. Color is customizable for every model — the white/black images
 // are illustrative defaults, not fixed SKUs.
 const AB_WHITE = `${S3_PRODUCT}/afterburner-white.png`;
 const AB_BLACK = `${S3_PRODUCT}/afterburner-black.png`;
+const AB_NEUTRAL = `${S3_HOTEL}/afterburner-hero-premium.png`;
 
 export const AFTERBURNER_MODELS = [
   {
@@ -24,8 +25,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "표면연소 고효율 패널버너",
     controller: "Digital",
     connector: "도시가스 (13A)",
-    image: AB_WHITE,
-    gallery: [AB_WHITE],
+    image: AB_NEUTRAL,
+    gallery: [AB_NEUTRAL],
   },
   {
     id: "nkjc-10k",
@@ -38,8 +39,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Digital",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_BLACK,
-    gallery: [AB_BLACK],
+    image: AB_WHITE,
+    gallery: [AB_WHITE],
   },
   {
     id: "nkjc-15k",
@@ -52,8 +53,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Touch Screen",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_WHITE,
-    gallery: [AB_WHITE],
+    image: AB_BLACK,
+    gallery: [AB_BLACK],
   },
   {
     id: "nkjc-30k",
@@ -66,8 +67,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Proportional",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_BLACK,
-    gallery: [AB_BLACK],
+    image: AB_NEUTRAL,
+    gallery: [AB_NEUTRAL],
   },
   {
     id: "nkjc-60k",
@@ -80,22 +81,8 @@ export const AFTERBURNER_MODELS = [
     burnerKr: "이단연소 고효율 덕트버너",
     controller: "Proportional",
     connector: "LPG / 도시가스 (13A)",
-    image: AB_WHITE,
-    gallery: [AB_WHITE],
-  },
-  {
-    id: "nkjc-120k",
-    name: "NKJC-120K",
-    capacity: "120kg",
-    target: "Large Industrial",
-    targetKr: "대형 산업 플랜트",
-    size: "800 × 900 × 2,500mm",
-    burner: "Dual-Stage Duct Burner",
-    burnerKr: "이단연소 고효율 덕트버너",
-    controller: "Proportional",
-    connector: "LPG / 도시가스 (13A)",
-    image: AB_BLACK,
-    gallery: [AB_BLACK],
+    image: AB_NEUTRAL,
+    gallery: [AB_NEUTRAL],
   },
 ];
 
