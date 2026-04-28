@@ -111,16 +111,20 @@ export default function RoastersEnPage() {
       }
 
       if (heroImgRef.current) {
-        gsap.to(heroImgRef.current, {
-          yPercent: 15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroImgRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.5,
-          },
-        });
+        gsap.fromTo(
+          heroImgRef.current,
+          { yPercent: -4 },
+          {
+            yPercent: 4,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroImgRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        );
       }
 
       const fadeEls = pageRef.current?.querySelectorAll(".scroll-fade");
@@ -183,14 +187,14 @@ export default function RoastersEnPage() {
           </div>
 
           <div className="hero-fade relative aspect-[16/10] rounded-lg overflow-hidden bg-bone opacity-0">
-            <div ref={heroImgRef} className="absolute inset-0">
+            <div ref={heroImgRef} className="absolute inset-x-0 -top-[10%] -bottom-[10%]">
               <Image
                 src={HERO_IMAGES.roaster}
                 alt="KUBAN drum roaster"
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover object-center"
+                className="object-cover object-center scale-[1.04]"
               />
             </div>
           </div>

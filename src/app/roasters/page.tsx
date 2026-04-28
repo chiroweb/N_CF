@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "@/lib/gsap";
 import {
   ROASTER_BASE_MODELS,
-  ROASTER_SUPREME_GALLERY,
+  ROASTER_SUPREME_MODELS,
   HERO_IMAGES,
 } from "@/lib/products";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
@@ -34,9 +34,15 @@ export default function RoastersPage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [showSupreme, setShowSupreme] = useState(false);
+  const [selectedSupremeModel, setSelectedSupremeModel] = useState(0);
   const [supremeGalleryIndex, setSupremeGalleryIndex] = useState(0);
 
   const model = ROASTER_BASE_MODELS[selectedModel];
+  const supremeModel = ROASTER_SUPREME_MODELS[selectedSupremeModel];
+  const lineupModels = [
+    ...ROASTER_BASE_MODELS.map((item) => ({ ...item, category: "BASE" })),
+    ...ROASTER_SUPREME_MODELS.map((item) => ({ ...item, category: "SUPREME" })),
+  ];
 
   const switchModel = useCallback(
     (index: number) => {
@@ -61,8 +67,8 @@ export default function RoastersPage() {
     [isTransitioning, selectedModel, showSupreme]
   );
 
-  const switchToSupreme = useCallback(() => {
-    if (isTransitioning || showSupreme) return;
+  const switchToSupreme = useCallback((index = selectedSupremeModel) => {
+    if (isTransitioning || (showSupreme && index === selectedSupremeModel)) return;
     setIsTransitioning(true);
 
     const content = pageRef.current?.querySelectorAll(".model-content");
@@ -74,11 +80,12 @@ export default function RoastersPage() {
         ease: "power2.in",
         onComplete: () => {
           setShowSupreme(true);
+          setSelectedSupremeModel(index);
           setSupremeGalleryIndex(0);
         },
       });
     }
-  }, [isTransitioning, showSupreme]);
+  }, [isTransitioning, selectedSupremeModel, showSupreme]);
 
   useEffect(() => {
     if (!isTransitioning) return;
@@ -97,7 +104,7 @@ export default function RoastersPage() {
         }
       );
     }
-  }, [selectedModel, showSupreme, isTransitioning]);
+  }, [selectedModel, selectedSupremeModel, showSupreme, isTransitioning]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,16 +118,20 @@ export default function RoastersPage() {
       }
 
       if (heroImgRef.current) {
-        gsap.to(heroImgRef.current, {
-          yPercent: 15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroImgRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.5,
-          },
-        });
+        gsap.fromTo(
+          heroImgRef.current,
+          { yPercent: -4 },
+          {
+            yPercent: 4,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroImgRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        );
       }
 
       const fadeEls = pageRef.current?.querySelectorAll(".scroll-fade");
@@ -184,7 +195,7 @@ export default function RoastersPage() {
           <div className="hero-fade relative aspect-[16/10] rounded-lg overflow-hidden bg-bone opacity-0">
             <div
               ref={heroImgRef}
-              className="absolute inset-0"
+              className="absolute inset-x-0 -top-[10%] -bottom-[10%]"
             >
               <Image
                 src={HERO_IMAGES.roaster}
@@ -192,7 +203,7 @@ export default function RoastersPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover object-center"
+                className="object-cover object-center scale-[1.04]"
               />
             </div>
           </div>
@@ -249,15 +260,39 @@ export default function RoastersPage() {
             모델 선택
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
-            베이스 4종,
+            BASE 4종,
             <br />
-            프리미엄 1종.
+            SUPREME 5종.
           </h2>
+        </div>
+
+        {/* Category tabs */}
+        <div className="scroll-fade flex flex-wrap gap-2 mb-4 opacity-0">
+          <button
+            onClick={() => switchModel(selectedModel)}
+            className={`px-6 py-3 text-sm font-bold tracking-[0.04em] uppercase rounded-lg border-2 transition-all duration-200 ${
+              !showSupreme
+                ? "bg-ink text-paper border-ink"
+                : "bg-transparent text-ink/85 border-bone hover:border-ink hover:text-ink"
+            }`}
+          >
+            BASE
+          </button>
+          <button
+            onClick={() => switchToSupreme(selectedSupremeModel)}
+            className={`px-6 py-3 text-sm font-bold tracking-[0.04em] uppercase rounded-lg border-2 transition-all duration-200 ${
+              showSupreme
+                ? "bg-ink text-paper border-ink"
+                : "bg-transparent text-ink/85 border-bone hover:border-ink hover:text-ink"
+            }`}
+          >
+            SUPREME
+          </button>
         </div>
 
         {/* Model tabs */}
         <div className="scroll-fade flex flex-wrap gap-2 mb-16 opacity-0">
-          {ROASTER_BASE_MODELS.map((m, i) => (
+          {!showSupreme ? ROASTER_BASE_MODELS.map((m, i) => (
             <button
               key={m.id}
               onClick={() => switchModel(i)}
@@ -269,31 +304,33 @@ export default function RoastersPage() {
             >
               {m.capacity}
             </button>
+          )) : ROASTER_SUPREME_MODELS.map((m, i) => (
+            <button
+              key={m.id}
+              onClick={() => switchToSupreme(i)}
+              className={`px-5 py-2.5 text-sm font-bold tracking-[0.04em] uppercase rounded-lg border-2 transition-all duration-200 ${
+                i === selectedSupremeModel
+                  ? "bg-ink text-paper border-ink"
+                  : "bg-transparent text-ink/85 border-bone hover:border-ink hover:text-ink"
+              }`}
+            >
+              {m.capacity}
+            </button>
           ))}
-          <button
-            onClick={switchToSupreme}
-            className={`px-5 py-2.5 text-sm font-bold tracking-[0.04em] uppercase rounded-lg border-2 transition-all duration-200 ${
-              showSupreme
-                ? "bg-ink text-paper border-ink"
-                : "bg-transparent text-ink/85 border-bone hover:border-ink hover:text-ink"
-            }`}
-          >
-            SUPREME
-          </button>
         </div>
 
         {/* Model detail — image + specs */}
         {!showSupreme ? (
           <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-8 lg:gap-16">
             <div className="model-content">
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-white">
                 <Image
                   key={model.gallery[galleryIndex]}
                   src={model.gallery[galleryIndex]}
                   alt={`${model.name} · ${galleryIndex + 1}`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 90vw"
-                  className="object-contain object-center"
+                  className="object-contain object-center scale-[1.08]"
                 />
               </div>
               {model.gallery.length > 1 && (
@@ -302,7 +339,7 @@ export default function RoastersPage() {
                     <button
                       key={i}
                       onClick={() => setGalleryIndex(i)}
-                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                      className={`relative h-20 w-20 rounded-lg overflow-hidden border-2 bg-white transition-colors ${
                         i === galleryIndex ? "border-ink" : "border-bone"
                       }`}
                     >
@@ -310,7 +347,7 @@ export default function RoastersPage() {
                         src={img}
                         alt=""
                         fill
-                        sizes="64px"
+                        sizes="80px"
                         className="object-cover object-center"
                       />
                     </button>
@@ -350,23 +387,23 @@ export default function RoastersPage() {
           /* ── Supreme Model ── */
           <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-8 lg:gap-16">
             <div className="model-content">
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-white">
                 <Image
-                  key={ROASTER_SUPREME_GALLERY[supremeGalleryIndex]}
-                  src={ROASTER_SUPREME_GALLERY[supremeGalleryIndex]}
-                  alt={`SUPREME · ${supremeGalleryIndex + 1}`}
+                  key={supremeModel.gallery[supremeGalleryIndex]}
+                  src={supremeModel.gallery[supremeGalleryIndex]}
+                  alt={`${supremeModel.name} · ${supremeGalleryIndex + 1}`}
                   fill
                   sizes="(min-width: 1024px) 45vw, 90vw"
-                  className="object-contain object-center"
+                  className="object-contain object-center scale-[1.08]"
                 />
               </div>
-              {ROASTER_SUPREME_GALLERY.length > 1 && (
+              {supremeModel.gallery.length > 1 && (
                 <div className="flex gap-2 mt-3">
-                  {ROASTER_SUPREME_GALLERY.map((img, i) => (
+                  {supremeModel.gallery.map((img, i) => (
                     <button
                       key={i}
                       onClick={() => setSupremeGalleryIndex(i)}
-                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                      className={`relative h-20 w-20 rounded-lg overflow-hidden border-2 bg-white transition-colors ${
                         i === supremeGalleryIndex ? "border-ink" : "border-bone"
                       }`}
                     >
@@ -374,7 +411,7 @@ export default function RoastersPage() {
                         src={img}
                         alt=""
                         fill
-                        sizes="64px"
+                        sizes="80px"
                         className="object-cover object-center"
                       />
                     </button>
@@ -385,23 +422,25 @@ export default function RoastersPage() {
 
             <div className="model-content flex flex-col justify-center">
               <h3 className="font-display font-bold text-[clamp(2rem,3.5vw,3rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-2">
-                SUPREME
+                {supremeModel.name}
               </h3>
               <p className="caption-style text-ink/90 mb-8 font-korean">
-                프리미엄 라인
+                {supremeModel.targetKr}
               </p>
 
               <p className="text-body-kr font-korean text-ink/85 leading-[1.75] mb-8">
-                플래그십 모델입니다. 모든 디테일을 다시 설계하고 마감을
-                정제했습니다. SUPREME은 단순한 로스터가 아니라, 당신의 기술이
-                최고의 기계를 받을 자격이 있다는 선언입니다.
+                BASE와 별도 설계의 프리미엄 라인입니다. 더 정제된 마감과
+                고급 컨트롤 구성으로, 소형 3kg부터 대형 생산형 24kg까지
+                로스팅 규모에 맞춰 선택할 수 있습니다.
               </p>
 
               <div className="space-y-0 border-t-2 border-ink">
-                <SpecRow label="라인" value="프리미엄 커스텀" />
-                <SpecRow label="타입" value="드럼 로스터" />
-                <SpecRow label="마감" value="주문 컬러 · 소재" />
-                <SpecRow label="컨트롤러" value="풀 오토 · 터치스크린" />
+                <SpecRow label="용량" value={supremeModel.capacity} />
+                <SpecRow label="치수" value={supremeModel.size} />
+                <SpecRow label="무게" value={supremeModel.weight} />
+                <SpecRow label="전원" value={supremeModel.power} />
+                <SpecRow label="버너" value={supremeModel.burner} />
+                <SpecRow label="컨트롤러" value={supremeModel.controller} />
               </div>
 
               <div className="mt-10">
@@ -409,7 +448,7 @@ export default function RoastersPage() {
                   href="/contact"
                   className="inline-block bg-ink text-paper px-6 py-3 text-sm font-bold tracking-[0.04em] hover:bg-paper hover:text-ink border-2 border-ink transition-all duration-200 rounded-lg font-korean"
                 >
-                  SUPREME 문의
+                  {supremeModel.name} 문의
                 </Link>
               </div>
             </div>
@@ -458,6 +497,7 @@ export default function RoastersPage() {
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b-2 border-ink">
+                    <th className="caption-style text-ink/90 py-3 pr-4 font-korean">카테고리</th>
                     <th className="caption-style text-ink/90 py-3 pr-4 font-korean">모델</th>
                     <th className="caption-style text-ink/90 py-3 pr-4 font-korean">용량</th>
                     <th className="caption-style text-ink/90 py-3 pr-4 font-korean">무게</th>
@@ -466,8 +506,9 @@ export default function RoastersPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {ROASTER_BASE_MODELS.map((m) => (
+                  {lineupModels.map((m) => (
                     <tr key={m.id} className="border-b border-bone">
+                      <td className="py-4 pr-4 text-ink/75 font-bold">{m.category}</td>
                       <td className="py-4 pr-4 font-display font-bold text-ink">{m.name}</td>
                       <td className="py-4 pr-4 text-ink/90">{m.capacity}</td>
                       <td className="py-4 pr-4 text-ink/90">{m.weight}</td>
