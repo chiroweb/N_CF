@@ -262,15 +262,28 @@ export default function AfterburnerPage() {
           {/* Left — product image */}
           <div className="model-content">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
-              <Image
-                key={model.gallery[galleryIndex]}
-                src={model.gallery[galleryIndex]}
-                alt={`${model.name} · ${galleryIndex + 1}`}
-                fill
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-contain object-center"
-              />
+              {/* Capacity-driven scale: 5K smallest → 120K full size. */}
+              <div
+                className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out"
+                style={{ transform: `scale(${0.62 + selectedModel * 0.076})` }}
+              >
+                <Image
+                  key={model.gallery[galleryIndex]}
+                  src={model.gallery[galleryIndex]}
+                  alt={`${model.name} · ${galleryIndex + 1}`}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  className="object-contain object-center"
+                />
+              </div>
+              <span className="absolute right-3 bottom-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-paper/90 backdrop-blur px-3 py-1.5 text-[0.65rem] font-bold tracking-[0.06em] text-ink/80 border border-ink/15 font-korean">
+                <span className="inline-flex h-2 w-2 rounded-full bg-ink/80" />
+                색상 커스텀 제작 가능
+              </span>
             </div>
+            <p className="caption-style text-ink/70 mt-3 font-korean">
+              화이트 · 블랙은 기본 예시이며, RAL 컬러 코드 기준으로 자유롭게 도장 변경 가능합니다.
+            </p>
             {model.gallery.length > 1 && (
               <div className="flex gap-2 mt-3">
                 {model.gallery.map((img, i) => (

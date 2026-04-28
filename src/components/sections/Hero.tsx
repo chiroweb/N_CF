@@ -6,40 +6,59 @@ import { IMAGES } from "@/lib/images";
 import Image from "next/image";
 import Link from "next/link";
 
+type Lang = "ko" | "en";
+
 const PRODUCTS = [
   {
     tag: "THE AFTERBURNER",
     title: "DIRECT FLAME AFTERBURNER",
-    details: [
+    detailsKo: [
       ["TYPE", "직접화염"],
       ["METHOD", "완전 연소"],
       ["RESULT", "무연 배출"],
+    ],
+    detailsEn: [
+      ["TYPE", "Direct Flame"],
+      ["METHOD", "Full Combustion"],
+      ["RESULT", "Zero Smoke"],
     ],
     href: "/afterburner",
   },
   {
     tag: "KUBAN",
     title: "COFFEE ROASTERS",
-    details: [
+    detailsKo: [
       ["TYPE", "드럼 로스터"],
       ["ORIGIN", "터키"],
       ["DEALER", "한국 독점"],
+    ],
+    detailsEn: [
+      ["TYPE", "Drum Roaster"],
+      ["ORIGIN", "Türkiye"],
+      ["DEALER", "Exclusive KR"],
     ],
     href: "/roasters",
   },
   {
     tag: "BUTTER MACHINE",
     title: "PEANUT BUTTER MACHINE",
-    details: [
+    detailsKo: [
       ["TYPE", "넛버터 머신"],
       ["USE", "상업용"],
       ["PROCESS", "부드러운 질감"],
+    ],
+    detailsEn: [
+      ["TYPE", "Nut Butter"],
+      ["USE", "Commercial"],
+      ["PROCESS", "Smooth Texture"],
     ],
     href: "/the-lab",
   },
 ];
 
-export default function Hero() {
+export default function Hero({ lang = "ko" }: { lang?: Lang }) {
+  const isEn = lang === "en";
+  const hrefPrefix = isEn ? "/en" : "";
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
@@ -120,7 +139,9 @@ export default function Hero() {
             <span className="hero-line block opacity-0">WE WERE</span>
             <span className="hero-line block opacity-0">ROASTING</span>
             <span className="sr-only">
-              . 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직접화염 애프터버너 제조사입니다.
+              {isEn
+                ? ". NBPKOREA builds direct-flame afterburners that erase the smoke and odor produced by coffee roasters at the source."
+                : ". 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직접화염 애프터버너 제조사입니다."}
             </span>
           </h1>
 
@@ -133,21 +154,29 @@ export default function Hero() {
                 roast. No smoke, no complaints,
                 no trace. Just craft.
               </p>
-              <p className="text-white/85 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
-                아무도 우리가 로스팅 중인 걸 몰랐다.
-                <br />
-                그게 핵심이다 — 우리는 증거를 지운다.
-              </p>
+              {isEn ? (
+                <p className="text-white/85 mt-3 leading-[1.65] text-sm">
+                  No one knew we were roasting.
+                  <br />
+                  That is the point — we erase the evidence.
+                </p>
+              ) : (
+                <p className="text-white/85 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
+                  아무도 우리가 로스팅 중인 걸 몰랐다.
+                  <br />
+                  그게 핵심이다 — 우리는 증거를 지운다.
+                </p>
+              )}
             </div>
           </div>
 
           {/* Sticky CTA — follows viewport, docks below body copy */}
           <div className="hero-cta sticky bottom-6 z-20 flex justify-end pr-[var(--edge-margin)] mt-10 pb-10 opacity-0">
             <Link
-              href="/contact"
+              href={`${hrefPrefix}/contact`}
               className="btn-pill bg-ink text-paper hover:bg-paper hover:text-ink border-2 border-white hover:border-ink transition-all duration-200 shadow-[0_0_0_1px_rgba(255,255,255,0.6)]"
             >
-              SHOP NOW
+              {isEn ? "REQUEST A QUOTE" : "SHOP NOW"}
               <span className="ml-2">&rarr;</span>
             </Link>
           </div>
@@ -179,7 +208,7 @@ export default function Hero() {
             {PRODUCTS.map((product) => (
               <Link
                 key={product.tag}
-                href={product.href}
+                href={`${hrefPrefix}${product.href}`}
                 className="group border-b-[3px] md:border-b-[3px] md:border-r-[3px] last:border-r-0 border-white/40 p-5 lg:p-6 transition-colors duration-300 hover:bg-paper flex flex-col justify-between min-h-[140px]"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -191,7 +220,7 @@ export default function Hero() {
                   </span>
                 </div>
                 <div className="space-y-1.5 mt-auto">
-                  {product.details.map(([label, value]) => (
+                  {(isEn ? product.detailsEn : product.detailsKo).map(([label, value]) => (
                     <div
                       key={label}
                       className="flex justify-between text-xs tracking-[0.06em] uppercase"

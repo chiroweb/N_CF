@@ -6,7 +6,11 @@ import { IMAGES } from "@/lib/images";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Evidence() {
+type Lang = "ko" | "en";
+
+export default function Evidence({ lang = "ko" }: { lang?: Lang }) {
+  const isEn = lang === "en";
+  const hrefPrefix = isEn ? "/en" : "";
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
@@ -100,27 +104,31 @@ export default function Evidence() {
             clearing smoke and soot, no hands are more blackened than ours.
           </p>
 
-          {/* Korean manifesto — half size, beneath the English lead */}
-          <p className="fade-in font-korean text-[clamp(0.9rem,1.9vw,1.7rem)] text-white/85 leading-[1.6] tracking-[-0.005em] mt-6 max-w-4xl opacity-0 drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]">
-            우리는 외길 인생이라는 말을 자주 듣습니다. 그 말에 대한 답은 —
-            thank you. 한 가지에 깊이 집중할 때 비로소 많은 것이 따라오기
-            때문입니다. NBPKOREA가 14년간 붙잡은 한 가지는 언제나
-            <span className="font-display"> Afterburner</span>. 연기와 매연을
-            제거하는 일에서, 누구보다 손이 새카맣게 더러운 회사입니다.
-          </p>
+          {/* Korean manifesto — half size, beneath the English lead (KR only) */}
+          {!isEn && (
+            <p className="fade-in font-korean text-[clamp(0.9rem,1.9vw,1.7rem)] text-white/85 leading-[1.6] tracking-[-0.005em] mt-6 max-w-4xl opacity-0 drop-shadow-[0_1px_8px_rgba(0,0,0,0.3)]">
+              우리는 외길 인생이라는 말을 자주 듣습니다. 그 말에 대한 답은 —
+              thank you. 한 가지에 깊이 집중할 때 비로소 많은 것이 따라오기
+              때문입니다. NBPKOREA가 14년간 붙잡은 한 가지는 언제나
+              <span className="font-display"> Afterburner</span>. 연기와 매연을
+              제거하는 일에서, 누구보다 손이 새카맣게 더러운 회사입니다.
+            </p>
+          )}
 
-          {/* LEARN MORE — compact, bilingual label */}
+          {/* LEARN MORE — compact label */}
           <div className="fade-in mt-8 opacity-0">
             <Link
-              href="/"
+              href={`${hrefPrefix}/afterburner`}
               className="inline-flex items-baseline gap-2 bg-white/95 text-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors duration-200 rounded-lg"
             >
               <span className="text-[0.72rem] font-bold tracking-[0.08em] uppercase font-display">
                 LEARN MORE
               </span>
-              <span className="text-[0.7rem] font-korean text-ink/70 group-hover:text-paper/80">
-                더 알아보기
-              </span>
+              {!isEn && (
+                <span className="text-[0.7rem] font-korean text-ink/70 group-hover:text-paper/80">
+                  더 알아보기
+                </span>
+              )}
             </Link>
           </div>
         </div>
@@ -166,10 +174,17 @@ export default function Evidence() {
 
           {/* Emotional line — absolutely centered below photo area */}
           <div className="absolute bottom-[10%] left-0 right-0 text-center z-20">
-            <p className="font-heading font-semibold font-korean text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
-              로스터의 스트레스를 이해합니다.
-              <br />그 무게를 덜어내겠습니다.
-            </p>
+            {isEn ? (
+              <p className="font-heading font-semibold text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
+                We understand the roaster&apos;s stress.
+                <br />We&apos;ll carry that weight for you.
+              </p>
+            ) : (
+              <p className="font-heading font-semibold font-korean text-[clamp(2rem,4vw,3.5rem)] text-white/95 leading-[1.4] tracking-[-0.01em]">
+                로스터의 스트레스를 이해합니다.
+                <br />그 무게를 덜어내겠습니다.
+              </p>
+            )}
             <p className="caption-style text-white/85 mt-6">
               37.331° N — 126.785° E
             </p>

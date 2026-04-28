@@ -1,8 +1,7 @@
 // Nut butter machine delivery ledger — source: 넛츠스타_넛버터머신 납품실적_260120.pptx.
-// Slide 1 summary table is authoritative; where detail slides (2–10) show a
-// different month (No.04, No.06, No.08) the table value is kept.
-// No.10 (착한습관 13대), No.11 (흥국산업 1대) are 2026.05 scheduled and have
-// no detail slide.
+// Source PPT lists the same site twice when 2 units shipped (현대백화점 판교점,
+// AK플라자 분당점); we collapse those into one record with qty=2 so the page
+// shows one card per 거래처 instead of duplicate tiles.
 
 export type NutstarBusinessType =
   | "견과류 제조·가공"
@@ -53,7 +52,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     customer: "현대백화점 판교점",
     businessType: "백화점 팝업",
     capacityKg: 50,
-    qty: 1,
+    qty: 2,
     deliveryDate: "2025.04",
     status: "delivered",
     region: "경기도",
@@ -68,29 +67,11 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
   },
   {
     id: "03",
-    customer: "현대백화점 판교점",
-    businessType: "백화점 팝업",
-    capacityKg: 50,
-    qty: 1,
-    deliveryDate: "2025.04",
-    status: "delivered",
-    region: "경기도",
-    district: "성남시",
-    neighborhood: "판교",
-    applications: [
-      "견과류 버터 (땅콩/아몬드/캐슈넛/피스타치오 등)",
-      "견과류 정과",
-    ],
-    operatingMode: "즉석 연속 분쇄 (시연)",
-    applicableMaterial: "볶은 땅콩(탈피) / 견과류 원물",
-  },
-  {
-    id: "04",
     customer: "AK플라자 분당점",
     businessType: "백화점 팝업",
     capacityKg: 50,
-    qty: 1,
-    deliveryDate: "2025.05",
+    qty: 2,
+    deliveryDate: "2025.05 · 2025.08",
     status: "delivered",
     region: "경기도",
     district: "성남시",
@@ -100,7 +81,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     applicableMaterial: "볶은 땅콩(탈피) / 견과류 원물",
   },
   {
-    id: "05",
+    id: "04",
     customer: "고래방앗간",
     businessType: "방앗간",
     capacityKg: 50,
@@ -116,22 +97,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     applicableMaterial: "볶은 땅콩(탈피)",
   },
   {
-    id: "06",
-    customer: "AK플라자 분당점",
-    businessType: "백화점 팝업",
-    capacityKg: 50,
-    qty: 1,
-    deliveryDate: "2025.08",
-    status: "delivered",
-    region: "경기도",
-    district: "성남시",
-    neighborhood: "분당",
-    applications: ["매장 내 땅콩버터 즉석 제조 및 판매", "고객 대상 제품 시연"],
-    operatingMode: "소형 즉석 제조용",
-    applicableMaterial: "볶은 땅콩(탈피) / 견과류 원물",
-  },
-  {
-    id: "07",
+    id: "05",
     customer: "넥스트 커피 랩",
     businessType: "카페",
     capacityKg: 50,
@@ -145,7 +111,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     applicableMaterial: "볶은 땅콩(탈피), 구운 아몬드",
   },
   {
-    id: "08",
+    id: "06",
     customer: "메종드크루아상",
     businessType: "베이커리 카페",
     capacityKg: 50,
@@ -161,7 +127,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     applicableMaterial: "볶은 땅콩(탈피), 구운 아몬드",
   },
   {
-    id: "09",
+    id: "07",
     customer: "트레페베이커리",
     businessType: "베이커리 카페",
     capacityKg: 50,
@@ -177,7 +143,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     applicableMaterial: "볶은 땅콩(탈피), 구운 아몬드",
   },
   {
-    id: "10",
+    id: "08",
     customer: "착한습관",
     businessType: "견과류 제조·가공",
     capacityKg: 50,
@@ -188,7 +154,7 @@ export const NUTSTAR_DELIVERIES: NutstarDelivery[] = [
     district: "광주시",
   },
   {
-    id: "11",
+    id: "09",
     customer: "흥국산업",
     businessType: "견과류 제조·가공",
     capacityKg: 50,

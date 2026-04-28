@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
 import { IMAGES } from "@/lib/images";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
@@ -9,65 +9,105 @@ import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "개요" },
-  { id: "gallery", label: "갤러리" },
-  { id: "film", label: "브랜드 필름" },
+  { id: "edition", label: "그래피티 에디션" },
+  { id: "film", label: "디테일 필름" },
+  { id: "scenes", label: "장면들" },
+  { id: "machines", label: "라인업" },
   { id: "manifesto", label: "선언문" },
   { id: "event", label: "다음 전시" },
 ];
 
-const GALLERY_ITEMS = [
+const EDITION_BANNERS = [
   {
-    id: 1,
+    image: IMAGES.brandGraffitiGalleryPair,
+    plate: "PLATE 01 — GALLERY",
     title: "그래피티 에디션",
-    subtitle: "2024 전시",
-    description: "스트릿 아트와 산업 엔지니어링의 만남. 한 대의 기계에 색을 입혀 갤러리로 보냈습니다.",
-    image: IMAGES.brandAfterburnerGallery,
-    size: "large",
+    body: "스트릿 아트와 산업 엔지니어링의 만남. 받침대 위에 올라간 두 대의 애프터버너 — 갤러리 조명 아래에서, 처음으로.",
+    aspect: "aspect-[16/9]",
+    objectPos: "object-center",
   },
   {
-    id: 2,
+    image: IMAGES.brandAfterburnerFiveLineup,
+    plate: "PLATE 02 — LINEUP",
+    title: "다섯 대, 한 가족",
+    body: "센터의 그래피티 에디션을 둘러싼 표준형 NKJC 라인업. 같은 형태, 다른 옷. 색은 모두 커스텀 가능합니다.",
+    aspect: "aspect-[16/9]",
+    objectPos: "object-center",
+  },
+  {
+    image: IMAGES.brandKubanGraffitiPair,
+    plate: "PLATE 03 — KUBAN ON DRUM",
+    title: "쿠반에도, 같은 손",
+    body: "터키 KUBAN 드럼 로스터에 그래피티를 입혔습니다. 로스터와 애프터버너가 한 자리에 서는 유일한 가족 사진.",
+    aspect: "aspect-[16/9]",
+    objectPos: "object-center",
+  },
+  {
+    image: IMAGES.brandKubanAfterburnerMix,
+    plate: "PLATE 04 — FAMILY",
+    title: "전체 컬렉션",
+    body: "쿠반 로스터와 애프터버너 라인업의 합동 전시. 센터에는 그래피티 에디션 한 대 — 우리가 만드는 모든 것을 한 프레임 안에.",
+    aspect: "aspect-[16/9]",
+    objectPos: "object-center",
+  },
+];
+
+// Detail crops cycled in the "Detail Film" — uses object-position scaling
+// to highlight different parts of the same hi-res shots without needing
+// pre-cropped assets.
+const DETAIL_FRAMES = [
+  { image: IMAGES.brandGraffitiGalleryPair, position: "50% 60%", scale: 2.0, label: "텍스처 · 그래피티 표면" },
+  { image: IMAGES.brandAfterburnerFiveLineup, position: "50% 50%", scale: 2.2, label: "센터 · 블루/골드 번개" },
+  { image: IMAGES.brandKubanGraffitiPair, position: "30% 55%", scale: 2.1, label: "경계 · 스테인리스와 컬러" },
+  { image: IMAGES.brandKubanAfterburnerMix, position: "70% 55%", scale: 2.0, label: "디테일 · 받침대와 조명" },
+];
+
+const SCENE_CARDS = [
+  {
+    id: "workshop",
     title: "작업장",
     subtitle: "모든 것의 시작",
     description: "모든 유닛은 여기서 시작됩니다. 손, 불, 강철.",
     image: IMAGES.obs02,
-    size: "small",
+    aspect: "aspect-[4/5]",
   },
   {
-    id: 3,
+    id: "golden",
     title: "골든 아워",
     subtitle: "로스터리의 아침",
     description: "아무도 로스팅 냄새를 맡지 못한다는 걸 알 때, 빛은 다르게 느껴집니다.",
     image: IMAGES.missionRight,
-    size: "medium",
+    aspect: "aspect-[4/5]",
   },
   {
-    id: 4,
+    id: "neighborhood",
     title: "동네 한복판",
     subtitle: "서울의 저녁",
     description: "주거 단지 안의 로스터리. 자전거 탄 아이는 한 번도 항의하지 않았습니다.",
     image: IMAGES.installationPhoto,
-    size: "large",
+    aspect: "aspect-[4/5]",
   },
   {
-    id: 5,
-    title: "크래프트와 원두",
-    subtitle: "가장 처음의 재료",
-    description: "기계 이전에 손이 있습니다. 손 이전에 원두가 있습니다.",
-    image: IMAGES.obs01,
-    size: "small",
-  },
-  {
-    id: 6,
-    title: "애프터버너 유닛",
-    subtitle: "스튜디오 포트레이트",
-    description: "14년의 개선을 한 프레임에.",
-    image: IMAGES.afterburnerLineup,
-    size: "medium",
+    id: "brick-cafe",
+    title: "브릭월 카페",
+    subtitle: "현실의 설치 현장",
+    description: "로스터, 사이클론, 애프터버너가 카페 벽 한 면을 함께 차지합니다. 운영 중에도 정적합니다.",
+    image: IMAGES.brandBrickCafeInstall,
+    aspect: "aspect-[4/5]",
   },
 ];
 
 export default function BrandHallPage() {
   const pageRef = useRef<HTMLDivElement>(null);
+  const [detailIdx, setDetailIdx] = useState(0);
+
+  // Cycle the Detail Film crops every 6s
+  useEffect(() => {
+    const id = setInterval(() => {
+      setDetailIdx((i) => (i + 1) % DETAIL_FRAMES.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -80,7 +120,28 @@ export default function BrandHallPage() {
         );
       }
 
-      const items = pageRef.current?.querySelectorAll(".gallery-item");
+      const banners = pageRef.current?.querySelectorAll(".banner-fade");
+      if (banners) {
+        banners.forEach((el) => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        });
+      }
+
+      const items = pageRef.current?.querySelectorAll(".scene-card");
       if (items) {
         items.forEach((item) => {
           gsap.fromTo(
@@ -125,16 +186,16 @@ export default function BrandHallPage() {
     <div ref={pageRef} className="bg-ink min-h-screen">
       <FloatingSectionNav sections={SECTIONS} />
 
-      {/* ── Hero ── */}
+      {/* ── HERO ── */}
       <div id="overview" className="relative h-[80vh] flex flex-col justify-end container-content pb-16">
         <span className="hero-line caption-style text-white/90 block mb-6 opacity-0 font-korean">
           브랜드 홀 · 전시 아카이브
         </span>
         <h1 className="m-0 font-display font-bold text-[clamp(3rem,10vw,9rem)] text-paper leading-[0.85] tracking-[-0.04em] font-korean">
-          <span className="hero-line block opacity-0">기계 너머,</span>
+          <span className="hero-line block opacity-0">기계지만,</span>
           <span className="hero-line block opacity-0">예술의 자리.</span>
           <span className="sr-only">
-            . 엔비피코리아 브랜드 홀 — 애프터버너, KUBAN 로스터, 넛츠스타 넛버터머신 세 제품군의 계보.
+            . 엔비피코리아 브랜드 홀 — 그래피티 에디션 전시, 디테일 필름, 카페 설치 장면, 그리고 NKJC 라인업.
           </span>
         </h1>
         <p className="hero-line text-body-kr font-korean text-white/90 mt-8 max-w-md opacity-0">
@@ -143,47 +204,178 @@ export default function BrandHallPage() {
         </p>
       </div>
 
-      {/* ── Gallery Grid — asymmetric editorial ── */}
-      <div id="gallery" className="container-content pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-4">
-          <GalleryCard item={GALLERY_ITEMS[0]} />
-          <GalleryCard item={GALLERY_ITEMS[1]} />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 mb-4">
-          <GalleryCard item={GALLERY_ITEMS[2]} />
-          <GalleryCard item={GALLERY_ITEMS[3]} />
-        </div>
-
-        {/* ── Video Section ── */}
-        <div id="film" className="my-24">
-          <div className="relative aspect-video rounded-lg overflow-hidden bg-ink/50">
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              poster={IMAGES.heroBg}
-              controls={false}
-              muted
-              loop
-              playsInline
-              autoPlay
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-ink/40">
-              <button className="w-20 h-20 rounded-full bg-paper/90 flex items-center justify-center hover:bg-paper transition-colors group" aria-label="브랜드 필름 재생">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1">
-                  <path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z" fill="currentColor" className="text-ink" />
-                </svg>
-              </button>
-            </div>
-            <div className="absolute bottom-6 left-8">
-              <span className="caption-style text-white/85 font-korean">
-                엔비피코리아 브랜드 필름 · 2024
-              </span>
-            </div>
+      {/* ── GRAFFITI EDITION — full-wide cinematic banners ── */}
+      <section id="edition" className="border-t border-paper/10">
+        <div className="container-content pt-16 pb-4">
+          <div className="flex items-baseline justify-between gap-6 mb-10">
+            <span className="caption-style text-white/85 font-korean">
+              그래피티 에디션 · 메인 전시
+            </span>
+            <span className="caption-style text-white/60">
+              {String(EDITION_BANNERS.length).padStart(2, "0")} PLATES
+            </span>
           </div>
         </div>
 
-        {/* ── Manifesto — Why we did this ── */}
-        <div id="manifesto" className="my-24 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+        <div className="space-y-2 lg:space-y-3">
+          {EDITION_BANNERS.map((b) => (
+            <div
+              key={b.image}
+              className="banner-fade relative w-full overflow-hidden bg-ink/60 opacity-0"
+            >
+              <div className={`relative ${b.aspect} w-full`}>
+                <Image
+                  src={b.image}
+                  alt={b.title}
+                  fill
+                  sizes="100vw"
+                  className={`${b.objectPos} object-cover`}
+                />
+                {/* Subtle bottom gradient so caption stays legible */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent pointer-events-none" />
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 px-[var(--edge-margin)] pb-8 lg:pb-12">
+                <div className="flex items-end justify-between gap-6">
+                  <div className="max-w-2xl">
+                    <span className="caption-style text-white/85 block mb-3">
+                      {b.plate}
+                    </span>
+                    <h3 className="font-display font-bold text-[clamp(1.6rem,3.2vw,2.8rem)] text-paper leading-[1.05] tracking-[-0.02em] mb-3 font-korean">
+                      {b.title}
+                    </h3>
+                    <p className="text-body-kr font-korean text-white/90 leading-[1.65] max-w-xl text-sm lg:text-base">
+                      {b.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── DETAIL FILM — crossfade detail crops ── */}
+      <section id="film" className="border-t border-paper/10 mt-2 lg:mt-3">
+        <div className="container-content py-20 lg:py-28">
+          <div className="flex items-baseline justify-between gap-6 mb-10">
+            <span className="caption-style text-white/85 font-korean">
+              디테일 필름 · 텍스처 클로즈업
+            </span>
+            <span className="caption-style text-white/60">
+              {String(detailIdx + 1).padStart(2, "0")} / {String(DETAIL_FRAMES.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div className="relative aspect-[21/9] lg:aspect-[3/1] rounded-lg overflow-hidden bg-ink/60">
+            {DETAIL_FRAMES.map((f, i) => (
+              <div
+                key={f.image + i}
+                className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
+                style={{ opacity: i === detailIdx ? 1 : 0 }}
+              >
+                <Image
+                  src={f.image}
+                  alt={f.label}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                  style={{
+                    objectPosition: f.position,
+                    transform: `scale(${f.scale})`,
+                    transformOrigin: f.position,
+                  }}
+                />
+                <div className="absolute inset-0 bg-ink/15 pointer-events-none" />
+              </div>
+            ))}
+
+            <div className="absolute bottom-6 left-8 right-8 flex items-end justify-between gap-4">
+              <span className="caption-style text-white/90 font-korean">
+                {DETAIL_FRAMES[detailIdx].label}
+              </span>
+              <div className="flex items-center gap-2">
+                {DETAIL_FRAMES.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setDetailIdx(i)}
+                    aria-label={`Detail ${i + 1}`}
+                    className={`h-[2px] transition-all duration-300 ${
+                      i === detailIdx ? "w-10 bg-paper" : "w-6 bg-paper/40 hover:bg-paper/70"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p className="caption-style text-white/65 mt-4 font-korean">
+            6초 간격으로 자동 전환 — 갤러리 표면 텍스처, 컬러 디테일, 받침대와 조명까지.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SCENES — 4 cards including new brick-wall café ── */}
+      <section id="scenes" className="border-t border-paper/10">
+        <div className="container-content py-20 lg:py-28">
+          <div className="flex items-baseline justify-between gap-6 mb-10">
+            <span className="caption-style text-white/85 font-korean">
+              장면들 · 현장과 일상
+            </span>
+            <span className="caption-style text-white/60">
+              {String(SCENE_CARDS.length).padStart(2, "0")} SCENES
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {SCENE_CARDS.map((s) => (
+              <SceneCard key={s.id} item={s} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE MACHINES — single wide showcase ── */}
+      <section id="machines" className="border-t border-paper/10">
+        <div className="container-content py-20 lg:py-28">
+          <div className="flex items-baseline justify-between gap-6 mb-10">
+            <span className="caption-style text-white/85 font-korean">
+              라인업 · 우리가 만드는 것들
+            </span>
+            <span className="caption-style text-white/60">NKJC SERIES</span>
+          </div>
+
+          <div className="banner-fade relative aspect-[16/9] rounded-lg overflow-hidden bg-ink/60 opacity-0">
+            <Image
+              src={IMAGES.brandAfterburnerTrio}
+              alt="NKJC 애프터버너 라인업"
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 px-[var(--edge-margin)] pb-8 lg:pb-10 flex flex-wrap items-end justify-between gap-x-10 gap-y-3">
+              <div>
+                <h3 className="font-display font-bold text-[clamp(1.4rem,2.6vw,2.2rem)] text-paper leading-[1.1] tracking-[-0.02em] font-korean">
+                  표준 라인업, 같은 폼팩터
+                </h3>
+                <p className="text-sm font-korean text-white/85 mt-2 max-w-md">
+                  NKJC 시리즈 — 5K부터 120K까지. 색상은 모두 커스텀 제작 가능.
+                </p>
+              </div>
+              <div className="flex items-baseline gap-6 caption-style text-white/80">
+                <span>NKJC-5K</span>
+                <span>NKJC-15K</span>
+                <span>NKJC-30K</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── MANIFESTO — Why we did this ── */}
+      <section id="manifesto" className="border-t border-paper/10">
+        <div className="container-content py-24 lg:py-32 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
           <div>
             <span className="caption-style text-white/90 block mb-4 font-korean">
               왜 이걸 만들었나
@@ -221,15 +413,11 @@ export default function BrandHallPage() {
             </Link>
           </div>
         </div>
+      </section>
 
-        {/* Row 3: two equal */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-          <GalleryCard item={GALLERY_ITEMS[4]} />
-          <GalleryCard item={GALLERY_ITEMS[5]} />
-        </div>
-
-        {/* Event CTA */}
-        <div id="event" className="mt-24 text-center">
+      {/* ── EVENT CTA ── */}
+      <section id="event" className="border-t border-paper/10">
+        <div className="container-content py-24 text-center">
           <p className="font-heading font-semibold text-[clamp(1.5rem,3vw,2.5rem)] text-white/85 leading-[1.35] mb-4 font-korean">
             다음 전시가 궁금하신가요?
           </p>
@@ -243,36 +431,34 @@ export default function BrandHallPage() {
             알림 받기 <span className="ml-2">&rarr;</span>
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
 
-function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
-  const isLarge = item.size === "large";
-
+function SceneCard({ item }: { item: (typeof SCENE_CARDS)[number] }) {
   return (
-    <div className={`gallery-item group relative overflow-hidden rounded-lg opacity-0 ${isLarge ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
+    <div className={`scene-card group relative overflow-hidden rounded-lg opacity-0 ${item.aspect}`}>
       <div className="gallery-parallax absolute inset-0 -top-[10%] -bottom-[10%]">
         <Image
           src={item.image}
           alt={item.title}
           fill
-          sizes={isLarge ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 100vw"}
+          sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
       </div>
 
-      <div className="absolute inset-0 bg-ink/30 group-hover:bg-ink/60 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-ink/35 group-hover:bg-ink/60 transition-colors duration-500" />
 
-      <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
+      <div className="absolute inset-0 flex flex-col justify-end p-6">
         <span className="caption-style text-white/80 mb-2 font-korean">
           {item.subtitle}
         </span>
-        <h3 className="font-display font-bold text-[clamp(1.2rem,2.5vw,2rem)] text-paper leading-[1.1] tracking-[-0.02em] mb-3 font-korean">
+        <h3 className="font-display font-bold text-[clamp(1.05rem,1.6vw,1.4rem)] text-paper leading-[1.15] tracking-[-0.02em] mb-3 font-korean">
           {item.title}
         </h3>
-        <p className="text-sm font-korean text-white/90 leading-[1.6] max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <p className="text-xs font-korean text-white/90 leading-[1.6] max-w-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           {item.description}
         </p>
       </div>

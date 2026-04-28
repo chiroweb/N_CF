@@ -432,7 +432,7 @@ export default function DeliveriesPage() {
                 <span className="hero-fade block pl-[6vw] opacity-0">견과,</span>
                 <span className="hero-fade block pl-[18vw] opacity-0">모든 배치.</span>
                 <span className="sr-only">
-                  . 엔비피코리아 넛츠스타 NUTS-STAR 넛버터머신 납품 실적 — 11개 거래처에 24대 납품.
+                  . 엔비피코리아 넛츠스타 NUTS-STAR 넛버터머신 납품 실적 — 9개 거래처에 24대 납품.
                 </span>
               </h1>
             </div>

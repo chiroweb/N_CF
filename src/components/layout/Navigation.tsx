@@ -6,13 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import { COMPANY } from "@/lib/company";
 
 const NAV_LINKS = [
-  { label: "AFTERBURNER", href: "/afterburner" },
-  { label: "ROASTERS", href: "/roasters" },
-  { label: "BUTTER MACHINE", href: "/the-lab" },
-  { label: "DELIVERIES", href: "/deliveries" },
-  { label: "BRAND HALL", href: "/brand-hall" },
-  { label: "BLOG", href: "/blog" },
-  { label: "CONTACT", href: "/contact" },
+  { labelKo: "애프터버너", labelEn: "AFTERBURNER", href: "/afterburner" },
+  { labelKo: "로스터", labelEn: "ROASTERS", href: "/roasters" },
+  { labelKo: "버터 머신", labelEn: "BUTTER MACHINE", href: "/the-lab" },
+  { labelKo: "납품 실적", labelEn: "DELIVERIES", href: "/deliveries" },
+  { labelKo: "브랜드 홀", labelEn: "BRAND HALL", href: "/brand-hall" },
+  { labelKo: "블로그", labelEn: "BLOG", href: "/blog" },
+  { labelKo: "문의", labelEn: "CONTACT", href: "/contact" },
 ];
 
 const EN_NAV_LINKS = NAV_LINKS.map((l) => ({ ...l, href: `/en${l.href}` }));
@@ -188,15 +188,18 @@ export default function Navigation() {
             <ul className="space-y-6">
               {(currentLang === "en" ? EN_NAV_LINKS : NAV_LINKS).map((link) => {
                 const active = pathname === link.href;
+                const label = currentLang === "en" ? link.labelEn : link.labelKo;
                 return (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       className={`font-display font-bold text-[clamp(2rem,8vw,3.5rem)] tracking-[-0.02em] leading-[1] block transition-colors ${
+                        currentLang === "ko" ? "font-korean" : ""
+                      } ${
                         active ? "text-paper" : "text-paper/80 hover:text-paper"
                       }`}
                     >
-                      {link.label}
+                      {label}
                     </Link>
                   </li>
                 );

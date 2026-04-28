@@ -6,6 +6,8 @@ import { IMAGES } from "@/lib/images";
 import Image from "next/image";
 import Link from "next/link";
 
+type Lang = "ko" | "en";
+
 const SLIDES = [
   {
     stickerLine1: "NBPKOREA",
@@ -16,8 +18,10 @@ const SLIDES = [
     rightFit: "object-cover",
     title: "NBPKOREA AFTERBURNER",
     lead: "SMOKE-FREE ROASTING, ENGINEERED IN KOREA",
-    body:
+    bodyKo:
       "우리가 만드는 가장 높은 수준의 연기 제거 장비. Direct-flame combustion, 설치 현장마다 집요하게 튜닝합니다. 14년간 한 가지 제품에만 집중한 결과가 모든 유닛에 쌓여 있습니다. 필터 교체도, 지름길도 없습니다 — 오직 Complete Combustion.",
+    bodyEn:
+      "Our highest-grade smoke abatement system. Direct-flame combustion, tuned in person to every install site. Fourteen years of single-product focus is built into every unit. No filter swaps, no shortcuts — only Complete Combustion.",
     shopHref: "/contact",
     learnHref: "/afterburner",
   },
@@ -30,8 +34,10 @@ const SLIDES = [
     rightFit: "object-cover",
     title: "KUBAN COFFEE ROASTERS",
     lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
-    body:
+    bodyKo:
       "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통합니다. Precision-engineered consistency — 로스팅을 직업으로 대하는 사람들을 위해 제작됩니다. 5kg 로스터부터 60kg 생산기까지, 현장의 모든 규모에 맞춰 공급합니다.",
+    bodyEn:
+      "Türkiye's top drum roaster — NBPKOREA is the exclusive Korean distributor. Precision-engineered consistency, built for people who roast for a living. From 5kg roasters to 60kg production drums, sized to every floor.",
     shopHref: "/contact",
     learnHref: "/roasters",
   },
@@ -44,14 +50,18 @@ const SLIDES = [
     rightFit: "object-contain",
     title: "PEANUT BUTTER MACHINE",
     lead: "FROM WHOLE NUTS TO SOFT BUTTER TEXTURE",
-    body:
+    bodyKo:
       "볶은 견과를 넣으면 부드러운 버터 질감으로 완성됩니다. 카페·베이커리·스페셜티 식품 제조사를 위한 상업용 넛버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 기계는 오래가야 한다 — 그 믿음이 이 카테고리도 만들었습니다.",
+    bodyEn:
+      "Drop in roasted nuts, walk away with a smooth butter texture. A commercial nut butter machine for cafés, bakeries, and specialty food makers. Same obsessive engineering, different application. Anything we build has to last — that belief made this category, too.",
     shopHref: "/contact",
     learnHref: "/the-lab",
   },
 ];
 
-export default function Mission() {
+export default function Mission({ lang = "ko" }: { lang?: Lang }) {
+  const isEn = lang === "en";
+  const hrefPrefix = isEn ? "/en" : "";
   const sectionRef = useRef<HTMLElement>(null);
   const leftImgRef = useRef<HTMLDivElement>(null);
   const rightImgRef = useRef<HTMLDivElement>(null);
@@ -251,19 +261,19 @@ export default function Mission() {
                 {slide.title}
               </h3>
 
-              <p className="slide-content text-body-kr font-korean text-ink/85 leading-[1.8] mb-8">
-                {slide.body}
+              <p className={`slide-content text-ink/85 leading-[1.8] mb-8 ${isEn ? "text-[clamp(0.95rem,1.1vw,1.05rem)]" : "text-body-kr font-korean"}`}>
+                {isEn ? slide.bodyEn : slide.bodyKo}
               </p>
 
               <div className="slide-content flex items-center gap-2">
                 <Link
-                  href={slide.shopHref}
+                  href={`${hrefPrefix}${slide.shopHref}`}
                   className="inline-block bg-ink text-paper px-5 py-2.5 text-xs font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-[2px] border-ink transition-all duration-200 rounded-lg"
                 >
                   SHOP
                 </Link>
                 <Link
-                  href={slide.learnHref}
+                  href={`${hrefPrefix}${slide.learnHref}`}
                   className="inline-block bg-ink text-paper px-5 py-2.5 text-xs font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-[2px] border-ink transition-all duration-200 rounded-lg"
                 >
                   LEARN MORE

@@ -20,4 +20,11 @@ export const IMAGES = {
   missionNutbutterLeft: "/images/mission-nutbutter-left.png",
   brandAfterburnerGallery: `${S3_HOTEL}/brand-afterburner-gallery.png`,
   afterburnerLineup: `${S3_HOTEL}/afterburner-lineup.png`,
+  // Brand Hall — Graffiti Edition exhibition (added 2026-04-28)
+  brandGraffitiGalleryPair: "/images/brand-graffiti-gallery-pair.png",
+  brandAfterburnerFiveLineup: "/images/brand-afterburner-five-lineup.png",
+  brandKubanGraffitiPair: "/images/brand-kuban-graffiti-pair.png",
+  brandKubanAfterburnerMix: "/images/brand-kuban-afterburner-mix.png",
+  brandBrickCafeInstall: "/images/brand-brick-cafe-install.png",
+  brandAfterburnerTrio: "/images/brand-afterburner-trio.png",
 } as const;

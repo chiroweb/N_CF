@@ -6,7 +6,11 @@ import { IMAGES } from "@/lib/images";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function InstallationStories() {
+type Lang = "ko" | "en";
+
+export default function InstallationStories({ lang = "ko" }: { lang?: Lang }) {
+  const isEn = lang === "en";
+  const hrefPrefix = isEn ? "/en" : "";
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -100,14 +104,23 @@ export default function InstallationStories() {
               FROM SURVEY TO INSTALL · UNDER 2 WEEKS
             </span>
 
-            <p className="text-body-kr font-korean text-ink/85 leading-[1.8] mb-8">
-              현장 조사부터 설치까지 2주 이내. 로스터리의 고도, 덕트 구조,
-              로스팅 용량에 맞춰 <span className="font-display">custom-tuned</span>.
-              범용 솔루션 없음, 추측 없음.
-            </p>
+            {isEn ? (
+              <p className="text-ink/85 leading-[1.7] mb-8 text-[clamp(0.95rem,1.1vw,1.05rem)]">
+                From first survey to a running unit, usually inside two weeks.
+                Each install is <span className="font-display">custom-tuned</span> to
+                your roaster&apos;s height, duct geometry, and roasting volume —
+                no generic solutions, no guesswork.
+              </p>
+            ) : (
+              <p className="text-body-kr font-korean text-ink/85 leading-[1.8] mb-8">
+                현장 조사부터 설치까지 2주 이내. 로스터리의 고도, 덕트 구조,
+                로스팅 용량에 맞춰 <span className="font-display">custom-tuned</span>.
+                범용 솔루션 없음, 추측 없음.
+              </p>
+            )}
 
             <Link
-              href="/contact"
+              href={`${hrefPrefix}/contact`}
               className="inline-block bg-ink text-paper px-5 py-2.5 text-xs font-bold tracking-[0.06em] uppercase hover:bg-paper hover:text-ink border-[2px] border-ink transition-all duration-200 rounded-lg self-start"
             >
               REQUEST A QUOTE

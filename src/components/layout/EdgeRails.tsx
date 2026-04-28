@@ -5,14 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const BASE_NAV_ITEMS = [
-  { label: "HOME", href: "/" },
-  { label: "AFTERBURNER", href: "/afterburner" },
-  { label: "ROASTERS", href: "/roasters" },
-  { label: "BUTTER MACHINE", href: "/the-lab" },
-  { label: "DELIVERIES", href: "/deliveries" },
-  { label: "BRAND HALL", href: "/brand-hall" },
-  { label: "BLOG", href: "/blog" },
-  { label: "CONTACT", href: "/contact" },
+  { labelKo: "홈", labelEn: "HOME", href: "/" },
+  { labelKo: "애프터버너", labelEn: "AFTERBURNER", href: "/afterburner" },
+  { labelKo: "로스터", labelEn: "ROASTERS", href: "/roasters" },
+  { labelKo: "버터 머신", labelEn: "BUTTER MACHINE", href: "/the-lab" },
+  { labelKo: "납품 실적", labelEn: "DELIVERIES", href: "/deliveries" },
+  { labelKo: "브랜드 홀", labelEn: "BRAND HALL", href: "/brand-hall" },
+  { labelKo: "블로그", labelEn: "BLOG", href: "/blog" },
+  { labelKo: "문의", labelEn: "CONTACT", href: "/contact" },
 ];
 
 function localizeHref(href: string, isEn: boolean): string {
@@ -62,9 +62,9 @@ export default function EdgeRails() {
       <div className="fixed top-0 left-0 bottom-0 w-[var(--edge-margin)] z-40 hidden lg:flex items-center justify-center pointer-events-none">
         <Link
           href={localizeHref("/contact", isEn)}
-          className="text-vertical-left caption-style text-white mix-blend-difference hover:opacity-60 transition-opacity pointer-events-auto"
+          className={`text-vertical-left caption-style text-white mix-blend-difference hover:opacity-60 transition-opacity pointer-events-auto ${isEn ? "" : "font-korean"}`}
         >
-          TALK TO AN ENGINEER
+          {isEn ? "TALK TO AN ENGINEER" : "엔지니어와 상담하기"}
         </Link>
       </div>
 
@@ -82,8 +82,8 @@ export default function EdgeRails() {
         </button>
 
         {/* Middle: Vertical text */}
-        <span className="text-vertical-right caption-style text-ink/75 select-none whitespace-nowrap">
-          FACTORY — ANSAN / EST. 2006
+        <span className={`text-vertical-right caption-style text-ink/75 select-none whitespace-nowrap ${isEn ? "" : "font-korean"}`}>
+          {isEn ? "FACTORY — ANSAN / EST. 2006" : "본사 — 안산 / 2006 설립"}
         </span>
 
         {/* Bottom: Social icons */}
@@ -132,10 +132,10 @@ export default function EdgeRails() {
             >
               <Link
                 href={item.href}
-                className="font-display font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-paper hover:text-bone transition-colors tracking-tight"
+                className={`font-display font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-paper hover:text-bone transition-colors tracking-tight ${isEn ? "" : "font-korean"}`}
                 onClick={() => setMenuOpen(false)}
               >
-                {item.label}
+                {isEn ? item.labelEn : item.labelKo}
               </Link>
             </li>
           ))}

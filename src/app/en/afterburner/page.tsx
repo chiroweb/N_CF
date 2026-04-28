@@ -213,15 +213,27 @@ export default function AfterburnerEnPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-8 lg:gap-16">
           <div className="model-content">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-bone">
-              <Image
-                key={model.gallery[galleryIndex]}
-                src={model.gallery[galleryIndex]}
-                alt={`${model.name} · ${galleryIndex + 1}`}
-                fill
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-contain object-center"
-              />
+              <div
+                className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out"
+                style={{ transform: `scale(${0.62 + selectedModel * 0.076})` }}
+              >
+                <Image
+                  key={model.gallery[galleryIndex]}
+                  src={model.gallery[galleryIndex]}
+                  alt={`${model.name} · ${galleryIndex + 1}`}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  className="object-contain object-center"
+                />
+              </div>
+              <span className="absolute right-3 bottom-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-paper/90 backdrop-blur px-3 py-1.5 text-[0.65rem] font-bold tracking-[0.06em] text-ink/80 border border-ink/15">
+                <span className="inline-flex h-2 w-2 rounded-full bg-ink/80" />
+                CUSTOM COLOR AVAILABLE
+              </span>
             </div>
+            <p className="caption-style text-ink/70 mt-3">
+              White and black are illustrative defaults — finish can be specified by RAL color code on every model.
+            </p>
             {model.gallery.length > 1 && (
               <div className="flex gap-2 mt-3">
                 {model.gallery.map((img, i) => (

@@ -4,7 +4,11 @@ import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import Link from "next/link";
 
-export default function ClosingQuestion() {
+type Lang = "ko" | "en";
+
+export default function ClosingQuestion({ lang = "ko" }: { lang?: Lang }) {
+  const isEn = lang === "en";
+  const hrefPrefix = isEn ? "/en" : "";
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -48,28 +52,34 @@ export default function ClosingQuestion() {
           HOW DOES IT BREATHE?
         </h2>
 
-        {/* Korean sub-question */}
-        <p className="closing-line text-body-kr font-korean text-bone mt-10 opacity-0">
-          당신의 로스터리는, 어떻게 숨 쉬고 있습니까?
-        </p>
+        {/* Korean sub-question (KR only) */}
+        {!isEn && (
+          <p className="closing-line text-body-kr font-korean text-bone mt-10 opacity-0">
+            당신의 로스터리는, 어떻게 숨 쉬고 있습니까?
+          </p>
+        )}
 
         {/* CTA */}
         <div className="closing-line mt-14 opacity-0">
-          <Link href="/contact" className="btn-pill btn-pill-inverted">
+          <Link href={`${hrefPrefix}/contact`} className="btn-pill btn-pill-inverted">
             REQUEST A QUOTE <span className="ml-1">&rarr;</span>
           </Link>
-          <p className="text-body-kr font-korean text-bone/80 text-xs mt-3">
-            견적 문의
-          </p>
+          {!isEn && (
+            <p className="text-body-kr font-korean text-bone/80 text-xs mt-3">
+              견적 문의
+            </p>
+          )}
         </div>
 
         {/* Engineer contact */}
         <p className="closing-line caption-style text-paper/90 mt-10 opacity-0">
-          or talk to an engineer — 031-434-6566
+          {isEn ? "or talk to an engineer — +82-31-434-6566" : "or talk to an engineer — 031-434-6566"}
         </p>
-        <p className="text-xs font-korean text-paper/80 mt-1">
-          또는 엔지니어와 직접 대화
-        </p>
+        {!isEn && (
+          <p className="text-xs font-korean text-paper/80 mt-1">
+            또는 엔지니어와 직접 대화
+          </p>
+        )}
       </div>
     </section>
   );
