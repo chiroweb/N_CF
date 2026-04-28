@@ -9,7 +9,7 @@ const SITE_URL = "https://nbpkorea.co.kr";
 const SITE_NAME = "엔비피코리아 NBPKOREA";
 const SITE_TAGLINE = "커피 로스터 애프터버너 전문 제조사";
 const SITE_DESCRIPTION =
-  "엔비피코리아는 2006년부터 직접화염 애프터버너만 만들어온 커피 로스터 후연 제거장치 전문 제조사입니다. 로스팅에서 발생하는 연기·냄새·유해물질을 200℃–1,000℃ 고온 연소로 99.2% 제거하고, 경쟁 제품 대비 가스를 30% 이상 절감합니다. 공개 NKJC 라인업은 5Kg 소형 로스터부터 60Kg 대형 시설까지이며 120Kg 산업용은 현장 상담 후 커스텀 제작합니다. 2024–2025 국내 16개 광역과 해외 7개국에 총 379건 납품. 경기도 안산 본사·공장에서 설계·제작·설치·A/S 일괄 대응.";
+  "엔비피코리아는 2006년부터 직화식 애프터버너만 만들어온 커피 로스터 후연 제거장치 전문 제조사입니다. 로스팅에서 발생하는 연기·냄새·유해물질을 200℃–1,000℃ 고온 연소로 99.2% 제거하고, 경쟁 제품 대비 가스를 30% 이상 절감합니다. 공개 NKJC 라인업은 5Kg 소형 로스터부터 60Kg 대형 시설까지이며 120Kg 산업용은 현장 상담 후 커스텀 제작합니다. 2024–2025 국내 16개 광역과 해외 7개국에 총 379건 납품. 경기도 안산 본사·공장에서 설계·제작·설치·A/S 일괄 대응.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "coffee roaster afterburner",
     "커피 로스터 애프터버너",
     "direct flame afterburner",
-    "직접화염 애프터버너",
+    "직화식 애프터버너",
     "roasting smoke removal",
     "로스팅 연기 제거",
     "NKJC afterburner",
@@ -124,7 +124,7 @@ const organizationJsonLd = {
         "Volatile organic compound (VOC) removal",
         "Proportional gas control (40:1)",
         "커피 로스팅 후연 제거",
-        "직접화염 애프터버너",
+        "직화식 애프터버너",
         "촉매식 재연소 가이드",
         "KUBAN coffee roaster",
         "Nut butter machine",

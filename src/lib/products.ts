@@ -153,8 +153,8 @@ export const AFTERBURNER_FLOW = [
   {
     step: 3,
     title: "DIRECT FLAME",
-    titleKr: "직접화염 1차 연소",
-    body: "직접화염 버너의 200℃–1,000℃ 고온과 직접 접촉하여 연기·냄새를 1차 완전 연소.",
+    titleKr: "직화식 1차 연소",
+    body: "직화식 버너의 200℃–1,000℃ 고온과 직접 접촉하여 연기·냄새를 1차 완전 연소.",
     bodyEn: "Direct-flame burner at 200–1,000°C combusts smoke and odor in the first pass.",
   },
   {

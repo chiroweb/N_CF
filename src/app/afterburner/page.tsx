@@ -145,14 +145,14 @@ export default function AfterburnerPage() {
               커피 로스팅 애프터버너
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0 font-korean">
-              직접화염
+              직화식
               <br />
               애프터
               <br />
               버너
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
-              연기 99.2% 제거. 직접화염 방식. 교체할 필터 없음. 조용히
+              연기 99.2% 제거. 직화 방식. 교체할 필터 없음. 조용히
               로스팅할 수 있게 해주는 기계입니다.
             </p>
             <div className="hero-fade mt-8 opacity-0">
@@ -190,7 +190,7 @@ export default function AfterburnerPage() {
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.4rem,2.8vw,2.4rem)] text-paper leading-[1.35] text-center opacity-0">
             200°C에서 1,000°C. 직화로 태운다. 완전히.
             <br />
-            남는 게 없다. 그것이 우리 방식이다.
+            남는 게 없다. 그것이 우리가 하는 일.
           </p>
         </div>
       </div>
@@ -457,15 +457,35 @@ function BentoFeatureCard({
         sizes="(min-width: 1024px) 60vw, 100vw"
         className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/18 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/36 to-ink/5" />
       <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
-        <span className="caption-style text-paper/75 block mb-2">
+        <span
+          className="caption-style text-paper/85 block mb-2"
+          style={{
+            WebkitTextStroke: "0.5px rgba(15, 15, 15, 0.72)",
+            textShadow: "0 1px 6px rgba(0, 0, 0, 0.42)",
+          }}
+        >
           {number}
         </span>
-        <h4 className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean">
+        <h4
+          className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean"
+          style={{
+            WebkitTextStroke: "0.5px rgba(15, 15, 15, 0.78)",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
+          }}
+        >
           {title}
         </h4>
-        <p className="max-w-lg text-sm font-korean text-paper/82 leading-[1.65]">{body}</p>
+        <p
+          className="max-w-lg text-sm font-korean text-paper/90 leading-[1.65]"
+          style={{
+            WebkitTextStroke: "0.35px rgba(15, 15, 15, 0.62)",
+            textShadow: "0 1px 8px rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          {body}
+        </p>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const PRODUCTS = [
     tag: "THE AFTERBURNER",
     title: "DIRECT FLAME AFTERBURNER",
     detailsKo: [
-      ["TYPE", "직접화염"],
+      ["TYPE", "직화식"],
       ["METHOD", "완전 연소"],
       ["RESULT", "무연 배출"],
     ],
@@ -141,7 +141,7 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
             <span className="sr-only">
               {isEn
                 ? ". NBPKOREA builds direct-flame afterburners that erase the smoke and odor produced by coffee roasters at the source."
-                : ". 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직접화염 애프터버너 제조사입니다."}
+                : ". 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직화식 애프터버너 제조사입니다."}
             </span>
           </h1>
 
