@@ -135,6 +135,11 @@
     transform: rotate(180deg);
   }
 
+  .text-vertical-left-ko {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
   .text-vertical-right {
     writing-mode: vertical-rl;
   }

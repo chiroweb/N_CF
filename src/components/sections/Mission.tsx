@@ -278,23 +278,16 @@ export default function Mission({ lang = "ko" }: { lang?: Lang }) {
                 >
                   LEARN MORE
                 </Link>
-                <Link
-                  href={`${hrefPrefix}${slide.learnHref}`}
-                  className="ml-0 sm:ml-2 flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-sm font-bold text-ink hover:border-ink transition-colors"
-                  aria-label={`More about ${slide.title}`}
-                >
-                  +
-                </Link>
-                <span className="caption-style text-ink/90 mx-1">
-                  {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
-                </span>
                 <button
                   onClick={() => goTo(-1)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-ink hover:border-ink transition-colors"
+                  className="ml-0 sm:ml-2 flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-ink hover:border-ink transition-colors"
                   aria-label="Previous"
                 >
                   <span className="text-sm">&larr;</span>
                 </button>
+                <span className="caption-style text-ink/90 mx-1">
+                  {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
+                </span>
                 <button
                   onClick={() => goTo(1)}
                   className="flex h-10 w-10 items-center justify-center rounded-full border-[2px] border-ink/20 text-ink hover:border-ink transition-colors"

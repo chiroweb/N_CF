@@ -59,14 +59,12 @@ const EDITION_BANNERS = [
   },
 ];
 
-// Detail crops cycled in the "Detail Film" — uses object-position scaling
-// to highlight different parts of the same hi-res shots without needing
-// pre-cropped assets.
+// Detail frames cycled in the "Detail Film".
 const DETAIL_FRAMES = [
-  { image: IMAGES.brandGraffitiGalleryPair, position: "50% 60%", scale: 2.0, label: "텍스처 · 그래피티 표면" },
-  { image: IMAGES.brandAfterburnerFiveLineup, position: "50% 50%", scale: 2.2, label: "센터 · 블루/골드 번개" },
-  { image: IMAGES.brandKubanGraffitiPair, position: "30% 55%", scale: 2.1, label: "경계 · 스테인리스와 컬러" },
-  { image: IMAGES.brandKubanAfterburnerMix, position: "70% 55%", scale: 2.0, label: "디테일 · 받침대와 조명" },
+  { image: IMAGES.brandGraffitiGalleryPair, label: "텍스처 · 그래피티 표면" },
+  { image: IMAGES.brandAfterburnerFiveLineup, label: "센터 · 블루/골드 번개" },
+  { image: IMAGES.brandKubanGraffitiPair, label: "경계 · 스테인리스와 컬러" },
+  { image: IMAGES.brandKubanAfterburnerMix, label: "디테일 · 받침대와 조명" },
 ];
 
 const SCENE_CARDS = [
@@ -108,11 +106,11 @@ export default function BrandHallPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const [detailIdx, setDetailIdx] = useState(0);
 
-  // Cycle the Detail Film crops every 6s
+  // Cycle the Detail Film every 3s
   useEffect(() => {
     const id = setInterval(() => {
       setDetailIdx((i) => (i + 1) % DETAIL_FRAMES.length);
-    }, 6000);
+    }, 3000);
     return () => clearInterval(id);
   }, []);
 
@@ -322,12 +320,7 @@ export default function BrandHallPage() {
                   alt={f.label}
                   fill
                   sizes="100vw"
-                  className="object-cover"
-                  style={{
-                    objectPosition: f.position,
-                    transform: `scale(${f.scale})`,
-                    transformOrigin: f.position,
-                  }}
+                  className="object-contain object-center"
                 />
                 <div className="absolute inset-0 bg-ink/15 pointer-events-none" />
               </div>
@@ -354,7 +347,7 @@ export default function BrandHallPage() {
           </div>
 
           <p className="caption-style text-white/65 mt-4 font-korean">
-            6초 간격으로 자동 전환 — 갤러리 표면 텍스처, 컬러 디테일, 받침대와 조명까지.
+            3초 간격으로 자동 전환 — 갤러리 표면 텍스처, 컬러 디테일, 받침대와 조명까지.
           </p>
         </div>
       </section>

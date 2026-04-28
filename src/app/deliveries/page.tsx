@@ -349,7 +349,7 @@ export default function DeliveriesPage() {
                 <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
                   아시아 너머,
                   <br />
-                  그리고 걸프까지.
+                  글로벌화 된 애프터버너.
                 </h2>
               </div>
 

@@ -62,7 +62,7 @@ export default function EdgeRails() {
       <div className="fixed top-0 left-0 bottom-0 w-[var(--edge-margin)] z-40 hidden lg:flex items-center justify-center pointer-events-none">
         <Link
           href={localizeHref("/contact", isEn)}
-          className={`text-vertical-left caption-style text-white mix-blend-difference hover:opacity-60 transition-opacity pointer-events-auto ${isEn ? "" : "font-korean"}`}
+          className={`${isEn ? "text-vertical-left" : "text-vertical-left-ko font-korean"} caption-style text-ink hover:opacity-60 transition-opacity pointer-events-auto`}
         >
           {isEn ? "TALK TO AN ENGINEER" : "엔지니어와 상담하기"}
         </Link>

@@ -1,25 +1,18 @@
 <claude-mem-context>
 # Memory Context
 
-# [N_CF] recent context, 2026-04-28 2:35pm GMT+9
+# [N_CF] recent context, 2026-04-28 2:54pm GMT+9
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (10,474t read) | 1,212,120t work | 99% savings
+Stats: 50 obs (10,318t read) | 1,154,435t work | 99% savings
 
 ### Apr 27, 2026
 S145 N_CF 프로젝트 — Mission.tsx 넛버터 슬라이드 "STONE-GROUND" 문구 및 이미지 중복 문제 조사, the-lab 히어로 패러럭스 개선 후속 작업 (Apr 27 at 2:11 PM)
 S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작 진행 중 (Apr 27 at 2:11 PM)
-478 3:46p ⚖️ AFTER 프로젝트 — UI 수정 범위 결정: 용량·사진 마스크·네비게이션 레이블
-479 " 🔵 N_CF 프로젝트 — Next.js 빌드 성공, /the-lab 라우트 여전히 존재 확인
 ### Apr 28, 2026
-527 8:38a 🔵 N_CF 레포 — git 인덱스 전체 붕괴 상태 확인
-528 " 🔵 N_CF 레포 — git 인덱스 완전 초기화 확인: 루트 원인 특정
-530 " 🔴 N_CF — 스테일 .git/index.lock 파일 삭제 완료
-532 " 🔵 N_CF 디버깅 — exec_command 도구 캐시 반환으로 실제 명령 미실행 확인
-529 8:39a 🔵 N_CF — 스테일 .git/index.lock 파일이 git reset 차단
 531 8:40a 🔵 N_CF — index.lock 삭제 후 새 에러: "Operation not permitted" — .git 디렉토리 권한 문제로 전환
 533 8:41a 🔴 N_CF git 인덱스 복구 완료 — git reset --mixed HEAD 성공
 536 " 🔵 N_CF 배포 현황 — 어제 작업 변경사항이 origin/main에 미반영 상태 확인
@@ -68,6 +61,13 @@ S160 N_CF BrandHallPage 전시 페이지 보강 — 그래피티 에디션 이�
 643 2:30p 🔄 RoastersPage Product Details — TiltCard 4열 그리드 → BentoFeatureCard 비대칭 레이아웃으로 교체
 644 " 🔄 RoastersPage — TiltCard 컴포넌트 제거, BentoFeatureCard로 완전 대체
 645 2:32p 🔄 RoastersPage BentoFeatureCard 교체 후 빌드 성공 — 페이지 번들 크기 감소 확인
+648 2:33p 🔵 en/ 페이지 — TiltCard 3D 인터랙션 코드 잔존 확인 (roasters, afterburner)
+649 2:34p 🔵 Mission.tsx 컴포넌트 전체 구조 확인 — 3슬라이드 Collections 캐러셀
+650 2:35p 🔄 Mission.tsx — 슬라이드 네비게이션 컨트롤을 섹션 헤더에서 텍스트 패널 CTA 영역으로 이동
+652 2:36p 🔵 N_CF 빌드 실패 — .next 캐시 손상으로 _document.js 모듈 누락 오류
+653 2:37p 🔵 _document.js 오류 — .next 삭제 후에도 동일 세션(62939)이 재사용되어 오류 지속
+654 2:38p 🔴 N_CF _document.js 빌드 오류 — 새 세션(69727) + 클린 .next 삭제로 해결
+660 2:39p 🔄 Mission.tsx CTA 영역 — "+" 링크 버튼 제거 및 네비게이션 순서 재정렬
 
-Access 1212k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 1154k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>
