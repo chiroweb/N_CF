@@ -1,25 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [N_CF] recent context, 2026-04-28 3:39pm GMT+9
+# [N_CF] recent context, 2026-04-29 9:03am GMT+9
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (10,318t read) | 1,154,435t work | 99% savings
+Stats: 50 obs (10,244t read) | 1,073,759t work | 99% savings
 
-### Apr 27, 2026
-S145 N_CF 프로젝트 — Mission.tsx 넛버터 슬라이드 "STONE-GROUND" 문구 및 이미지 중복 문제 조사, the-lab 히어로 패러럭스 개선 후속 작업 (Apr 27 at 2:11 PM)
-S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작 진행 중 (Apr 27 at 2:11 PM)
 ### Apr 28, 2026
-531 8:40a 🔵 N_CF — index.lock 삭제 후 새 에러: "Operation not permitted" — .git 디렉토리 권한 문제로 전환
-533 8:41a 🔴 N_CF git 인덱스 복구 완료 — git reset --mixed HEAD 성공
-536 " 🔵 N_CF 배포 현황 — 어제 작업 변경사항이 origin/main에 미반영 상태 확인
-537 " 🔵 N_CF 미커밋 로컬 변경 20파일 — 5K 시작 전환·버터머신 브랜딩·이미지 교체 전체 내용 확인
-534 8:42a 🔴 N_CF git push 에러 완전 해결 — dry-run "Everything up-to-date" 확인
-540 8:46a ⚖️ 애프터버너 호환 로스터기 목록 — 한 줄 or 무한 루프 마퀴 방식으로 변경 요청
-541 8:58a ⚖️ 로스터 페이지 — 애프터버너 변경사항 동기화 검토 요청
 542 9:04a 🔵 로스터 페이지 — TiltCard 3-card 구조 현황 확인
 543 " 🟣 로스터 페이지 KR·EN — TiltCard 3-card → 4-card 전면 업데이트
 544 9:05a 🟣 로스터 페이지 TiltCard 4-card 빌드 성공 확인
@@ -29,7 +19,6 @@ S101 hotel_win 섹션 2 탭별 이미지 4장 교체 — 개발 서버 재시작
 548 9:07a 🔴 N_CF 빌드 실패 — .next 캐시 손상 `_document.js` MODULE_NOT_FOUND
 549 " 🔴 N_CF .next 캐시 삭제로 _document.js 빌드 에러 해결
 551 9:08a 🔴 N_CF 클린 빌드 성공 — .next 캐시 삭제 후 exit 0 확인
-S152 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVERIES 배열 병합 및 빌드 확인 (Apr 28 at 9:08 AM)
 552 9:09a 🔵 git status — afterburner MM (staged+unstaged 혼재), roasters 2개 여전히 unstaged
 564 9:13a ⚖️ 납품실적 페이지 — 초기 20건 표시 + 더보기 UI 방향 결정
 565 9:36a 🔵 NUTSTAR_DELIVERIES 중복 항목 발견 — No.02·No.03 동일 거래처
@@ -37,13 +26,13 @@ S152 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVER
 567 " ✅ nutstar-deliveries.ts 파일 주석 — 중복 제거 방침 문서화
 568 " 🔴 NUTSTAR_DELIVERIES 중복 거래처 병합 완료 — 11개 → 9개 레코드
 570 9:38a ✅ deliveries/page.tsx sr-only 텍스트 — 거래처 수 11→9 수정
-S156 N_CF 프로젝트 — EN afterburner 페이지 capacity-scale 애니메이션 + 색상 커스텀 배지 적용 및 최종 빌드 검증 (Apr 28 at 9:38 AM)
 S166 N_CF brand-hall/page.tsx — 4연속 풀와이드 배너 → 12-col 비대칭 벤토 그리드 + 인터루드 섹션 추가 (Apr 28 at 9:40 AM)
 S153 N_CF 넛버터머신 납품 실적 중복 카드 제거 — NUTSTAR_DELIVERIES 배열 병합 및 빌드 확인 (Apr 28 at 9:40 AM)
 575 9:43a 🟣 en/the-lab/page.tsx — 전면 EN 로컬라이제이션 완료
 576 " 🟣 en/roasters/page.tsx — 4차 콘텐츠 폴리시 적용 (reversion 재수정)
 577 " 🟣 AFTER 프로젝트 AfterBurnerPage 전시 페이지 대규모 시각 보강 요청
 579 10:22a 🔵 Persistent Reversion — en/the-lab, en/roasters 동시 확인 및 빌드 성공
+S191 N_CF RoastersPage — 벤토 카드 이미지 3종 교체 + 텍스트 검정 스트로크 적용 + EN 페이지 동기화 (Apr 28 at 10:22 AM)
 S160 N_CF BrandHallPage 전시 페이지 보강 — 그래피티 에디션 이미지 6장으로 섹션 재구성 (Apr 28 at 10:22 AM)
 601 1:16p ✅ N_CF products.ts — roaster-base-15 & SUPREME image paths migrated to S3
 602 " 🔵 AfterBurner 제품 이미지 — 용량별 이미지 불일치 문제 발견 및 교체 방향 결정
@@ -68,6 +57,36 @@ S160 N_CF BrandHallPage 전시 페이지 보강 — 그래피티 에디션 이�
 653 2:37p 🔵 _document.js 오류 — .next 삭제 후에도 동일 세션(62939)이 재사용되어 오류 지속
 654 2:38p 🔴 N_CF _document.js 빌드 오류 — 새 세션(69727) + 클린 .next 삭제로 해결
 660 2:39p 🔄 Mission.tsx CTA 영역 — "+" 링크 버튼 제거 및 네비게이션 순서 재정렬
+### Apr 29, 2026
+672 8:25a ⚖️ RoastersPage — 이미지 3종 섹션 배치 및 텍스트 가시성 처리 방향 확정
+673 8:26a 🔵 N_CF RoastersPage BentoFeatureCard 현황 파악 — 이미지 교체 대상 카드 3종 확인
+674 " 🔵 BentoFeatureCard 내부 구조 확인 — 텍스트 가시성 이미 white+gradient 처리됨
+675 8:27a 🟣 KUBAN 15kg · 20kg BASE 모델 — 고객 현장 갤러리 이미지 추가 요청
+S192 N_CF 프로젝트 — 15kg/20kg BASE 로스터 갤러리에 고객 현장 사진 각 3장 추가 (Apr 29 at 8:27 AM)
+S193 N_CF RoastersPage BentoFeatureCard 텍스트 스타일 — WebkitTextStroke 제거 완료, afterburner/page.tsx 동일 패턴 존재 확인 (Apr 29 at 8:34 AM)
+676 8:36a ⚖️ RoastersPage BentoFeatureCard 텍스트 스타일 — 검정 스트로크 제거, 흰색 단색으로 변경
+678 8:37a ✅ N_CF 빌드 성공 — BentoFeatureCard 스트로크 제거 후 빌드 통과
+S195 N_CF RoastersPage BentoFeatureCard — afterburner 스타일로 통일 완료, 빌드 통과 (Apr 29 at 8:37 AM)
+S196 N_CF 로스터 페이지 BentoFeatureCard — 애프터버너 스타일 동기화 및 고객 현장 사진 갤러리 추가 (Apr 29 at 8:44 AM)
+677 8:45a ✅ RoastersPage BentoFeatureCard — WebkitTextStroke 제거, 흰색 단색 텍스트로 단순화
+S194 N_CF RoastersPage BentoFeatureCard 텍스트 스타일 — 결국 afterburner 스타일로 동기화 (스트로크 유지, rgba 반투명 버전) (Apr 29 at 8:45 AM)
+S197 N_CF 로스터 페이지 BentoFeatureCard — 애프터버너 스타일 동기화 및 고객 현장 사진 갤러리 추가 (빌드 재확인) (Apr 29 at 8:47 AM)
+**Investigated**: - npm build 출력 tail 재확인 (backgroundTaskId: bbqnu26kw, 동일 태스크 두 번 폴링)
+    - chunks 사이즈: 2117-cbd090f7d6b6b946.js 31.7kB, fd9d1056-1b14749c58c112cd.js 53.6kB, shared 1.89kB
 
-Access 1154k tokens of past work via get_observations([IDs]) or mem-search skill.
+**Learned**: - 동일 build task(bbqnu26kw)를 두 번 폴링 — 두 번째 결과도 동일한 tail 출력. 빌드가 완전히 완료된 상태임을 재확인.
+    - ○ Static prerender 정상, stderr 없음, interrupted: false
+
+**Completed**: 1. BASE 15 갤러리 고객 현장 사진 3장 추가 (roaster-base-15-customer-1/2/3.png)
+    2. BASE 20 갤러리 고객 현장 사진 3장 추가 (roaster-base-20-customer-1/2/3.png)
+    3. roasters/page.tsx BentoFeatureCard — afterburner 스타일 완전 동기화:
+       - from-ink/90 via-ink/36 to-ink/5 그라디언트
+       - text-paper/85, text-paper, text-paper/90
+       - WebkitTextStroke (0.35~0.5px rgba(15,15,15,0.62~0.78)) + textShadow
+    4. npm run build 통과 확인 (2회 폴링, 동일 성공 결과)
+
+**Next Steps**: 모든 요청 완료. 새 작업 대기 중.
+
+
+Access 1074k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

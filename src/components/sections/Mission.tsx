@@ -47,7 +47,7 @@ const SLIDES = [
     leftImage: IMAGES.missionNutbutterLeft,
     rightImage: IMAGES.missionNutbutterThumb,
     rightAspect: "aspect-square",
-    rightFit: "object-contain",
+    rightFit: "object-cover scale-110",
     title: "PEANUT BUTTER MACHINE",
     lead: "FROM WHOLE NUTS TO SOFT BUTTER TEXTURE",
     bodyKo:

@@ -8,15 +8,15 @@ import Image from "next/image";
 type Lang = "ko" | "en";
 
 const OBSESSIONS = [
-  { id: 1, title: "THE DUCT FLANGE", bodyKo: "이중 실링. 가스켓 한 겹으로는 믿지 않습니다.", bodyEn: "Double-sealed. We don't trust a single gasket.", span: "col-span-1", img: IMAGES.obs01 },
-  { id: 2, title: "THE COVER", bodyKo: "커스터마이징 가능. 당신의 기계가 남과 같아야 할 이유는 없습니다.", bodyEn: "Customizable. Your machine has no reason to look like anyone else's.", span: "col-span-1", img: IMAGES.obs02 },
-  { id: 3, title: "THE SERVICE DOOR", bodyKo: "넓게 열립니다. 정비가 필요한 날이 좁은 공간과 씨름할 날이어서는 안 되니까요.", bodyEn: "Opens wide. Service day shouldn't double as a wrestling match with the cabinet.", span: "col-span-1 md:col-span-2", img: IMAGES.obs03 },
-  { id: 4, title: "THE NOISE", bodyKo: "대부분의 로스터보다 조용합니다. 직접 측정했습니다.", bodyEn: "Quieter than most roasters. We measured it ourselves.", span: "col-span-1", img: IMAGES.obs01 },
-  { id: 5, title: "THE FIRE", bodyKo: "Direct flame. 지름길 없음, 교체할 필터도 없음.", bodyEn: "Direct flame. No shortcuts, no filters to swap.", span: "col-span-1", img: IMAGES.obs02 },
-  { id: 6, title: "THE CABLE GLAND", bodyKo: "케이블 진입부 방수 처리. 지하 매장도 있으니까요.", bodyEn: "Cable entries are sealed. Some shops are below grade.", span: "col-span-1", img: IMAGES.obs03 },
-  { id: 7, title: "THE LOGO STENCIL", bodyKo: "손으로 직접 컷. 1,200대 이상에 스텐실링 했습니다.", bodyEn: "Hand-cut by us. Stenciled onto more than 1,200 units.", span: "col-span-1 md:col-span-2", img: IMAGES.obs01 },
-  { id: 8, title: "THE POWER SPIKE", bodyKo: "UPS도 감당 못 하는 전압 변동까지 소화합니다.", bodyEn: "Absorbs voltage swings even a UPS would choke on.", span: "col-span-1", img: IMAGES.obs02 },
-  { id: 9, title: "THE EXHAUST TEMP", bodyKo: "배출구 온도 80°C 이하. 상시 측정합니다.", bodyEn: "Outlet temperature below 80°C. Continuously monitored.", span: "col-span-1", img: IMAGES.obs03 },
+  { id: 1, title: "THE DUCT FLANGE", bodyKo: "이중 실링. 가스켓 한 겹으로는 믿지 않습니다.", bodyEn: "Double-sealed. We don't trust a single gasket.", span: "col-span-1", img: IMAGES.obsessionSilling },
+  { id: 2, title: "THE COVER", bodyKo: "커스터마이징 가능. 당신의 기계가 남과 같아야 할 이유는 없습니다.", bodyEn: "Customizable. Your machine has no reason to look like anyone else's.", span: "col-span-1", img: IMAGES.obsessionCostom },
+  { id: 3, title: "THE SERVICE DOOR", bodyKo: "넓게 열립니다. 정비가 필요한 날이 좁은 공간과 씨름할 날이어서는 안 되니까요.", bodyEn: "Opens wide. Service day shouldn't double as a wrestling match with the cabinet.", span: "col-span-1 md:col-span-2", img: IMAGES.obsessionEasyfix },
+  { id: 4, title: "THE NOISE", bodyKo: "대부분의 로스터보다 조용합니다. 직접 측정했습니다.", bodyEn: "Quieter than most roasters. We measured it ourselves.", span: "col-span-1", img: IMAGES.obsessionSilence },
+  { id: 5, title: "THE FIRE", bodyKo: "Direct flame. 지름길 없음, 교체할 필터도 없음.", bodyEn: "Direct flame. No shortcuts, no filters to swap.", span: "col-span-1", img: IMAGES.obsessionDeirect },
+  { id: 6, title: "THE CABLE GLAND", bodyKo: "케이블 진입부 방수 처리. 지하 매장도 있으니까요.", bodyEn: "Cable entries are sealed. Some shops are below grade.", span: "col-span-1", img: IMAGES.obsessionElec },
+  { id: 7, title: "THE LOGO STENCIL", bodyKo: "손으로 직접 컷. 1,200대 이상에 스텐실링 했습니다.", bodyEn: "Hand-cut by us. Stenciled onto more than 1,200 units.", span: "col-span-1 md:col-span-2", img: IMAGES.obsessionHandmade },
+  { id: 8, title: "THE POWER SPIKE", bodyKo: "UPS도 감당 못 하는 전압 변동까지 소화합니다.", bodyEn: "Absorbs voltage swings even a UPS would choke on.", span: "col-span-1", img: IMAGES.obsessionStan },
+  { id: 9, title: "THE EXHAUST TEMP", bodyKo: "배출구 온도 80°C 이하. 상시 측정합니다.", bodyEn: "Outlet temperature below 80°C. Continuously monitored.", span: "col-span-1", img: IMAGES.obsessionMintemp },
 ];
 
 export default function ObsessionStack({ lang = "ko" }: { lang?: Lang }) {
@@ -63,7 +63,7 @@ export default function ObsessionStack({ lang = "ko" }: { lang?: Lang }) {
           {OBSESSIONS.map((obs) => (
             <div
               key={obs.id}
-              className={`obs-item ${obs.span} border border-bone p-6 rounded-lg opacity-0`}
+              className={`obs-item ${obs.span} border border-bone p-4 md:p-5 rounded-lg opacity-0`}
             >
               {/* Detail photo */}
               <div className="relative w-full aspect-[4/3] bg-bone/50 mb-4 overflow-hidden rounded-lg">
@@ -72,7 +72,7 @@ export default function ObsessionStack({ lang = "ko" }: { lang?: Lang }) {
                   alt={obs.title}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
-                  className="object-cover object-center"
+                  className="scale-[1.04] object-cover object-center"
                 />
               </div>
 

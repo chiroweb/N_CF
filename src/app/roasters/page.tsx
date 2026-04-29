@@ -581,23 +581,32 @@ function BentoFeatureCard({
         sizes="(min-width: 1024px) 60vw, 100vw"
         className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.04]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/18 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/36 to-ink/5" />
       <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
         <span
-          className="caption-style block mb-2 text-paper"
-          style={{ WebkitTextStroke: "0.6px #000", textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
+          className="caption-style text-paper/85 block mb-2"
+          style={{
+            WebkitTextStroke: "0.5px rgba(15, 15, 15, 0.72)",
+            textShadow: "0 1px 6px rgba(0, 0, 0, 0.42)",
+          }}
         >
           {number}
         </span>
         <h4
           className="font-display font-bold text-[clamp(1.35rem,2vw,2rem)] text-paper leading-[1.05] mb-3 font-korean"
-          style={{ WebkitTextStroke: "0.8px #000", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
+          style={{
+            WebkitTextStroke: "0.5px rgba(15, 15, 15, 0.78)",
+            textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
+          }}
         >
           {title}
         </h4>
         <p
-          className="max-w-lg text-sm font-korean text-paper leading-[1.65]"
-          style={{ WebkitTextStroke: "0.4px #000", textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
+          className="max-w-lg text-sm font-korean text-paper/90 leading-[1.65]"
+          style={{
+            WebkitTextStroke: "0.35px rgba(15, 15, 15, 0.62)",
+            textShadow: "0 1px 8px rgba(0, 0, 0, 0.5)",
+          }}
         >
           {body}
         </p>
