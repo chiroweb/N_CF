@@ -46,16 +46,16 @@ export default function ClosingQuestion({ lang = "ko" }: { lang?: Lang }) {
       <div className="container-content text-center py-32">
         {/* Main question */}
         <h2 className="closing-line font-display font-bold text-display-lg text-paper leading-[0.95] tracking-[-0.02em] opacity-0">
-          AND YOUR ROASTERY?
+          READY FOR
         </h2>
         <h2 className="closing-line font-display font-bold text-display-lg text-paper leading-[0.95] tracking-[-0.02em] mt-2 opacity-0">
-          HOW DOES IT BREATHE?
+          YOUR NEXT SETUP?
         </h2>
 
         {/* Korean sub-question (KR only) */}
         {!isEn && (
           <p className="closing-line text-body-kr font-korean text-bone mt-10 opacity-0">
-            당신의 로스터리는, 어떻게 숨 쉬고 있습니까?
+            매장 조건에 맞는 장비를 찾고 계신가요?
           </p>
         )}
 

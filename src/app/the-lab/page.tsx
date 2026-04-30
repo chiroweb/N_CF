@@ -182,16 +182,15 @@ export default function TheLabPage() {
 
           <div className="scroll-fade opacity-0 flex flex-col justify-center">
             <p className="text-body-kr font-korean text-ink/90 leading-[1.75] mb-6 first-letter:font-display first-letter:font-bold first-letter:text-[clamp(3rem,6vw,5rem)] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85] first-letter:mt-1">
-              14년간 연기를 태웠습니다. 그러던 어느 아침, 한 파티셰가
-              작업장에 들어와 물었습니다. 카운터에 올릴 만큼 작고, 종일
-              돌릴 만큼 튼튼하며, 견과가 여전히 견과의 맛을 유지하는 기계를
-              만들 수 있느냐고.
+              로스팅 장비를 만들며 쌓은 기준을 작은 식품 장비에도 그대로
+              적용했습니다. 카운터에 올릴 수 있는 크기, 매일 돌릴 수 있는
+              내구성, 견과의 고소함을 살리는 분쇄 질감이 필요했습니다.
             </p>
             <p className="text-body-kr font-korean text-ink/85 leading-[1.75]">
-              우리는 방법을 알기 전에 그러겠다고 답했습니다. 그리고 만들었죠
-              — 스테인리스, 인버터 제어, KC 인증, 국내 자체 생산. 안산
-              공장을 떠나는 모든 넛츠스타는 그 파티셰가 처음 부탁한 바로
-              그 기계입니다.
+              그래서 넛츠스타는 스테인리스 하우징, 인버터 제어, KC 인증,
+              국내 자체 생산을 기본으로 설계했습니다. 매장에서는 메뉴를
+              넓히고, 제조 현장에서는 신선한 넛버터를 안정적으로 만들 수
+              있습니다.
             </p>
           </div>
         </div>
@@ -231,10 +230,9 @@ export default function TheLabPage() {
             — 인용 · 01
           </span>
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.3] tracking-[-0.015em] max-w-5xl opacity-0 font-korean">
-            &ldquo;기계가 버터를 만드는 것이 아닙니다. 버터를 제대로 만들 수
-            있게 만들어 줄 뿐이죠 — 천천히, 따뜻하게, 통째로, 담백하게.
-            견과가 견과이기를 멈추는 순간에도, 견과로 남아 있어야 할 모든
-            것을.&rdquo;
+            &ldquo;좋은 넛버터 머신은 견과의 맛을 가리지 않습니다. 재료의
+            고소함은 살리고, 원하는 질감으로 부드럽게 풀어 주는 것이
+            가장 중요합니다.&rdquo;
           </p>
           <p className="scroll-fade caption-style text-paper/90 mt-10 opacity-0 font-korean">
             — 박한진 · 엔비피코리아 수석 엔지니어

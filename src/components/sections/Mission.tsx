@@ -19,9 +19,9 @@ const SLIDES = [
     title: "NBPKOREA AFTERBURNER",
     lead: "SMOKE-FREE ROASTING, ENGINEERED IN KOREA",
     bodyKo:
-      "우리가 만드는 가장 높은 수준의 연기 제거 장비. Direct-flame combustion, 설치 현장마다 집요하게 튜닝합니다. 14년간 한 가지 제품에만 집중한 결과가 모든 유닛에 쌓여 있습니다. 필터 교체도, 지름길도 없습니다 — 오직 Complete Combustion.",
+      "로스팅 중 생기는 연기와 냄새를 배기 라인 안에서 처리하는 애프터버너입니다. 현장 배기 구조와 로스터 용량에 맞춰 모델을 고르고, 설치 후에도 온도와 배출 상태를 함께 확인합니다.",
     bodyEn:
-      "Our highest-grade smoke abatement system. Direct-flame combustion, tuned in person to every install site. Fourteen years of single-product focus is built into every unit. No filter swaps, no shortcuts — only Complete Combustion.",
+      "An afterburner built to handle roasting smoke and odor inside the exhaust line. We match the model to your roaster capacity and duct layout, then check temperature and exhaust performance after installation.",
     shopHref: "/contact",
     learnHref: "/afterburner",
   },
@@ -35,9 +35,9 @@ const SLIDES = [
     title: "KUBAN COFFEE ROASTERS",
     lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
     bodyKo:
-      "터키 최고의 드럼 로스터, NBPKOREA가 한국 독점 유통합니다. Precision-engineered consistency — 로스팅을 직업으로 대하는 사람들을 위해 제작됩니다. 5kg 로스터부터 60kg 생산기까지, 현장의 모든 규모에 맞춰 공급합니다.",
+      "NBPKOREA가 한국에 공식 공급하는 KUBAN 드럼 로스터입니다. 작은 매장용 5kg 모델부터 생산용 대형 모델까지, 로스팅량과 설치 공간에 맞춰 선택할 수 있습니다.",
     bodyEn:
-      "Türkiye's top drum roaster — NBPKOREA is the exclusive Korean distributor. Precision-engineered consistency, built for people who roast for a living. From 5kg roasters to 60kg production drums, sized to every floor.",
+      "KUBAN drum roasters, officially supplied in Korea by NBPKOREA. From compact 5kg shop models to larger production drums, each setup is selected around batch volume and available floor space.",
     shopHref: "/contact",
     learnHref: "/roasters",
   },
@@ -51,9 +51,9 @@ const SLIDES = [
     title: "PEANUT BUTTER MACHINE",
     lead: "FROM WHOLE NUTS TO SOFT BUTTER TEXTURE",
     bodyKo:
-      "볶은 견과를 넣으면 부드러운 버터 질감으로 완성됩니다. 카페·베이커리·스페셜티 식품 제조사를 위한 상업용 넛버터 머신. 같은 집요한 엔지니어링, 다른 용도. 우리가 손대는 모든 기계는 오래가야 한다 — 그 믿음이 이 카테고리도 만들었습니다.",
+      "볶은 견과를 넣고 원하는 질감으로 바로 갈아 담는 상업용 넛버터 머신입니다. 카페, 베이커리, 식품 제조 현장에서 메뉴와 판매 방식에 맞춰 사용할 수 있습니다.",
     bodyEn:
-      "Drop in roasted nuts, walk away with a smooth butter texture. A commercial nut butter machine for cafés, bakeries, and specialty food makers. Same obsessive engineering, different application. Anything we build has to last — that belief made this category, too.",
+      "A commercial nut butter machine that grinds roasted nuts into the texture you want, ready to jar while warm. Built for cafés, bakeries, and specialty food makers shaping a fresh nut butter menu.",
     shopHref: "/contact",
     learnHref: "/the-lab",
   },

@@ -87,17 +87,17 @@ export default function BrandHallGateway() {
             >
               <div>
                 <h3 className="font-display font-bold text-heading-md text-ink mb-4">
-                  THE OTHER SIDE
+                  BRAND HALL
                 </h3>
                 <p className="text-body-en text-ink leading-relaxed">
-                  In 2024, we wrapped one of our machines
-                  in street art and shipped it to an exhibition.
-                  No one bought it. We still don&apos;t regret it.
+                  In 2024, we wrapped one of our machines in street art
+                  and brought it into an exhibition space to show how
+                  industrial equipment can sit inside a real brand environment.
                 </p>
                 <p className="text-body-kr font-korean text-ink/70 mt-3 leading-[1.75]">
                   2024년, 우리는 애프터버너 한 대에 그래피티를 입혀
-                  전시장으로 보냈다. 아무도 사지 않았다.
-                  그래도 후회하지 않는다.
+                  전시장에 세웠습니다. 장비가 실제 매장과 브랜드 공간 안에서
+                  어떻게 보일 수 있는지 보여주기 위해서였습니다.
                 </p>
               </div>
               <div className="flex items-end lg:justify-end">
