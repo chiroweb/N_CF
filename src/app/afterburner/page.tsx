@@ -189,9 +189,9 @@ export default function AfterburnerPage() {
       <div className="bg-ink py-16 lg:py-20">
         <div className="container-content">
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.4rem,2.8vw,2.4rem)] text-paper leading-[1.35] text-center opacity-0">
-            200°C에서 1,000°C. 직화로 태운다. 완전히.
+            로스팅은 매장 안에서,
             <br />
-            남는 게 없다. 그것이 우리가 하는 일.
+            연기와 냄새는 배기 라인 안에서 끝냅니다.
           </p>
         </div>
       </div>
@@ -237,7 +237,7 @@ export default function AfterburnerPage() {
           <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-12 font-korean">
             {AFTERBURNER_MODELS.length}종 모델,
             <br />
-            한 가지 집착.
+            현장별 선택 기준.
           </h2>
         </div>
 
@@ -404,12 +404,12 @@ export default function AfterburnerPage() {
       <div id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-            당신의 로스터리,
+            민원 걱정 없이
             <br />
-            우리의 애프터버너.
+            로스팅하세요.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/75 mt-6 opacity-0">
-            당신의 현장에 맞는 애프터버너를 찾아드립니다.
+            로스터 용량, 덕트 길이, 배기 방향에 맞춰 필요한 모델을 안내합니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link

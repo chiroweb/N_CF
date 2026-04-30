@@ -395,16 +395,16 @@ export default function DeliveriesPage() {
               <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] items-end gap-10">
                 <div>
                   <span className="scroll-fade caption-style text-paper/90 block mb-6 opacity-0 font-korean">
-                    다음 기록, 당신의 매장.
+                    다음 설치도, 현장에 맞게.
                   </span>
                   <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-                    당신의 로스터는
+                    로스터에 맞는
                     <br />
-                    여기에 기록됩니다.
+                    애프터버너를 고릅니다.
                   </h2>
                   <p className="scroll-fade text-body-kr font-korean text-paper/90 leading-[1.75] mt-6 max-w-md opacity-0">
                     어떤 브랜드의 로스팅기든, 어떤 용량이든 애프터버너는 현장에 맞춰
-                    제작됩니다. 다음 기록의 첫 줄이 당신의 매장이길 바랍니다.
+                    제작됩니다. 로스터 모델과 배기 조건을 알려주시면 설치 방향부터 정리해드립니다.
                   </p>
                 </div>
                 <div className="scroll-fade opacity-0">
@@ -539,12 +539,12 @@ export default function DeliveriesPage() {
               <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] items-end gap-10">
                 <div>
                   <span className="scroll-fade caption-style text-paper/90 block mb-6 opacity-0 font-korean">
-                    다음 납품, 당신의 현장.
+                    메뉴 확장도, 운영 동선에 맞게.
                   </span>
                   <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-                    당신의 버터는
+                    매장에서 바로 만드는
                     <br />
-                    여기에 기록됩니다.
+                    넛버터를 준비합니다.
                   </h2>
                   <p className="scroll-fade text-body-kr font-korean text-paper/90 leading-[1.75] mt-6 max-w-md opacity-0">
                     견과류 제조부터 백화점 팝업, 방앗간, 베이커리까지. 현장의 분쇄

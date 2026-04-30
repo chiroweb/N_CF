@@ -181,9 +181,9 @@ export default function RoastersPage() {
               KUBAN.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
-              5Kg부터 20Kg 양산까지. 정밀함과 일관성, 그리고 장인 정신을
-              위해 만들어진 터키 KUBAN 드럼 로스터입니다. 엔비피코리아가 한국
-              내 독점 딜러로 유통·설치·A/S까지 일괄 대응합니다.
+              매장용 5Kg부터 생산용 20Kg까지. KUBAN 드럼 로스터는
+              로스팅실의 동선, 배기, 반복 생산까지 함께 봐야 하는 장비입니다.
+              엔비피코리아가 한국 공식 딜러로 상담·설치·A/S를 직접 이어갑니다.
             </p>
             <div className="hero-fade mt-8 opacity-0">
               <Link
@@ -217,9 +217,9 @@ export default function RoastersPage() {
       <div className="bg-ink py-16 lg:py-20">
         <div className="container-content">
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.4rem,2.8vw,2.4rem)] text-paper leading-[1.35] text-center opacity-0 font-korean">
-            반복이 만든 정밀함. 불이 만든 맛.
+            좋은 로스터는 멋진 외관보다 먼저,
             <br />
-            드럼 위에서 원두가 완성됩니다.
+            매일 같은 배치를 안정적으로 만들어 줍니다.
           </p>
         </div>
       </div>
@@ -231,7 +231,7 @@ export default function RoastersPage() {
             어떤 모델이 필요하신가요
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
-            용도와 규모에 맞는 로스터를 추천합니다.
+            카페 운영량, 납품 계획, 설치 공간에 맞춰 먼저 좁혀드립니다.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {MODEL_GUIDE.map((guide) => (
@@ -464,22 +464,22 @@ export default function RoastersPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr] gap-4 lg:auto-rows-fr">
           <BentoFeatureCard
             number="01"
-            title="현장 규모 매칭"
-            body="5Kg 로스터리 카페부터 20Kg 생산 현장까지 운영량에 맞는 모델을 제안합니다."
+            title="매장 규모에 맞는 선택"
+            body="카페 한쪽에 놓을 5Kg부터 납품용 생산을 보는 20Kg까지, 운영량에 맞춰 비교합니다."
             image={ROASTER_SITE_MATCHING_IMAGE}
             className="lg:min-h-[330px]"
           />
           <BentoFeatureCard
             number="02"
-            title="로스팅 일관성"
-            body="드럼 구조와 기류 설계를 기반으로 배치마다 안정적인 열 전달과 재현성을 확보합니다."
+            title="반복 배치의 안정감"
+            body="드럼 구조와 기류 설계를 바탕으로 첫 배치와 마지막 배치의 차이를 줄이는 데 집중합니다."
             image={ROASTER_CONSISTENCY_IMAGE}
             className="lg:min-h-[330px]"
           />
           <BentoFeatureCard
             number="03"
-            title="부품·A/S 관리"
-            body="한국 독점 딜러로서 상담부터 설치 이후 유지관리까지 엔비피코리아가 직접 연결합니다."
+            title="설치 후에도 이어지는 대응"
+            body="수입 장비에서 가장 중요한 부품, 점검, A/S까지 한국 공식 딜러가 직접 연결합니다."
             image={AFTERBURNER_SERVICE_CARE_IMAGE}
             className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
@@ -527,12 +527,12 @@ export default function RoastersPage() {
       <div id="contact" className="bg-ink py-24 lg:py-32">
         <div className="container-content text-center">
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-            당신의 원두,
+            매장에 맞는
             <br />
-            우리의 로스터.
+            로스터부터.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/75 mt-6 opacity-0">
-            당신의 원두와 공간에 맞는 로스터를 찾아드립니다.
+            로스팅량, 설치 공간, 배기 조건을 알려주시면 적합한 모델부터 정리해드립니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link

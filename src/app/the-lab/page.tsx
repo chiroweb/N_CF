@@ -30,7 +30,7 @@ const PROCESS = [
   {
     no: "03",
     title: "담기",
-    body: "시간당 50kg, 따뜻할 때 병에 붓습니다. STS304 스테인리스 하우징, KC 인증, 드라마 없는 운영.",
+    body: "시간당 50kg, 따뜻할 때 병에 붓습니다. STS304 스테인리스 하우징, KC 인증, 단순한 운영.",
   },
 ];
 
@@ -232,7 +232,7 @@ export default function TheLabPage() {
           </span>
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.3] tracking-[-0.015em] max-w-5xl opacity-0 font-korean">
             &ldquo;기계가 버터를 만드는 것이 아닙니다. 버터를 제대로 만들 수
-            있게 만들어 줄 뿐이죠 — 천천히, 따뜻하게, 통째로, 정직하게.
+            있게 만들어 줄 뿐이죠 — 천천히, 따뜻하게, 통째로, 담백하게.
             견과가 견과이기를 멈추는 순간에도, 견과로 남아 있어야 할 모든
             것을.&rdquo;
           </p>
@@ -420,12 +420,12 @@ export default function TheLabPage() {
             03호 끝
           </span>
           <h2 className="scroll-fade font-display font-bold text-[clamp(2rem,5vw,4rem)] text-paper leading-[0.95] tracking-[-0.03em] opacity-0 font-korean">
-            당신의 카페에,
+            카운터 위에서
             <br />
-            견과의 건강함을.
+            바로 만드는 넛버터.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/85 mt-6 opacity-0">
-            카운터 위의 한 대가 시작점입니다.
+            매장 동선과 메뉴 구성에 맞춰 도입 방법을 함께 정리해드립니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link
