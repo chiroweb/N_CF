@@ -232,7 +232,7 @@ export default function TheLabEnPage() {
               alt="Roasted nuts held in hands"
               fill
               sizes="100vw"
-              className="object-cover object-center"
+              className="scale-[1.08] object-cover object-center"
             />
           </div>
           <div className="absolute inset-0 bg-ink/20" />

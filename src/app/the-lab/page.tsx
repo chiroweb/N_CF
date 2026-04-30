@@ -209,7 +209,7 @@ export default function TheLabPage() {
               alt="손에 담긴 로스팅 견과"
               fill
               sizes="100vw"
-              className="object-cover object-center"
+              className="scale-[1.08] object-cover object-center"
             />
           </div>
           <div className="absolute inset-0 bg-ink/20" />
@@ -249,11 +249,11 @@ export default function TheLabPage() {
             02장 · 기계
           </span>
           <h2 className="font-display font-bold text-[clamp(2rem,5vw,4rem)] text-ink leading-[0.92] tracking-[-0.03em] font-korean">
-            한 모델.
+            시그니처.
             <br />
-            변형 없음.
+            소음/고장 스트레스 없는.
             <br />
-            국내 제작.
+            국내 제작 모델.
           </h2>
         </div>
 

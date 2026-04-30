@@ -106,9 +106,9 @@ export default function EdgeRails() {
         onClick={() => setMenuOpen(false)}
       />
 
-      {/* Half-screen slide-in menu */}
+      {/* Desktop slide-in menu */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-1/2 bg-ink z-[60] flex flex-col p-12 lg:p-16 transition-transform duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 bottom-0 w-[30vw] min-w-[30rem] bg-ink z-[60] flex flex-col p-12 lg:p-16 transition-transform duration-500 ease-out ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           onClick={() => setMenuOpen(false)}
@@ -119,7 +119,7 @@ export default function EdgeRails() {
           <span className="block w-6 h-[2px] bg-paper -rotate-45 absolute" />
         </button>
 
-        <ul className="flex flex-col gap-8 mt-16">
+        <ul className="my-auto flex flex-col gap-[clamp(1rem,3vh,2rem)] pr-28">
           {navItems.map((item, i) => (
             <li
               key={item.href}
@@ -132,7 +132,7 @@ export default function EdgeRails() {
             >
               <Link
                 href={item.href}
-                className={`font-display font-bold text-[clamp(1.5rem,3vw,2.5rem)] text-paper hover:text-bone transition-colors tracking-tight ${isEn ? "" : "font-korean"}`}
+                className={`block font-display font-bold text-[clamp(1.35rem,2.6vw,2.5rem)] leading-[0.95] text-paper hover:text-bone transition-colors tracking-tight ${isEn ? "" : "font-korean"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {isEn ? item.labelEn : item.labelKo}
