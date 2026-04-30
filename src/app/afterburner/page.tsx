@@ -29,6 +29,29 @@ const MODEL_GUIDE = [
   { range: "하루 40kg 이상", recommend: "NKJC-60K", index: 4 },
 ];
 
+const FAQS = [
+  {
+    question: "카페 안에서 로스팅하려면 제연기가 꼭 필요한가요?",
+    answer:
+      "도심 로스터리 카페라면 로스터기보다 먼저 배기와 제연 조건을 확인하는 편이 안전합니다. 로스팅 연기와 냄새는 민원, 임대 조건, 덕트 시공 가능 여부와 바로 연결되기 때문입니다.",
+  },
+  {
+    question: "직화식 애프터버너와 필터식 제연기는 무엇이 다른가요?",
+    answer:
+      "필터식 제연기는 배기를 걸러내는 방식이라 소모품 교체가 필요합니다. 직화식 애프터버너는 연기와 냄새 성분을 고온에서 태워 분해하므로 필터 교체 부담 없이 로스팅 배기를 처리합니다.",
+  },
+  {
+    question: "5kg, 10kg 로스터에는 어떤 모델을 쓰나요?",
+    answer:
+      "하루 로스팅량과 드럼 용량을 함께 봅니다. 소형 카페와 5kg 로스터에는 NKJC-5K, 10kg 전후 로스터리에는 NKJC-10K를 우선 검토하고, 배기 길이와 설치 공간에 따라 조정합니다.",
+  },
+  {
+    question: "카페 창업 단계에서도 상담할 수 있나요?",
+    answer:
+      "가능합니다. 창업 전이라면 로스터리 장비, 로스터기 배기 방향, 덕트 경로, 제연기 설치 공간을 함께 잡아야 이후 공사 변경을 줄일 수 있습니다.",
+  },
+];
+
 export default function AfterburnerPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
@@ -143,7 +166,7 @@ export default function AfterburnerPage() {
           {/* Left — text */}
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0">
-              커피 로스팅 애프터버너
+              커피 로스터 제연기 · 직화식 애프터버너
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,8vw,7rem)] text-ink leading-[0.88] tracking-[-0.04em] opacity-0 font-korean">
               직화식
@@ -153,8 +176,9 @@ export default function AfterburnerPage() {
               버너
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
-              연기 99.2% 제거. 직화 방식. 교체할 필터 없음. 조용히
-              로스팅할 수 있게 해주는 기계입니다.
+              로스팅 연기 99.2% 제거. 직화 방식. 교체할 필터 없음.
+              카페 창업과 도심 로스터리 운영에서 가장 먼저 확인해야 할
+              배기·제연 장비입니다.
             </p>
             <div className="hero-fade mt-8 opacity-0">
               <Link
@@ -203,7 +227,7 @@ export default function AfterburnerPage() {
             어떤 모델이 필요하신가요
           </span>
           <p className="text-body-kr font-korean text-ink/75 mb-8">
-            하루 로스팅량을 기준으로 적합한 모델을 추천합니다.
+            하루 로스팅량, 로스터기 용량, 덕트 길이, 카페 창업 현장의 배기 조건을 기준으로 적합한 제연기 모델을 추천합니다.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {MODEL_GUIDE.map((guide) => (
@@ -349,15 +373,15 @@ export default function AfterburnerPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr] gap-4 lg:auto-rows-fr">
           <BentoFeatureCard
             number="01"
-            title="민원 대응"
-            body="도심 로스터리에서도 로스팅 중 발생하는 연기와 냄새 부담을 낮춥니다."
+            title="로스팅 민원 대응"
+            body="도심 로스터리와 로스터리 카페에서 발생하는 연기와 냄새 부담을 낮추는 직화식 제연 장비입니다."
             image="/images/afterburner-complaint-context.png"
             className="lg:min-h-[330px]"
           />
           <BentoFeatureCard
             number="02"
             title="브랜드별 호환"
-            body="PROBAT, GIESEN, LORING, KUBAN 등 주요 드럼 로스터와 결합 설치가 가능합니다."
+            body="PROBAT, GIESEN, LORING, KUBAN 등 주요 드럼 로스터와 결합해 로스터기 배기 라인에 맞춰 설치합니다."
             image="/images/afterburner-compatible-brands.png"
             className="lg:min-h-[330px]"
           />
@@ -368,6 +392,35 @@ export default function AfterburnerPage() {
             image={AFTERBURNER_SERVICE_CARE_IMAGE}
             className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:min-h-[680px]"
           />
+        </div>
+      </div>
+
+      {/* ── FAQ ── */}
+      <div className="border-t-2 border-bone">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12">
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              자주 묻는 질문
+            </span>
+            <h2 className="font-display font-bold text-[clamp(2rem,4.5vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] font-korean">
+              로스터리 제연기,
+              <br />
+              설치 전에 확인할 것.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t-2 border-ink">
+            {FAQS.map((item) => (
+              <div key={item.question} className="scroll-fade opacity-0 py-7 border-b border-bone">
+                <h3 className="text-body-kr font-korean font-semibold text-ink leading-[1.55] mb-3">
+                  {item.question}
+                </h3>
+                <p className="text-sm font-korean text-ink/75 leading-[1.8]">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -409,7 +462,7 @@ export default function AfterburnerPage() {
             로스팅하세요.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/75 mt-6 opacity-0">
-            로스터 용량, 덕트 길이, 배기 방향에 맞춰 필요한 모델을 안내합니다.
+            로스터 용량, 덕트 길이, 배기 방향, 카페 창업 현장 조건에 맞춰 필요한 제연기 모델을 안내합니다.
           </p>
           <div className="scroll-fade mt-10 opacity-0">
             <Link

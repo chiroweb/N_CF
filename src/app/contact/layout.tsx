@@ -5,7 +5,7 @@ const SITE_URL = "https://nbpkorea.co.kr";
 export const metadata: Metadata = {
   title: "문의 — 엔비피코리아 본사·공장",
   description:
-    "애프터버너 NKJC 시리즈와 넛버터머신 NUTS-STAR의 견적, 설치 상담, A/S 문의를 본사에서 직접 받습니다. 경기도 안산시 단원구 엠티브이8로 22 · TEL 031-434-6566~7 · FAX 031-434-6568 · nbpkorea@nbpkorea.co.kr",
+    "직화식 애프터버너 NKJC 시리즈, 커피 로스터 제연기, 로스터리 장비, 피넛버터머신·땅콩버터머신 NUTS-STAR의 견적, 설치 상담, A/S 문의를 본사에서 직접 받습니다. 카페 창업 예정지의 로스터 용량, 덕트 방향, 배기 조건을 알려주시면 설치 방향부터 안내합니다. 경기도 안산시 단원구 엠티브이8로 22 · TEL 031-434-6566~7 · nbpkorea@nbpkorea.co.kr",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "문의 | 엔비피코리아 NBPKOREA",

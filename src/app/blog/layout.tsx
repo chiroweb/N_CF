@@ -4,14 +4,14 @@ import { POSTS } from "@/lib/posts";
 const SITE_URL = "https://nbpkorea.co.kr";
 
 export const metadata: Metadata = {
-  title: "필드 노트 — 로스팅과 애프터버너 기술 기록",
+  title: "필드 노트 — 로스터리 장비·제연기·카페 창업 기술 기록",
   description:
-    "엔비피코리아가 14년간 현장에서 쌓아온 기술 기록. 로스팅 프로파일, 연소 설계, 설치 사례, 운영 노하우를 담은 공개 연구 노트입니다.",
+    "엔비피코리아가 현장에서 쌓아온 로스터리 장비 기술 기록. 직화식 애프터버너, 커피 로스터 제연기, 로스팅 냄새 민원, 카페 창업 장비, 피넛버터머신 운영 노하우를 담은 공개 연구 노트입니다.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "필드 노트 | 엔비피코리아",
     description:
-      "로스팅 프로파일, 연소 설계, 설치 사례. 14년 현장의 공개 기술 노트.",
+      "직화식 애프터버너, 커피 로스터 제연기, 카페 창업 장비, 피넛버터머신 운영 노트.",
     url: `${SITE_URL}/blog`,
     type: "website",
     locale: "ko_KR",

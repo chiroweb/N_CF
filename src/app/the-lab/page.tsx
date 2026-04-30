@@ -119,7 +119,7 @@ export default function TheLabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-end min-h-[75vh]">
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-6 opacity-0 font-korean">
-              더 랩 / 넛버터 머신 · 0001
+              더 랩 / 피넛버터머신 · 땅콩버터머신 · 넛버터머신
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(3rem,10vw,9rem)] text-ink leading-[0.85] tracking-[-0.04em] opacity-0 font-korean">
               견과에서
@@ -130,9 +130,9 @@ export default function TheLabPage() {
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-8 max-w-md opacity-0">
               {NUTBUTTER_PRODUCT.tagline}. 매장 카운터 위에서 직접 가는
-              상업용 넛버터 머신 — 견과를 넣고, 부드러운 버터 질감이나
-              크런치한 식감으로 고르고, 병에 따뜻할 때 붓습니다. 시간당 50kg, 220V 가정용 전원,
-              버튼 하나.
+              상업용 피넛버터머신이자 땅콩버터머신입니다. 견과를 넣고,
+              부드러운 넛버터 질감이나 크런치한 식감으로 고르고, 병에
+              따뜻할 때 붓습니다. 시간당 50kg, 220V 가정용 전원, 버튼 하나.
             </p>
           </div>
 
@@ -226,8 +226,8 @@ export default function TheLabPage() {
       {/* ── 04 · Pull quote ── */}
       <section className="bg-ink py-24 lg:py-32">
         <div className="container-content">
-          <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0 font-korean">
-            — 인용 · 01
+            <span className="scroll-fade caption-style text-paper/80 block mb-10 opacity-0 font-korean">
+            — 피넛버터머신 도입 노트 · 01
           </span>
           <p className="scroll-fade font-heading font-semibold text-[clamp(1.75rem,4vw,3.75rem)] text-paper leading-[1.3] tracking-[-0.015em] max-w-5xl opacity-0 font-korean">
             &ldquo;좋은 넛버터 머신은 견과의 맛을 가리지 않습니다. 재료의
@@ -405,7 +405,8 @@ export default function TheLabPage() {
               ))}
             </div>
             <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-6">
-              {NUTBUTTER_PRODUCT.applicationsKr}
+              {NUTBUTTER_PRODUCT.applicationsKr}. 피넛버터, 땅콩버터, 아몬드버터,
+              캐슈넛버터처럼 매장에서 바로 만드는 견과 메뉴에 맞춰 사용할 수 있습니다.
             </p>
           </div>
         </div>

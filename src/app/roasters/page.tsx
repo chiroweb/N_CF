@@ -230,8 +230,10 @@ export default function RoastersPage() {
           <span className="caption-style text-ink/90 block mb-4 font-korean">
             어떤 모델이 필요하신가요
           </span>
-          <p className="text-body-kr font-korean text-ink/75 mb-8">
+            <p className="text-body-kr font-korean text-ink/75 mb-8">
             카페 운영량, 납품 계획, 설치 공간에 맞춰 먼저 좁혀드립니다.
+            카페 창업 단계라면 로스터기뿐 아니라 배기, 제연기, 냄새 민원
+            가능성까지 함께 확인하는 것이 좋습니다.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {MODEL_GUIDE.map((guide) => (

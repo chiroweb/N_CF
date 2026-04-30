@@ -73,16 +73,17 @@ export default function BlogPage() {
             </h1>
           </div>
           <p className="hero-fade hidden md:block caption-style text-ink/90 text-right leading-relaxed max-w-[22ch] opacity-0 font-korean">
-            엔지니어링, 로스팅,
+            제연기, 로스터리 장비,
             <br />
-            그리고 우리가 만든
+            카페 창업과
             <br />
-            기계들의 이야기.
+            현장 설치 이야기.
           </p>
         </div>
         <p className="hero-fade text-body-kr font-korean text-ink/80 leading-[1.75] max-w-2xl opacity-0">
-          우리가 만드는 기계, 그 기계가 만나는 현장, 그리고 그 사이에서
-          쌓이는 기록들. 로스팅과 엔지니어링의 경계에서 쓴 글들을 모았습니다.
+          직화식 애프터버너, 커피 로스터 제연기, 로스터리 장비, 카페 창업
+          단계의 배기 설계, 그리고 피넛버터머신 운영까지. 현장에서 자주
+          받는 질문을 검색과 상담에 도움이 되도록 정리했습니다.
         </p>
       </section>
 
