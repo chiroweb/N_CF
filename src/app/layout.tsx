@@ -97,6 +97,11 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
+  verification: {
+    other: {
+      "naver-site-verification": "49ff1336bb05b76e970d1a99bb374434d5cb9c37",
+    },
+  },
   category: "manufacturing",
 };
 
