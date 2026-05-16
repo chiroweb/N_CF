@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listPostIds } from "@/lib/posts";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

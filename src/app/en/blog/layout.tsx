@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export const metadata: Metadata = {
   title: "Field Notes — Roasting & Afterburner Journal",

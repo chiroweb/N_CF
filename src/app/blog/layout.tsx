@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { POSTS } from "@/lib/posts";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export const metadata: Metadata = {
   title: "필드 노트 — 로스터리 장비·제연기·카페 창업 기술 기록",

@@ -6,7 +6,7 @@ import {
   COMPATIBLE_ROASTERS,
 } from "@/lib/products";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export const metadata: Metadata = {
   title: "직화식 애프터버너·커피 로스터 제연기 — NKJC 시리즈",

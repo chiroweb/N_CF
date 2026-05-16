@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { getPostEn, listPostIdsEn, POSTS_EN } from "@/lib/posts-en";
 import type { Block } from "@/lib/posts";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export function generateStaticParams() {
   return listPostIdsEn().map((id) => ({ id }));

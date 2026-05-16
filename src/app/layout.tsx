@@ -5,7 +5,7 @@ import EdgeRails from "@/components/layout/EdgeRails";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import "./globals.css";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 const SITE_NAME = "엔비피코리아 NBPKOREA";
 const SITE_TAGLINE = "커피 로스터 애프터버너 전문 제조사";
 const SITE_DESCRIPTION =
@@ -21,21 +21,32 @@ export const metadata: Metadata = {
   keywords: [
     "NBPKOREA",
     "엔비피코리아",
+    "엔비피",
+    "엔비피커피",
+    "엔비피카페",
+    "엔비피코리아 커피사업부",
+    "NBPCAFE",
+    "NBP Coffee",
+    "커피장비 전문 회사",
+    "커피 로스터 장비",
     "afterburner",
     "애프터버너",
+    "커피 애프터버너",
+    "로스터 애프터버너",
     "coffee roaster afterburner",
     "커피 로스터 애프터버너",
     "direct flame afterburner",
     "직화식 애프터버너",
     "제연기",
+    "커피 제연기",
     "커피 로스터 제연기",
     "로스터리 제연기",
     "카페 창업 장비",
     "로스터리 장비",
     "로스팅 냄새 제거",
+    "로스팅 연기 제거",
     "후연 제거장치",
     "roasting smoke removal",
-    "로스팅 연기 제거",
     "NKJC afterburner",
     "KUBAN roaster Korea",
     "KUBAN 로스터",
@@ -120,9 +131,23 @@ const organizationJsonLd = {
       "@type": ["Organization", "LocalBusiness", "Manufacturer"],
       "@id": `${SITE_URL}/#organization`,
       name: "엔비피코리아",
-      alternateName: ["NBPKOREA", "엔비피 코리아"],
+      alternateName: [
+        "NBPKOREA",
+        "엔비피 코리아",
+        "엔비피",
+        "엔비피커피",
+        "엔비피카페",
+        "엔비피코리아 커피사업부",
+        "NBPCAFE",
+        "NBP Coffee",
+        "NBPKOREA Coffee Division",
+      ],
       legalName: "엔비피코리아",
       url: SITE_URL,
+      sameAs: [
+        "https://nbpkorea.co.kr",
+        "https://www.nbpkorea.co.kr",
+      ],
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/favicon.ico`,

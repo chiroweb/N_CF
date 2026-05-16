@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPost, listPostIds, POSTS, type Block } from "@/lib/posts";
 
-const SITE_URL = "https://nbpkorea.co.kr";
+const SITE_URL = "https://www.nbpcafe.com";
 
 export function generateStaticParams() {
   return listPostIds().map((id) => ({ id }));
