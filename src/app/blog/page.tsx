@@ -165,44 +165,48 @@ export default function BlogPage() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+        <ul className="flex flex-col divide-y divide-ink/15 border-t border-b border-ink/15">
           {pageItems.map((post) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.id}`}
-              className="entry-card group flex flex-col opacity-0"
-            >
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-bone mb-6">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt ?? post.title}
-                  fill
-                  sizes="(min-width: 768px) 40vw, 90vw"
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
+            <li key={post.id} className="entry-card opacity-0">
+              <Link
+                href={`/blog/${post.id}`}
+                className="group grid grid-cols-[140px_1fr] md:grid-cols-[260px_1fr] gap-5 md:gap-8 py-6 md:py-8 items-center"
+              >
+                <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-bone shrink-0">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt ?? post.title}
+                    fill
+                    sizes="(min-width: 768px) 260px, 140px"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
 
-              <div className="flex items-center gap-4 mb-3">
-                <span className="caption-style text-ink/80">
-                  {post.category}
-                </span>
-                <span className="caption-style text-ink/80">{post.date}</span>
-              </div>
+                <div className="min-w-0 flex flex-col gap-2 md:gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="caption-style text-ink/80 font-korean">
+                      {post.category}
+                    </span>
+                    <span className="caption-style text-ink/60">·</span>
+                    <span className="caption-style text-ink/70">{post.date}</span>
+                    <span className="hidden md:inline caption-style text-ink/60">·</span>
+                    <span className="hidden md:inline caption-style text-ink/70">
+                      {post.readMinutes}분 분량
+                    </span>
+                  </div>
 
-              <h3 className="font-display font-bold text-[clamp(1.25rem,2.2vw,1.9rem)] text-ink leading-[1.15] tracking-[-0.02em] mb-3 group-hover:underline underline-offset-4 decoration-2 font-korean">
-                {post.title}
-              </h3>
+                  <h3 className="font-display font-bold text-[clamp(1.15rem,1.9vw,1.7rem)] text-ink leading-[1.2] tracking-[-0.02em] group-hover:underline underline-offset-4 decoration-2 font-korean line-clamp-2">
+                    {post.title}
+                  </h3>
 
-              <p className="text-body-kr font-korean text-ink/80 leading-[1.7]">
-                {post.excerpt}
-              </p>
-
-              <span className="caption-style text-ink mt-6 group-hover:underline underline-offset-4 font-korean">
-                읽기 &rarr;
-              </span>
-            </Link>
+                  <p className="hidden md:block text-body-kr font-korean text-ink/75 leading-[1.65] line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                </div>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {totalPages > 1 && (
           <nav
