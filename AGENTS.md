@@ -1,23 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [N_CF] recent context, 2026-04-30 10:07am GMT+9
+# [N_CF] recent context, 2026-04-30 3:45pm GMT+9
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (10,244t read) | 1,073,759t work | 99% savings
+Stats: 50 obs (10,706t read) | 1,141,406t work | 99% savings
 
 ### Apr 28, 2026
-542 9:04a 🔵 로스터 페이지 — TiltCard 3-card 구조 현황 확인
-543 " 🟣 로스터 페이지 KR·EN — TiltCard 3-card → 4-card 전면 업데이트
-544 9:05a 🟣 로스터 페이지 TiltCard 4-card 빌드 성공 확인
-545 9:06a 🔵 N_CF git status — afterburner 스테이징됨, roasters 미스테이징 상태
-546 " 🔵 애프터버너 vs 로스터 히어로 이미지 구조 비교
-547 " 🔄 애프터버너 히어로 이미지 패럴랙스 + 피팅 방식 개선
-548 9:07a 🔴 N_CF 빌드 실패 — .next 캐시 손상 `_document.js` MODULE_NOT_FOUND
-549 " 🔴 N_CF .next 캐시 삭제로 _document.js 빌드 에러 해결
 551 9:08a 🔴 N_CF 클린 빌드 성공 — .next 캐시 삭제 후 exit 0 확인
 552 9:09a 🔵 git status — afterburner MM (staged+unstaged 혼재), roasters 2개 여전히 unstaged
 564 9:13a ⚖️ 납품실적 페이지 — 초기 20건 표시 + 더보기 UI 방향 결정
@@ -71,22 +63,15 @@ S196 N_CF 로스터 페이지 BentoFeatureCard — 애프터버너 스타일 동
 677 8:45a ✅ RoastersPage BentoFeatureCard — WebkitTextStroke 제거, 흰색 단색 텍스트로 단순화
 S194 N_CF RoastersPage BentoFeatureCard 텍스트 스타일 — 결국 afterburner 스타일로 동기화 (스트로크 유지, rgba 반투명 버전) (Apr 29 at 8:45 AM)
 S197 N_CF 로스터 페이지 BentoFeatureCard — 애프터버너 스타일 동기화 및 고객 현장 사진 갤러리 추가 (빌드 재확인) (Apr 29 at 8:47 AM)
-**Investigated**: - npm build 출력 tail 재확인 (backgroundTaskId: bbqnu26kw, 동일 태스크 두 번 폴링)
-    - chunks 사이즈: 2117-cbd090f7d6b6b946.js 31.7kB, fd9d1056-1b14749c58c112cd.js 53.6kB, shared 1.89kB
+### Apr 30, 2026
+714 2:05p 🔵 N_CF 프로젝트 — git 인덱스 전체 손상, 모든 파일 추적 해제 상태
+715 2:06p 🔵 N_CF git 인덱스 손상 근본 원인 확정 — git rm --cached 또는 index 리셋으로 전체 파일 스테이징 해제
+716 " 🔴 N_CF git index 복구 완료 — git add -A 후 실제 변경 파일 2개 확정
+717 " ✅ AfterburnerPage — 직화 온도 텍스트 200°C → 300°C 수정
+718 " 🔵 N_CF AGENTS.md — MM 상태 감지, 스테이징 후 추가 변경 발생
+719 2:16p 🔵 N_CF 전체 페이지 구조 서베이 — KO/EN 이중 언어 아키텍처 및 이미지 레퍼런스 차이 확인
+731 2:18p ⚖️ N_CF SEO/AEO 전략 방향 확정 — 타깃 키워드 정의
+732 2:43p 🔵 N_CF 프로젝트 SEO/AEO 현황 전체 감사 — 키워드 커버리지 및 구조화 데이터 상태
 
-**Learned**: - 동일 build task(bbqnu26kw)를 두 번 폴링 — 두 번째 결과도 동일한 tail 출력. 빌드가 완전히 완료된 상태임을 재확인.
-    - ○ Static prerender 정상, stderr 없음, interrupted: false
-
-**Completed**: 1. BASE 15 갤러리 고객 현장 사진 3장 추가 (roaster-base-15-customer-1/2/3.png)
-    2. BASE 20 갤러리 고객 현장 사진 3장 추가 (roaster-base-20-customer-1/2/3.png)
-    3. roasters/page.tsx BentoFeatureCard — afterburner 스타일 완전 동기화:
-       - from-ink/90 via-ink/36 to-ink/5 그라디언트
-       - text-paper/85, text-paper, text-paper/90
-       - WebkitTextStroke (0.35~0.5px rgba(15,15,15,0.62~0.78)) + textShadow
-    4. npm run build 통과 확인 (2회 폴링, 동일 성공 결과)
-
-**Next Steps**: 모든 요청 완료. 새 작업 대기 중.
-
-
-Access 1074k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 1141k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

@@ -14,6 +14,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   const post = getPost(params.id);
   if (!post) return { title: "Not Found" };
   const url = `${SITE_URL}/blog/${post.id}`;
+  const imageUrl = post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}`;
   return {
     title: post.title,
     description: post.excerpt,
@@ -26,13 +27,13 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
       description: post.excerpt,
       publishedTime: post.date.replace(/\./g, "-"),
       authors: ["엔비피코리아 NBPKOREA"],
-      images: [{ url: post.image, alt: post.imageAlt ?? post.title }],
+      images: [{ url: imageUrl, alt: post.imageAlt ?? post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.image],
+      images: [imageUrl],
     },
   };
 }
@@ -53,7 +54,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     headline: post.title,
     description: post.excerpt,
     articleSection: post.category,
-    image: { "@type": "ImageObject", url: post.image },
+    image: { "@type": "ImageObject", url: post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}` },
     datePublished: post.date.replace(/\./g, "-"),
     dateModified: post.date.replace(/\./g, "-"),
     author: { "@id": `${SITE_URL}/#organization` },
