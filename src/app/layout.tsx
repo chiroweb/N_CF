@@ -114,7 +114,7 @@ export const metadata: Metadata = {
   },
   verification: {
     other: {
-      "naver-site-verification": "49ff1336bb05b76e970d1a99bb374434d5cb9c37",
+      "naver-site-verification": "4d7fed5729c8fa994ac71ccb9263e6a19487cca2",
     },
   },
   category: "manufacturing",
