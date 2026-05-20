@@ -52,7 +52,7 @@ const EDITION_BANNERS = [
     image: IMAGES.brandAfterburnerFiveLineup,
     plate: "PLATE 04 — LINEUP",
     title: "다섯 대, 한 가족",
-    body: "센터의 그래피티 에디션을 둘러싼 표준형 NKJC 라인업 — 색은 모두 커스텀.",
+    body: "센터의 그래피티 에디션을 둘러싼 표준형 NK 라인업 — 색은 모두 커스텀.",
     colSpan: "lg:col-span-7",
     aspect: "aspect-[7/5]",
     captionScale: "lg" as const,
@@ -202,7 +202,7 @@ export default function BrandHallPage() {
           <span className="hero-line block opacity-0">뒷편의 기계</span>
           <span className="hero-line block opacity-0">앞쪽의 오브제로.</span>
           <span className="sr-only">
-            . 엔비피코리아 브랜드 홀 — 그래피티 에디션 전시, 디테일 필름, 카페 설치 장면, 그리고 NKJC 라인업.
+            . 엔비피코리아 브랜드 홀 — 그래피티 에디션 전시, 디테일 필름, 카페 설치 장면, 그리고 NK 라인업.
           </span>
         </h1>
         <p className="hero-line text-body-kr font-korean text-white/90 mt-8 max-w-md opacity-0">
@@ -385,13 +385,13 @@ export default function BrandHallPage() {
             <span className="caption-style text-white/85 font-korean">
               라인업 · 우리가 만드는 것들
             </span>
-            <span className="caption-style text-white/60">NKJC SERIES</span>
+            <span className="caption-style text-white/60">NK SERIES</span>
           </div>
 
           <div className="banner-fade relative aspect-[16/9] rounded-lg overflow-hidden bg-ink/60 opacity-0">
             <Image
               src={IMAGES.brandAfterburnerTrio}
-              alt="NKJC 애프터버너 라인업"
+              alt="NK 애프터버너 라인업"
               fill
               sizes="100vw"
               className="object-cover object-center"
@@ -403,13 +403,13 @@ export default function BrandHallPage() {
                   표준 라인업, 같은 폼팩터
                 </h3>
                 <p className="text-sm font-korean text-white/85 mt-2 max-w-md">
-                  NKJC 시리즈 — 공개 라인업은 5K부터 60K까지. 색상은 모두 커스텀 제작 가능.
+                  NK 시리즈 — 공개 라인업은 5K부터 60K까지. 색상은 모두 커스텀 제작 가능.
                 </p>
               </div>
               <div className="flex items-baseline gap-6 caption-style text-white/80">
-                <span>NKJC-5K</span>
-                <span>NKJC-15K</span>
-                <span>NKJC-30K</span>
+                <span>NK-5K</span>
+                <span>NK-15K</span>
+                <span>NK-30K</span>
               </div>
             </div>
           </div>

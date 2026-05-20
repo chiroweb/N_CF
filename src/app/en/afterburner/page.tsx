@@ -22,10 +22,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "≤ 10kg / day", recommend: "NKJC-5K", index: 0 },
-  { range: "10 – 20kg / day", recommend: "NKJC-10K", index: 1 },
-  { range: "20 – 40kg / day", recommend: "NKJC-30K", index: 3 },
-  { range: "≥ 40kg / day", recommend: "NKJC-60K", index: 4 },
+  { range: "≤ 10kg / day", recommend: "NK-5K", index: 0 },
+  { range: "10 – 20kg / day", recommend: "NK-10K", index: 1 },
+  { range: "20 – 40kg / day", recommend: "NK-30K", index: 3 },
+  { range: "≥ 40kg / day", recommend: "NK-60K", index: 4 },
 ];
 
 export default function AfterburnerEnPage() {
@@ -137,7 +137,7 @@ export default function AfterburnerEnPage() {
 
           <div className="hero-fade relative aspect-[3/4] rounded-lg overflow-hidden bg-bone opacity-0">
             <div ref={heroImgRef} className="absolute inset-0 -top-[15%] -bottom-[15%]">
-              <Image src={HERO_IMAGES.afterburner} alt="NBPKOREA NKJC afterburner" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain object-center" />
+              <Image src={HERO_IMAGES.afterburner} alt="NBPKOREA NK afterburner" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain object-center" />
             </div>
           </div>
         </div>

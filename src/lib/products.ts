@@ -22,7 +22,7 @@ const NUTBUTTER_BUTTER_IMAGE = `${S3_PRODUCT}/nutbutter-pouring-butter.png`;
 export const AFTERBURNER_MODELS = [
   {
     id: "nkjc-5k",
-    name: "NKJC-5K",
+    name: "NK-5K",
     capacity: "5kg",
     target: "Small Roastery",
     targetKr: "중소형 로스터리",
@@ -36,7 +36,7 @@ export const AFTERBURNER_MODELS = [
   },
   {
     id: "nkjc-10k",
-    name: "NKJC-10K",
+    name: "NK-10K",
     capacity: "10kg",
     target: "Medium Café",
     targetKr: "중형 로스터리 카페",
@@ -50,7 +50,7 @@ export const AFTERBURNER_MODELS = [
   },
   {
     id: "nkjc-15k",
-    name: "NKJC-15K",
+    name: "NK-15K",
     capacity: "15kg",
     target: "Large Roastery",
     targetKr: "대형 로스터리",
@@ -64,7 +64,7 @@ export const AFTERBURNER_MODELS = [
   },
   {
     id: "nkjc-30k",
-    name: "NKJC-30K",
+    name: "NK-30K",
     capacity: "30kg",
     target: "Industrial",
     targetKr: "산업용 대량 로스팅",
@@ -78,7 +78,7 @@ export const AFTERBURNER_MODELS = [
   },
   {
     id: "nkjc-60k",
-    name: "NKJC-60K",
+    name: "NK-60K",
     capacity: "60kg",
     target: "Large Facility",
     targetKr: "대규모 산업 시설",

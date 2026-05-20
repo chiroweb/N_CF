@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | NBPKOREA",
   },
   description:
-    "NBPKOREA has built direct-flame afterburners for coffee roasters since 2006. The public NKJC lineup runs from 5Kg to 60Kg, with 120Kg industrial builds handled by site consultation. 200–1,000°C combustion, 99.2% smoke removal, 30%+ gas savings. 379 units shipped across 16 Korean regions and 7 overseas countries (2024–2025).",
+    "NBPKOREA has built direct-flame afterburners for coffee roasters since 2006. The public NK lineup runs from 5Kg to 60Kg, with 120Kg industrial builds handled by site consultation. 200–1,000°C combustion, 99.2% smoke removal, 30%+ gas savings. 379 units shipped across 16 Korean regions and 7 overseas countries (2024–2025).",
   alternates: {
     canonical: "/en",
     languages: {
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     siteName: "NBPKOREA",
     title: "NBPKOREA — Direct Flame Afterburners for Coffee Roasters",
     description:
-      "NKJC afterburner series. 200–1,000°C direct-flame combustion. 99.2% smoke removal. Since 2006.",
+      "NK afterburner series. 200–1,000°C direct-flame combustion. 99.2% smoke removal. Since 2006.",
     images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NBPKOREA — Direct Flame Afterburners for Coffee Roasters",
     description:
-      "NKJC public lineup 5Kg–60Kg · 99.2% smoke removal · 30%+ gas savings · Since 2006.",
+      "NK public lineup 5Kg–60Kg · 99.2% smoke removal · 30%+ gas savings · Since 2006.",
     images: ["/og-default.png"],
   },
 };

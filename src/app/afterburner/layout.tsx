@@ -9,9 +9,9 @@ import {
 const SITE_URL = "https://www.nbpcafe.com";
 
 export const metadata: Metadata = {
-  title: "직화식 애프터버너·커피 로스터 제연기 — NKJC 시리즈",
+  title: "직화식 애프터버너·커피 로스터 제연기 — NK 시리즈",
   description:
-    "엔비피코리아가 2006년부터 만들어온 직화식 애프터버너 NKJC 시리즈. 카페 창업과 도심 로스터리 운영에 필요한 커피 로스터 제연기·후연 제거장치로, 로스팅 과정에서 발생하는 연기·냄새·체프·유해물질을 200℃–1,000℃ 고온으로 완전 연소해 99.2% 제거합니다. 공개 라인업은 5Kg 소형 로스터부터 60Kg 대형 시설까지이며, 120Kg 산업용은 현장 상담 후 커스텀 제작합니다. 열효율 98%, 40:1 비례제어로 경쟁 제품 대비 가스를 30% 이상 절감.",
+    "엔비피코리아가 2006년부터 만들어온 직화식 애프터버너 NK 시리즈. 카페 창업과 도심 로스터리 운영에 필요한 커피 로스터 제연기·후연 제거장치로, 로스팅 과정에서 발생하는 연기·냄새·체프·유해물질을 200℃–1,000℃ 고온으로 완전 연소해 99.2% 제거합니다. 공개 라인업은 5Kg 소형 로스터부터 60Kg 대형 시설까지이며, 120Kg 산업용은 현장 상담 후 커스텀 제작합니다. 열효율 98%, 40:1 비례제어로 경쟁 제품 대비 가스를 30% 이상 절감.",
   keywords: [
     "직화식 애프터버너",
     "커피 로스터 제연기",
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     "로스터리 장비",
     "후연 제거장치",
     "로스터기 배기",
-    "NKJC 애프터버너",
+    "NK 애프터버너",
   ],
   alternates: { canonical: "/afterburner" },
   openGraph: {
-    title: "직화식 애프터버너·커피 로스터 제연기 NKJC 시리즈 | 엔비피코리아",
+    title: "직화식 애프터버너·커피 로스터 제연기 NK 시리즈 | 엔비피코리아",
     description:
       "카페 창업과 도심 로스터리 운영을 위한 직화식 애프터버너·커피 로스터 제연기. 5Kg–60Kg 라인업, 연기 99.2% 제거, 가스 30% 절감.",
     url: `${SITE_URL}/afterburner`,
@@ -39,7 +39,7 @@ const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": `${SITE_URL}/afterburner#product`,
-  name: "NKJC Direct Flame Afterburner",
+  name: "NK Direct Flame Afterburner",
   alternateName: ["애프터버너", "제연기", "커피 로스터 제연기", "로스터리 제연기", "Coffee Roaster Afterburner", "커피 로스터 후연 제거장치"],
   category: "Industrial Air Pollution Control Equipment",
   description:
@@ -102,7 +102,7 @@ const faqJsonLd = {
       name: "애프터버너(Afterburner)는 무엇인가요?",
       acceptedAnswer: {
         "@type": "Answer",
-    text: "커피 로스팅 과정에서 발생하는 연기·냄새·체프·휘발성 유기화합물(VOC)을 고온의 직화식으로 완전 연소시켜 무연·무취 상태로 배출하는 커피 로스터 제연기이자 후연 제거장치입니다. 엔비피코리아의 NKJC 시리즈는 200°C에서 1,000°C의 직화식 연소와 특허 촉매식 재연소 가이드를 결합해 연기를 99.2% 제거합니다.",
+    text: "커피 로스팅 과정에서 발생하는 연기·냄새·체프·휘발성 유기화합물(VOC)을 고온의 직화식으로 완전 연소시켜 무연·무취 상태로 배출하는 커피 로스터 제연기이자 후연 제거장치입니다. 엔비피코리아의 NK 시리즈는 200°C에서 1,000°C의 직화식 연소와 특허 촉매식 재연소 가이드를 결합해 연기를 99.2% 제거합니다.",
       },
     },
     {
@@ -126,7 +126,7 @@ const faqJsonLd = {
       name: "설치 규모는 어떻게 고르나요?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "로스터 드럼 용량 기준으로 매칭합니다. 하루 10Kg 이하 소형 카페는 NKJC-5K, 10–20Kg 중형은 NKJC-10K, 20–40Kg 구간은 NKJC-30K, 40Kg 이상 상업용은 NKJC-60K 이상을 권장합니다. 현장 실측 후 덕트 배치와 입출력 방향을 포함해 설계합니다.",
+        text: "로스터 드럼 용량 기준으로 매칭합니다. 하루 10Kg 이하 소형 카페는 NK-5K, 10–20Kg 중형은 NK-10K, 20–40Kg 구간은 NK-30K, 40Kg 이상 상업용은 NK-60K 이상을 권장합니다. 현장 실측 후 덕트 배치와 입출력 방향을 포함해 설계합니다.",
       },
     },
     {

@@ -5,7 +5,7 @@ const SITE_URL = "https://www.nbpcafe.com";
 export const metadata: Metadata = {
   title: "브랜드 홀 — 엔비피코리아의 세 제품군",
   description:
-    "직화식 애프터버너 NKJC 시리즈, 터키 KUBAN 드럼 로스터(한국 독점 딜러), 자체 설계 넛버터머신 NUTS-STAR까지. 엔비피코리아가 제조·유통·운영하는 세 개의 제품군을 한 자리에서 소개합니다.",
+    "직화식 애프터버너 NK 시리즈, 터키 KUBAN 드럼 로스터(한국 독점 딜러), 자체 설계 넛버터머신 NUTS-STAR까지. 엔비피코리아가 제조·유통·운영하는 세 개의 제품군을 한 자리에서 소개합니다.",
   alternates: { canonical: "/brand-hall" },
   openGraph: {
     title: "브랜드 홀 — 엔비피코리아의 세 제품군",

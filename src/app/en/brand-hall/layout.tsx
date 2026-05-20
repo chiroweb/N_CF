@@ -5,7 +5,7 @@ const SITE_URL = "https://www.nbpcafe.com";
 export const metadata: Metadata = {
   title: "Brand Hall — NBPKOREA's Three Product Lines",
   description:
-    "Three products under one roof: the NKJC direct-flame afterburner, the KUBAN drum coffee roaster (exclusive KR distribution), and the NUTS-STAR commercial nut butter machine.",
+    "Three products under one roof: the NK direct-flame afterburner, the KUBAN drum coffee roaster (exclusive KR distribution), and the NUTS-STAR commercial nut butter machine.",
   alternates: {
     canonical: "/en/brand-hall",
     languages: { "ko-KR": "/brand-hall", en: "/en/brand-hall" },

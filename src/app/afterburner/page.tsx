@@ -23,10 +23,10 @@ const SECTIONS: NavSection[] = [
 ];
 
 const MODEL_GUIDE = [
-  { range: "하루 10kg 이하", recommend: "NKJC-5K", index: 0 },
-  { range: "하루 10–20kg", recommend: "NKJC-10K", index: 1 },
-  { range: "하루 20–40kg", recommend: "NKJC-30K", index: 3 },
-  { range: "하루 40kg 이상", recommend: "NKJC-60K", index: 4 },
+  { range: "하루 10kg 이하", recommend: "NK-5K", index: 0 },
+  { range: "하루 10–20kg", recommend: "NK-10K", index: 1 },
+  { range: "하루 20–40kg", recommend: "NK-30K", index: 3 },
+  { range: "하루 40kg 이상", recommend: "NK-60K", index: 4 },
 ];
 
 const FAQS = [
@@ -43,7 +43,7 @@ const FAQS = [
   {
     question: "5kg, 10kg 로스터에는 어떤 모델을 쓰나요?",
     answer:
-      "하루 로스팅량과 드럼 용량을 함께 봅니다. 소형 카페와 5kg 로스터에는 NKJC-5K, 10kg 전후 로스터리에는 NKJC-10K를 우선 검토하고, 배기 길이와 설치 공간에 따라 조정합니다.",
+      "하루 로스팅량과 드럼 용량을 함께 봅니다. 소형 카페와 5kg 로스터에는 NK-5K, 10kg 전후 로스터리에는 NK-10K를 우선 검토하고, 배기 길이와 설치 공간에 따라 조정합니다.",
   },
   {
     question: "카페 창업 단계에서도 상담할 수 있나요?",
