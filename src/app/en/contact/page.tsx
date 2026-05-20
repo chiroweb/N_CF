@@ -105,6 +105,20 @@ export default function ContactEnPage() {
             </Link>
           ))}
         </div>
+        <div className="scroll-fade mt-8 flex justify-center opacity-0">
+          <Link
+            href="https://www.nbpkorea.co.kr/support"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-3.5 rounded-lg border-2 border-ink hover:bg-paper hover:text-ink transition-all duration-200"
+          >
+            <span className="text-sm font-medium tracking-tight">
+              SUBMIT INQUIRY FORM
+            </span>
+            <span className="text-base transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
+
         <p className="caption-style text-ink/90 mt-6 text-center">
           SUB · +82-{COMPANY.phoneSecondary.slice(1)} &nbsp;·&nbsp; FAX +82-{COMPANY.fax.slice(1)}
         </p>

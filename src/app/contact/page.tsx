@@ -126,6 +126,21 @@ export default function ContactPage() {
           ))}
         </div>
 
+        {/* Inquiry form CTA */}
+        <div className="scroll-fade mt-8 flex justify-center opacity-0">
+          <Link
+            href="https://www.nbpkorea.co.kr/support"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-3.5 rounded-lg border-2 border-ink hover:bg-paper hover:text-ink transition-all duration-200"
+          >
+            <span className="text-sm font-medium tracking-tight font-korean">
+              홈페이지에서 문의 폼 작성하기
+            </span>
+            <span className="text-base transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
+
         {/* Sub contact line */}
         <p className="caption-style text-ink/90 mt-6 text-center font-korean">
           사무실 {COMPANY.phoneSecondary} &nbsp;·&nbsp; 팩스 {COMPANY.fax}
