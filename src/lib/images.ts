@@ -3,8 +3,8 @@ const S3_HOTEL = "https://chiro-web.s3.ap-northeast-2.amazonaws.com/hotel_A";
 const S3_OBSESSION = `${S3_BASE}/obsession-stack`;
 
 export const IMAGES = {
-  heroBg: `${S3_BASE}/hf_20260414_014816_25184efe-ae8e-4a5f-86d5-c325742fe437.png`,
-  missionLeft: `${S3_BASE}/hf_20260413_021520_c41f363d-66fb-4259-82df-45cb373a0944.png`,
+  heroBg: "/images/hero-bg-optimized.webp",
+  missionLeft: "/images/mission-left.webp",
   missionRight: `${S3_BASE}/hf_20260413_021535_dd11c18e-7f94-480e-8a11-3107a77e3e8a.png`,
   installationPhoto: `${S3_BASE}/hf_20260413_021554_42247fbc-74f1-4797-8442-38899a5fe9e4.png`,
   obs01: `${S3_BASE}/hf_20260413_021602_90ce14ca-b4c2-4964-8719-fa0dcaf85b41.png`,
