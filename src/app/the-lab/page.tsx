@@ -290,12 +290,7 @@ export default function TheLabPage() {
               <span className="caption-style text-ink/90 block mb-4 font-korean">
                 사양
               </span>
-              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-                국내에서 만들고,
-                <br />
-                국내에서 고칩니다.
-              </h2>
-              <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-6">
+              <p className="text-body-kr font-korean text-ink/75 leading-[1.75]">
                 설계·제작·A/S를 직접 합니다. 아래 수치는 대표 사양이며, 매장
                 전원과 카운터 배치, 작업 흐름은 도입 전에 함께 점검합니다.
               </p>
@@ -315,6 +310,17 @@ export default function TheLabPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              {/* 버터머신 사진 — 헤드라인 자리 대체, 좌측 하단 공백 채움 */}
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-bone border-2 border-ink mt-10">
+                <Image
+                  src={NUTBUTTER_PRODUCT.image}
+                  alt="넛츠스타 NUTS-STAR 넛버터머신"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
 
