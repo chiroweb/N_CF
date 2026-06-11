@@ -213,22 +213,7 @@ const organizationJsonLd = {
         { "@type": "Country", name: "Qatar" },
         { "@type": "Country", name: "Hong Kong" },
       ],
-      makesOffer: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Product",
-            "@id": `${SITE_URL}/afterburner#product`,
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Product",
-            "@id": `${SITE_URL}/the-lab#product`,
-          },
-        },
-      ],
+      knowsLanguage: ["ko-KR", "en"],
     },
     {
       "@type": "WebSite",

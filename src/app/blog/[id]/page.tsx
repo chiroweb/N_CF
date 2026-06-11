@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPost, listPostIds, POSTS, type Block } from "@/lib/posts";
+import { listPostIdsEn } from "@/lib/posts-en";
 
 const SITE_URL = "https://www.nbpcafe.com";
+const EN_POST_IDS = new Set(listPostIdsEn());
 
 export function generateStaticParams() {
   return listPostIds().map((id) => ({ id }));
@@ -15,10 +17,20 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   if (!post) return { title: "Not Found" };
   const url = `${SITE_URL}/blog/${post.id}`;
   const imageUrl = post.image.startsWith("http") ? post.image : `${SITE_URL}${post.image}`;
+  const hasEn = EN_POST_IDS.has(String(post.id));
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.id}` },
+    alternates: {
+      canonical: `/blog/${post.id}`,
+      languages: hasEn
+        ? {
+            "ko-KR": `/blog/${post.id}`,
+            en: `/en/blog/${post.id}`,
+            "x-default": `/blog/${post.id}`,
+          }
+        : { "ko-KR": `/blog/${post.id}`, "x-default": `/blog/${post.id}` },
+    },
     openGraph: {
       type: "article",
       locale: "ko_KR",

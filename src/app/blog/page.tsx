@@ -24,10 +24,6 @@ export default function BlogPage() {
 
   const [page, setPage] = useState(1);
   const totalPages = Math.max(1, Math.ceil(rest.length / PAGE_SIZE));
-  const pageItems = useMemo(() => {
-    const start = (page - 1) * PAGE_SIZE;
-    return rest.slice(start, start + PAGE_SIZE);
-  }, [rest, page]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,7 +62,7 @@ export default function BlogPage() {
   }, []);
 
   useEffect(() => {
-    const cards = entriesRef.current?.querySelectorAll<HTMLAnchorElement>(".entry-card");
+    const cards = entriesRef.current?.querySelectorAll<HTMLLIElement>(".entry-card:not([hidden])");
     if (!cards || cards.length === 0) return;
     gsap.fromTo(
       cards,
@@ -166,8 +162,16 @@ export default function BlogPage() {
         </div>
 
         <ul className="flex flex-col divide-y divide-ink/15 border-t border-b border-ink/15">
-          {pageItems.map((post) => (
-            <li key={post.id} className="entry-card opacity-0">
+          {rest.map((post, i) => {
+            const itemPage = Math.floor(i / PAGE_SIZE) + 1;
+            const isVisible = itemPage === page;
+            return (
+            <li
+              key={post.id}
+              hidden={!isVisible}
+              data-page={itemPage}
+              className="entry-card opacity-0"
+            >
               <Link
                 href={`/blog/${post.id}`}
                 className="group grid grid-cols-[140px_1fr] md:grid-cols-[260px_1fr] gap-5 md:gap-8 py-6 md:py-8 items-center"
@@ -205,7 +209,8 @@ export default function BlogPage() {
                 </div>
               </Link>
             </li>
-          ))}
+            );
+          })}
         </ul>
 
         {totalPages > 1 && (

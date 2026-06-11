@@ -40,6 +40,20 @@
     background-color: var(--color-ink);
     color: var(--color-paper);
   }
+
+  /* 한글 줄바꿈 — 어절(단어) 중간에서 끊기지 않게.
+     keep-all: 띄어쓰기 단위로만 줄바꿈 / break-word: 이메일·URL 등
+     아주 긴 토큰만 예외적으로 끊어 오버플로 방지 / pretty: 마지막 줄 고아 완화. */
+  .font-korean {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+
+  /* 디스플레이 헤드라인 — 여러 줄을 균형 있게 분배. */
+  .font-display {
+    text-wrap: balance;
+  }
 }
 
 @layer components {
@@ -105,6 +119,14 @@
 }
 
 @layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .edge-rail {
     position: fixed;
     top: 0;

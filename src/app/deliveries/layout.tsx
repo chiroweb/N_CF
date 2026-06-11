@@ -45,6 +45,7 @@ const datasetJsonLd = {
     "Delivery date",
   ],
   isAccessibleForFree: true,
+  license: "https://creativecommons.org/licenses/by-nc/4.0/",
   url: `${SITE_URL}/deliveries`,
 };
 
