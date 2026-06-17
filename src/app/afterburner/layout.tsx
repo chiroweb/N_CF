@@ -1,10 +1,4 @@
 import type { Metadata } from "next";
-import {
-  AFTERBURNER_MODELS,
-  AFTERBURNER_COMMON_SPECS,
-  AFTERBURNER_CERTIFICATIONS,
-  COMPATIBLE_ROASTERS,
-} from "@/lib/products";
 
 const SITE_URL = "https://www.nbpcafe.com";
 
@@ -35,63 +29,11 @@ export const metadata: Metadata = {
   },
 };
 
-const productJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${SITE_URL}/afterburner#product`,
-  name: "NK Direct Flame Afterburner",
-  alternateName: ["애프터버너", "제연기", "커피 로스터 제연기", "로스터리 제연기", "Coffee Roaster Afterburner", "커피 로스터 후연 제거장치"],
-  category: "Industrial Air Pollution Control Equipment",
-  description:
-    "커피 로스터에서 발생하는 연기·체프·VOC를 직화식으로 완전 연소해 무연·무취 배출을 실현하는 후연 제거장치. 200–1000°C 고온 연소, 98% 열효율, 40:1 비례제어, 30% 가스 절감.",
-  brand: { "@type": "Brand", name: "NBPKOREA" },
-  manufacturer: { "@id": `${SITE_URL}/#organization` },
-  countryOfOrigin: "KR",
-  image: `${SITE_URL}/og-default.png`,
-  additionalProperty: [
-    { "@type": "PropertyValue", name: "Combustion Principle", value: "Direct Flame (2-stage / Surface Panel)" },
-    { "@type": "PropertyValue", name: "Combustion Temperature", value: AFTERBURNER_COMMON_SPECS.combustionTemp },
-    { "@type": "PropertyValue", name: "Smoke Removal Rate", value: AFTERBURNER_COMMON_SPECS.removalRate },
-    { "@type": "PropertyValue", name: "Gas Saving", value: `${AFTERBURNER_COMMON_SPECS.gasSaving}+ vs competitors` },
-    { "@type": "PropertyValue", name: "Thermal Efficiency", value: AFTERBURNER_COMMON_SPECS.thermalEfficiency },
-    { "@type": "PropertyValue", name: "Proportional Control Ratio", value: AFTERBURNER_COMMON_SPECS.proportionalRatio },
-    { "@type": "PropertyValue", name: "Power Supply", value: AFTERBURNER_COMMON_SPECS.power },
-    { "@type": "PropertyValue", name: "Heat Source", value: AFTERBURNER_COMMON_SPECS.heatSource },
-    { "@type": "PropertyValue", name: "Warranty", value: AFTERBURNER_COMMON_SPECS.warranty },
-    { "@type": "PropertyValue", name: "Capacity Range", value: "5Kg — 60Kg public lineup; 120Kg custom by consultation" },
-    { "@type": "PropertyValue", name: "Compatible Roaster Brands", value: COMPATIBLE_ROASTERS.join(", ") },
-  ],
-  hasVariant: AFTERBURNER_MODELS.map((m) => ({
-    "@type": "Product",
-    name: m.name,
-    sku: m.name,
-    description: `${m.targetKr} (${m.target}) — ${m.burnerKr}.`,
-    additionalProperty: [
-      { "@type": "PropertyValue", name: "Capacity", value: m.capacity },
-      { "@type": "PropertyValue", name: "Dimensions (W×D×H)", value: m.size },
-      { "@type": "PropertyValue", name: "Burner", value: m.burner },
-      { "@type": "PropertyValue", name: "Controller", value: m.controller },
-      { "@type": "PropertyValue", name: "Fuel", value: m.connector },
-    ],
-  })),
-  award: AFTERBURNER_CERTIFICATIONS.map((c) => `${c.titleEn} · ${c.title}`),
-  offers: {
-    "@type": "AggregateOffer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "KRW",
-    seller: { "@id": `${SITE_URL}/#organization` },
-    areaServed: [
-      { "@type": "Country", name: "South Korea" },
-      { "@type": "Country", name: "China" },
-      { "@type": "Country", name: "Taiwan" },
-      { "@type": "Country", name: "Japan" },
-      { "@type": "Country", name: "Thailand" },
-      { "@type": "Country", name: "Hong Kong" },
-      { "@type": "Country", name: "Kuwait" },
-      { "@type": "Country", name: "Qatar" },
-    ],
-  },
-};
+// NOTE: Product/Offer/hasVariant 스키마는 의도적으로 내보내지 않는다.
+// 공개 가격이 없는 B2B 견적 제품이라 offers.lowPrice를 채울 수 없고,
+// 변형 모델(hasVariant)도 가격·후기가 없어 구글이 리치결과 대상에서 제외하며
+// GSC에 'offers/review/aggregateRating 지정 필요' 오류만 남긴다.
+// 제품 스펙은 본문 HTML로, 회사 정보는 루트 Organization 스키마로 전달한다.
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -184,7 +126,6 @@ const breadcrumbJsonLd = {
 export default function AfterburnerLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {children}

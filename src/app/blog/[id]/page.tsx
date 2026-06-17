@@ -58,6 +58,19 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
   const prev = idx > 0 ? POSTS[idx - 1] : null;
   const next = idx < POSTS.length - 1 ? POSTS[idx + 1] : null;
 
+  // 관련 글 — 같은 카테고리 우선, 부족하면 인접 글로 채워 항상 3편 확보.
+  // 모든 글이 서로 내부링크로 연결되어 크롤링·색인과 체류시간을 끌어올린다.
+  const related = (() => {
+    const pool = POSTS.filter((p) => p.id !== post.id && p.category === post.category);
+    if (pool.length < 3) {
+      for (const p of POSTS) {
+        if (p.id !== post.id && !pool.some((x) => x.id === p.id)) pool.push(p);
+        if (pool.length >= 3) break;
+      }
+    }
+    return pool.slice(0, 3);
+  })();
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -139,6 +152,63 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           ))}
         </div>
       </div>
+
+      {/* Related posts */}
+      {related.length > 0 && (
+        <section className="container-content pb-20">
+          <div className="border-t-2 border-ink pt-6 mb-8">
+            <span className="caption-style text-ink/80 font-korean">관련 글</span>
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {related.map((r) => (
+              <li key={r.id}>
+                <Link href={`/blog/${r.id}`} className="group block">
+                  <div className="relative aspect-[16/10] rounded-md overflow-hidden bg-bone mb-4">
+                    <Image
+                      src={r.image}
+                      alt={r.imageAlt ?? r.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <span className="caption-style text-ink/75 font-korean">{r.category}</span>
+                  <h3 className="font-display font-bold text-[clamp(1.05rem,1.6vw,1.35rem)] text-ink leading-[1.25] tracking-[-0.02em] mt-2 group-hover:underline underline-offset-4 decoration-2 font-korean line-clamp-2">
+                    {r.title}
+                  </h3>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Related products — 두 제품군으로 유입을 분산해 문의 전환·교차 발견을 만든다 */}
+      <section className="container-content pb-20">
+        <div className="border-t-2 border-ink pt-6 mb-8">
+          <span className="caption-style text-ink/80 font-korean">관련 제품</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/15 border-2 border-ink">
+          <Link href="/afterburner" className="group bg-paper p-7 lg:p-9 block">
+            <span className="caption-style text-ink/70 font-korean">제연기 · 후연 제거</span>
+            <p className="font-display font-bold text-[clamp(1.25rem,2.2vw,1.7rem)] text-ink leading-[1.2] tracking-[-0.02em] mt-2 group-hover:underline underline-offset-4 decoration-2 font-korean">
+              직화식 애프터버너 NK 시리즈 &rarr;
+            </p>
+            <p className="text-body-kr font-korean text-ink/75 leading-[1.6] mt-3">
+              로스팅 연기·냄새 99.2% 제거. 도심 로스터리 민원 대응.
+            </p>
+          </Link>
+          <Link href="/the-lab" className="group bg-paper p-7 lg:p-9 block">
+            <span className="caption-style text-ink/70 font-korean">땅콩버터머신 · 카페 신메뉴</span>
+            <p className="font-display font-bold text-[clamp(1.25rem,2.2vw,1.7rem)] text-ink leading-[1.2] tracking-[-0.02em] mt-2 group-hover:underline underline-offset-4 decoration-2 font-korean">
+              넛버터머신 넛츠스타 &rarr;
+            </p>
+            <p className="text-body-kr font-korean text-ink/75 leading-[1.6] mt-3">
+              갓 간 땅콩버터로 카페 시그니처 메뉴와 추가 매출.
+            </p>
+          </Link>
+        </div>
+      </section>
 
       {/* Between-post nav */}
       <div className="bg-bone border-t border-ink/15">

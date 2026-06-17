@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { listPostIds } from "@/lib/posts";
 import { listPostIdsEn } from "@/lib/posts-en";
-import { RECIPES } from "@/lib/nutbutter";
+import { RECIPES, LAB_POSTS } from "@/lib/nutbutter";
 
 const SITE_URL = "https://www.nbpcafe.com";
 
@@ -63,6 +63,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  // 더 랩 기록 — 카페 사장 대상 실콘텐츠(메뉴·운영·사양)라 색인 대상.
+  const labBlogRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/the-lab/blog`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...LAB_POSTS.map((p) => ({
+      url: `${SITE_URL}/the-lab/blog/${p.id}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
   const enPostIds = new Set(listPostIdsEn());
 
   const koPostRoutes: MetadataRoute.Sitemap = listPostIds().map((id) => {
@@ -101,5 +117,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
-  return [...staticRoutes, ...recipeRoutes, ...koPostRoutes, ...enPostRoutes];
+  return [...staticRoutes, ...recipeRoutes, ...labBlogRoutes, ...koPostRoutes, ...enPostRoutes];
 }

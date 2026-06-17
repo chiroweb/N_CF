@@ -6,6 +6,7 @@ import {
   NUTBUTTER_PRODUCT,
   HEADLINE,
   PROCESS,
+  MENU_PLAYS,
   HUB_CARDS,
   LIBRARY,
   TRUST_STATS,
@@ -29,13 +30,14 @@ import Link from "next/link";
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "개요" },
   { id: "trust", label: "실적" },
-  { id: "process", label: "사용" },
   { id: "showcase", label: "현장" },
+  { id: "menu", label: "메뉴" },
+  { id: "process", label: "사용" },
+  { id: "reviews", label: "후기" },
   { id: "spec", label: "사양" },
   { id: "buying", label: "구성·도입" },
+  { id: "faq", label: "Q&A" },
   { id: "catalog", label: "자료" },
-  { id: "reviews", label: "후기" },
-  { id: "faq", label: "FAQ" },
   { id: "contact", label: "문의" },
 ];
 
@@ -96,10 +98,8 @@ export default function TheLabPage() {
               한 대로 끝.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-7 max-w-xl opacity-0">
-              카운터 위에서 직접 가는 상업용 땅콩버터·견과버터머신, 넛츠스타.
-              견과를 넣으면 부드러운 버터부터 크런치한 식감까지 원터치로,
-              따뜻할 때 그대로 병에 담깁니다. 갓 간 땅콩버터를 카페 시그니처
-              신메뉴로 — 추가 매출까지 한 대로. 시간당 50kg · 220V 가정용 전원.
+              견과를 넣고 버튼만 누르면, 갓 간 버터가 따뜻할 때 그대로 병에 담깁니다.
+              카운터 위에서 만드는 시그니처 한 줄이, 매장의 새 매출이 됩니다.
             </p>
 
             {/* 핵심 사양 칩 */}
@@ -192,51 +192,7 @@ export default function TheLabPage() {
         </div>
       </section>
 
-      {/* ── Process · 사용 3단계 (이미지 서사: 재료 → 분쇄 → 결과물) ── */}
-      <section id="process" className="border-t-2 border-ink">
-        <div className="container-content py-20 lg:py-28">
-          <div className="scroll-fade opacity-0 mb-12">
-            <span className="caption-style text-ink/90 block mb-4 font-korean">
-              사용
-            </span>
-            <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-              세 단계, 그 이상은 없습니다.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {PROCESS.map((step) => (
-              <div
-                key={step.no}
-                className="scroll-fade opacity-0 border-2 border-ink bg-paper overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-bone border-b-2 border-ink">
-                  <Image
-                    src={step.thumb}
-                    alt={step.title}
-                    fill
-                    sizes="(min-width: 768px) 30vw, 100vw"
-                    className="object-cover object-center"
-                  />
-                  <span className="absolute top-3 left-3 font-display font-bold text-[clamp(1.5rem,3vw,2.25rem)] text-paper leading-none mix-blend-difference">
-                    {step.no}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display font-bold text-[clamp(1.1rem,1.8vw,1.5rem)] text-ink mb-3 tracking-tight font-korean">
-                    {step.title}
-                  </h3>
-                  <p className="text-body-kr font-korean text-ink/85 leading-[1.7]">
-                    {step.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Showcase · 설치 현장 (소셜 프루프) ── */}
+      {/* ── Showcase · 설치 현장 (소셜 프루프 — 신뢰 구간 앞쪽 배치) ── */}
       <section id="showcase" className="border-t-2 border-ink bg-bone">
         <div className="container-content py-20 lg:py-28">
           <div className="scroll-fade opacity-0 mb-12 flex flex-wrap items-end justify-between gap-6">
@@ -275,6 +231,155 @@ export default function TheLabPage() {
                   <p className="text-body-kr font-korean text-ink/85 leading-[1.6]">
                     {shot.caption}
                   </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Money Menu · 돈 되는 메뉴 (레시피를 매출 경로로) ── */}
+      <section id="menu" className="border-t-2 border-ink">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12 max-w-2xl">
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              돈 되는 메뉴
+            </span>
+            <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
+              한 대로, 이렇게 팝니다.
+            </h2>
+            <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-5">
+              갓 간 견과버터는 그 자체로 메뉴가 됩니다. 토스트·음료·소분 판매까지,
+              한 대로 만드는 매출 라인을 정리했습니다.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {MENU_PLAYS.map((m) => (
+              <li
+                key={m.id}
+                className="scroll-fade opacity-0 border-2 border-ink bg-paper overflow-hidden flex flex-col"
+              >
+                <div className="relative aspect-[4/3] bg-bone border-b-2 border-ink">
+                  <Image
+                    src={m.thumb}
+                    alt={m.menu}
+                    fill
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-[clamp(1.1rem,1.8vw,1.5rem)] text-ink mb-3 tracking-tight font-korean">
+                    {m.menu}
+                  </h3>
+                  <p className="text-body-kr font-korean text-ink/85 leading-[1.7] flex-1">
+                    {m.sell}
+                  </p>
+                  <p className="caption-style text-ink/80 mt-5 pt-4 border-t border-ink/15 font-korean">
+                    매출 포인트 — {m.revenue}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div className="scroll-fade opacity-0 mt-10">
+            <Link
+              href="/the-lab/recipes"
+              className="caption-style text-ink hover:underline underline-offset-4 font-korean"
+            >
+              레시피 전체 보기 &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Process · 사용 3단계 (이미지 서사: 재료 → 분쇄 → 결과물) ── */}
+      <section id="process" className="border-t-2 border-ink bg-bone">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12">
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              사용
+            </span>
+            <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
+              통에 붓고, 버튼만 누르면 됩니다.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {PROCESS.map((step) => (
+              <div
+                key={step.no}
+                className="scroll-fade opacity-0 border-2 border-ink bg-paper overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-bone border-b-2 border-ink">
+                  <Image
+                    src={step.thumb}
+                    alt={step.title}
+                    fill
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                    className="object-cover object-center"
+                  />
+                  <span className="absolute top-3 left-3 font-display font-bold text-[clamp(1.5rem,3vw,2.25rem)] text-paper leading-none mix-blend-difference">
+                    {step.no}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display font-bold text-[clamp(1.1rem,1.8vw,1.5rem)] text-ink mb-3 tracking-tight font-korean">
+                    {step.title}
+                  </h3>
+                  <p className="text-body-kr font-korean text-ink/85 leading-[1.7]">
+                    {step.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Reviews · 거래처 후기 (소셜 프루프) ── */}
+      <section id="reviews" className="border-t-2 border-ink">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <span className="caption-style text-ink/90 block mb-4 font-korean">
+                거래처 후기
+              </span>
+              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
+                실제 후기
+              </h2>
+            </div>
+            <div className="text-right">
+              <span className="font-display font-bold text-[clamp(2rem,4vw,3rem)] text-ink leading-none tracking-tight">
+                {RATING_AVG.toFixed(1)}
+              </span>
+              <span className="caption-style text-ink/60 block mt-2 font-korean">
+                거래처 {TESTIMONIALS.length}곳 평균
+              </span>
+            </div>
+          </div>
+
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t) => (
+              <li
+                key={t.id}
+                className="scroll-fade opacity-0 border-2 border-ink bg-paper p-7 flex flex-col"
+              >
+                <span className="font-display text-ink text-lg tracking-[0.15em]" aria-hidden>
+                  {"★".repeat(t.rating)}
+                </span>
+                <p className="text-body-kr font-korean text-ink/90 leading-[1.7] mt-5 flex-1">
+                  “{t.quote}”
+                </p>
+                <div className="mt-6 pt-5 border-t border-ink/15">
+                  <p className="font-display font-bold text-ink text-[clamp(0.95rem,1.3vw,1.1rem)] font-korean">
+                    {t.author}
+                  </p>
+                  <span className="caption-style text-ink/60 font-korean">
+                    {t.role}
+                  </span>
                 </div>
               </li>
             ))}
@@ -462,6 +567,43 @@ export default function TheLabPage() {
         </div>
       </section>
 
+      {/* ── FAQ · 구매 판단용 ── */}
+      <section id="faq" className="border-t-2 border-ink">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12 flex items-end justify-between gap-6">
+            <div>
+              <span className="caption-style text-ink/90 block mb-4 font-korean">
+                자주 묻는 질문
+              </span>
+              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
+                Q&amp;A
+              </h2>
+              <p className="text-body-kr font-korean text-ink/70 mt-4 max-w-md leading-[1.7]">
+                도입 전에 가장 많이 묻는 것들.
+              </p>
+            </div>
+            <Link
+              href="/the-lab/faq"
+              className="caption-style text-ink/90 hover:underline underline-offset-4 hidden md:inline font-korean shrink-0 pb-2"
+            >
+              전체 FAQ &rarr;
+            </Link>
+          </div>
+
+          {/* 랜딩엔 구매 판단용 '도입 전'만 미리보기. 전체는 /the-lab/faq */}
+          <FaqAccordion categories={FAQ_CATEGORIES.slice(0, 1)} animated />
+
+          <div className="scroll-fade opacity-0 mt-10">
+            <Link
+              href="/the-lab/faq"
+              className="caption-style text-ink hover:underline underline-offset-4 font-korean"
+            >
+              사용 중 · A/S 등 전체 FAQ 보기 &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Catalog · 사용 · 청소 · 레시피 카드 허브 ── */}
       <section id="catalog" className="border-t-2 border-ink bg-bone">
         <div className="container-content py-20 lg:py-28">
@@ -516,88 +658,6 @@ export default function TheLabPage() {
         </div>
       </section>
 
-      {/* ── Reviews · 거래처 후기 (소셜 프루프) ── */}
-      <section id="reviews" className="border-t-2 border-ink">
-        <div className="container-content py-20 lg:py-28">
-          <div className="scroll-fade opacity-0 mb-12 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <span className="caption-style text-ink/90 block mb-4 font-korean">
-                거래처 후기
-              </span>
-              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-                써 본 사장님들의 말.
-              </h2>
-            </div>
-            <div className="text-right">
-              <span className="font-display font-bold text-[clamp(2rem,4vw,3rem)] text-ink leading-none tracking-tight">
-                {RATING_AVG.toFixed(1)}
-              </span>
-              <span className="caption-style text-ink/60 block mt-2 font-korean">
-                거래처 {TESTIMONIALS.length}곳 평균
-              </span>
-            </div>
-          </div>
-
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <li
-                key={t.id}
-                className="scroll-fade opacity-0 border-2 border-ink bg-paper p-7 flex flex-col"
-              >
-                <span className="font-display text-ink text-lg tracking-[0.15em]" aria-hidden>
-                  {"★".repeat(t.rating)}
-                </span>
-                <p className="text-body-kr font-korean text-ink/90 leading-[1.7] mt-5 flex-1">
-                  “{t.quote}”
-                </p>
-                <div className="mt-6 pt-5 border-t border-ink/15">
-                  <p className="font-display font-bold text-ink text-[clamp(0.95rem,1.3vw,1.1rem)] font-korean">
-                    {t.author}
-                  </p>
-                  <span className="caption-style text-ink/60 font-korean">
-                    {t.role}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ── FAQ · 구매 판단용 ── */}
-      <section id="faq" className="border-t-2 border-ink bg-bone">
-        <div className="container-content py-20 lg:py-28">
-          <div className="scroll-fade opacity-0 mb-12 flex items-end justify-between gap-6">
-            <div>
-              <span className="caption-style text-ink/90 block mb-4 font-korean">
-                자주 묻는 질문
-              </span>
-              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-                먼저 묻고, 먼저 답합니다.
-              </h2>
-            </div>
-            <Link
-              href="/the-lab/faq"
-              className="caption-style text-ink/90 hover:underline underline-offset-4 hidden md:inline font-korean shrink-0 pb-2"
-            >
-              전체 FAQ &rarr;
-            </Link>
-          </div>
-
-          {/* 랜딩엔 구매 판단용 '도입 전'만 미리보기. 전체는 /the-lab/faq */}
-          <FaqAccordion categories={FAQ_CATEGORIES.slice(0, 1)} animated />
-
-          <div className="scroll-fade opacity-0 mt-10">
-            <Link
-              href="/the-lab/faq"
-              className="caption-style text-ink hover:underline underline-offset-4 font-korean"
-            >
-              사용 중 · A/S 등 전체 FAQ 보기 &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── Library · 전체 자료 디렉토리 ── */}
       <section id="library" className="border-t-2 border-ink">
         <div className="container-content py-20 lg:py-28">
@@ -606,7 +666,7 @@ export default function TheLabPage() {
               전체 자료
             </span>
             <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-              사용 · 관리 · 기록을 한곳에.
+              자료실
             </h2>
           </div>
 
@@ -655,7 +715,7 @@ export default function TheLabPage() {
       <section id="contact" className="bg-ink py-20 lg:py-28 border-t-2 border-ink">
         <div className="container-content text-center">
           <h2 className="scroll-fade font-display font-bold text-[clamp(1.75rem,4vw,3.25rem)] text-paper leading-[1.05] tracking-[-0.02em] opacity-0 font-korean">
-            카운터 위에서 바로 만드는 넛버터.
+            결과물부터, 직접 보세요.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/85 mt-5 opacity-0">
             매장 동선과 메뉴 구성에 맞춰 도입 방법을 함께 정리해드립니다.

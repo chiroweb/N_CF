@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FAQ_CATEGORIES, PROCESS, TESTIMONIALS, RATING_AVG } from "@/lib/nutbutter";
+import { FAQ_CATEGORIES, PROCESS } from "@/lib/nutbutter";
 
 const SITE_URL = "https://www.nbpcafe.com";
 
@@ -37,52 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-const productJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${SITE_URL}/the-lab#product`,
-  name: "넛츠스타 NUTS-STAR Nut Butter Machine",
-  alternateName: ["NUTS-STAR", "Nut Butter Machine", "넛버터머신", "피넛버터머신", "땅콩버터머신", "땅콩버터 머신", "견과버터머신", "Peanut Butter Machine"],
-  category: "Commercial Food Processing Equipment",
-  description:
-    "엔비피코리아가 설계·제작하는 50kg급 상업용 피넛버터머신·땅콩버터머신·넛버터머신. 견과류를 연속 분쇄해 땅콩버터·견과버터·정과·토핑·필링으로 가공한다. 카운터 위에 설치해 갓 간 땅콩버터를 토스트·라떼 등 카페 시그니처 신메뉴로 만들어 추가 매출을 올리는 카페·베이커리 창업·부가수익 장비. 즉석 시연과 대량 생산 모두 대응.",
-  keywords:
-    "땅콩버터머신, 피넛버터머신, 견과버터머신, 상업용 땅콩버터 제조기, 카페 땅콩버터 기계, 카페 추가매출, 카페 신메뉴, 카페 창업 아이템, 카페 부가수익",
-  audience: {
-    "@type": "BusinessAudience",
-    name: "카페·베이커리·견과 전문점 사업자",
-  },
-  brand: { "@type": "Brand", name: "NUTSTAR" },
-  manufacturer: { "@id": `${SITE_URL}/#organization` },
-  countryOfOrigin: "KR",
-  additionalProperty: [
-    { "@type": "PropertyValue", name: "Capacity", value: "50 kg" },
-    { "@type": "PropertyValue", name: "Operating Mode", value: "Continuous Grinding" },
-    { "@type": "PropertyValue", name: "Applicable Material", value: "Peanut, Almond, Cashew, Pistachio" },
-    { "@type": "PropertyValue", name: "Installations", value: "24 units across 11 customers (2025–2026)" },
-  ],
-  offers: {
-    "@type": "AggregateOffer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "KRW",
-    seller: { "@id": `${SITE_URL}/#organization` },
-  },
-  // ⚠ 후기·평점은 실제 거래처 후기로 교체한 뒤 배포할 것.
-  // 허위 AggregateRating 마크업은 구글 수동 조치(패널티) 대상.
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: RATING_AVG,
-    reviewCount: TESTIMONIALS.length,
-    bestRating: 5,
-    worstRating: 1,
-  },
-  review: TESTIMONIALS.map((t) => ({
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: t.rating, bestRating: 5 },
-    author: { "@type": "Person", name: t.author },
-    reviewBody: t.quote,
-  })),
-};
+// NOTE: Product/Offer/Review 스키마는 의도적으로 내보내지 않는다.
+// 공개 가격(offers.lowPrice)도 검증 가능한 실제 후기도 없는 B2B 견적 제품이라
+// 구글 Product 리치결과 요건을 충족할 수 없고, 마크업해 봐야 GSC 오류만 쌓인다.
+// 제품 정보는 본문 HTML + 루트의 Organization 스키마로 전달한다.
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -128,7 +86,6 @@ const howToJsonLd = {
 export default function TheLabLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />

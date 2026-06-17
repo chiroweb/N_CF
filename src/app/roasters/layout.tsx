@@ -17,23 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-const productJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "KUBAN Drum Coffee Roaster",
-  category: "Coffee Roasting Equipment",
-  description:
-    "터키 KUBAN의 드럼 커피 로스터. 엔비피코리아가 한국 내 독점 딜러로 유통·설치·A/S를 담당합니다.",
-  brand: { "@type": "Brand", name: "KUBAN" },
-  countryOfOrigin: "TR",
-  offers: {
-    "@type": "AggregateOffer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "KRW",
-    seller: { "@id": `${SITE_URL}/#organization` },
-    areaServed: { "@type": "Country", name: "South Korea" },
-  },
-};
+// NOTE: Product/Offer 스키마는 의도적으로 내보내지 않는다.
+// 공개 가격이 없는 딜러 유통 제품이라 offers.lowPrice를 채울 수 없어
+// 구글 Product 리치결과 요건을 못 맞추고 GSC 오류만 남긴다.
+// 제품 정보는 본문 HTML + 루트 Organization 스키마로 전달한다.
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -47,7 +34,6 @@ const breadcrumbJsonLd = {
 export default function RoastersLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {children}
     </>
