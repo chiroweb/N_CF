@@ -86,7 +86,7 @@ export default function TheLabPage() {
       <MobileSectionNav sections={SECTIONS} />
 
       {/* ── Overview · 컴팩트 히어로 ── */}
-      <section id="overview" className="container-content pt-16 lg:pt-32 pb-16 lg:pb-20">
+      <section id="overview" className="container-content pt-4 xl:pt-32 pb-16 lg:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-5 opacity-0 font-korean">

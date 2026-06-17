@@ -46,7 +46,7 @@ export default function MobileSectionNav({ sections }: { sections: NavSection[] 
   }, [active]);
 
   return (
-    <nav className="xl:hidden sticky top-0 z-30 bg-paper/95 backdrop-blur-sm border-b-2 border-ink">
+    <nav className="xl:hidden sticky top-16 mt-16 z-30 bg-paper/95 backdrop-blur-sm border-y-2 border-ink">
       <div
         ref={barRef}
         className="container-content flex gap-2 overflow-x-auto py-3 no-scrollbar"
