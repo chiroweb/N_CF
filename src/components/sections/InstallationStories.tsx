@@ -90,11 +90,6 @@ export default function InstallationStories({ lang = "ko" }: { lang?: Lang }) {
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="caption-style text-ink/30">
-                  INSTALLATION PHOTO
-                </span>
-              </div>
             </div>
           </div>
 

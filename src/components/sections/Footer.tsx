@@ -106,22 +106,6 @@ export default function Footer() {
               {COMPANY.coordinates}
             </p>
             <div className="space-y-3 mt-6">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="caption-style text-paper/85 hover:text-paper transition-colors block"
-              >
-                INSTAGRAM &rarr;
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="caption-style text-paper/85 hover:text-paper transition-colors block"
-              >
-                YOUTUBE &rarr;
-              </a>
               <Link
                 href={isEn ? "/" : "/en"}
                 className="caption-style text-paper/85 hover:text-paper transition-colors block"
@@ -157,12 +141,12 @@ export default function Footer() {
             &copy; 2026 {isEn ? "NBPKOREA" : COMPANY.nameKr} · CEO {isEn ? "Choi Hyeok-soon" : COMPANY.ceo} · {COMPANY.businessNumber}
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
+            <span className="caption-style text-paper/85">
               {isEn ? "PRIVACY" : "개인정보처리방침"}
-            </Link>
-            <Link href="#" className="caption-style text-paper/85 hover:text-paper/85 transition-colors">
+            </span>
+            <span className="caption-style text-paper/85">
               {isEn ? "TERMS" : "이용약관"}
-            </Link>
+            </span>
           </div>
         </div>
       </div>

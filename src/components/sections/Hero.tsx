@@ -251,7 +251,7 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
                       key={i}
                       className="text-sm tracking-[0.08em] uppercase text-white/85 mx-4 font-medium"
                     >
-                      SINGLE PRODUCT &nbsp;*&nbsp; SINCE 2011 &nbsp;*&nbsp; DIRECT FLAME &nbsp;*&nbsp;
+                      AFTERBURNER &nbsp;*&nbsp; SINCE 2006 &nbsp;*&nbsp; DIRECT FLAME &nbsp;*&nbsp;
                     </span>
                   ))}
                 </div>

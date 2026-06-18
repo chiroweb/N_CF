@@ -78,6 +78,13 @@ const MODEL_GUIDE = [
   { range: "공장 / 대량 생산", recommend: "BASE 20", index: 3 },
 ];
 
+const TRUST_STATS = [
+  { value: "공식", unit: "딜러", label: "KUBAN 한국 독점" },
+  { value: "9", unit: "종", label: "BASE 4 · SUPREME 5" },
+  { value: "국내", unit: "직접", label: "설치 · A/S 대응" },
+  { value: "2006", unit: "", label: "엔비피코리아 설립" },
+];
+
 export default function RoastersPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
@@ -268,6 +275,31 @@ export default function RoastersPage() {
             좋은 로스터는 멋진 외관보다 먼저,
             <br />
             매일 같은 배치를 안정적으로 만들어 줍니다.
+          </p>
+        </div>
+      </div>
+
+      {/* ── Trust strip ── */}
+      <div className="container-content py-16 lg:py-20">
+        <div className="scroll-fade opacity-0">
+          <span className="caption-style text-ink/90 block mb-8 font-korean">
+            왜 엔비피코리아인가
+          </span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-bone border-2 border-ink">
+            {TRUST_STATS.map((s) => (
+              <div key={s.label} className="bg-paper p-6 lg:p-8">
+                <p className="font-display font-bold text-[clamp(1.6rem,3.4vw,2.8rem)] text-ink leading-none tracking-[-0.03em] font-korean">
+                  {s.value}
+                  {s.unit && (
+                    <span className="text-[0.5em] align-top ml-1">{s.unit}</span>
+                  )}
+                </p>
+                <p className="caption-style text-ink/75 mt-3 font-korean">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm font-korean text-ink/70 mt-5 leading-[1.7] max-w-3xl">
+            KUBAN 드럼 로스터를 한국에 공식 공급하는 독점 딜러로, 수입 장비에서 가장 중요한 설치·부품·A/S를 경기도 안산 본사에서 직접 책임집니다.
           </p>
         </div>
       </div>

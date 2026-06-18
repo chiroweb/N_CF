@@ -62,6 +62,13 @@ const FAQS = [
   },
 ];
 
+const TRUST_STATS = [
+  { value: "379", unit: "건", label: "국내외 납품 실적" },
+  { value: "16", unit: "개 광역", label: "국내 공급 지역" },
+  { value: "99.2", unit: "%", label: "로스팅 연기 제거율" },
+  { value: "2006", unit: "", label: "직화식 외길 · 설립" },
+];
+
 export default function AfterburnerPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
@@ -226,6 +233,31 @@ export default function AfterburnerPage() {
             로스팅은 매장 안에서,
             <br />
             연기와 냄새는 배기 라인 안에서 끝냅니다.
+          </p>
+        </div>
+      </div>
+
+      {/* ── Trust strip ── */}
+      <div className="container-content py-16 lg:py-20">
+        <div className="scroll-fade opacity-0">
+          <span className="caption-style text-ink/90 block mb-8 font-korean">
+            검증된 실적
+          </span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-bone border-2 border-ink">
+            {TRUST_STATS.map((s) => (
+              <div key={s.label} className="bg-paper p-6 lg:p-8">
+                <p className="font-display font-bold text-[clamp(2rem,4vw,3.2rem)] text-ink leading-none tracking-[-0.03em]">
+                  {s.value}
+                  {s.unit && (
+                    <span className="text-[0.42em] font-korean align-top ml-1">{s.unit}</span>
+                  )}
+                </p>
+                <p className="caption-style text-ink/75 mt-3 font-korean">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm font-korean text-ink/70 mt-5 leading-[1.7] max-w-3xl">
+            한국가스안전공사 검사 합격 · 경기도 미세먼지 저감 6대 신기술 선정 · 기술·디자인 특허 16건 이상. 2024–2025년 국내 16개 광역과 해외 7개국에 납품했습니다.
           </p>
         </div>
       </div>
