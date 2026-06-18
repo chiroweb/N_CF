@@ -50,6 +50,16 @@ const FAQS = [
     answer:
       "가능합니다. 창업 전이라면 로스터리 장비, 로스터기 배기 방향, 덕트 경로, 제연기 설치 공간을 함께 잡아야 이후 공사 변경을 줄일 수 있습니다.",
   },
+  {
+    question: "로스팅 연기·냄새가 법적으로도 문제가 되나요?",
+    answer:
+      "원두 로스팅에서 나오는 연기와 냄새는 인근 민원의 가장 흔한 원인이고, 지자체에 따라 악취방지법·대기환경보전법의 관리 대상이 될 수 있습니다. 민원이 접수되면 개선 권고나 조치로 이어질 수 있어, 도심·주거 인접 매장은 제연 설비를 미리 갖추는 편이 안전합니다. 애프터버너는 연기·냄새를 고온으로 태워 배출해 이 부담을 낮춥니다.",
+  },
+  {
+    question: "정가가 없던데, 가격은 어떻게 정해지나요?",
+    answer:
+      "애프터버너는 현장의 로스터 용량, 덕트 길이와 경로, 설치 환경에 따라 모델과 시공이 달라져 일률적인 정가를 두지 않습니다. 대신 현장 조건을 알려주시면 그에 맞춘 견적을 빠르게 드립니다. 카탈로그가 아니라 현장 실측에서 가격이 정해진다고 보시면 됩니다.",
+  },
 ];
 
 export default function AfterburnerPage() {
@@ -449,6 +459,15 @@ export default function AfterburnerPage() {
             <p className="text-body-kr font-korean text-ink/60 mt-4 text-sm">
               현장 실측 후 로스터기의 브랜드·용량·덕트 구조에 맞춰 결합 설계합니다.
             </p>
+            <div className="mt-5">
+              <Link
+                href="/roasters"
+                className="inline-flex items-center gap-2 text-sm font-korean font-medium text-ink border-b-2 border-ink/20 hover:border-ink pb-1 transition-colors"
+              >
+                KUBAN 로스터는 엔비피코리아가 직접 공급합니다 — 로스터 보기
+                <span>&rarr;</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

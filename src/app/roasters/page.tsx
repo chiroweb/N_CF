@@ -16,11 +16,59 @@ import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "개요" },
+  { id: "why", label: "직접 로스팅" },
   { id: "guide", label: "모델 가이드" },
   { id: "models", label: "모델" },
   { id: "details", label: "상세" },
   { id: "lineup", label: "라인업" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "문의" },
+];
+
+const WHY_ROAST = [
+  {
+    no: "01",
+    title: "맛의 기준을 매장이 쥔다",
+    body: "납품 원두는 어느 집이나 비슷한 맛입니다. 직접 볶으면 산미·바디·배전도를 우리 매장 기준으로 정할 수 있습니다. 메뉴의 기준점이 외부가 아니라 매장 안에 생깁니다.",
+  },
+  {
+    no: "02",
+    title: "잔당 원가가 내려간다",
+    body: "생두를 볶는 원가는 완제품 원두를 사 오는 것보다 낮습니다. 같은 한 잔을 더 낮은 원가로 내리고, 볶은 원두를 봉지로 파는 판매 라인까지 더할 수 있습니다.",
+  },
+  {
+    no: "03",
+    title: "‘직접 볶는 집’이 된다",
+    body: "‘매장에서 직접 볶습니다’ 한 줄은 그 자체로 신뢰가 됩니다. 원두 소매·구독·선물 세트처럼 좌석 회전과 무관하게 카페 밖으로 나가는 매출로 이어집니다.",
+  },
+];
+
+const FAQS = [
+  {
+    question: "카페에서 원두를 직접 볶으면 무엇이 좋아지나요?",
+    answer:
+      "납품받는 원두는 어느 매장이나 비슷한 맛이지만, 직접 로스팅하면 우리 매장만의 프로파일을 정할 수 있습니다. 생두를 볶는 원가는 완제품 원두보다 낮아 잔당 원가가 내려가고, 매장에서 볶은 원두를 봉지·구독으로 파는 소매 매출 라인까지 만들 수 있습니다.",
+  },
+  {
+    question: "로스팅 경험이 없어도 시작할 수 있나요?",
+    answer:
+      "처음 시작하는 매장이 많습니다. 설치 시 기본 운용 셋업과 첫 시운전을 함께 진행하고, 컨트롤러로 화력·시간을 재현할 수 있어 같은 배치를 반복하기 쉬운 BASE 라인부터 권장합니다. 설치 이후 운용 문의에도 한국 공식 딜러가 직접 대응합니다.",
+  },
+  {
+    question: "매장 안에 로스터를 두면 연기와 냄새는 어떻게 처리하나요?",
+    answer:
+      "로스팅에는 배기와 제연이 반드시 따라옵니다. 엔비피코리아는 KUBAN 로스터 공식 딜러이자 직화식 애프터버너 제조사라, 로스터와 제연 장비를 한 곳에서 함께 설계할 수 있습니다. 도심 매장이라면 로스터를 고르는 단계에서 배기 경로와 제연기까지 같이 검토하는 편이 안전합니다.",
+  },
+  {
+    question: "카페 규모에는 몇 kg 로스터가 맞나요?",
+    answer:
+      "매장 자가소비 위주의 소형 카페는 5Kg, 원두 판매나 납품을 함께 보는 매장은 10~15Kg, 생산 비중이 큰 곳은 20Kg 이상을 권장합니다. 하루 로스팅량과 설치 공간, 납품 계획을 알려주시면 적합한 모델부터 좁혀 드립니다.",
+  },
+  {
+    question: "수입 장비인데 설치와 A/S는 어떻게 되나요?",
+    answer:
+      "KUBAN은 터키 이스탄불에서 제작되지만, 국내에서는 엔비피코리아가 한국 공식 딜러로 유통·설치·A/S를 직접 책임집니다. 수입 장비에서 가장 중요한 부품 수급과 점검을 경기도 안산 본사에서 일괄 대응합니다.",
+  },
 ];
 
 const MODEL_GUIDE = [
@@ -221,6 +269,43 @@ export default function RoastersPage() {
             <br />
             매일 같은 배치를 안정적으로 만들어 줍니다.
           </p>
+        </div>
+      </div>
+
+      {/* ── Why roast in-house — business case ── */}
+      <div id="why" className="container-content py-16 lg:py-20">
+        <div className="scroll-fade opacity-0">
+          <span className="caption-style text-ink/90 block mb-4 font-korean">
+            왜 직접 로스팅인가
+          </span>
+          <h2 className="font-display font-bold text-[clamp(2rem,4vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] mb-4 font-korean">
+            원두를 사 오던 매장이,
+            <br />
+            원두를 만드는 매장이 됩니다.
+          </h2>
+          <p className="text-body-kr font-korean text-ink/75 mb-10 max-w-2xl">
+            로스터를 들이는 건 장비 하나를 더하는 일이 아니라, 맛과 마진의 기준을
+            매장 안으로 가져오는 일입니다. 카페 사장들이 직접 로스팅을 택하는
+            이유는 대개 이 세 가지입니다.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {WHY_ROAST.map((item) => (
+            <div
+              key={item.no}
+              className="scroll-fade opacity-0 border-2 border-bone rounded-lg p-7 lg:p-8"
+            >
+              <span className="caption-style text-ink/75 block mb-5">
+                {item.no}
+              </span>
+              <h3 className="font-display font-bold text-[clamp(1.2rem,1.8vw,1.6rem)] text-ink leading-[1.1] mb-3 font-korean">
+                {item.title}
+              </h3>
+              <p className="text-sm font-korean text-ink/75 leading-[1.8]">
+                {item.body}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -521,6 +606,46 @@ export default function RoastersPage() {
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQ ── */}
+      <div id="faq" className="border-t-2 border-bone">
+        <div className="container-content py-20 lg:py-28">
+          <div className="scroll-fade opacity-0 mb-12">
+            <span className="caption-style text-ink/90 block mb-4 font-korean">
+              자주 묻는 질문
+            </span>
+            <h2 className="font-display font-bold text-[clamp(2rem,4.5vw,3.5rem)] text-ink leading-[0.95] tracking-[-0.03em] font-korean">
+              로스터 도입 전,
+              <br />
+              카페 사장이 묻는 것.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 border-t-2 border-ink">
+            {FAQS.map((item) => (
+              <div key={item.question} className="scroll-fade opacity-0 py-7 border-b border-bone">
+                <h3 className="text-body-kr font-korean font-semibold text-ink leading-[1.55] mb-3">
+                  {item.question}
+                </h3>
+                <p className="text-sm font-korean text-ink/75 leading-[1.8]">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Cross-sell — roasting always needs smoke handling */}
+          <div className="scroll-fade opacity-0 mt-10">
+            <Link
+              href="/afterburner"
+              className="inline-flex items-center gap-2 text-sm font-korean font-medium text-ink border-b-2 border-ink/20 hover:border-ink pb-1 transition-colors"
+            >
+              로스팅 연기·냄새 제연이 함께 필요하신가요 — 애프터버너 보기
+              <span>&rarr;</span>
+            </Link>
           </div>
         </div>
       </div>

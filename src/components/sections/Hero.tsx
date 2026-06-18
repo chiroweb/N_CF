@@ -176,7 +176,7 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
               href={`${hrefPrefix}/contact`}
               className="btn-pill bg-ink text-paper hover:bg-paper hover:text-ink border-2 border-white hover:border-ink transition-all duration-200 shadow-[0_0_0_1px_rgba(255,255,255,0.6)]"
             >
-              {isEn ? "REQUEST A QUOTE" : "SHOP NOW"}
+              {isEn ? "REQUEST A QUOTE" : "견적 문의"}
               <span className="ml-2">&rarr;</span>
             </Link>
           </div>

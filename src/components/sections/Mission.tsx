@@ -19,9 +19,9 @@ const SLIDES = [
     title: "NBPKOREA AFTERBURNER",
     lead: "SMOKE-FREE ROASTING, ENGINEERED IN KOREA",
     bodyKo:
-      "로스팅 중 생기는 연기와 냄새를 배기 라인 안에서 처리하는 애프터버너입니다. 현장 배기 구조와 로스터 용량에 맞춰 모델을 고르고, 설치 후에도 온도와 배출 상태를 함께 확인합니다.",
+      "도심에서 로스팅하면 가장 먼저 부딪히는 게 연기와 냄새 민원입니다. 애프터버너는 그 연기를 배기 라인 안에서 태워 없앱니다. 로스터 용량과 덕트 구조를 실측해 모델을 정하고, 설치 뒤 배출 상태까지 직접 확인합니다.",
     bodyEn:
-      "An afterburner built to handle roasting smoke and odor inside the exhaust line. We match the model to your roaster capacity and duct layout, then check temperature and exhaust performance after installation.",
+      "In the city, smoke and odor complaints are the first wall a roaster runs into. The afterburner burns that smoke off inside the exhaust line. We size the model to your roaster and duct layout, then verify the exhaust after install.",
     shopHref: "/contact",
     learnHref: "/afterburner",
   },
@@ -35,9 +35,9 @@ const SLIDES = [
     title: "KUBAN COFFEE ROASTERS",
     lead: "TURKISH DRUM CRAFT · KOREA EXCLUSIVE",
     bodyKo:
-      "NBPKOREA가 한국에 공식 공급하는 KUBAN 드럼 로스터입니다. 작은 매장용 5kg 모델부터 생산용 대형 모델까지, 로스팅량과 설치 공간에 맞춰 선택할 수 있습니다.",
+      "원두를 직접 볶으면 맛도 마진도 매장이 쥐게 됩니다. KUBAN 드럼 로스터는 매장용 5kg부터 생산용 대형까지, 로스팅량과 설치 공간에 맞춰 고릅니다. 한국 공식 딜러로 상담·설치·A/S를 직접 잇습니다.",
     bodyEn:
-      "KUBAN drum roasters, officially supplied in Korea by NBPKOREA. From compact 5kg shop models to larger production drums, each setup is selected around batch volume and available floor space.",
+      "Roast your own beans and the flavor — and the margin — stay in your shop. KUBAN drum roasters run from a 5kg shop model to larger production drums, chosen around your batch volume and floor space. As the official Korea dealer, we handle the consult, install, and service ourselves.",
     shopHref: "/contact",
     learnHref: "/roasters",
   },
@@ -51,9 +51,9 @@ const SLIDES = [
     title: "PEANUT BUTTER MACHINE",
     lead: "FROM WHOLE NUTS TO SOFT BUTTER TEXTURE",
     bodyKo:
-      "볶은 견과를 넣고 원하는 질감으로 바로 갈아 담는 상업용 넛버터 머신입니다. 카페, 베이커리, 식품 제조 현장에서 메뉴와 판매 방식에 맞춰 사용할 수 있습니다.",
+      "카운터 위 한 대면 시그니처 메뉴와 소분 판매라는 새 매출 라인이 생깁니다. 볶은 견과를 넣고 원하는 질감으로 바로 갈아 따뜻할 때 병에 담는 상업용 넛버터 머신입니다. 별도 공사 없이 220V로 바로 씁니다.",
     bodyEn:
-      "A commercial nut butter machine that grinds roasted nuts into the texture you want, ready to jar while warm. Built for cafés, bakeries, and specialty food makers shaping a fresh nut butter menu.",
+      "One machine on the counter opens two new revenue lines — a signature menu and jarred retail. Load roasted nuts, grind to the texture you want, and jar it while warm. Commercial-grade, and it runs on standard 220V with no extra wiring.",
     shopHref: "/contact",
     learnHref: "/the-lab",
   },
@@ -148,11 +148,25 @@ export default function Mission({ lang = "ko" }: { lang?: Lang }) {
     <section ref={sectionRef} className="bg-paper">
       {/* Section header */}
       <div className="container-content pt-4 lg:pt-6">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="font-heading font-semibold text-[clamp(1.5rem,2.5vw,2rem)] text-ink">
-            Collections
-          </h2>
-          <div className="flex items-center gap-3">
+        <div className="flex items-end justify-between gap-6 mb-8">
+          <div className="max-w-xl">
+            <h2 className="font-heading font-semibold text-[clamp(1.5rem,2.5vw,2rem)] text-ink">
+              Collections
+            </h2>
+            {isEn ? (
+              <p className="text-ink/75 leading-[1.7] mt-3 text-[clamp(0.95rem,1.1vw,1.05rem)]">
+                Smoke complaints, in-house roasting, a fresh menu made at the
+                counter — the everyday problems of cafés and roasteries, solved
+                with the right machine.
+              </p>
+            ) : (
+              <p className="text-body-kr font-korean text-ink/75 leading-[1.7] mt-3">
+                연기 민원부터 직접 볶는 원두, 카운터에서 만드는 새 메뉴까지.
+                카페·로스터리 현장에서 자주 부딪히는 고민을 매장에 맞는 장비로 풉니다.
+              </p>
+            )}
+          </div>
+          <div className="flex items-center gap-3 shrink-0">
             <span className="caption-style text-ink/90 mr-2">
               {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
             </span>
