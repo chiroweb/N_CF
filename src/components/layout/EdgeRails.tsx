@@ -8,7 +8,7 @@ const BASE_NAV_ITEMS = [
   { labelKo: "홈", labelEn: "HOME", href: "/" },
   { labelKo: "애프터버너", labelEn: "AFTERBURNER", href: "/afterburner" },
   { labelKo: "로스터", labelEn: "ROASTERS", href: "/roasters" },
-  { labelKo: "버터 머신", labelEn: "BUTTER MACHINE", href: "/the-lab" },
+  { labelKo: "페이스트 제조기", labelEn: "NUT PASTE MACHINE", href: "/the-lab" },
   { labelKo: "납품 실적", labelEn: "DELIVERIES", href: "/deliveries" },
   { labelKo: "브랜드 홀", labelEn: "BRAND HALL", href: "/brand-hall" },
   { labelKo: "블로그", labelEn: "BLOG", href: "/blog" },

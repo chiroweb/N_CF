@@ -12,12 +12,11 @@ import {
   TRUST_STATS,
   TRUST_BLURB,
   PARTNER_TYPES,
-  INSTALL_SHOTS,
+  SEARCH_NAMES,
+  DEMAND_SIGNALS,
   ASSURANCE,
   PACKAGE_INCLUDES,
   BUYING_STEPS,
-  TESTIMONIALS,
-  RATING_AVG,
   FAQ_CATEGORIES,
 } from "@/lib/nutbutter";
 import FloatingSectionNav, { type NavSection } from "@/components/layout/FloatingSectionNav";
@@ -29,11 +28,11 @@ import Link from "next/link";
 
 const SECTIONS: NavSection[] = [
   { id: "overview", label: "개요" },
+  { id: "names", label: "제품명" },
   { id: "trust", label: "실적" },
-  { id: "showcase", label: "현장" },
-  { id: "menu", label: "메뉴" },
+  { id: "demand", label: "수요" },
+  { id: "menu", label: "활용" },
   { id: "process", label: "사용" },
-  { id: "reviews", label: "후기" },
   { id: "spec", label: "사양" },
   { id: "buying", label: "구성·도입" },
   { id: "faq", label: "Q&A" },
@@ -90,16 +89,16 @@ export default function TheLabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-5 opacity-0 font-korean">
-              더 랩 / 넛버터머신 · 땅콩버터머신 · 피넛버터머신
+              넛츠스타 / 땅콩버터머신 · 견과 페이스트 제조기
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(2.5rem,7vw,6rem)] text-ink leading-[0.9] tracking-[-0.03em] opacity-0 font-korean">
-              넣고, 갈고, 담고.
+              업소용 땅콩버터·
               <br />
-              한 대로 끝.
+              견과 페이스트 제조기.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-7 max-w-xl opacity-0">
-              견과를 넣고 버튼만 누르면, 갓 간 버터가 따뜻할 때 그대로 병에 담깁니다.
-              카운터 위에서 만드는 시그니처 한 줄이, 매장의 새 매출이 됩니다.
+              땅콩·아몬드·피스타치오를 매장에서 직접 갈아 버터와 페이스트로 만듭니다.
+              젤라또, 땅콩빵, 베이커리 필링, 카페 메뉴, 디저트 원료까지 한 대로 준비하세요.
             </p>
 
             {/* 핵심 사양 칩 */}
@@ -133,12 +132,51 @@ export default function TheLabPage() {
           <div className="hero-fade relative aspect-[4/5] rounded-lg overflow-hidden bg-bone opacity-0">
             <Image
               src={NUTBUTTER_PRODUCT.heroImage}
-              alt="넛츠스타 NUTS-STAR 넛버터머신"
+              alt="업소용 땅콩버터·땅콩페이스트·아몬드페이스트·피스타치오페이스트 제조기 넛츠스타"
               fill
               priority
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover object-center"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Names · 시장에서 쓰는 여러 제품명 ── */}
+      <section id="names" className="border-t-2 border-ink bg-bone">
+        <div className="container-content py-20 lg:py-24">
+          <div className="scroll-fade opacity-0 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+            <div>
+              <span className="caption-style text-ink/90 block mb-4 font-korean">
+                무엇으로 검색하든
+              </span>
+              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
+                부르는 이름은 달라도,
+                <br />
+                필요한 기계는 같습니다.
+              </h2>
+              <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-6 max-w-lg">
+                어떤 매장은 땅콩버터머신, 어떤 제조 현장은 페이스트 제조기나
+                견과류 분쇄기라고 부릅니다. 넛츠스타는 로스팅된 견과를 원하는
+                버터·페이스트 질감으로 가공하는 상업용 장비입니다.
+              </p>
+            </div>
+
+            <dl className="grid grid-cols-1 sm:grid-cols-2 border-t-2 border-ink">
+              {SEARCH_NAMES.map((item) => (
+                <div
+                  key={item.term}
+                  className="border-b border-ink/20 sm:odd:border-r sm:odd:pr-6 sm:even:pl-6 py-5"
+                >
+                  <dt className="font-display font-bold text-[clamp(1rem,1.4vw,1.2rem)] text-ink tracking-tight font-korean">
+                    {item.term}
+                  </dt>
+                  <dd className="text-body-kr font-korean text-ink/70 text-sm leading-[1.65] mt-2">
+                    {item.context}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
@@ -152,9 +190,9 @@ export default function TheLabPage() {
                 현장 실적
               </span>
               <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-paper leading-[1.05] tracking-[-0.02em] font-korean">
-                이미 매장에서
+                기록으로 확인하는
                 <br />
-                매일 돌아갑니다.
+                넛츠스타 공급 실적.
               </h2>
               <p className="text-body-kr font-korean text-paper/80 leading-[1.75] mt-6 max-w-lg">
                 {TRUST_BLURB}
@@ -192,46 +230,44 @@ export default function TheLabPage() {
         </div>
       </section>
 
-      {/* ── Showcase · 설치 현장 (소셜 프루프 — 신뢰 구간 앞쪽 배치) ── */}
-      <section id="showcase" className="border-t-2 border-ink bg-bone">
+      {/* ── Demand · 실제 문의와 도입이 생기는 업종 ── */}
+      <section id="demand" className="border-t-2 border-ink bg-paper">
         <div className="container-content py-20 lg:py-28">
           <div className="scroll-fade opacity-0 mb-12 flex flex-wrap items-end justify-between gap-6">
             <div>
               <span className="caption-style text-ink/90 block mb-4 font-korean">
-                설치 현장
+                실제 수요에서 찾은 방향
               </span>
               <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-                카운터 위, 진짜 매장에서.
+                지금 문의가 시작되는 곳.
               </h2>
             </div>
             <p className="text-body-kr font-korean text-ink/70 max-w-sm leading-[1.7]">
-              카페 · 베이커리 · 견과 전문점. 형태가 달라도 같은 한 대로 돌아갑니다.
+              실제 문의와 도입에서 반복해서 확인된 업종과 제조 목적을 정리했습니다.
             </p>
           </div>
 
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {INSTALL_SHOTS.map((shot) => (
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-2 border-ink">
+            {DEMAND_SIGNALS.map((signal) => (
               <li
-                key={shot.id}
-                className="scroll-fade opacity-0 border-2 border-ink bg-paper overflow-hidden"
+                key={signal.no}
+                className="scroll-fade opacity-0 bg-paper p-7 lg:p-9 min-h-[260px] flex flex-col"
               >
-                <div className="relative aspect-[4/3] bg-bone border-b-2 border-ink">
-                  <Image
-                    src={shot.thumb}
-                    alt={`${shot.region} ${shot.type} 설치 현장`}
-                    fill
-                    sizes="(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 100vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-                <div className="p-5">
-                  <span className="caption-style text-ink/70 block mb-2 font-korean">
-                    {shot.region} · {shot.type}
+                <div className="flex items-center justify-between gap-4">
+                  <span className="caption-style text-ink/60">{signal.no}</span>
+                  <span className="caption-style border border-ink/25 rounded-full px-3 py-1 text-ink/80 font-korean">
+                    {signal.stage}
                   </span>
-                  <p className="text-body-kr font-korean text-ink/85 leading-[1.6]">
-                    {shot.caption}
-                  </p>
                 </div>
+                <span className="caption-style text-ink/65 block mt-8 font-korean">
+                  {signal.segment}
+                </span>
+                <h3 className="font-display font-bold text-[clamp(1.2rem,2vw,1.7rem)] text-ink leading-[1.15] tracking-tight mt-3 font-korean">
+                  {signal.title}
+                </h3>
+                <p className="text-body-kr font-korean text-ink/75 leading-[1.7] mt-5">
+                  {signal.body}
+                </p>
               </li>
             ))}
           </ul>
@@ -243,14 +279,14 @@ export default function TheLabPage() {
         <div className="container-content py-20 lg:py-28">
           <div className="scroll-fade opacity-0 mb-12 max-w-2xl">
             <span className="caption-style text-ink/90 block mb-4 font-korean">
-              돈 되는 메뉴
+              업종별 활용
             </span>
             <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-              한 대로, 이렇게 팝니다.
+              버터도, 페이스트도 한 대로.
             </h2>
             <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-5">
-              갓 간 견과버터는 그 자체로 메뉴가 됩니다. 토스트·음료·소분 판매까지,
-              한 대로 만드는 매출 라인을 정리했습니다.
+              젤라또용 피스타치오 페이스트부터 땅콩빵 필링, 베이커리·카페 메뉴,
+              병입 판매와 식품 원료 생산까지 실제 활용 방향을 정리했습니다.
             </p>
           </div>
 
@@ -277,7 +313,7 @@ export default function TheLabPage() {
                     {m.sell}
                   </p>
                   <p className="caption-style text-ink/80 mt-5 pt-4 border-t border-ink/15 font-korean">
-                    매출 포인트 — {m.revenue}
+                    사업 포인트 — {m.revenue}
                   </p>
                 </div>
               </li>
@@ -303,7 +339,7 @@ export default function TheLabPage() {
               사용
             </span>
             <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-              통에 붓고, 버튼만 누르면 됩니다.
+              원료를 넣고, 질감을 맞추고, 바로 사용합니다.
             </h2>
           </div>
 
@@ -339,54 +375,6 @@ export default function TheLabPage() {
         </div>
       </section>
 
-      {/* ── Reviews · 거래처 후기 (소셜 프루프) ── */}
-      <section id="reviews" className="border-t-2 border-ink">
-        <div className="container-content py-20 lg:py-28">
-          <div className="scroll-fade opacity-0 mb-12 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <span className="caption-style text-ink/90 block mb-4 font-korean">
-                거래처 후기
-              </span>
-              <h2 className="font-display font-bold text-[clamp(1.75rem,3.5vw,3rem)] text-ink leading-[1.05] tracking-[-0.02em] font-korean">
-                실제 후기
-              </h2>
-            </div>
-            <div className="text-right">
-              <span className="font-display font-bold text-[clamp(2rem,4vw,3rem)] text-ink leading-none tracking-tight">
-                {RATING_AVG.toFixed(1)}
-              </span>
-              <span className="caption-style text-ink/60 block mt-2 font-korean">
-                거래처 {TESTIMONIALS.length}곳 평균
-              </span>
-            </div>
-          </div>
-
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t) => (
-              <li
-                key={t.id}
-                className="scroll-fade opacity-0 border-2 border-ink bg-paper p-7 flex flex-col"
-              >
-                <span className="font-display text-ink text-lg tracking-[0.15em]" aria-hidden>
-                  {"★".repeat(t.rating)}
-                </span>
-                <p className="text-body-kr font-korean text-ink/90 leading-[1.7] mt-5 flex-1">
-                  “{t.quote}”
-                </p>
-                <div className="mt-6 pt-5 border-t border-ink/15">
-                  <p className="font-display font-bold text-ink text-[clamp(0.95rem,1.3vw,1.1rem)] font-korean">
-                    {t.author}
-                  </p>
-                  <span className="caption-style text-ink/60 font-korean">
-                    {t.role}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* ── Spec · 사양 + 쓰이는 곳 ── */}
       <section id="spec" className="border-t-2 border-ink">
         <div className="container-content py-20 lg:py-28">
@@ -417,11 +405,11 @@ export default function TheLabPage() {
                 </ul>
               </div>
 
-              {/* 버터머신 사진 — 헤드라인 자리 대체, 좌측 하단 공백 채움 */}
+              {/* 견과 페이스트 제조기 사진 */}
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-bone border-2 border-ink mt-10">
                 <Image
                   src={NUTBUTTER_PRODUCT.image}
-                  alt="넛츠스타 NUTS-STAR 넛버터머신"
+                  alt="땅콩·아몬드·피스타치오 페이스트 제조기 넛츠스타 NUTS-STAR"
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover object-center"
@@ -615,7 +603,7 @@ export default function TheLabPage() {
               필요한 건 전부 여기에.
             </h2>
             <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-5">
-              처음 켜는 날부터 매일의 청소, 갓 만든 땅콩버터 레시피까지.
+              처음 켜는 날부터 매일의 청소, 땅콩버터와 견과 페이스트 활용까지.
               카드를 눌러 단계별로 확인하세요. 영상과 사진은 순차적으로 더해집니다.
             </p>
           </div>
@@ -718,8 +706,8 @@ export default function TheLabPage() {
             결과물부터, 직접 보세요.
           </h2>
           <p className="scroll-fade text-body-kr font-korean text-paper/85 mt-5 opacity-0">
-            매장 동선과 메뉴 구성에 맞춰 도입 방법을 함께 정리해드립니다.
-            먼저 무상 시연으로 결과물부터 확인하세요.
+            사용할 견과와 만들 제품, 하루 생산량을 알려주세요. 실제 원료로
+            무상 시연해 원하는 페이스트 질감과 작업 동선을 함께 확인합니다.
           </p>
           <div className="scroll-fade mt-9 opacity-0">
             <Link

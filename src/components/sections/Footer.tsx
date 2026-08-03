@@ -8,7 +8,7 @@ const BASE_LINKS = [
   { label: "HOME", href: "/" },
   { label: "AFTERBURNER", href: "/afterburner" },
   { label: "ROASTERS", href: "/roasters" },
-  { label: "BUTTER MACHINE", href: "/the-lab" },
+  { label: "NUT PASTE MACHINE", href: "/the-lab" },
   { label: "DELIVERIES", href: "/deliveries" },
   { label: "BRAND HALL", href: "/brand-hall" },
   { label: "BLOG", href: "/blog" },
@@ -44,11 +44,11 @@ export default function Footer() {
               NBPKOREA
             </h2>
             <p className="text-body-en text-paper/85 text-sm">
-              We only make afterburners.
+              We engineer café production.
             </p>
             {!isEn && (
               <p className="text-body-kr font-korean text-paper/90 text-sm mt-1">
-                애프터버너만 만듭니다.
+                매장에서 직접 만드는 장비를 설계합니다.
               </p>
             )}
           </div>

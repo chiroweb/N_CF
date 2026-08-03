@@ -4,6 +4,7 @@
 // 실제 S3 / CMS 자산으로 교체 예정.
 
 import { NUTBUTTER_PRODUCT } from "@/lib/products";
+import { NUTSTAR_SUMMARY } from "@/lib/nutstar-deliveries";
 
 export { NUTBUTTER_PRODUCT };
 
@@ -16,101 +17,71 @@ export const THUMB = {
   butter: NUTBUTTER_PRODUCT.butterImage,
   missionLeft: "/images/mission-nutbutter-left.png",
   missionThumb: "/images/mission-nutbutter-thumb.png",
-  installCafe: "/images/brand-brick-cafe-install.png",
-  installPhoto: "/images/installation-photo.png",
 } as const;
 
-// ── 설치 현장 갤러리 (소셜 프루프) ──────────────────────
-// placeholder. 실제 거래처 설치 사진으로 교체한다(촬영 동의 후).
-export type InstallShot = {
-  id: string;
-  thumb: string;
-  region: string; // "인천"
-  type: string; // "소형 카페"
-  caption: string;
-};
-
-export const INSTALL_SHOTS: InstallShot[] = [
-  {
-    id: "incheon-cafe",
-    thumb: THUMB.installCafe,
-    region: "인천",
-    type: "소형 카페",
-    caption: "테이크아웃 중심 매장. 카운터 위 즉석 분쇄로 시그니처 스프레드 운용.",
-  },
-  {
-    id: "seoul-bakery",
-    thumb: THUMB.installPhoto,
-    region: "서울",
-    type: "베이커리",
-    caption: "당일 분쇄 견과버터를 필링·토핑에 활용. 매대 옆 상시 가동.",
-  },
-  {
-    id: "nut-shop",
-    thumb: THUMB.material,
-    region: "경기",
-    type: "견과 전문점",
-    caption: "원물 그대로 즉석 가공 판매. 고객 앞 시연이 곧 판매로.",
-  },
-  {
-    id: "roastery",
-    thumb: THUMB.butter,
-    region: "부산",
-    type: "로스터리 카페",
-    caption: "원두 옆에 견과버터 라인 추가. 라떼·디저트로 객단가가 올랐습니다.",
-  },
+// ── 검색 명칭 · 실제 수요 ───────────────────────────────
+// 한 제품을 시장에서 서로 다르게 부르는 검색어를 억지 해시태그가 아니라
+// 실제 용도와 연결된 본문 콘텐츠로 설명한다.
+export const SEARCH_NAMES: { term: string; context: string }[] = [
+  { term: "업소용 땅콩버터 제조기", context: "카페·베이커리에서 직접 만드는 땅콩버터" },
+  { term: "땅콩버터머신", context: "가장 널리 쓰이는 제품 검색명" },
+  { term: "땅콩페이스트 제조기", context: "땅콩빵 필링·소스·식품 원료용" },
+  { term: "피스타치오페이스트 제조기", context: "젤라또·두쫀쿠·디저트 원료용" },
+  { term: "아몬드페이스트 제조기", context: "베이커리 필링·스프레드용" },
+  { term: "넛버터머신", context: "여러 견과를 한 대로 가공하는 장비" },
+  { term: "견과 페이스트 기계", context: "땅콩·아몬드·피스타치오 페이스트 생산" },
+  { term: "견과류 분쇄기", context: "볶은 견과를 연속 분쇄하는 상업용 장비" },
+  { term: "피넛버터머신", context: "Peanut butter machine의 국내 검색 표현" },
+  { term: "견과버터 제조기", context: "매장 제조·병입 판매·식품 가공용" },
 ];
 
-// ── 거래처 후기 (소셜 프루프) ───────────────────────────
-// ⚠ placeholder. 리뷰 스키마(AggregateRating)는 반드시 실제 후기·평점으로
-// 교체한 뒤 배포할 것 — 허위 평점 마크업은 검색 패널티 대상.
-export type Testimonial = {
-  id: string;
-  quote: string;
-  author: string; // "김OO 대표"
-  role: string; // "인천 · 소형 카페"
-  rating: number; // 1–5
+export type DemandSignal = {
+  no: string;
+  stage: "문의" | "도입" | "시즌 수요";
+  segment: string;
+  title: string;
+  body: string;
 };
 
-export const TESTIMONIALS: Testimonial[] = [
+export const DEMAND_SIGNALS: DemandSignal[] = [
   {
-    id: "t1",
-    quote:
-      "도입 두 달 만에 시그니처 토스트가 매장 베스트가 됐어요. ‘직접 간다’는 게 손님한테 그대로 전달됩니다.",
-    author: "김OO 대표",
-    role: "인천 · 소형 카페",
-    rating: 5,
+    no: "01",
+    stage: "문의",
+    segment: "성수동 젤라또 전문점",
+    title: "피스타치오·땅콩 페이스트를 매장에서 직접",
+    body: "완제품 페이스트 구매 비용을 줄이고, 매장 레시피에 맞는 농도와 배합을 직접 만들려는 젤라또 업종의 문의가 이어지고 있습니다.",
   },
   {
-    id: "t2",
-    quote:
-      "기름 함량 다른 견과를 한 대로 다 돌립니다. 청소 동선이 단순해서 마감 부담이 거의 없어요.",
-    author: "이OO 대표",
-    role: "서울 · 베이커리",
-    rating: 5,
+    no: "02",
+    stage: "문의",
+    segment: "땅콩 특산지 카페",
+    title: "지역 땅콩을 메뉴와 병입 상품으로",
+    body: "지역 원물을 직접 갈아 땅콩버터·땅콩페이스트로 만들고, 음료·디저트·소분 판매까지 연결하려는 수요입니다.",
   },
   {
-    id: "t3",
-    quote:
-      "고객 앞에서 바로 갈아 판매하니 신뢰가 다릅니다. 시연이 곧 매출이에요.",
-    author: "박OO 대표",
-    role: "경기 · 견과 전문점",
-    rating: 5,
+    no: "03",
+    stage: "도입",
+    segment: "서울 근교 베이커리 카페",
+    title: "아몬드·땅콩 페이스트를 필링과 토핑으로",
+    body: "베이커리 생산 동선 안에서 당일 사용할 견과 페이스트를 직접 만들고, 빵·쿠키·크루아상 메뉴에 적용합니다.",
+  },
+  {
+    no: "04",
+    stage: "시즌 수요",
+    segment: "피스타치오 디저트 제조",
+    title: "두쫀쿠·두바이 스타일 디저트용 페이스트",
+    body: "피스타치오 페이스트 수요가 급증한 시즌에는 완제품 수급과 원가 부담을 줄이기 위해 직접 제조하려는 문의와 구매가 집중됐습니다.",
   },
 ];
-
-export const RATING_AVG =
-  Math.round(
-    (TESTIMONIALS.reduce((s, t) => s + t.rating, 0) / TESTIMONIALS.length) * 10
-  ) / 10;
 
 // ── 거래처 유형 (소셜 프루프 한 줄) ─────────────────────
 export const PARTNER_TYPES = [
   "카페",
   "베이커리",
+  "젤라또 전문점",
+  "땅콩빵 매장",
+  "디저트 제조",
   "견과 전문점",
-  "로스터리",
-  "호텔",
   "방앗간",
 ];
 
@@ -154,14 +125,14 @@ export const BUYING_STEPS: { no: string; title: string; body: string }[] = [
 // ── 신뢰 지표 (납품 실적) ───────────────────────────────
 // 본문 전용 신뢰 섹션 + Organization/Product 스키마와 동기화하는 정본 수치.
 export const TRUST_STATS: { value: string; unit: string; label: string }[] = [
-  { value: "24", unit: "대", label: "현장 운용 중" },
-  { value: "11", unit: "곳", label: "거래처" },
+  { value: String(NUTSTAR_SUMMARY.totalUnits), unit: "대", label: "공급 기록" },
+  { value: String(NUTSTAR_SUMMARY.totalCustomers), unit: "곳", label: "거래처 기록" },
   { value: "2025–26", unit: "", label: "공급 기간" },
   { value: "국내 직접", unit: "", label: "설계·제작·A/S" },
 ];
 
 export const TRUST_BLURB =
-  "2025–2026년, 카페·베이커리·견과 전문점 11개 거래처에 24대를 공급해 매일 매장에서 돌아가고 있습니다. 설계부터 제작·A/S까지 국내에서 직접 책임집니다.";
+  `2025–2026년 공급 기록 기준 ${NUTSTAR_SUMMARY.totalCustomers}개 거래처, 총 ${NUTSTAR_SUMMARY.totalUnits}대가 기록되어 있습니다. 카페·베이커리뿐 아니라 견과 가공·방앗간·백화점 팝업까지, 설계부터 제작·A/S를 국내에서 직접 책임집니다.`;
 
 // ── 히어로 핵심 사양 칩 ──────────────────────────────────
 // 칩은 짧게 보여주되, 수치(kW·kg)는 specs에서 파생해 한 곳(products.ts)과 동기화한다.
@@ -182,7 +153,7 @@ export const PROCESS: { no: string; title: string; body: string; thumb: string }
   {
     no: "01",
     title: "투입",
-    body: "로스팅된 땅콩·아몬드·캐슈넛·호두를 그대로 투입. 견과를 가리지 않고 한 대로 처리합니다.",
+    body: "로스팅된 땅콩·아몬드·피스타치오·캐슈넛·호두를 투입합니다. 원료별 함수율과 로스팅 상태는 시연으로 먼저 확인합니다.",
     thumb: THUMB.material,
   },
   {
@@ -384,25 +355,46 @@ export type MenuPlay = {
 
 export const MENU_PLAYS: MenuPlay[] = [
   {
-    id: "signature-toast",
-    menu: "시그니처 토스트 · 베이글",
-    sell: "갓 간 땅콩·아몬드버터를 그 자리에서 발라내는 토스트·베이글. ‘매장에서 직접 간다’를 메뉴판에 그대로 적습니다.",
-    revenue: "스프레드 원가 대비 객단가 상승",
+    id: "gelato-paste",
+    menu: "젤라또 · 아이스크림 페이스트",
+    sell: "피스타치오·땅콩·아몬드 페이스트를 매장 레시피에 맞춰 직접 생산합니다. 원물과 배합을 관리해 원하는 풍미와 농도를 잡습니다.",
+    revenue: "완제품 페이스트 구매 비용·수급 부담 절감",
     thumb: THUMB.butter,
   },
   {
-    id: "nutbutter-latte",
-    menu: "피넛버터 라떼 · 쉐이크",
-    sell: "음료 라인에 견과버터 한 스푼. 시즌 한정 시그니처로 묶어 사진 찍히는 메뉴를 만듭니다.",
-    revenue: "시즌 음료 매출 라인 추가",
+    id: "peanut-bread",
+    menu: "땅콩빵 · 베이커리 필링",
+    sell: "지역 땅콩이나 매장 원물을 바로 갈아 땅콩빵 속재료, 크루아상·쿠키 필링, 케이크 토핑으로 사용합니다.",
+    revenue: "대량 필링 원가 절감·자체 레시피 확보",
     thumb: THUMB.material,
   },
   {
-    id: "retail-jar",
-    menu: "소분 잼통 리테일",
-    sell: "당일 분쇄한 버터를 병에 담아 매대에서 판매. 테이블 회전 없이 가져가는 매출입니다.",
-    revenue: "좌석 회전과 무관한 추가 판매",
+    id: "pistachio-dessert",
+    menu: "피스타치오 디저트 · 두쫀쿠",
+    sell: "두쫀쿠·두바이 스타일 초콜릿 등 피스타치오 페이스트가 많이 들어가는 디저트 원료를 필요한 만큼 직접 만듭니다.",
+    revenue: "시즌 원료 가격·납기 변동에 유연하게 대응",
     thumb: THUMB.missionThumb,
+  },
+  {
+    id: "cafe-menu",
+    menu: "카페 음료 · 토스트 · 베이글",
+    sell: "갓 간 땅콩·아몬드버터를 라떼·쉐이크·토스트에 적용해 ‘매장에서 직접 만든다’는 시그니처 메뉴를 구성합니다.",
+    revenue: "음료·디저트 객단가와 메뉴 차별화",
+    thumb: THUMB.butter,
+  },
+  {
+    id: "retail-jar",
+    menu: "땅콩버터 · 견과 페이스트 병입 판매",
+    sell: "당일 분쇄한 페이스트를 병에 담아 판매합니다. 지역 원물, 무첨가, 매장 제조라는 이야기를 상품으로 연결합니다.",
+    revenue: "좌석 회전과 무관한 리테일 매출",
+    thumb: THUMB.material,
+  },
+  {
+    id: "food-production",
+    menu: "견과 가공 · 식품 원료 생산",
+    sell: "견과 전문점·방앗간·식품 제조 현장에서 땅콩·아몬드·피스타치오 페이스트를 연속 생산합니다.",
+    revenue: "시간당 50kg급 생산성과 원료 전환 유연성",
+    thumb: THUMB.machine,
   },
 ];
 
@@ -413,23 +405,23 @@ export type LabFaqCategory = { id: string; label: string; items: LabFaqItem[] };
 export const FAQ_CATEGORIES: LabFaqCategory[] = [
   {
     id: "value",
-    label: "도입 효과 · 매출",
+    label: "제품 명칭 · 활용",
     items: [
       {
-        q: "카페 추가 매출에 정말 도움이 되나요?",
-        a: "갓 간 땅콩버터·견과버터는 토스트·베이글·라떼·디저트 토핑 같은 객단가 높은 시그니처 메뉴로 바로 연결됩니다. ‘매장에서 직접 간다’는 신선함이 차별화 포인트가 되어 재방문율과 객단가 상승, 카페 추가 매출로 이어집니다.",
+        q: "땅콩버터머신과 견과 페이스트 제조기는 다른 기계인가요?",
+        a: "시장에서는 땅콩버터머신, 피넛버터머신, 넛버터머신, 견과류 분쇄기, 땅콩·아몬드·피스타치오 페이스트 제조기처럼 여러 이름으로 부릅니다. 넛츠스타는 로스팅된 견과를 분쇄해 버터 또는 페이스트 질감으로 만드는 한 대의 상업용 장비입니다.",
       },
       {
-        q: "어떤 카페 신메뉴를 추가로 만들 수 있나요?",
-        a: "기본 땅콩버터·아몬드버터부터 크런치 스프레드, 피넛버터 라떼·쉐이크, 베이커리 필링·토핑, 정과·견과 디저트까지. 견과 하나로 카페·베이커리 시그니처 신메뉴를 폭넓게 확장할 수 있습니다.",
+        q: "피스타치오페이스트와 아몬드페이스트도 만들 수 있나요?",
+        a: "네. 볶은 땅콩뿐 아니라 아몬드·피스타치오·캐슈넛·호두 등 다양한 견과를 가공할 수 있습니다. 다만 견과마다 기름 함량과 함수율이 달라 원하는 농도와 레시피가 있다면 실제 원료로 먼저 무상 시연하는 것을 권장합니다.",
       },
       {
-        q: "기존 카페에 더하기 좋은 창업·부가 수익 아이템인가요?",
-        a: "카운터 위에 올라가는 컴팩트한 크기(254×600×680mm)에 220V 가정용 전원이라 별도 공사 없이 기존 매장에 바로 더할 수 있습니다. 즉석 분쇄 판매·소분 판매로 부가 수익 라인을 만들기에 적합한 카페 창업 아이템입니다.",
+        q: "젤라또·땅콩빵·베이커리에도 사용할 수 있나요?",
+        a: "젤라또용 피스타치오·땅콩 페이스트, 땅콩빵 속재료, 크루아상·쿠키 필링, 카페 음료·토스트, 두쫀쿠 같은 피스타치오 디저트 원료까지 활용할 수 있습니다. 매장 레시피에 필요한 질감과 1회 생산량을 상담할 때 알려주세요.",
       },
       {
-        q: "투자 비용은 어느 정도에 회수되나요?",
-        a: "시간당 50kg 처리량으로 시그니처 메뉴와 소분 판매를 함께 운용하면 회전이 빠릅니다. 정확한 회수 기간은 매장 객수·메뉴 구성에 따라 다르므로, 도입 상담 시 매출 시나리오를 함께 설계해 드립니다.",
+        q: "완제품 페이스트 구매보다 직접 제조가 유리한가요?",
+        a: "사용량이 많거나 원료·배합을 직접 관리해야 하는 매장은 완제품 구매 비용과 수급 변동을 줄일 수 있습니다. 정확한 절감 폭과 회수 기간은 견과 원가, 하루 사용량, 목표 배합에 따라 달라지므로 상담 시 실제 사용량을 기준으로 함께 계산합니다.",
       },
     ],
   },

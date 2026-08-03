@@ -384,9 +384,9 @@ export const ROASTER_SUPREME_GALLERY = ROASTER_SUPREME_MODELS[0].gallery;
 // ── NUT BUTTER MACHINE · NUTS-STAR (real spec from reference) ──
 export const NUTBUTTER_PRODUCT = {
   id: "nuts-star",
-  nameEn: "Nut Butter Machine · NUTS-STAR",
-  nameKr: "넛버터 머신 · 넛츠스타",
-  tagline: "갓 만든 신선함을 경험하세요",
+  nameEn: "Nut Butter & Nut Paste Machine · NUTS-STAR",
+  nameKr: "땅콩버터·견과 페이스트 제조기 · 넛츠스타",
+  tagline: "땅콩·아몬드·피스타치오를 매장에서 직접",
   image: NUTBUTTER_MACHINE_IMAGE,
   heroImage: NUTBUTTER_MACHINE_IMAGE,
   materialImage: NUTBUTTER_MATERIAL_IMAGE,
@@ -397,7 +397,7 @@ export const NUTBUTTER_PRODUCT = {
     NUTBUTTER_BUTTER_IMAGE,
   ],
   features: [
-    "다양한 견과 호환 (땅콩, 아몬드, 캐슈넛, 호두 등)",
+    "다양한 견과 호환 (땅콩, 아몬드, 피스타치오, 캐슈넛, 호두 등)",
     "국내제조 특허기술 (KC인증, 국내 자체 생산)",
     "손쉬운 질감 조절 (SMOOTH ~ CRUNCHY)",
     "간편한 원터치 조작 (ON/OFF 일체형 버튼)",
@@ -417,8 +417,18 @@ export const NUTBUTTER_PRODUCT = {
     { label: "안전장치", value: "비상정지 · 과부하 · 접지 · 절연" },
     { label: "인증", value: "KC 전기용품 안전인증" },
   ],
-  applications: ["카페", "베이커리", "호텔", "레스토랑", "견과 전문점", "방앗간"],
-  applicationsKr: "카페 · 베이커리 · 호텔 · 레스토랑 · 견과 전문점 · 방앗간",
+  applications: [
+    "카페",
+    "베이커리",
+    "젤라또 전문점",
+    "땅콩빵 매장",
+    "디저트 제조",
+    "견과 전문점",
+    "방앗간",
+    "식품 가공",
+  ],
+  applicationsKr:
+    "카페 · 베이커리 · 젤라또 전문점 · 땅콩빵 매장 · 디저트 제조 · 견과 전문점 · 방앗간 · 식품 가공",
 };
 
 export const HERO_IMAGES = {

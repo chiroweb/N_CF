@@ -40,17 +40,17 @@ const PRODUCTS = [
     href: "/roasters",
   },
   {
-    tag: "BUTTER MACHINE",
-    title: "PEANUT BUTTER MACHINE",
+    tag: "NUTS-STAR",
+    title: "NUT PASTE MACHINE",
     detailsKo: [
-      ["TYPE", "넛버터 머신"],
-      ["USE", "상업용"],
-      ["PROCESS", "부드러운 질감"],
+      ["TYPE", "견과 페이스트 제조기"],
+      ["NUT", "땅콩·아몬드·피스타치오"],
+      ["USE", "젤라또·베이커리"],
     ],
     detailsEn: [
-      ["TYPE", "Nut Butter"],
-      ["USE", "Commercial"],
-      ["PROCESS", "Smooth Texture"],
+      ["TYPE", "Nut Paste"],
+      ["NUT", "Peanut · Almond · Pistachio"],
+      ["USE", "Gelato · Bakery"],
     ],
     href: "/the-lab",
   },
@@ -134,14 +134,14 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
         <div className="relative">
           {/* Giant stacked typography — flush left */}
           <h1 className="pl-[var(--edge-margin)] pt-[35vh] m-0 font-display font-bold text-[clamp(5rem,14vw,15rem)] text-white leading-[0.85] tracking-[-0.04em]">
-            <span className="hero-line block opacity-0">NO ONE</span>
-            <span className="hero-line block opacity-0">KNEW</span>
-            <span className="hero-line block opacity-0">WE WERE</span>
-            <span className="hero-line block opacity-0">ROASTING</span>
+            <span className="hero-line block opacity-0">WHAT</span>
+            <span className="hero-line block opacity-0">WILL</span>
+            <span className="hero-line block opacity-0">YOU MAKE</span>
+            <span className="hero-line block opacity-0">NEXT</span>
             <span className="sr-only">
               {isEn
-                ? ". NBPKOREA builds direct-flame afterburners that erase the smoke and odor produced by coffee roasters at the source."
-                : ". 엔비피코리아는 커피 로스터의 연기와 냄새를 원천 제거하는 직화식 애프터버너 제조사입니다."}
+                ? ". NBPKOREA supplies direct-flame afterburners, KUBAN coffee roasters, and NUTS-STAR commercial nut butter and nut paste machines."
+                : ". 엔비피코리아는 직화식 애프터버너, KUBAN 커피 로스터, 업소용 땅콩버터·땅콩·아몬드·피스타치오 페이스트 제조기 넛츠스타를 공급합니다."}
             </span>
           </h1>
 
@@ -150,21 +150,21 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
             {/* Body copy — right side */}
             <div className="max-w-md ml-auto">
               <p className="text-white/90 text-[clamp(0.8rem,1.1vw,1rem)] leading-relaxed uppercase font-medium tracking-[0.04em]">
-                Surrender to silence with every
-                roast. No smoke, no complaints,
-                no trace. Just craft.
+                Roast cleaner. Grind fresher.
+                Build the next product
+                inside your own shop.
               </p>
               {isEn ? (
                 <p className="text-white/85 mt-3 leading-[1.65] text-sm">
-                  No one knew we were roasting.
+                  Clean air, roasted coffee, fresh nut paste.
                   <br />
-                  That is the point — we erase the evidence.
+                  Now choose what your shop will make next.
                 </p>
               ) : (
                 <p className="text-white/85 text-body-kr font-korean mt-3 leading-[1.75] text-sm">
-                  아무도 우리가 로스팅 중인 걸 몰랐다.
+                  연기는 줄이고, 원두는 직접 볶고, 견과는 바로 갑니다.
                   <br />
-                  그게 핵심이다 — 우리는 증거를 지운다.
+                  다음 제품을 매장 안에서 직접 만드세요.
                 </p>
               )}
             </div>
@@ -196,11 +196,11 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
             {/* Left column — spans 2 rows */}
             <div className="md:row-span-2 border-b-[3px] md:border-b-0 md:border-r-[3px] border-white/40 p-8 lg:p-10 flex items-end">
               <h3 className="font-display font-bold text-[clamp(1.6rem,2.8vw,2.6rem)] text-white leading-[1.05] tracking-[-0.02em]">
-                A SIHEUNG
+                AN ANSAN
                 <br />
-                AFTERBURNER
+                CAFE PRODUCTION
                 <br />
-                COMPANY
+                EQUIPMENT COMPANY
               </h3>
             </div>
 
@@ -251,7 +251,7 @@ export default function Hero({ lang = "ko" }: { lang?: Lang }) {
                       key={i}
                       className="text-sm tracking-[0.08em] uppercase text-white/85 mx-4 font-medium"
                     >
-                      AFTERBURNER &nbsp;*&nbsp; SINCE 2006 &nbsp;*&nbsp; DIRECT FLAME &nbsp;*&nbsp;
+                      AFTERBURNER &nbsp;*&nbsp; COFFEE ROASTER &nbsp;*&nbsp; NUT PASTE MACHINE &nbsp;*&nbsp;
                     </span>
                   ))}
                 </div>
