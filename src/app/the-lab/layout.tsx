@@ -4,14 +4,25 @@ import { FAQ_CATEGORIES } from "@/lib/nutbutter";
 const SITE_URL = "https://www.nbpcafe.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "업소용 땅콩버터·견과 페이스트 제조기 | 넛츠스타" },
+  title: { absolute: "넛츠스타 NUTS-STAR 버터머신 | 땅콩버터·넛버터 제조기" },
   description:
-    "카페·베이커리·젤라또·땅콩빵용 국산 페이스트 제조기. 땅콩·아몬드·피스타치오를 시간당 50kg 가공. 220V·KC 인증, 시연·견적 상담.",
+    "카페·베이커리용 국산 버터머신 넛츠스타. 땅콩버터머신·넛버터머신 한 대로 땅콩·아몬드·피스타치오를 시간당 50kg 가공. 220V·KC 인증, 무상 시연·견적 상담.",
   keywords: [
-    "업소용 땅콩버터 제조기",
+    "넛츠스타",
+    "너츠스타",
+    "NUTS-STAR",
+    "버터머신",
+    "버터 머신",
     "땅콩버터머신",
+    "땅콩버터 머신",
     "피넛버터머신",
     "넛버터머신",
+    "넛버터 머신",
+    "견과버터머신",
+    "업소용 땅콩버터 제조기",
+    "상업용 땅콩버터 기계",
+    "카페 버터머신",
+    "베이커리 버터머신",
     "견과버터 제조기",
     "견과 페이스트 제조기",
     "견과류 분쇄기",
@@ -25,17 +36,15 @@ export const metadata: Metadata = {
     "두쫀쿠 피스타치오 페이스트",
     "두바이초콜릿 피스타치오 페이스트",
     "카페 견과 페이스트",
-    "NUTS-STAR",
-    "넛츠스타",
   ],
   alternates: {
     canonical: "/the-lab",
     languages: { "ko-KR": "/the-lab", en: "/en/the-lab" },
   },
   openGraph: {
-    title: "업소용 땅콩버터·견과 페이스트 제조기 | 넛츠스타",
+    title: "넛츠스타 NUTS-STAR 버터머신 | 땅콩버터·넛버터 제조기",
     description:
-      "땅콩·아몬드·피스타치오 페이스트를 직접 만드는 국산 상업용 장비. 젤라또·땅콩빵·베이커리·카페용, 시간당 50kg·220V·KC 인증.",
+      "카페·베이커리에서 땅콩·아몬드·피스타치오 버터를 직접 만드는 국산 상업용 버터머신. 시간당 50kg·220V·KC 인증.",
     url: `${SITE_URL}/the-lab`,
     type: "website",
     locale: "ko_KR",
@@ -52,8 +61,35 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "업소용 땅콩버터·견과 페이스트 제조기 넛츠스타", item: `${SITE_URL}/the-lab` },
+    { "@type": "ListItem", position: 2, name: "넛츠스타 NUTS-STAR 버터머신", item: `${SITE_URL}/the-lab` },
   ],
+};
+
+// 브랜드 검색어와 시장 통용명을 하나의 제품 주제로 연결한다. Product 리치결과용
+// 가격·평점 마크업은 검증 가능한 공개 데이터가 없어 의도적으로 추가하지 않는다.
+const labPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/the-lab#webpage`,
+  url: `${SITE_URL}/the-lab`,
+  name: "넛츠스타 NUTS-STAR 버터머신",
+  alternateName: [
+    "너츠스타",
+    "땅콩버터머신",
+    "넛버터머신",
+    "피넛버터머신",
+    "견과버터머신",
+  ],
+  description:
+    "카페·베이커리용 국산 상업용 버터머신. 땅콩·아몬드·피스타치오를 버터와 페이스트로 가공합니다.",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: {
+    "@type": "Thing",
+    "@id": `${SITE_URL}/the-lab#nuts-star`,
+    name: "넛츠스타 NUTS-STAR",
+    alternateName: ["너츠스타", "넛츠스타 버터머신", "NUTS-STAR Nut Butter Machine"],
+    description: "엔비피코리아가 국내에서 설계·제작하는 상업용 땅콩버터·넛버터 머신",
+  },
 };
 
 // FAQPage — 제품 명칭과 적용 업종을 기계가 읽을 수 있는 문답으로 제공한다.
@@ -74,6 +110,7 @@ const faqJsonLd = {
 export default function TheLabLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(labPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       {children}

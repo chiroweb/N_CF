@@ -89,16 +89,17 @@ export default function TheLabPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
           <div>
             <span className="hero-fade caption-style text-ink/90 block mb-5 opacity-0 font-korean">
-              넛츠스타 / 땅콩버터머신 · 견과 페이스트 제조기
+              NUTS-STAR / 넛츠스타 · 업소용 버터머신
             </span>
             <h1 className="hero-fade font-display font-bold text-[clamp(2.5rem,7vw,6rem)] text-ink leading-[0.9] tracking-[-0.03em] opacity-0 font-korean">
-              업소용 땅콩버터·
+              넛츠스타 버터머신.
               <br />
-              견과 페이스트 제조기.
+              매장에서 바로 만듭니다.
             </h1>
             <p className="hero-fade text-body-kr font-korean text-ink/85 leading-[1.75] mt-7 max-w-xl opacity-0">
-              땅콩·아몬드·피스타치오를 매장에서 직접 갈아 버터와 페이스트로 만듭니다.
-              젤라또, 땅콩빵, 베이커리 필링, 카페 메뉴, 디저트 원료까지 한 대로 준비하세요.
+              카페·베이커리 사장님이 찾는 땅콩버터머신, 넛버터머신,
+              피넛버터머신이 바로 넛츠스타입니다. 땅콩·아몬드·피스타치오를
+              매장에서 직접 갈아 버터로 만들고, 메뉴와 병입 상품으로 바로 판매하세요.
             </p>
 
             {/* 핵심 사양 칩 */}
@@ -132,7 +133,7 @@ export default function TheLabPage() {
           <div className="hero-fade relative aspect-[4/5] rounded-lg overflow-hidden bg-bone opacity-0">
             <Image
               src={NUTBUTTER_PRODUCT.heroImage}
-              alt="업소용 땅콩버터·땅콩페이스트·아몬드페이스트·피스타치오페이스트 제조기 넛츠스타"
+              alt="넛츠스타 NUTS-STAR 업소용 땅콩버터머신·넛버터머신"
               fill
               priority
               sizes="(min-width: 1024px) 45vw, 100vw"
@@ -156,9 +157,10 @@ export default function TheLabPage() {
                 필요한 기계는 같습니다.
               </h2>
               <p className="text-body-kr font-korean text-ink/75 leading-[1.75] mt-6 max-w-lg">
-                어떤 매장은 땅콩버터머신, 어떤 제조 현장은 페이스트 제조기나
-                견과류 분쇄기라고 부릅니다. 넛츠스타는 로스팅된 견과를 원하는
-                버터·페이스트 질감으로 가공하는 상업용 장비입니다.
+                고객은 버터머신, 땅콩버터머신, 넛버터머신처럼 짧고 익숙한 말로
+                먼저 찾습니다. 공식 제품명은 넛츠스타(NUTS-STAR)이며, ‘너츠스타’로
+                검색해도 같은 제품입니다. 로스팅된 견과를 원하는 버터·페이스트
+                질감으로 가공하는 상업용 장비입니다.
               </p>
             </div>
 
